@@ -1,0 +1,1 @@
+sudo tshark -i - < wsh_dump.pcapng > ./output.txt
