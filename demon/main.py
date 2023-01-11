@@ -21,6 +21,7 @@ db = SQLAlchemy(app)
 def convert_dump(name_before,name_after):
     subprocess.call(["./scr.sh",name_before,name_after])
 
+convert_dump('wsh_dump.pcapng','out.txt')
 
 class rest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -32,8 +33,8 @@ class rest(db.Model):
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
-    convert_dump('wsh_dump.pcapng','shuui')
-    f = open('123.txt','r')
+    
+    f = open('dump_output/out.txt','r')
     show_dump = f.read()
     if request.method == "POST":
         return render_template('index.html', Title = 'Добро Пожаловать!')
