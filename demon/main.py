@@ -3,6 +3,7 @@ from flask import Flask, current_app, make_response, render_template, sessions, 
 #import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, backref
+import subprocess
 
 DEBUG = True 
 
@@ -17,6 +18,10 @@ db = SQLAlchemy(app)
 # >>> from main import db 
 # >>> db.create_all()
 
+def convert_dump(name_before,name_after):
+    subprocess.call(["./scr.sh",name_before,name_after])
+
+
 class rest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     rest_name = db.Column(db.String(25), nullable=False, unique=True)
@@ -27,10 +32,12 @@ class rest(db.Model):
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
-
+    convert_dump('wsh_dump.pcapng','shuui')
+    f = open('123.txt','r')
+    show_dump = f.read()
     if request.method == "POST":
         return render_template('index.html', Title = 'Добро Пожаловать!')
-    return render_template('index.html', Title = 'Добро Пожаловать!')
+    return render_template('index.html', Title = 'Добро Пожаловать!', sd = show_dump)
 
 #-----LOAD------------------------------------------------------------------------------
 
