@@ -20,8 +20,9 @@ db = SQLAlchemy(app)
 
 def convert_dump(name_before,name_after):
     subprocess.call(["./scr.sh",name_before,name_after])
-
-convert_dump('wsh_dump.pcapng','out.txt')
+input_dump = 'wsh_dump.pcapng'
+output_dump = 'out.txt'
+convert_dump(input_dump,output_dump)
 
 # class rest(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
@@ -33,12 +34,16 @@ convert_dump('wsh_dump.pcapng','out.txt')
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
-    
-    f = open('dump_output/out.txt','r')
-    show_dump = f.read()
+    output_way = 'dump_output/' + output_dump
+    arr_dump = []
+    with open(output_way) as file:
+        for line in file:
+            arr_dump.append(line.rstrip())
+    #f = open(output_way,'r')
+    #show_dump = f.read()
     if request.method == "POST":
         return render_template('index.html', Title = 'Добро Пожаловать!')
-    return render_template('index.html', Title = 'Добро Пожаловать!', sd = show_dump)
+    return render_template('index.html', Title = 'Добро Пожаловать!', sd = arr_dump)
 
 #-----LOAD------------------------------------------------------------------------------
 

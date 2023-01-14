@@ -121,8 +121,8 @@ p {
 	padding-left:30px;
 }
 .indent-traffic {
-	padding-left:30px;
-	background-color: #f00;
+	width: 100%;
+	background-color: greenyellow;
 }
 .indent-left2 {
 	padding-left:10px;
@@ -348,6 +348,7 @@ h6 {
 	background:url(../images/container-top.png) left top no-repeat;
 }
 .container {
+
 	width:100%;
 	padding:20px 0 40px;
 	background:url(../images/container-tail.png) left top repeat-y;
