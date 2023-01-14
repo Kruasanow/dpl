@@ -120,6 +120,10 @@ p {
 .indent-left {
 	padding-left:30px;
 }
+.indent-traffic {
+	padding-left:30px;
+	background-color: #f00;
+}
 .indent-left2 {
 	padding-left:10px;
 }
