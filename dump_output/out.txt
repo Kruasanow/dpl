@@ -1,0 +1,16 @@
+    1 0.000000000 192.168.49.139 → 64.233.162.113 TCP 56 51414 → 80 [ACK] Seq=1 Ack=1 Win=63648 Len=0
+    2 1.024520175 192.168.49.139 → 64.233.162.113 TCP 56 [TCP Dup ACK 1#1] 51414 → 80 [ACK] Seq=1 Ack=1 Win=63648 Len=0
+    3 1.025953837 64.233.162.113 → 192.168.49.139 TCP 62 [TCP ACKed unseen segment] 80 → 51414 [ACK] Seq=1 Ack=2 Win=64240 Len=0
+    4 2.698537348 192.168.49.139 → 34.117.237.239 TLSv1.2 95 Application Data
+    5 2.699045426 34.117.237.239 → 192.168.49.139 TCP 62 443 → 35134 [ACK] Seq=1 Ack=40 Win=64240 Len=0
+    6 2.819332665 34.117.237.239 → 192.168.49.139 TLSv1.2 95 Application Data
+    7 2.859890528 192.168.49.139 → 34.117.237.239 TCP 56 35134 → 443 [ACK] Seq=40 Ack=40 Win=64028 Len=0
+    8 8.683070328 192.168.49.139 → 74.125.131.106 TLSv1.2 95 Application Data
+    9 8.683869268 74.125.131.106 → 192.168.49.139 TCP 62 443 → 34290 [ACK] Seq=1 Ack=40 Win=64240 Len=0
+   10 8.683980786 192.168.49.139 → 74.125.131.106 TLSv1.2 80 Application Data
+   11 8.684300469 192.168.49.139 → 74.125.131.106 TCP 56 34290 → 443 [FIN, ACK] Seq=64 Ack=1 Win=63744 Len=0
+   12 8.684479327 74.125.131.106 → 192.168.49.139 TCP 62 443 → 34290 [ACK] Seq=1 Ack=64 Win=64240 Len=0
+   13 8.685514887 74.125.131.106 → 192.168.49.139 TCP 62 443 → 34290 [ACK] Seq=1 Ack=65 Win=64239 Len=0
+   14 8.721077608 74.125.131.106 → 192.168.49.139 TCP 62 443 → 34290 [FIN, PSH, ACK] Seq=1 Ack=65 Win=64239 Len=0
+   15 8.721125138 192.168.49.139 → 74.125.131.106 TCP 56 34290 → 443 [ACK] Seq=65 Ack=2 Win=63744 Len=0
+   16 10.054509761 fe80::c77b:b8c1:e20a:f391 → ff02::fb     MDNS 205 Standard query 0x0000 PTR _nfs._tcp.local, "QM" question PTR _ipp._tcp.local, "QM" question PTR _ipps._tcp.local, "QM" question PTR _ftp._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question

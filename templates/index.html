@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Car Repair</title>
+<title>diploma_project</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}" type="text/css" media="screen">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="screen">
@@ -32,11 +32,11 @@
         <nav>
           <ul class="menu">
             <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="maintenance.html">Maintenance </a></li>
-            <li><a href="repair.html">Repair</a></li>
-            <li><a href="price.html">Price List</a></li>
-            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">О программе</a></li>
+            <li><a href="maintenance.html">Справочник</a></li>
+            <li><a href="repair.html">База</a></li>
+            <li><a href="price.html">Сигнатуры</a></li>
+            <li><a href="locations.html">История</a></li>
           </ul>
         </nav>
         <div class="slider-wrapper">
@@ -61,7 +61,7 @@
                 <div class="extra-wrap">
                   <h4>Wireshark</h4>
                   <p class="p2">программа-анализатор трафика c графическим интерфейсом.</p>
-                  <a class="button" href="#">Read More</a> </div>
+                  <a class="button" href="#">читать...</a> </div>
               </div>
             </article>
             <article class="grid_4">
@@ -70,7 +70,7 @@
                 <div class="extra-wrap">
                   <h4>Tcpdump</h4>
                   <p class="p2">утилита UNIX, позволяющая перехватывать трафики. </p>
-                  <a class="button" href="#">Read More</a> </div>
+                  <a class="button" href="#">читать...</a> </div>
               </div>
             </article>
             <article class="grid_4">
@@ -79,7 +79,7 @@
                 <div class="extra-wrap">
                   <h4>Tshark</h4>
                   <p class="p2">программа-анализатор трафика c терминальным интерфейсом.</p>
-                  <a class="button" href="#">Read More</a> </div>
+                  <a class="button" href="#">читать...</a> </div>
               </div>
             </article>
           </div>
@@ -89,6 +89,10 @@
                 <div class="wrapper">
                   <article class="grid_8">
                     <p class="header_dump">Исходный дамп трафика</p>
+                    <!-- <form enctype="multipart/form-data" method="post">
+                      <input type="file" name="f">
+                      <input type="submit" value="Загрузить">
+                    </form> -->
                     <div class="indent-traffic">
                       {% for i in sd %}
                         {% if i[4]|int is jinja_is_prime%}
@@ -107,7 +111,7 @@
                       <div class="grid_4 alpha">
                         <div class="indent-left">
                           <div class="maxheight indent-bot">
-                            <h3>About Us</h3>
+                            <h3>О программе</h3>
                             <p class="prev-indent-bot"><a class="link-1" href="#">Lorem ipsum dolor amet</a> conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                             <a class="link-1" href="#">Dolor amet conse ctetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat ut enim ad. </div>
                           <a class="button" href="#">Read More</a> </div>

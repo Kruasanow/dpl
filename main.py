@@ -5,6 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, backref
 import subprocess
 
+UPLOAD_FOLDER = 'dump_input/'
+UPLOAD_EXTENSIONS = set(['pcap','pcapng'])
 DEBUG = True 
 
 app = Flask(__name__)    
@@ -12,13 +14,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbname.db' #31.25
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 ##app.config.update(SECRET_KEY=os.urandom(24))
 app.secret_key = 'hasgj214nfsn12213nrnm,5o12'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 db = SQLAlchemy(app)
 
 # >>> from main import db 
 # >>> db.create_all()
 
-# def jinja_is_prime(n): ## Потенциально пиздатое решение проведения теста но какого то хуя не работает
+# def jinja_is_prime(n): ## Потенциально пиздатый тест но какого то хуя не работает
 #     if n % 2 == 0:
 #         return True
 #     else:
