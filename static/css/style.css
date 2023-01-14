@@ -121,10 +121,11 @@ p {
 	padding-left:30px;
 }
 .indent-traffic {
+	color: #000;
 	width: 100%;
-	background-color: greenyellow;
+	background-color: whitesmoke;
 	height: 400px; /* высота нашего блока */
-	border: 3px solid red; 
+	border: 5px solid rgb(15, 1, 77); 
 	overflow-x: scroll; /* прокрутка по горизонтали */
 	overflow-y: scroll; /* прокрутка по вертикали */
 	
@@ -203,7 +204,7 @@ h1 a {
 	text-align:right;
 	color:#b22300;
 }
-.phone {
+.theme {
 	display:block;
 	font-size:25px;
 	line-height:30px;
