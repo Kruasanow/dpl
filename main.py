@@ -1,4 +1,4 @@
-
+from jinja2 import Environment
 from flask import Flask, current_app, make_response, render_template, sessions, url_for, request, flash, session, redirect, abort, g
 #import sqlite3
 from flask_sqlalchemy import SQLAlchemy
@@ -17,6 +17,21 @@ db = SQLAlchemy(app)
 
 # >>> from main import db 
 # >>> db.create_all()
+
+# def jinja_is_prime(n): ## Потенциально пиздатое решение проведения теста но какого то хуя не работает
+#     if n % 2 == 0:
+#         return True
+#     else:
+#         return False
+# environment = Environment()
+# environment.tests['jinja_is_prime'] = jinja_is_prime
+
+@app.template_test("jinja_is_prime")
+def jinja_is_prime(n):
+    if n % 2 == 0:
+        return True
+    else:
+        return False
 
 def convert_dump(name_before,name_after):
     subprocess.call(["./scr.sh",name_before,name_after])

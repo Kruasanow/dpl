@@ -111,6 +111,14 @@ p {
 	color:#b22300;
 }
 /*********************************boxes**********************************/
+.division_0 {
+	background-color: #7f7f7f;
+}
+.header_dump {
+	color: white;
+	font-size: 25px;
+	text-align: center;
+}
 .indent {
 	padding:41px 30px 0 0;
 }
