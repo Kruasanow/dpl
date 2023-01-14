@@ -7,10 +7,10 @@ import subprocess
 
 DEBUG = True 
 
-app = Flask(__name__)
+app = Flask(__name__)    
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbname.db' #31.25
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#app.config.update(SECRET_KEY=os.urandom(24))
+##app.config.update(SECRET_KEY=os.urandom(24))
 app.secret_key = 'hasgj214nfsn12213nrnm,5o12'
 
 db = SQLAlchemy(app)
@@ -23,12 +23,12 @@ def convert_dump(name_before,name_after):
 
 convert_dump('wsh_dump.pcapng','out.txt')
 
-class rest(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    rest_name = db.Column(db.String(25), nullable=False, unique=True)
-    img = db.Column(db.String(255), nullable=False)
-    number = db.Column(db.String(11), nullable=False)
-    contact1 = db.Column(db.String(255), nullable=False)
+# class rest(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     rest_name = db.Column(db.String(25), nullable=False, unique=True)
+#     img = db.Column(db.String(255), nullable=False)
+#     number = db.Column(db.String(11), nullable=False)
+#     contact1 = db.Column(db.String(255), nullable=False)
 
 @app.route('/', methods = ['get','post'])
 def index():
