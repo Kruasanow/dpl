@@ -123,6 +123,11 @@ p {
 .indent-traffic {
 	width: 100%;
 	background-color: greenyellow;
+	height: 400px; /* высота нашего блока */
+	border: 3px solid red; 
+	overflow-x: scroll; /* прокрутка по горизонтали */
+	overflow-y: scroll; /* прокрутка по вертикали */
+	
 }
 .indent-left2 {
 	padding-left:10px;
