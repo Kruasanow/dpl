@@ -111,6 +111,10 @@ p {
 	color:#b22300;
 }
 /*********************************boxes**********************************/
+.counters {
+	text-align: center;
+	font-size: 25px;
+}
 .division_0 {
 	background-color: #7f7f7f;
 }

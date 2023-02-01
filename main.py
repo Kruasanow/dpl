@@ -4,6 +4,7 @@ from flask import Flask, current_app, make_response, render_template, sessions, 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, backref
 import subprocess
+import osh
 
 UPLOAD_FOLDER = 'dump_input/'
 UPLOAD_EXTENSIONS = set(['pcap','pcapng'])
@@ -52,16 +53,28 @@ convert_dump(input_dump,output_dump)
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
+
     output_way = 'dump_output/' + output_dump
     arr_dump = []
     with open(output_way) as file:
         for line in file:
             arr_dump.append(line.rstrip())
-    #f = open(output_way,'r')
-    #show_dump = f.read()
+    
+    dns_pack = osh.packet_counter('DNS',osh.cap)
+    tcp_pack = osh.packet_counter('TCP',osh.cap)
+
     if request.method == "POST":
-        return render_template('index.html', Title = 'Добро Пожаловать!')
-    return render_template('index.html', Title = 'Добро Пожаловать!', sd = arr_dump)
+        return render_template(
+                            'index.html', 
+                            Title = 'Добро Пожаловать!'
+                            )
+    return render_template(
+                           'index.html',
+                           Title = 'Добро Пожаловать!',
+                           sd = arr_dump,
+                           dns_pack = dns_pack,
+                           tcp_pack = tcp_pack,
+                           )
 
 #-----LOAD------------------------------------------------------------------------------
 
