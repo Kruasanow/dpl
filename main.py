@@ -48,7 +48,6 @@ def index():
     with open(output_way) as file:
         for line in file:
             arr_dump.append(line.rstrip())
-    
 
     if request.method == "POST":
         return render_template(
