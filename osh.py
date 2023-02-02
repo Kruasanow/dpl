@@ -1,7 +1,12 @@
 import pyshark
 import subprocess
+import os
 
-cap = pyshark.FileCapture('dump_input/wsh_dump.pcapng')
+dir_list = os.listdir('dump_input/')
+full_way = 'dump_input/'+str(dir_list[0])
+print(full_way)
+cap = pyshark.FileCapture(full_way)
+print(cap)
 
 def packet_counter(protocolName,cap):
     counter = 0
@@ -12,7 +17,6 @@ def packet_counter(protocolName,cap):
 
 def convert_dump(name_before,name_after):
     subprocess.call(["./scr.sh",name_before,name_after])
-input_dump = 'wsh_dump.pcapng'
 output_dump = 'out.txt'
 
 

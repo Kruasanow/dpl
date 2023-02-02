@@ -1,13 +1,14 @@
-from jinja2 import Environment
-from flask import Flask, current_app, make_response, render_template, sessions, url_for, request, flash, session, redirect, abort, g
-#import sqlite3
+from flask import Flask, render_template, url_for, request, flash, session, redirect, g, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import relationship, backref
+import sqlalchemy.orm
 import subprocess
 import osh
+import os
+from werkzeug.utils import secure_filename
+#import sqlite3
 
 UPLOAD_FOLDER = 'dump_input/'
-UPLOAD_EXTENSIONS = set(['pcap','pcapng'])
+ALLOWED_EXTENSIONS = set(['pcap','pcapng'])
 DEBUG = True 
 
 app = Flask(__name__)    
@@ -22,6 +23,10 @@ db = SQLAlchemy(app)
 # >>> from main import db 
 # >>> db.create_all()
 
+def current_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
     if n % 2 == 0:
@@ -29,8 +34,6 @@ def jinja_is_prime(n):
     else:
         return False
 
-
-osh.convert_dump(osh.input_dump,osh.output_dump)
 
 # class rest(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
@@ -50,21 +53,28 @@ def index():
             arr_dump.append(line.rstrip())
 
     if request.method == "POST":
+        file = request.files['file']
+        if file and current_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            osh.convert_dump(filename,osh.output_dump)
         return render_template(
                             'index.html', 
-                            Title = 'Добро Пожаловать!'
+                            Title = 'Добро Пожаловать!',
+                            sd = arr_dump,
+                            dns_pack = osh.dns_pack,
+                            tcp_pack = osh.tcp_pack,
+                            udp_pack = osh.udp_pack,
+                            ssl_pack = osh.ssl_pack,
+                            vss_pack = osh.vss_pack,
+                            data_pack = osh.data_pack,
+                            icmp_pack = osh.icmp_pack
                             )
+        
     return render_template(
                            'index.html',
                            Title = 'Добро Пожаловать!',
-                           sd = arr_dump,
-                           dns_pack = osh.dns_pack,
-                           tcp_pack = osh.tcp_pack,
-                           udp_pack = osh.udp_pack,
-                           ssl_pack = osh.ssl_pack,
-                           vss_pack = osh.vss_pack,
-                           data_pack = osh.data_pack,
-                           icmp_pack = osh.icmp_pack)
+                          )
 
 #-----LOAD------------------------------------------------------------------------------
 
