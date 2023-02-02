@@ -60,8 +60,8 @@ def index():
             osh.convert_dump(filename,osh.output_dump)
         return render_template(
                             'index.html', 
-                            Title = 'Добро Пожаловать!',
                             sd = arr_dump,
+                            filename = filename,
                             dns_pack = osh.dns_pack,
                             tcp_pack = osh.tcp_pack,
                             udp_pack = osh.udp_pack,
@@ -72,8 +72,14 @@ def index():
                             )
         
     return render_template(
-                           'index.html',
-                           Title = 'Добро Пожаловать!',
+                           'index.html'
+                          )
+
+@app.route('/about', methods = ['get','post'])
+def about():
+    print(url_for('about'))
+    return render_template(
+                            'about.html'
                           )
 
 #-----LOAD------------------------------------------------------------------------------

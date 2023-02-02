@@ -59,7 +59,7 @@
               <div class="container">
                 <div class="wrapper">
                   <article class="grid_8">
-                    <p class="header_dump">Исходный дамп трафика</p>
+                    <p class="header_dump">Исходный дамп трафика :   {{ filename }}</p>
                     <table class="table_protocol">
                       <tr>
                         <td>Протокол</th>
@@ -102,11 +102,13 @@
               </div>
             </div>
           </div>
-          <h1>Upload new File</h1>
-          <form action="" method=post enctype=multipart/form-data>
-            <p><input type=file name=file>
-               <input type=submit value=Upload>
-          </form>
+          <div align="center">
+            <form action="" method=post enctype=multipart/form-data>
+              <p class="submit"><input type=file name=file>
+                 <input type=submit value=Загрузить></p>
+            </form>
+          </div>
+          <br><br><br>
           <div class="wrapper p5">
             <article class="grid_4">
               <div class="wrapper">
