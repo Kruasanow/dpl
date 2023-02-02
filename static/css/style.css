@@ -111,6 +111,11 @@ p {
 	color:#b22300;
 }
 /*********************************boxes**********************************/
+.table_protocol {
+	width: 100%;
+	border: 1px solid;
+	border-collapse: collapse;
+}
 .counters {
 	text-align: center;
 	font-size: 25px;

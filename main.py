@@ -22,14 +22,6 @@ db = SQLAlchemy(app)
 # >>> from main import db 
 # >>> db.create_all()
 
-# def jinja_is_prime(n): ## Потенциально пиздатый тест но какого то хуя не работает
-#     if n % 2 == 0:
-#         return True
-#     else:
-#         return False
-# environment = Environment()
-# environment.tests['jinja_is_prime'] = jinja_is_prime
-
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
     if n % 2 == 0:
@@ -37,11 +29,8 @@ def jinja_is_prime(n):
     else:
         return False
 
-def convert_dump(name_before,name_after):
-    subprocess.call(["./scr.sh",name_before,name_after])
-input_dump = 'wsh_dump.pcapng'
-output_dump = 'out.txt'
-convert_dump(input_dump,output_dump)
+
+osh.convert_dump(osh.input_dump,osh.output_dump)
 
 # class rest(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
@@ -54,14 +43,12 @@ convert_dump(input_dump,output_dump)
 def index():
     print(url_for('index'))
 
-    output_way = 'dump_output/' + output_dump
+    output_way = 'dump_output/' + osh.output_dump
     arr_dump = []
     with open(output_way) as file:
         for line in file:
             arr_dump.append(line.rstrip())
     
-    dns_pack = osh.packet_counter('DNS',osh.cap)
-    tcp_pack = osh.packet_counter('TCP',osh.cap)
 
     if request.method == "POST":
         return render_template(
@@ -72,9 +59,13 @@ def index():
                            'index.html',
                            Title = 'Добро Пожаловать!',
                            sd = arr_dump,
-                           dns_pack = dns_pack,
-                           tcp_pack = tcp_pack,
-                           )
+                           dns_pack = osh.dns_pack,
+                           tcp_pack = osh.tcp_pack,
+                           udp_pack = osh.udp_pack,
+                           ssl_pack = osh.ssl_pack,
+                           vss_pack = osh.vss_pack,
+                           data_pack = osh.data_pack,
+                           icmp_pack = osh.icmp_pack)
 
 #-----LOAD------------------------------------------------------------------------------
 
