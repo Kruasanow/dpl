@@ -1,13 +1,13 @@
 import osh
 
 cap = osh.cap[40]
-# print(cap)
+print(cap)
 
-# print('delta')
-# print(cap.delta)
-# print('----------------------------------------------')
-# print('destination')
-# print(cap.destination)
+print('delta')
+print(cap.delta)
+print('----------------------------------------------')
+print('destination')
+print(cap.destination)
 print('----------------------------------------------')
 print('host')
 print(cap.host)

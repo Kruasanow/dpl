@@ -65,6 +65,23 @@ def checkTTL(dump):
             continue
     return countBSD,countUNIX,countWIN,countSOLARISorCisco,countUNDEF
 
+def ussltlsDDOS(cap):
+    cap = osh.cap
+    countTLS = 0
+    i = 0
+    koefAlert = 0
+    countAlert = 0
+    for pac in cap:
+        i = i + 1
+        try:
+            if pac.highest_layer == 'SSL':
+                countTLS = countTLS + 1    
+        except AttributeError:
+            continue
+    koefAlert = countTLS / i
+    return countTLS, countAlert, koefAlert
+
+print(ussltlsDDOS(osh.cap))
 
 print(dir(osh.cap[72].ip))
 print(osh.cap[72].ip.ttl)
