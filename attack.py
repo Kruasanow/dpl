@@ -16,7 +16,6 @@ def checkAcl(dump,acl):
         except AttributeError:
             continue
     return badArr,counter,counterTrue
-print(checkAcl(osh.cap,acl))
 
 def icmpFlood(cap):
     cap = osh.cap
@@ -42,5 +41,30 @@ def synFlood(cap):
             countSyn = countSyn + 1
     return countSyn
 
-# print(osh.cap[49].ip.src)
-# print(synFlood(osh.cap))
+def checkTTL(dump):
+    aclTTL = ['54','64','128','255']
+    countWIN = 0
+    countUNIX = 0
+    countSOLARISorCisco = 0
+    countBSD = 0
+    countUNDEF = 0
+
+    for pac in dump:
+        try:    
+            if pac.ip.ttl == aclTTL[0]:
+                countBSD = countBSD + 1
+            elif pac.ip.ttl == aclTTL[1]:
+                countUNIX = countUNIX + 1
+            elif pac.ip.ttl == aclTTL[2]:
+                countWIN = countWIN + 1
+            elif pac.ip.ttl == aclTTL[3]:
+                countSOLARISorCisco = countSOLARISorCisco + 1
+            else:
+                countUNDEF = countUNDEF + 1
+        except:
+            continue
+    return countBSD,countUNIX,countWIN,countSOLARISorCisco,countUNDEF
+
+
+print(dir(osh.cap[72].ip))
+print(osh.cap[72].ip.ttl)
