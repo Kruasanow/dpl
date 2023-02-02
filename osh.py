@@ -2,11 +2,14 @@ import pyshark
 import subprocess
 import os
 
-dir_list = os.listdir('dump_input/')
-full_way = 'dump_input/'+str(dir_list[0])
-print(full_way)
-cap = pyshark.FileCapture(full_way)
-print(cap)
+try:
+    dir_list = os.listdir('dump_input/')
+    full_way = 'dump_input/'+str(dir_list[0])
+    print(full_way)
+    cap = pyshark.FileCapture(full_way)
+    print(cap)
+except:
+    cap = pyshark.FileCapture('dump_input/ddd.pcapng')
 
 def packet_counter(protocolName,cap):
     counter = 0
