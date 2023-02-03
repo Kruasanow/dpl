@@ -10,33 +10,6 @@ def level_acl():
         pointer = True
     return bad_list, pointer
 
-def level_icmp():
-    bad_count = attack.icmpFlood(osh.cap)
-    bad_koef = bad_count / attack.packet_count()
-    if bad_koef >= 0.1:
-        pointer = False
-    else:
-        pointer = True
-    return pointer
-
-def level_udp():
-    bad_count = attack.udpFlood(osh.cap)
-    bad_koef = bad_count / attack.packet_count()
-    if bad_koef >= 0.5:
-        pointer = False
-    else:
-        pointer = True
-    return pointer
-
-def level_syn():
-    bad_count = attack.synFlood(osh.cap)
-    bad_koef = bad_count / attack.packet_count()
-    if bad_koef >= 0.1:
-        pointer = False
-    else:
-        pointer = True
-    return pointer
-
 def level_ttl():
     arr = attack.checkTTL(osh.cap)
     bad_unixwindows = arr[1]/arr[2]
@@ -48,6 +21,15 @@ def level_ttl():
         bad_pointer = False
     return bad_pointer
 
+def level_icmp():
+    return True
+
+def level_udp():
+    return True
+
+def level_syn():
+    return True
+
 def DNSTZ():
     return attack.DNStransferZone()
 
@@ -55,8 +37,4 @@ def DNSAMPL():
     return attack.DNSAmplification()
 
 def level_ssl():
-    if attack.ussltlsDDOS(osh.cap)[2] >= 0.3:
-        pointer = False
-    else:
-        pointer = True
-    return pointer
+    return True

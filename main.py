@@ -5,7 +5,7 @@ import subprocess
 import osh
 import attack
 import os
-import scoreattack
+import scoreattack as sa
 from werkzeug.utils import secure_filename
 #import sqlite3
 
@@ -85,15 +85,15 @@ def about():
 
     return render_template(
                             'about.html',
-                            acl = scoreattack.level_acl()[1],
-                            icmp = scoreattack.level_icmp(),
-                            udp = scoreattack.level_udp(),
-                            syn = scoreattack.level_syn(),
-                            ttl = scoreattack.level_ttl(),
-                            dnsTZ = scoreattack.DNSTZ(),
-                            dnsAP = scoreattack.DNSAMPL(),
-                            ssl = scoreattack.level_ssl(),
-                            insaiders = scoreattack.level_acl()[0]
+                            acl = sa.level_acl()[1],
+                            icmp = sa.level_icmp(),
+                            udp = sa.level_udp(),
+                            syn = sa.level_syn(),
+                            ttl = sa.level_ttl(),
+                            dnsTZ = sa.DNSTZ(),
+                            dnsAP = sa.DNSAMPL(),
+                            ssl = sa.level_ssl(),
+                            insaiders = sa.level_acl()[0]
                           )
 
 #-----LOAD------------------------------------------------------------------------------

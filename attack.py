@@ -8,7 +8,7 @@ def packet_count():
         index = index + 1
     return index
 
-def checkAcl(dump,acl):
+def checkAcl(dump,acl): # YES
     badArr = []
     counter = 0
     counterTrue = 0
@@ -23,7 +23,7 @@ def checkAcl(dump,acl):
             continue
     return badArr,counter,counterTrue
 
-def icmpFlood(cap):
+def icmpFlood(cap): # YES
     cap = osh.cap
     countIcmp = 0
     for pac in cap:
@@ -31,23 +31,13 @@ def icmpFlood(cap):
             countIcmp = countIcmp + 1
     return countIcmp
 
-def udpFlood(cap):
-    cap = osh.cap
-    countUdp = 0
-    for pac in cap:
-        if pac.highest_layer == 'UDP':
-            countUdp = countUdp + 1
-    return countUdp
+def udpFlood(cap): # NO
+    return True
 
-def synFlood(cap):
-    cap = osh.cap
-    countSyn = 0
-    for pac in cap:
-        if 'RST' in pac:
-            countSyn = countSyn + 1
-    return countSyn
+def synFlood(cap): # NO
+    return True
 
-def checkTTL(dump):
+def checkTTL(dump): # YES
     aclTTL = ['54','64','128','255']
     countWIN = 0
     countUNIX = 0
@@ -71,27 +61,25 @@ def checkTTL(dump):
             continue
     return countBSD,countUNIX,countWIN,countSOLARISorCisco,countUNDEF
 
-def ussltlsDDOS(cap):
-    cap = osh.cap
-    countTLS = 0
-    i = 0
-    koefAlert = 0
-    countAlert = 0
-    for pac in cap:
-        i = i + 1
-        try:
-            if pac.highest_layer == 'SSL':
-                countTLS = countTLS + 1    
-        except AttributeError:
-            continue
-    koefAlert = countTLS / i
-    return countTLS, countAlert, koefAlert
+def ussltlsDDOS(cap): 
+    # cap = osh.cap
+    # countTLS = 0
+    # i = 0
+    # koefAlert = 0
+    # countAlert = 0
+    # for pac in cap:
+    #     i = i + 1
+    #     try:
+    #         if pac.highest_layer == 'SSL':
+    #             countTLS = countTLS + 1    
+    #     except AttributeError:
+    #         continue
+    # koefAlert = countTLS / i
+    # return countTLS, countAlert, koefAlert
+    return True
 
 def DNStransferZone():
     return True
 
 def DNSAmplification():
     return True
-
-# print(dir(osh.cap[72].ip))
-# print(osh.cap[72].ip.ttl)
