@@ -3,7 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy.orm
 import subprocess
 import osh
+import attack
 import os
+import scoreattack
 from werkzeug.utils import secure_filename
 #import sqlite3
 
@@ -78,8 +80,20 @@ def index():
 @app.route('/about', methods = ['get','post'])
 def about():
     print(url_for('about'))
+
+    
+
     return render_template(
-                            'about.html'
+                            'about.html',
+                            acl = scoreattack.level_acl()[1],
+                            icmp = scoreattack.level_icmp(),
+                            udp = scoreattack.level_udp(),
+                            syn = scoreattack.level_syn(),
+                            ttl = scoreattack.level_ttl(),
+                            dnsTZ = scoreattack.DNSTZ(),
+                            dnsAP = scoreattack.DNSAMPL(),
+                            ssl = scoreattack.level_ssl(),
+                            insaiders = scoreattack.level_acl()[0]
                           )
 
 #-----LOAD------------------------------------------------------------------------------

@@ -2,6 +2,12 @@ import osh
 
 acl = ['192.168.49.2','192.168.49.139']
 
+def packet_count():
+    index = 0
+    for pac in osh.cap:
+        index = index + 1
+    return index
+
 def checkAcl(dump,acl):
     badArr = []
     counter = 0
@@ -81,7 +87,11 @@ def ussltlsDDOS(cap):
     koefAlert = countTLS / i
     return countTLS, countAlert, koefAlert
 
-print(ussltlsDDOS(osh.cap))
+def DNStransferZone():
+    return True
 
-print(dir(osh.cap[72].ip))
-print(osh.cap[72].ip.ttl)
+def DNSAmplification():
+    return True
+
+# print(dir(osh.cap[72].ip))
+# print(osh.cap[72].ip.ttl)

@@ -29,7 +29,34 @@
     <!--==============================content================================-->
     <section id="content">
       <div class="main">
-        
+        <table class="table_protocol">
+          <tr>
+            <td>Проверка TTL</td>
+            <td>ICMP-flood</td>
+            <td>UDP-flood</td>
+            <td>SYN-flood</td>
+            <td>Проверка ACL</td>
+            <td>SSL/TLS-DDoS</td>
+            <td>DNS-transferZone</td>
+            <td>DNS-Amplification</td>
+          </tr>
+          <tr>
+            <td>{{ ttl }}</td>
+            <td>{{ icmp }}</td>
+            <td>{{ udp }}</td>
+            <td>{{ syn }}</td>
+            <td>{{ acl }}</td>
+            <td>{{ ssl }}</td>
+            <td>{{ dnsTZ }}</td>
+            <td>{{ dnsAP }}</td>
+          </tr>
+        </table>
+        <br><br>
+        <p align="center"> 
+          Возможные инсайдеры: <br> 
+          {{ insaiders }} 
+        </p>
+        <br><br>
       </div>
     </section>
     <!--==============================footer=================================-->
