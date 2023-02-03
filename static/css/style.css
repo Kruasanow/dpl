@@ -122,6 +122,12 @@ p {
 	font-size: 16px;
 	border-radius: 12px;
 }
+.table_protocol1 {
+	font-size: medium;
+	width: 100%;
+	border: 1px solid;
+	border-collapse: collapse;
+}
 .table_protocol {
 	width: 100%;
 	border: 1px solid;
