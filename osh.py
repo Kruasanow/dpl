@@ -2,6 +2,10 @@ import pyshark
 import subprocess
 import os
 
+UPLOAD_FOLDER = 'dump_input/'
+ALLOWED_EXTENSIONS = set(['pcap','pcapng'])
+output_dump = 'out.txt'
+
 try:
     dir_list = os.listdir('dump_input/')
     full_way = 'dump_input/'+str(dir_list[0])
@@ -10,6 +14,10 @@ try:
     print(cap)
 except:
     cap = pyshark.FileCapture('dump_input/ddd.pcapng')
+
+def current_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 def packet_counter(protocolName,cap):
     counter = 0
@@ -20,7 +28,7 @@ def packet_counter(protocolName,cap):
 
 def convert_dump(name_before,name_after):
     subprocess.call(["./scr.sh",name_before,name_after])
-output_dump = 'out.txt'
+
 
 
 dns_pack = packet_counter('DNS',cap)

@@ -1,33 +1,17 @@
-from flask import Flask, render_template, url_for, request, flash, session, redirect, g, send_from_directory
-from flask_sqlalchemy import SQLAlchemy
-import sqlalchemy.orm
-import subprocess
+from flask import Flask, render_template, url_for, request
 import osh
-import attack
 import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
-#import sqlite3
 
-UPLOAD_FOLDER = 'dump_input/'
-ALLOWED_EXTENSIONS = set(['pcap','pcapng'])
 DEBUG = True 
 
 app = Flask(__name__)    
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbname.db' #31.25
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbname.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-##app.config.update(SECRET_KEY=os.urandom(24))
 app.secret_key = 'hasgj214nfsn12213nrnm,5o12'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = osh.UPLOAD_FOLDER
 
-db = SQLAlchemy(app)
-
-# >>> from main import db 
-# >>> db.create_all()
-
-def current_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
@@ -36,13 +20,6 @@ def jinja_is_prime(n):
     else:
         return False
 
-
-# class rest(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     rest_name = db.Column(db.String(25), nullable=False, unique=True)
-#     img = db.Column(db.String(255), nullable=False)
-#     number = db.Column(db.String(11), nullable=False)
-#     contact1 = db.Column(db.String(255), nullable=False)
 
 @app.route('/', methods = ['get','post'])
 def index():
@@ -56,7 +33,7 @@ def index():
 
     if request.method == "POST":
         file = request.files['file']
-        if file and current_file(file.filename):
+        if file and osh.current_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             osh.convert_dump(filename,osh.output_dump)
