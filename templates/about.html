@@ -59,6 +59,14 @@
         <br><br>
       </div>
     </section>
+    <div align="center">
+      {% block content %}
+        {% for field in table %}
+          {{ field[0] }} - {{ field[1] }} - {{ field[2] }} - {{ field[3] }} - {{ field[4] }}
+          <br>
+          {% endfor %}
+      {% endblock %}
+    </div>
     <!--==============================footer=================================-->
     <footer>
       <div class="main"> made by Kruasanow </div>

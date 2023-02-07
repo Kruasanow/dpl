@@ -3,15 +3,18 @@ import osh
 import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
-
-DEBUG = True 
+import psycopg2 as ps
 
 app = Flask(__name__)    
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbname.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'hasgj214nfsn12213nrnm,5o12'
 app.config['UPLOAD_FOLDER'] = osh.UPLOAD_FOLDER
 
+def get_db_connection():
+    conn = ps.connect(host='localhost',
+                      database='flask_db',
+                      user='ubuntu18',
+                      password='rusanow'
+                    )
+    return conn
 
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
@@ -24,6 +27,15 @@ def jinja_is_prime(n):
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
+    
+    # CREATE DATABASE #
+    # conn = get_db_connection() 
+    # cur = conn.cursor()
+    # cur.execute('SELECT * FROM books;')
+    # table1_test = cur.fetchall() # СОХРАНЕНИЕ ДАННЫХ В ПЕРЕМЕННОЙ
+    # cur.close()
+    # conn.close()
+    # # # # # # # # # # 
 
     output_way = 'dump_output/' + osh.output_dump
     arr_dump = []
@@ -47,7 +59,7 @@ def index():
                             ssl_pack = osh.ssl_pack,
                             vss_pack = osh.vss_pack,
                             data_pack = osh.data_pack,
-                            icmp_pack = osh.icmp_pack
+                            icmp_pack = osh.icmp_pack,
                             )
         
     return render_template(
@@ -58,7 +70,12 @@ def index():
 def about():
     print(url_for('about'))
 
-    
+    conn = get_db_connection() 
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM books;')
+    table1_test = cur.fetchall() # СОХРАНЕНИЕ ДАННЫХ В ПЕРЕМЕННОЙ
+    cur.close()
+    conn.close()
 
     return render_template(
                             'about.html',
@@ -70,7 +87,8 @@ def about():
                             dnsTZ = sa.DNSTZ(),
                             dnsAP = sa.DNSAMPL(),
                             ssl = sa.level_ssl(),
-                            insaiders = sa.level_acl()[0]
+                            insaiders = sa.level_acl()[0],
+                            table = table1_test
                           )
 
 #-----LOAD------------------------------------------------------------------------------

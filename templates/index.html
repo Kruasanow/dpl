@@ -33,10 +33,10 @@
           <ul class="menu">
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="about.html">О программе</a></li>
-            <li><a href="maintenance.html">Справочник</a></li>
-            <li><a href="repair.html">База</a></li>
-            <li><a href="price.html">Сигнатуры</a></li>
-            <li><a href="locations.html">История</a></li>
+            <li><a href="">Справочник</a></li>
+            <li><a href="">База</a></li>
+            <li><a href="">Сигнатуры</a></li>
+            <li><a href="">История</a></li>
           </ul>
         </nav>
         <div class="slider-wrapper">
@@ -82,10 +82,6 @@
                         <td>{{ icmp_pack }}</td>
                       </tr>
                     </table>
-                    <!-- <form enctype="multipart/form-data" method="post">
-                      <input type="file" name="f">
-                      <input type="submit" value="Загрузить">
-                    </form> -->
                     <div class="indent-traffic">
                       {% for i in sd %}
                         {% if i[4]|int is jinja_is_prime%}
