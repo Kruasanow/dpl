@@ -11,10 +11,8 @@ import psycopg2
 conn = psycopg2.connect(
         host="localhost",
         database="flask_db",
-        # user='os.environ['DB_USERNAME']',
-        # password=os.environ['DB_PASSWORD']
-        user='ubuntu18',
-        password='rusanow'
+        user=os.environ['DB_USERNAME'],
+        password=os.environ['DB_PASSWORD']
         )
 
 # Open a cursor to perform database operations

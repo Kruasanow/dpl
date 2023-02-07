@@ -11,8 +11,8 @@ app.config['UPLOAD_FOLDER'] = osh.UPLOAD_FOLDER
 def get_db_connection():
     conn = ps.connect(host='localhost',
                       database='flask_db',
-                      user='ubuntu18',
-                      password='rusanow'
+                      user=os.environ['DB_USERNAME'],
+                      password=os.environ['DB_PASSWORD']
                     )
     return conn
 
