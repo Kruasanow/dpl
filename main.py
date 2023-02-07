@@ -73,7 +73,7 @@ def about():
     conn = get_db_connection() 
     cur = conn.cursor()
     cur.execute('SELECT * FROM books;')
-    table1_test = cur.fetchall() # СОХРАНЕНИЕ ДАННЫХ В ПЕРЕМЕННОЙ
+    table1_test = cur.fetchall() # SAVE DATA IN VARIABLE
     cur.close()
     conn.close()
 
