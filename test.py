@@ -9,9 +9,10 @@ for pac in a:
 print(len(arr))
 
 packet = []
-i = int(input())
+
 try:
 
+############################# ANSWER ########################################
 
     # packet.append(a[i].dns.a)
     # packet.append(a[i].dns.count_add_rr)
@@ -39,6 +40,10 @@ try:
     # packet.append(a[i].dns.response_to)
     # packet.append(a[i].dns.time)
 
+##############################################################################
+
+
+######################### REQUEST ############################################
 
     packet.append(a[i].dns.count_add_rr)
     packet.append(a[i].dns.count_answers)
@@ -55,6 +60,8 @@ try:
     packet.append(a[i].dns.qry_class)
     packet.append(a[i].dns.qry_name)
     packet.append(a[i].dns.qry_type)
+
+#############################################################################
     
 except AttributeError:
     pass
