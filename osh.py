@@ -13,7 +13,7 @@ try:
     cap = pyshark.FileCapture(full_way)
     print(cap)
 except:
-    cap = pyshark.FileCapture('dump_input/ddd.pcapng')
+    cap = pyshark.FileCapture('dump_input/qwe.pcapng')
 
 def current_file(filename):
     return '.' in filename and \

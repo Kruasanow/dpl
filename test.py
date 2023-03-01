@@ -1,19 +1,63 @@
-# @app.route('/create/', methods=('GET', 'POST'))
-# def create():
-#     if request.method == 'POST':
-#         title = request.form['title']
-#         author = request.form['author']
-#         pages_num = int(request.form['pages_num'])
-#         review = request.form['review']
+import pyshark as ps
 
-#         conn = get_db_connection()
-#         cur = conn.cursor()
-#         cur.execute('INSERT INTO books (title, author, pages_num, review)'
-#                     'VALUES (%s, %s, %s, %s)',
-#                     (title, author, pages_num, review))
-#         conn.commit()
-#         cur.close()
-#         conn.close()
-#         return redirect(url_for('index'))
+a = ps.FileCapture('dump_input/qwe.pcapng')
 
-#     return render_template('create.html')
+arr = []
+for pac in a:
+    if pac.highest_layer == 'DNS':
+        arr.append(pac)
+print(len(arr))
+
+packet = []
+i = int(input())
+try:
+
+
+    # packet.append(a[i].dns.a)
+    # packet.append(a[i].dns.count_add_rr)
+    # packet.append(a[i].dns.count_answers)
+    # packet.append(a[i].dns.count_auth_rr)
+    # packet.append(a[i].dns.count_labels)
+    # packet.append(a[i].dns.count_queries)
+    # packet.append(a[i].dns.flags_authenticated)
+    # packet.append(a[i].dns.flags_authoritative)
+    # packet.append(a[i].dns.flags_checkdisable)
+    # packet.append(a[i].dns.flags_opcode)
+    # packet.append(a[i].dns.flags_rcode)
+    # packet.append(a[i].dns.flags_recavail)
+    # packet.append(a[i].dns.flags_recdesired)
+    # packet.append(a[i].dns.flags_response)
+    # packet.append(a[i].dns.flags_truncated)
+    # packet.append(a[i].dns.flags_z)
+    # packet.append(a[i].dns.id)
+    # packet.append(a[i].dns.qry_class)
+    # packet.append(a[i].dns.qry_name)
+    # packet.append(a[i].dns.qry_type)
+    # packet.append(a[i].dns.resp_class)
+    # packet.append(a[i].dns.resp_ttl)
+    # packet.append(a[i].dns.resp_type)
+    # packet.append(a[i].dns.response_to)
+    # packet.append(a[i].dns.time)
+
+
+    packet.append(a[i].dns.count_add_rr)
+    packet.append(a[i].dns.count_answers)
+    packet.append(a[i].dns.count_auth_rr)
+    packet.append(a[i].dns.count_labels)
+    packet.append(a[i].dns.count_queries)
+    packet.append(a[i].dns.flags_checkdisable)
+    packet.append(a[i].dns.flags_opcode)
+    packet.append(a[i].dns.flags_recdesired)
+    packet.append(a[i].dns.flags_response)
+    packet.append(a[i].dns.flags_truncated)
+    packet.append(a[i].dns.flags_z)
+    packet.append(a[i].dns.id)
+    packet.append(a[i].dns.qry_class)
+    packet.append(a[i].dns.qry_name)
+    packet.append(a[i].dns.qry_type)
+    
+except AttributeError:
+    pass
+
+for k in packet:
+    print(k)
