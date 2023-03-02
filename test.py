@@ -2,15 +2,26 @@ import pyshark as ps
 
 a = ps.FileCapture('dump_input/qwe.pcapng')
 
-arr = []
+# only DNS array
+dns_arr = []
 for pac in a:
     if pac.highest_layer == 'DNS':
-        arr.append(pac)
-print(len(arr))
+        dns_arr.append(pac)
+print(len(dns_arr))
 
-packet = []
 
-try:
+for i in dns_arr:
+    if i.dns.flags_response == 0:
+
+    elif i.dns.flags_response == 1:
+
+    else:
+
+    
+
+# i = int(input())
+
+# try:
 
 ############################# ANSWER ########################################
 
@@ -43,28 +54,29 @@ try:
 ##############################################################################
 
 
-######################### REQUEST ############################################
+######################### REQUEST ############################################ req = 0; resp = 1
 
-    packet.append(a[i].dns.count_add_rr)
-    packet.append(a[i].dns.count_answers)
-    packet.append(a[i].dns.count_auth_rr)
-    packet.append(a[i].dns.count_labels)
-    packet.append(a[i].dns.count_queries)
-    packet.append(a[i].dns.flags_checkdisable)
-    packet.append(a[i].dns.flags_opcode)
-    packet.append(a[i].dns.flags_recdesired)
-    packet.append(a[i].dns.flags_response)
-    packet.append(a[i].dns.flags_truncated)
-    packet.append(a[i].dns.flags_z)
-    packet.append(a[i].dns.id)
-    packet.append(a[i].dns.qry_class)
-    packet.append(a[i].dns.qry_name)
-    packet.append(a[i].dns.qry_type)
+    # packet.append(dns_arr[i].dns.count_add_rr)
+    # packet.append(dns_arr[i].dns.count_answers)
+    # packet.append(dns_arr[i].dns.count_auth_rr)
+    # packet.append(dns_arr[i].dns.count_labels)
+    # packet.append(dns_arr[i].dns.count_queries)
+    # packet.append(dns_arr[i].dns.flags_checkdisable)
+    # packet.append(dns_arr[i].dns.flags_opcode)
+    # packet.append(dns_arr[i].dns.flags_recdesired)
+    # packet.append(dns_arr[i].dns.flags_response)
+    # packet.append(dns_arr[i].dns.flags_truncated)
+    # packet.append(dns_arr[i].dns.flags_z)
+    # packet.append(dns_arr[i].dns.id)
+    # packet.append(dns_arr[i].dns.qry_class)
+    # packet.append(dns_arr[i].dns.qry_name)
+    # packet.append(dns_arr[i].dns.qry_type)
 
 #############################################################################
     
-except AttributeError:
-    pass
+# except AttributeError:
+#     pass
 
 for k in packet:
     print(k)
+
