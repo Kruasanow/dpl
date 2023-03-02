@@ -9,22 +9,35 @@ for pac in a:
         dns_arr.append(pac)
 print(len(dns_arr))
 
+print(dns_arr[3].dns)
+print(dir(dns_arr[3].dns))
 
-for i in dns_arr:
-    if i.dns.flags_response == 0:
+# for i in dns_arr:
+#     if i.dns.flags_response == 0:
 
-    elif i.dns.flags_response == 1:
+#     elif i.dns.flags_response == 1:
 
-    else:
+#     else:
 
     
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # i = int(input())
-
 # try:
-
 ############################# ANSWER ########################################
-
     # packet.append(a[i].dns.a)
     # packet.append(a[i].dns.count_add_rr)
     # packet.append(a[i].dns.count_answers)
@@ -33,7 +46,6 @@ for i in dns_arr:
     # packet.append(a[i].dns.count_queries)
     # packet.append(a[i].dns.flags_authenticated)
     # packet.append(a[i].dns.flags_authoritative)
-    # packet.append(a[i].dns.flags_checkdisable)
     # packet.append(a[i].dns.flags_opcode)
     # packet.append(a[i].dns.flags_rcode)
     # packet.append(a[i].dns.flags_recavail)
@@ -50,12 +62,9 @@ for i in dns_arr:
     # packet.append(a[i].dns.resp_type)
     # packet.append(a[i].dns.response_to)
     # packet.append(a[i].dns.time)
-
 ##############################################################################
 
-
 ######################### REQUEST ############################################ req = 0; resp = 1
-
     # packet.append(dns_arr[i].dns.count_add_rr)
     # packet.append(dns_arr[i].dns.count_answers)
     # packet.append(dns_arr[i].dns.count_auth_rr)
@@ -71,12 +80,9 @@ for i in dns_arr:
     # packet.append(dns_arr[i].dns.qry_class)
     # packet.append(dns_arr[i].dns.qry_name)
     # packet.append(dns_arr[i].dns.qry_type)
-
-#############################################################################
-    
+############################################################################# 
 # except AttributeError:
 #     pass
-
-for k in packet:
-    print(k)
+# for k in packet:
+#     print(k)
 
