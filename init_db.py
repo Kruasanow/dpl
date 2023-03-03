@@ -43,6 +43,12 @@ cur.execute('CREATE TABLE dns_flags (id serial PRIMARY KEY,' ### ОТРЕДАЧ�
                                  'date_added date DEFAULT CURRENT_TIMESTAMP);'
                                  )
 
+cur.execute('DROP TABLE IF EXISTS dns_srv_profile;')
+cur.execute('CREATE TABLE dns_srv_profile (id serial PRIMARY KEY,'
+                                 'srv_ip varchar (200));'
+                                 ) 
+
+
 conn.commit()
 
 cur.close()

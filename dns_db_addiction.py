@@ -50,6 +50,7 @@ for i in dns_arr:
     elif int(i.dns.flags_response) == 1:
         try:
             cur.execute('INSERT INTO dns_flags ('
+                        'ip_src, ip_dst,'
                         'id_pac, qry_class, qry_name,'
                         'qry_type, flags_z, flags_truncated,'
                         'flags_response, flags_recdesired, flags_opcode,'
@@ -63,8 +64,11 @@ for i in dns_arr:
                         '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
-                        '%s, %s, %s)',
+                        '%s, %s, %s, %s,'
+                        '%s)',
                         (
+            str(i.ip.src),
+            str(i.ip.dst),
             str(i.dns.id),
             str(i.dns.qry_class),
             str(i.dns.qry_name),
