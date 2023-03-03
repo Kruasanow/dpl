@@ -29,7 +29,8 @@ def packet_counter(protocolName,cap):
 def convert_dump(name_before,name_after):
     subprocess.call(["./scr.sh",name_before,name_after])
 
-
+def exec_db_init_sh():
+    subprocess.call([". ./environment_fix.sh"])
 
 dns_pack = packet_counter('DNS',cap)
 tcp_pack = packet_counter('TCP',cap)

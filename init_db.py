@@ -14,6 +14,8 @@ cur = conn.cursor()
 # Execute a command: this creates a new table
 cur.execute('DROP TABLE IF EXISTS dns_flags;')
 cur.execute('CREATE TABLE dns_flags (id serial PRIMARY KEY,' ### ОТРЕДАЧИТЬ ТИПЫ ДАННЫХ 
+                                 'ip_src varchar (20),'
+                                 'ip_dst varchar (20),'
                                  'id_pac varchar (200),' #
                                  'a_return_rec varchar (200),' #
                                  'flags_authenticated varchar (200),'  #
@@ -40,25 +42,6 @@ cur.execute('CREATE TABLE dns_flags (id serial PRIMARY KEY,' ### ОТРЕДАЧ�
                                  'count_queries varchar (200),' #
                                  'date_added date DEFAULT CURRENT_TIMESTAMP);'
                                  )
-
-# Insert data into the table
-
-# cur.execute('INSERT INTO books (title, author, pages_num, review)'
-#             'VALUES (%s, %s, %s, %s)',
-#             ('Dmitry R',
-#              'big dick',
-#              13,
-#              'A great cock!')
-#             )
-
-
-# cur.execute('INSERT INTO books (title, author, pages_num, review)'
-#             'VALUES (%s, %s, %s, %s)',
-#             ('Ilya P',
-#              'lil dick',
-#              9,
-#              'Another great cock!')
-#             )
 
 conn.commit()
 

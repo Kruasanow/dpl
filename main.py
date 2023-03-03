@@ -70,6 +70,8 @@ def index():
 def about():
     print(url_for('about'))
 
+    # osh.exec_db_init_sh()
+
     conn = get_db_connection() 
     cur = conn.cursor()
     cur.execute('SELECT * FROM books;')
