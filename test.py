@@ -9,22 +9,12 @@ for pac in a:
     if pac.highest_layer == 'DNS':
         dns_arr.append(pac)
 print(len(dns_arr))
-k = 0
-for i in dns_arr:
-    if int(i.dns.flags_response) == 0:
-        k = k+1
-print(k)
 
 count_error = 0
 conn = main.get_db_connection() 
 cur = conn.cursor()
 bad = []
 for i in dns_arr:
-    # try:
-    #     print((i.dns.a))
-    # except AttributeError:
-    #      continue
-
     if int(i.dns.flags_response) == 0:
             cur.execute('INSERT INTO dns_flags (id_pac, qry_class, qry_name, qry_type, flags_z, flags_truncated, flags_response, flags_recdesired, flags_opcode, count_queries, count_labels, count_auth_rr, count_answers, count_add_rr)'
             'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
