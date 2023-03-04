@@ -61,7 +61,8 @@ for i in to_dns_arr(a):
                         'flags_authoritative, flags_rcode, flags_recavail,'
                         'resp_class, resp_ttl, resp_type,'
                         'response_to, a_return_rec)'
-                'VALUES (%s, %s, %s, %s,'
+                'VALUES ('
+                        '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
@@ -110,13 +111,94 @@ conn.close()
 
 def get_unique_dns_srv(arr):
     unique_srv = []
-    for i in to_dns_arr(arr):
+    arr = to_dns_arr(arr)
+    for i in arr:
         if i.ip.src in unique_srv:
             continue
         else:
-            unique_srv.append(i.ip.src)
-    print(unique_srv)
+            if int(i.dns.flags_response) == 1:
+                unique_srv.append(i.ip.src)
+            else:
+                continue
     return unique_srv
+
+def is_unique(arr):
+    un_var = []
+    for i in arr:
+        if i in un_var:
+            continue
+        else:
+            un_var.append(i)
+    return un_var
+
+def arr_needed_ip(arr,ip):
+    needed_arr = []
+    for i in arr:
+        if int(i.dns.flags_response) == 1 and str(i.ip.src) == ip:
+            needed_arr.append(i)
+        else:
+            continue
+    return needed_arr
+ 
+
+def get_dns_profile(arr):
+    array = to_dns_arr(arr)
+    dns_srv_list = get_unique_dns_srv(arr)
+
+    for u_ip in dns_srv_list:
+        rec_count = 0
+        un_var = []
+        orphan_pacs = []
+        a_rec_arr = []
+        for pac in arr_needed_ip(array,str(u_ip)):
+            # Считаю количество запросов и ответов
+            if int(pac.dns.flags_response) == 1:
+                rec_count = rec_count + 1
+            else:
+                ans_count = ans_count + 1
+            sum_pac = rec_count + ans_count
+            #----------------------------------
+
+            # Ищу осиротевшие пакеты ----------
+            for i in array:
+                if i.dns.id in un_var:
+                    continue
+                else:
+                    un_var.append(str(i.dns.id))
+
+            for un_dns_id in array:
+                if un_dns_id.dns.id in un_var:
+                    continue
+                else:
+                    orphan_pacs.append(str(un_dns_id.dns.id))
+            #----------------------------------
+
+            # IP-addr которые вернул сервер (тип А)
+            one_srv_resp = arr_needed_ip(array,str(u_ip))
+            for i in one_srv_resp:
+                try:
+                    if i.dns.a:
+                        a_rec_arr.append(i)
+                except AttributeError:
+                    continue
+            #-----------------------------------
+        print(str(rec_count) + ' rec_count')
+        print(str(ans_count) + ' ans_count')
+        print(str(sum_pac) + ' sum_count')
+        print(str(orphan_pacs) + ' orphan_pacs')
+        print(str(a_rec_arr) + ' a_rec_arr')
+
+print('------------------------------------------------')
+get_dns_profile(to_dns_arr(a))
+
+
+
+
+
+
+
+# print(get_unique_dns_srv(a))
+
 
 
 
