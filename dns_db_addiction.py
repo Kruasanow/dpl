@@ -4,17 +4,19 @@ import osh
 a = osh.cap
 
 # only DNS array
-dns_arr = []
-for pac in a:
-    if pac.highest_layer == 'DNS':
-        dns_arr.append(pac)
-print(len(dns_arr))
+def to_dns_arr(a):
+    dns_arr = []
+    for pac in a:
+        if pac.highest_layer == 'DNS':
+            dns_arr.append(pac)
+    print(len(dns_arr))
+    return dns_arr
 
 count_error = 0
 conn = main.get_db_connection() 
 cur = conn.cursor()
 bad = []
-for i in dns_arr:
+for i in to_dns_arr(a):
     if int(i.dns.flags_response) == 0:
             cur.execute('INSERT INTO dns_flags ('
                         'ip_src, ip_dst, id_pac,'
@@ -106,7 +108,15 @@ conn.commit()
 cur.close()
 conn.close()
 
-    
+def get_unique_dns_srv(arr):
+    unique_srv = []
+    for i in to_dns_arr(arr):
+        if i.ip.src in unique_srv:
+            continue
+        else:
+            unique_srv.append(i.ip.src)
+    print(unique_srv)
+    return unique_srv
 
 
 
