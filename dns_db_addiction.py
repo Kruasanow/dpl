@@ -45,7 +45,7 @@ for i in to_dns_arr(a):
             str(i.dns.count_labels),
             str(i.dns.count_auth_rr),
             str(i.dns.count_answers),
-            str(i.dns.count_add_rr)
+            str(i.dns.count_add_rr),
             )
             )
     elif int(i.dns.flags_response) == 1:
@@ -59,8 +59,13 @@ for i in to_dns_arr(a):
                         'count_answers, count_add_rr, flags_authenticated,'
                         'flags_authoritative, flags_rcode, flags_recavail,'
                         'resp_class, resp_ttl, resp_type,'
-                        'response_to, a_return_rec)'
+                        'response_to, a_return_rec, time,'
+                        'soa_expire_limit, soa_mininum_ttl, soa_mname,'
+                        'soa_refresh_interval, soa_retry_interval, soa_rname,'
+                        'soa_serial_number)'
                 'VALUES ('
+                        '%s, %s, %s, %s,'
+                        '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
                         '%s, %s, %s, %s,'
@@ -93,7 +98,15 @@ for i in to_dns_arr(a):
             str(i.dns.resp_ttl if hasattr(i.dns, "resp_ttl") else ""),
             str(i.dns.resp_type if hasattr(i.dns, "resp_type") else ""),
             str(i.dns.response_to if hasattr(i.dns, "response_to") else ""),
-            str(i.dns.a if hasattr(i.dns, "a") else "")
+            str(i.dns.a if hasattr(i.dns, "a") else ""),
+            str(i.dns.time if hasattr(i.dns, "time") else ""),
+            str(i.dns.soa_expire_limit if hasattr(i.dns, "soa_expire_limit") else ""),                                
+            str(i.dns.soa_mininum_ttl if hasattr(i.dns, "soa_mininum_ttl") else ""),
+            str(i.dns.soa_mname if hasattr(i.dns, "soa_mname") else ""),
+            str(i.dns.soa_refresh_interval if hasattr(i.dns, "soa_refresh_interval") else ""),
+            str(i.dns.soa_retry_interval if hasattr(i.dns, "soa_retry_interval") else ""),  
+            str(i.dns.soa_rname if hasattr(i.dns, "soa_rname") else ""), 
+            str(i.dns.soa_serial_number if hasattr(i.dns, "soa_serial_number") else ""),
             )
             )
         except AttributeError:
@@ -156,6 +169,7 @@ def get_dns_profile(arr):
                 rec_count = rec_count + 1
             sum_pac = len(array)
             ans_count = sum_pac - rec_count
+            #return ans_count, sum_pac, rec_count
             #----------------------------------
 
             # Ищу осиротевшие пакеты ----------
@@ -170,6 +184,7 @@ def get_dns_profile(arr):
                     continue
                 else:
                     orphan_pacs.append(str(un_dns_id.dns.id))
+            #return orphan_pacs                    
             #----------------------------------
 
             # IP-addr которые вернул сервер (тип А)
@@ -181,13 +196,11 @@ def get_dns_profile(arr):
                 except AttributeError:
                     continue
             a_rec_arr = is_unique(a_rec_arr)
+            #return a_rec_arr
             #-----------------------------------
-        print(str(rec_count) + ' rec_count')
-        print(str(ans_count) + ' ans_count')
-        print(str(sum_pac) + ' sum_count')
-        print(str(orphan_pacs) + ' orphan_pacs')
-        print(str(a_rec_arr) + ' a_rec_arr')
-print('------------------------------------------------')
+
+    
+
 get_dns_profile(a)
 
 
