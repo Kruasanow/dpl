@@ -9,7 +9,6 @@ def to_dns_arr(a):
     for pac in a:
         if pac.highest_layer == 'DNS':
             dns_arr.append(pac)
-    print(len(dns_arr))
     return dns_arr
 
 count_error = 0
@@ -134,7 +133,7 @@ def is_unique(arr):
 def arr_needed_ip(arr,ip):
     needed_arr = []
     for i in arr:
-        if int(i.dns.flags_response) == 1 and str(i.ip.src) == ip:
+        if str(i.ip.src) == ip:
             needed_arr.append(i)
         else:
             continue
@@ -147,6 +146,7 @@ def get_dns_profile(arr):
 
     for u_ip in dns_srv_list:
         rec_count = 0
+        ans_count = 0
         un_var = []
         orphan_pacs = []
         a_rec_arr = []
@@ -154,9 +154,8 @@ def get_dns_profile(arr):
             # Считаю количество запросов и ответов
             if int(pac.dns.flags_response) == 1:
                 rec_count = rec_count + 1
-            else:
-                ans_count = ans_count + 1
-            sum_pac = rec_count + ans_count
+            sum_pac = len(array)
+            ans_count = sum_pac - rec_count
             #----------------------------------
 
             # Ищу осиротевшие пакеты ----------
@@ -181,15 +180,15 @@ def get_dns_profile(arr):
                         a_rec_arr.append(i)
                 except AttributeError:
                     continue
+            a_rec_arr = is_unique(a_rec_arr)
             #-----------------------------------
         print(str(rec_count) + ' rec_count')
         print(str(ans_count) + ' ans_count')
         print(str(sum_pac) + ' sum_count')
         print(str(orphan_pacs) + ' orphan_pacs')
         print(str(a_rec_arr) + ' a_rec_arr')
-
 print('------------------------------------------------')
-get_dns_profile(to_dns_arr(a))
+get_dns_profile(a)
 
 
 
