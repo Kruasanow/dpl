@@ -50,24 +50,6 @@ def arr_needed_ip(arr,ip):
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
     dns_srv_list = get_unique_dns_srv(arr)
-    RCODE_list= [
-                0,1,2,3,4,5,
-                6,7,8,9,10,11,
-                12,
-                16,17,18,19,20,
-                21,22,23
-                ]
-    RCODE_name_list=[
-                    'NoError','FormErr','ServFail',
-                    'NXDomain','NotImp','Refused',
-                    'YXDomain','YXRRSet','NXRRSet',
-                    'NotAuth','NotZone',
-                    'DSOTYPENI','Unassigned','BADVERS or BADSIG',
-                    'BADKEY','BADTIME',
-                    'BADMODE','BADNAME','BADALG',
-                    'BADTRUNC','BADCOOKIE'
-                    ]
-    RCODE_dict = dict(zip(RCODE_list,RCODE_name_list))
 
     for u_ip in dns_srv_list:
         rec_count = 0
@@ -77,6 +59,10 @@ def get_dns_profile(arr):
         a_rec_arr = []
         arr = arr_needed_ip(array,str(u_ip))
         rcode_arr = []
+        qtype_arr = []
+        qclass_arr = []
+        qname_list = []
+        opcode_arr = []
         for pac in arr:
             # Counting of request and response packets, their sum
             if int(pac.dns.flags_response) == 1:
@@ -113,11 +99,45 @@ def get_dns_profile(arr):
             #-----------------------------------
 
             # Count Errors and their type ------
-            for i in arr:
-                rcode_arr.append(i.dns.flags_rcode)
+            rcode_arr.append(pac.dns.flags_rcode)
+            #-----------------------------------
+
+            # Count query codes and their types
+            qtype_arr.append(pac.dns.qry_type)
+            #-----------------------------------
+            
+            # Count query classes and their types
+            qclass_arr.append(pac.dns.qry_class)
+            #------------------------------------
+
+            # Count query names and their types
+            if int(pac.dns.qry_type) == 1 or int(pac.dns.qry_type) == 28:
+                if 'localdomain' not in pac.dns.qry_name:
+                    qname_list.append(pac.dns.qry_name)
+            #------------------------------------
+
+            # Count opcode's
+            opcode_arr.append(pac.dns.flags_opcode)
+            #------------------------------------
+
             
 
 
+        qname_list = is_unique(qname_list)
+        rcode_arr = Counter(rcode_arr)
+        qtype_arr = Counter(qtype_arr)
+        qclass_arr = Counter(qclass_arr)
+        opcode_arr = Counter(opcode_arr)
 
+        print(ans_count)
+        print(rec_count)
+        print(sum_pac)
+        print(orphan_pacs)
+        print(a_rec_arr)
+        print(rcode_arr)
+        print(qtype_arr)
+        print(qclass_arr)
+        print(qname_list)
+        print(opcode_arr)
 
 get_dns_profile(a)

@@ -1,12 +1,12 @@
 1. Count response and request packets, their sum;                   DONE
 2. Number of IP returned by DNS server, their list -> dns.a;        DONE 
 3. Number of orphaned pacs;                                         DONE
-4. Count of errors, their type -> dns.rcode;
-5. Query type - count and types -> dns.qry_type;
-6. Query class - count and types -> dns.qry_class;
-7. Query name - queried names, list -> dns.qry_name;
+4. Count of errors, their type -> dns.rcode;                        DONE
+5. Query type - count and types -> dns.qry_type;                    DONE
+6. Query class - count and types -> dns.qry_class;                  DONE          
+7. Query name - queried names, list -> dns.qry_name;                DONE
 8. 
-9. Opcode ? -> dns.opcode;
+9. Opcode ? -> dns.opcode;                                          DONE
 10.Count Trankated packets -> dns.flags_truncated;
 11.Is available recursion on this server -> dns.flags_recavail;
 12.Count recursed packets -> dns.flags_recdesired;
