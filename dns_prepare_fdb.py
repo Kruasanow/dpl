@@ -50,6 +50,7 @@ def arr_needed_ip(arr,ip):
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
     dns_srv_list = get_unique_dns_srv(arr)
+    print("SRV -" + str(dns_srv_list))
 
     for u_ip in dns_srv_list:
         rec_count = 0
@@ -63,6 +64,8 @@ def get_dns_profile(arr):
         qclass_arr = []
         qname_list = []
         opcode_arr = []
+        trunk_arr = []
+        recursion_arr = []
         for pac in arr:
             # Counting of request and response packets, their sum
             if int(pac.dns.flags_response) == 1:
@@ -120,6 +123,14 @@ def get_dns_profile(arr):
             opcode_arr.append(pac.dns.flags_opcode)
             #------------------------------------
 
+            # Count trunkated
+            trunk_arr.append(pac.dns.flags_truncated)
+
+            # Is available recursion on server
+            try:
+                recursion_arr.append(pac.dns.flags_recavail)
+            except AttributeError:
+                pass
             
 
 
@@ -128,6 +139,8 @@ def get_dns_profile(arr):
         qtype_arr = Counter(qtype_arr)
         qclass_arr = Counter(qclass_arr)
         opcode_arr = Counter(opcode_arr)
+        trunk_arr = Counter(trunk_arr)
+        recursion_arr = Counter(recursion_arr)
 
         print(ans_count)
         print(rec_count)
@@ -139,5 +152,7 @@ def get_dns_profile(arr):
         print(qclass_arr)
         print(qname_list)
         print(opcode_arr)
+        print(trunk_arr)
+        print(recursion_arr)
 
 get_dns_profile(a)
