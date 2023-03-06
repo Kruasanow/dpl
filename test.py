@@ -17,9 +17,29 @@ print('------------')
 #         continue
 # print(a_rec_arr)
 
-cap = dprep.to_dns_arr(cap)
-print(len(cap))
+# cap = dprep.to_dns_arr(cap)
+# print(len(cap))
 
-print(dir(cap[24].dns))
+# print(dir(cap[24].dns))
 
 # for i in cap:
+
+RCODE_list= [
+            0,1,2,3,4,5,
+            6,7,8,9,10,11,
+            12,
+            16,17,18,19,20,
+            21,22,23
+            ]
+RCODE_name_list=[
+                'NoError','FormErr','ServFail',
+                'NXDomain','NotImp','Refused',
+                'YXDomain','YXRRSet','NXRRSet',
+                'NotAuth','NotZone',
+                'DSOTYPENI','Unassigned','BADVERS or BADSIG',
+                'BADKEY','BADTIME',
+                'BADMODE','BADNAME','BADALG',
+                'BADTRUNC','BADCOOKIE'
+                ]
+RCODE_dict = dict(zip(RCODE_list,RCODE_name_list))
+print(list(RCODE_dict.keys()))

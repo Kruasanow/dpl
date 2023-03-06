@@ -1,6 +1,6 @@
-1. Count response and request packets, their sum;
-2. Number of IP returned by DNS server, their list -> dns.a; 
-3. Number of orphaned pacs;
+1. Count response and request packets, their sum;                   DONE
+2. Number of IP returned by DNS server, their list -> dns.a;        DONE 
+3. Number of orphaned pacs;                                         DONE
 4. Count of errors, their type -> dns.rcode;
 5. Query type - count and types -> dns.qry_type;
 6. Query class - count and types -> dns.qry_class;
