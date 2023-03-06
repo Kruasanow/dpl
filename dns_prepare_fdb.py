@@ -13,17 +13,33 @@ def to_dns_arr(a):
 
 # Select only unique dns server's IP as list
 # do not need "to_dns_arr"
+# def get_unique_dns_srv(arr):
+#     unique_srv = []
+#     arr = to_dns_arr(arr)
+#     for i in arr:
+#         if i.ip.src in unique_srv:
+#             continue
+#         else:
+#             if int(i.dns.flags_response) == 1:
+#                 unique_srv.append(i.ip.src)
+#             else:
+#                 continue
+#     return unique_srv
+
 def get_unique_dns_srv(arr):
     unique_srv = []
     arr = to_dns_arr(arr)
     for i in arr:
-        if i.ip.src in unique_srv:
-            continue
-        else:
-            if int(i.dns.flags_response) == 1:
-                unique_srv.append(i.ip.src)
-            else:
+        try:
+            if i.dns.soa_mname in unique_srv:
                 continue
+            else:
+                if int(i.dns.flags_response) == 1:
+                    unique_srv.append(i.dns.soa_mname)
+                else:
+                    continue
+        except AttributeError:
+            continue
     return unique_srv
 
 # Select only unique values to list
@@ -45,6 +61,18 @@ def arr_needed_ip(arr,ip):
         else:
             continue
     return needed_arr
+
+def arr_needed_dns_srv(arr,dns_name):
+    needed_arr = []
+    for i in arr:
+        try:
+            if i.dns.soa_mname == dns_name:
+                needed_arr.append(i)
+            else:
+                continue
+        except AttributeError:
+            continue
+    return needed_arr
  
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
@@ -52,13 +80,13 @@ def get_dns_profile(arr):
     dns_srv_list = get_unique_dns_srv(arr)
     print("SRV -" + str(dns_srv_list))
 
-    for u_ip in dns_srv_list:
+    for srv in dns_srv_list:
         rec_count = 0
         ans_count = 0
         un_var = []
         orphan_pacs = []
         a_rec_arr = []
-        arr = arr_needed_ip(array,str(u_ip))
+        arr = arr_needed_dns_srv(array,str(srv))
         rcode_arr = []
         qtype_arr = []
         qclass_arr = []
@@ -131,9 +159,6 @@ def get_dns_profile(arr):
                 recursion_arr.append(pac.dns.flags_recavail)
             except AttributeError:
                 pass
-            
-
-
         qname_list = is_unique(qname_list)
         rcode_arr = Counter(rcode_arr)
         qtype_arr = Counter(qtype_arr)
@@ -141,7 +166,7 @@ def get_dns_profile(arr):
         opcode_arr = Counter(opcode_arr)
         trunk_arr = Counter(trunk_arr)
         recursion_arr = Counter(recursion_arr)
-
+        print("SERVER - " + str(srv))
         print(ans_count)
         print(rec_count)
         print(sum_pac)
@@ -154,5 +179,6 @@ def get_dns_profile(arr):
         print(opcode_arr)
         print(trunk_arr)
         print(recursion_arr)
+        print("#--------------------------------------#")
 
 get_dns_profile(a)
