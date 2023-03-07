@@ -85,6 +85,7 @@ def arr_needed_domain(arr,domain):
 
 def arr_needed_dns_srv(arr,dns_name):
     needed_arr = []
+
     for i in arr:
         try:
             if i.dns.soa_mname == dns_name:
@@ -95,14 +96,34 @@ def arr_needed_dns_srv(arr,dns_name):
             continue
     return needed_arr
  
+def compare_name_src(cap):
+    name_arr = []
+    srv_arr = []
+    arr_dump = []
+    u_dump = []
+    for i in cap:
+        if hasattr(i.dns, 'soa_mname') == True:
+            arr_dump.append(i)
+    for i in  arr_dump:
+        if i.dns.soa_mname in u_dump:
+            continue
+        else:
+            u_dump.append(i)
+            name_arr.append(i.dns.qry_name)
+            srv_arr.append(i.dns.soa_mname)   
+    qname_srv_dict = dict(zip(name_arr,srv_arr))
+    return(qname_srv_dict)
+
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
-    # dns_srv_list = get_unique_dns_srv(arr)
-    dns_srv_list = get_unique_dns_domain(array)
-    print("SRV -" + str(dns_srv_list))
+    dns_srv_list = get_unique_dns_srv(array)
+    dns_name_list = get_unique_dns_domain(array)
 
-    for qname in dns_srv_list:
+    print("Domain names -" + str(list(compare_name_src(array).keys())))
+    print("SRC -" + str(list(compare_name_src(array).values())))
+
+    for qname in dns_name_list:
         rec_count = 0
         ans_count = 0
         un_var = []
@@ -193,19 +214,19 @@ def get_dns_profile(arr):
         trunk_arr = Counter(trunk_arr)
         recursion_arr = Counter(recursion_arr)
 
-        print("SERVER - " + str(qname))
-        print(ans_count)
-        print(rec_count)
-        print(sum_pac)
-        print(orphan_pacs)
-        print(a_rec_arr)
-        print(rcode_arr)
-        print(qtype_arr)
-        print(qclass_arr)
-        print(qname_list)
-        print(opcode_arr)
-        print(trunk_arr)
-        print(recursion_arr)
+        # print("SERVER - " + str(qname))
+        # print(ans_count)
+        # print(rec_count)
+        # print(sum_pac)
+        # print(orphan_pacs)
+        # print(a_rec_arr)
+        # print(rcode_arr)
+        # print(qtype_arr)
+        # print(qclass_arr)
+        # print(qname_list)
+        # print(opcode_arr)
+        # print(trunk_arr)
+        # print(recursion_arr)
         print("#--------------------------------------#")
 
 get_dns_profile(a)
