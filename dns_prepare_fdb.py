@@ -104,7 +104,8 @@ def compare_name_src(cap):
     u_dump = []
     for i in cap:
         if hasattr(i.dns, 'soa_mname') == True:
-            arr_dump.append(i)
+            if 'in-addr.arpa' not in str(i.dns.qry_name):
+                arr_dump.append(i)
     for i in  arr_dump:
         if i.dns.soa_mname in u_dump:
             continue
@@ -136,7 +137,7 @@ def get_dump_by_service(arr, qname):
         if key == str(i.dns.qry_name):
             a_req_pac_arr.append(i)
     return(a_req_pac_arr)
-# print(get_dump_by_service(a,'binance.ae'))
+# print(get_dump_by_service(a,'vk.com'))
 
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
@@ -144,16 +145,17 @@ def get_dns_profile(arr):
     dns_srv_list = get_unique_dns_srv(array)
     dns_name_list = get_unique_dns_domain(array)
 
-    # print("Domain names -" + str(list(compare_name_src(array).keys())))
-    # print("SRC -" + str(list(compare_name_src(array).values())))
+    print("Domain names -" + str(list(compare_name_src(array).keys())))
+    print("SRV -" + str(list(compare_name_src(array).values())))
 
-    for srv in list(compare_name_src(array).values()):
+    for srv in compare_name_src(array).keys():
+        print(srv)
         rec_count = 0
         ans_count = 0
         un_var = []
         orphan_pacs = []
         a_rec_arr = []
-        arr = arr_needed_dns_srv(array,str(srv))
+        arr = get_dump_by_service(array,str(srv))
         rcode_arr = []
         qtype_arr = []
         qclass_arr = []
@@ -161,11 +163,17 @@ def get_dns_profile(arr):
         opcode_arr = []
         trunk_arr = []
         recursion_arr = []
-        for pac in array:
+        for pac in arr:
+            # Find nameserver
+            try:
+                nameserver = pac.dns.soa_mname
+            except AttributeError:
+                pass
+
             # Counting of request and response packets, their sum
             if int(pac.dns.flags_response) == 1:
                 rec_count = rec_count + 1
-            sum_pac = len(array)
+            sum_pac = len(arr)
             ans_count = sum_pac - rec_count
             #return ans_count, sum_pac, rec_count
             #----------------------------------
@@ -238,19 +246,19 @@ def get_dns_profile(arr):
         trunk_arr = Counter(trunk_arr)
         recursion_arr = Counter(recursion_arr)
 
-        # print("SERVER - " + str(qname))
-        # print(ans_count)
-        # print(rec_count)
-        # print(sum_pac)
-        # print(orphan_pacs)
-        # print(a_rec_arr)
-        # print(rcode_arr)
-        # print(qtype_arr)
-        # print(qclass_arr)
-        # print(qname_list)
-        # print(opcode_arr)
-        # print(trunk_arr)
-        # print(recursion_arr)
+        print("SERVER - " + nameserver)
+        print("ans_count - " + str(ans_count))
+        print("rec_count - " + str(rec_count))
+        print("sum_pac - " + str(sum_pac))
+        print("orphan pacs - " + str(orphan_pacs))
+        print("a - " + str(a_rec_arr[0].dns.a))
+        print("rcode - " + str(rcode_arr))
+        print("qtype - " + str(qtype_arr))
+        print("qclass - " + str(qclass_arr))
+        print("qname - " + str(qname_list))
+        print("opcode - " + str(opcode_arr))
+        print("trunk - " + str(trunk_arr))
+        print("recursion - " + str(recursion_arr))
         print("#--------------------------------------#")
 
 get_dns_profile(a)
