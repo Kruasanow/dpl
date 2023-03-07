@@ -131,23 +131,23 @@ def get_dns_profile(arr):
 
     for srv in compare_name_src(array).keys():
         print(srv)
-        rec_count = 0
-        ans_count = 0
-        un_var = []
+        rec_count =   0
+        ans_count =   0
+        un_var =      []
         orphan_pacs = []
-        a_rec_arr = []
+        a_rec_arr =   []
+        rcode_arr =   []
+        qtype_arr =   []
+        qclass_arr =  []
+        qname_list =  []
+        opcode_arr =  []
+        trunk_arr =   []
+        rclass =      []
+        rtype =       []
+        recursion_arr=[]
+        rttl =        []
+        avg_resp_time=[]
         arr = get_dump_by_service(array,str(srv))
-        rcode_arr = []
-        qtype_arr = []
-        qclass_arr = []
-        qname_list = []
-        opcode_arr = []
-        trunk_arr = []
-        rclass = []
-        rtype = []
-        recursion_arr = []
-        rttl = []
-        average_resp_time = []
         for pac in arr:
             # Find nameserver
             try:
@@ -225,7 +225,7 @@ def get_dns_profile(arr):
 
             # Average response packet time
             try:
-                average_resp_time.append(float(pac.dns.time))
+                avg_resp_time.append(float(pac.dns.time))
             except AttributeError:
                 pass
             # Is available recursion on server
@@ -237,7 +237,7 @@ def get_dns_profile(arr):
         rtype = Counter(rtype)
         rclass = Counter(rclass)
         rttl = mean(rttl)
-        atime = mean(average_resp_time)
+        atime = mean(avg_resp_time)
         qname_list = is_unique(qname_list)
         rcode_arr = Counter(rcode_arr)
         qtype_arr = Counter(qtype_arr)
