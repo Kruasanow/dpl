@@ -42,6 +42,27 @@ def get_unique_dns_srv(arr):
             continue
     return unique_srv
 
+def get_unique_dns_domain(arr):
+    unique_srv = []
+    arr = to_dns_arr(arr)
+    # for name in arr:
+    #     if name.dns.qry_name.find("in-addr.arpa") != -1:
+    #         arr.remove(name)
+    for i in arr:
+        try:
+            if i.dns.qry_name in unique_srv:
+                continue
+            elif i.dns.qry_name.find("in-addr.arpa") != -1:
+                continue 
+            else:
+                if int(i.dns.flags_response) == 1:
+                    unique_srv.append(i.dns.qry_name)
+                else:
+                    continue
+        except AttributeError:
+            continue
+    return unique_srv
+
 # Select only unique values to list
 def is_unique(arr):
     un_var = []
@@ -53,14 +74,14 @@ def is_unique(arr):
     return un_var
 
 # Select packets from array by IP.src
-def arr_needed_ip(arr,ip):
-    needed_arr = []
+def arr_needed_domain(arr,domain):
+    needed_arr_domain = []
     for i in arr:
-        if str(i.ip.src) == ip:
-            needed_arr.append(i)
+        if str(i.dns.qry_name) == domain:
+            needed_arr_domain.append(i)
         else:
             continue
-    return needed_arr
+    return needed_arr_domain
 
 def arr_needed_dns_srv(arr,dns_name):
     needed_arr = []
@@ -77,16 +98,17 @@ def arr_needed_dns_srv(arr,dns_name):
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
-    dns_srv_list = get_unique_dns_srv(arr)
+    # dns_srv_list = get_unique_dns_srv(arr)
+    dns_srv_list = get_unique_dns_domain(array)
     print("SRV -" + str(dns_srv_list))
 
-    for srv in dns_srv_list:
+    for qname in dns_srv_list:
         rec_count = 0
         ans_count = 0
         un_var = []
         orphan_pacs = []
         a_rec_arr = []
-        arr = arr_needed_dns_srv(array,str(srv))
+        arr = arr_needed_dns_srv(array,str(qname))
         rcode_arr = []
         qtype_arr = []
         qclass_arr = []
@@ -94,7 +116,7 @@ def get_dns_profile(arr):
         opcode_arr = []
         trunk_arr = []
         recursion_arr = []
-        for pac in arr:
+        for pac in array:
             # Counting of request and response packets, their sum
             if int(pac.dns.flags_response) == 1:
                 rec_count = rec_count + 1
@@ -130,7 +152,10 @@ def get_dns_profile(arr):
             #-----------------------------------
 
             # Count Errors and their type ------
-            rcode_arr.append(pac.dns.flags_rcode)
+            try:
+                rcode_arr.append(pac.dns.flags_rcode)
+            except AttributeError:
+                pass
             #-----------------------------------
 
             # Count query codes and their types
@@ -145,6 +170,7 @@ def get_dns_profile(arr):
             if int(pac.dns.qry_type) == 1 or int(pac.dns.qry_type) == 28:
                 if 'localdomain' not in pac.dns.qry_name:
                     qname_list.append(pac.dns.qry_name)
+
             #------------------------------------
 
             # Count opcode's
@@ -166,7 +192,8 @@ def get_dns_profile(arr):
         opcode_arr = Counter(opcode_arr)
         trunk_arr = Counter(trunk_arr)
         recursion_arr = Counter(recursion_arr)
-        print("SERVER - " + str(srv))
+
+        print("SERVER - " + str(qname))
         print(ans_count)
         print(rec_count)
         print(sum_pac)

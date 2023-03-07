@@ -14,3 +14,8 @@
 14.Response class - class and count -> dns.resp_class;
 15.Response TTL -> dns.resp_ttl;
 16.Average response packet time -> dns.time;
+
+
+amplif dns recursion test
+check geoposition by root dns serv
+check provider
