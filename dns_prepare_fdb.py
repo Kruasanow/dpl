@@ -1,5 +1,6 @@
 import osh
 from collections import Counter
+import ipaddress
 
 a = osh.cap
 
@@ -73,7 +74,7 @@ def is_unique(arr):
             un_var.append(i)
     return un_var
 
-# Select packets from array by IP.src
+# Select packets from array by dns.qry_type
 def arr_needed_domain(arr,domain):
     needed_arr_domain = []
     for i in arr:
@@ -114,22 +115,45 @@ def compare_name_src(cap):
     qname_srv_dict = dict(zip(name_arr,srv_arr))
     return(qname_srv_dict)
 
+# Select packets from dump by Query Name and PTR;
+def get_dump_by_service(arr, qname):
+    arr = to_dns_arr(arr)
+    a_req_pac_arr = []
+    list_a = []
+    list_qname = []
+    for a_req_pac in arr:
+        if hasattr(a_req_pac.dns,"a") == True and str(a_req_pac.dns.qry_name) == qname:
+            list_a.append(a_req_pac.dns.a)
+            list_qname.append(a_req_pac.dns.qry_name)
+        else:
+            continue
+    a_req_pac_dict = dict(zip(list_a,list_qname))
+    key = list(a_req_pac_dict.keys())[0]
+    key = ipaddress.ip_address(key).reverse_pointer
+    for i in arr:
+        if str(i.dns.qry_name) == qname:
+            a_req_pac_arr.append(i)
+        if key == str(i.dns.qry_name):
+            a_req_pac_arr.append(i)
+    return(a_req_pac_arr)
+# print(get_dump_by_service(a,'binance.ae'))
+
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
     dns_srv_list = get_unique_dns_srv(array)
     dns_name_list = get_unique_dns_domain(array)
 
-    print("Domain names -" + str(list(compare_name_src(array).keys())))
-    print("SRC -" + str(list(compare_name_src(array).values())))
+    # print("Domain names -" + str(list(compare_name_src(array).keys())))
+    # print("SRC -" + str(list(compare_name_src(array).values())))
 
-    for qname in dns_name_list:
+    for srv in list(compare_name_src(array).values()):
         rec_count = 0
         ans_count = 0
         un_var = []
         orphan_pacs = []
         a_rec_arr = []
-        arr = arr_needed_dns_srv(array,str(qname))
+        arr = arr_needed_dns_srv(array,str(srv))
         rcode_arr = []
         qtype_arr = []
         qclass_arr = []
