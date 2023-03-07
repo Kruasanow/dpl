@@ -8,12 +8,12 @@
 8. 
 9. Opcode ? -> dns.opcode;                                          DONE
 10.Count Trankated packets -> dns.flags_truncated;                  DONE
-11.Is available recursion on this server -> dns.flags_recavail;     
-12.Count recursed packets -> dns.flags_recdesired;
-13.Response type - types and count -> dns.resp_type;
-14.Response class - class and count -> dns.resp_class;
-15.Response TTL -> dns.resp_ttl;
-16.Average response packet time -> dns.time;
+11.Is available recursion on this server -> dns.flags_recavail;     DONE
+12.Count recursed packets -> dns.flags_recdesired;                  CANCELED               
+13.Response type - types and count -> dns.resp_type;                DONE
+14.Response class - class and count -> dns.resp_class;              DONE
+15.Response TTL -> dns.resp_ttl;                                    DONE        
+16.Average response packet time -> dns.time;                        DONE                     
 
 
 amplif dns recursion test

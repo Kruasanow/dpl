@@ -1,31 +1,17 @@
 import osh
 from collections import Counter
 import ipaddress
+from statistics import mean
 
 a = osh.cap
 
-# Conver Main-dump to DNS-array
+# Convert Main-dump to DNS-array
 def to_dns_arr(a):
     dns_arr = []
     for pac in a:
         if pac.highest_layer == 'DNS':
             dns_arr.append(pac)
     return dns_arr
-
-# Select only unique dns server's IP as list
-# do not need "to_dns_arr"
-# def get_unique_dns_srv(arr):
-#     unique_srv = []
-#     arr = to_dns_arr(arr)
-#     for i in arr:
-#         if i.ip.src in unique_srv:
-#             continue
-#         else:
-#             if int(i.dns.flags_response) == 1:
-#                 unique_srv.append(i.ip.src)
-#             else:
-#                 continue
-#     return unique_srv
 
 def get_unique_dns_srv(arr):
     unique_srv = []
@@ -46,9 +32,6 @@ def get_unique_dns_srv(arr):
 def get_unique_dns_domain(arr):
     unique_srv = []
     arr = to_dns_arr(arr)
-    # for name in arr:
-    #     if name.dns.qry_name.find("in-addr.arpa") != -1:
-    #         arr.remove(name)
     for i in arr:
         try:
             if i.dns.qry_name in unique_srv:
@@ -142,8 +125,6 @@ def get_dump_by_service(arr, qname):
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
-    dns_srv_list = get_unique_dns_srv(array)
-    dns_name_list = get_unique_dns_domain(array)
 
     print("Domain names -" + str(list(compare_name_src(array).keys())))
     print("SRV -" + str(list(compare_name_src(array).values())))
@@ -162,7 +143,11 @@ def get_dns_profile(arr):
         qname_list = []
         opcode_arr = []
         trunk_arr = []
+        rclass = []
+        rtype = []
         recursion_arr = []
+        rttl = []
+        average_resp_time = []
         for pac in arr:
             # Find nameserver
             try:
@@ -228,16 +213,31 @@ def get_dns_profile(arr):
 
             # Count opcode's
             opcode_arr.append(pac.dns.flags_opcode)
-            #------------------------------------
-
             # Count trunkated
             trunk_arr.append(pac.dns.flags_truncated)
+            # Count response class, type, ttl
+            try:    
+                rclass.append(pac.dns.resp_type)
+                rtype.append(pac.dns.resp_class)
+                rttl.append(float(pac.dns.resp_ttl))
+            except AttributeError:
+                pass
 
+            # Average response packet time
+            try:
+                average_resp_time.append(float(pac.dns.time))
+            except AttributeError:
+                pass
             # Is available recursion on server
             try:
                 recursion_arr.append(pac.dns.flags_recavail)
             except AttributeError:
                 pass
+        
+        rtype = Counter(rtype)
+        rclass = Counter(rclass)
+        rttl = mean(rttl)
+        atime = mean(average_resp_time)
         qname_list = is_unique(qname_list)
         rcode_arr = Counter(rcode_arr)
         qtype_arr = Counter(qtype_arr)
@@ -259,6 +259,11 @@ def get_dns_profile(arr):
         print("opcode - " + str(opcode_arr))
         print("trunk - " + str(trunk_arr))
         print("recursion - " + str(recursion_arr))
+        print("rtype - " + str(rtype))
+        print("rclass - " + str(rclass))
+        print("rttl - " + str(rttl))
+        print("average time - " + str(atime))
+
         print("#--------------------------------------#")
 
 get_dns_profile(a)

@@ -21,7 +21,6 @@ def compare_name_src(cap):
     for i in cap:
         if hasattr(i.dns, 'soa_mname') == True:
             arr_dump.append(i)
-            print(i.dns.soa_mname)
     for i in arr_dump:
         if i.dns.soa_mname in u_dump:
             continue
