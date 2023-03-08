@@ -2,8 +2,19 @@ import osh
 from collections import Counter
 import ipaddress
 from statistics import mean
+import dns_codes_list as dcode
 
 a = osh.cap
+
+def swap_dict_values(dict_a,dict_b):
+    dict_a = dict(dict_a)
+    swaped_dict = {}
+    print(dict_a)
+    for key_a,value_a in dict_a.items():
+        for key_b,value_b in dict_b.items():
+            if key_a == key_b:
+                swaped_dict[value_b] = value_a
+    return swaped_dict
 
 # Convert Main-dump to DNS-array
 def to_dns_arr(a):
@@ -191,13 +202,13 @@ def get_dns_profile(arr):
 
             # Count Errors and their type ------
             try:
-                rcode_arr.append(pac.dns.flags_rcode)
+                rcode_arr.append(int(pac.dns.flags_rcode))
             except AttributeError:
                 pass
             #-----------------------------------
 
             # Count query codes and their types
-            qtype_arr.append(pac.dns.qry_type)
+            qtype_arr.append(int(pac.dns.qry_type))
             #-----------------------------------
             
             # Count query classes and their types
@@ -212,13 +223,13 @@ def get_dns_profile(arr):
             #------------------------------------
 
             # Count opcode's
-            opcode_arr.append(pac.dns.flags_opcode)
+            opcode_arr.append(int(pac.dns.flags_opcode))
             # Count trunkated
-            trunk_arr.append(pac.dns.flags_truncated)
+            trunk_arr.append(int(pac.dns.flags_truncated))
             # Count response class, type, ttl
             try:    
-                rclass.append(pac.dns.resp_type)
-                rtype.append(pac.dns.resp_class)
+                rclass.append(pac.dns.resp_class)
+                rtype.append(int(pac.dns.resp_type))
                 rttl.append(float(pac.dns.resp_ttl))
             except AttributeError:
                 pass
@@ -230,21 +241,21 @@ def get_dns_profile(arr):
                 pass
             # Is available recursion on server
             try:
-                recursion_arr.append(pac.dns.flags_recavail)
+                recursion_arr.append(int(pac.dns.flags_recavail))
             except AttributeError:
                 pass
         
-        rtype = Counter(rtype)
-        rclass = Counter(rclass)
+        rtype =  swap_dict_values(dict(Counter(rtype)),dcode.RR_types_dict)   
+        rclass = swap_dict_values(dict(Counter(rclass)),dcode.RR_classes_dict)
         rttl = mean(rttl)
         atime = mean(avg_resp_time)
         qname_list = is_unique(qname_list)
-        rcode_arr = Counter(rcode_arr)
-        qtype_arr = Counter(qtype_arr)
-        qclass_arr = Counter(qclass_arr)
-        opcode_arr = Counter(opcode_arr)
-        trunk_arr = Counter(trunk_arr)
-        recursion_arr = Counter(recursion_arr)
+        rcode_arr = swap_dict_values(dict(Counter(rcode_arr)),dcode.RCODE_dict)    
+        qtype_arr = swap_dict_values(dict(Counter(qtype_arr)),dcode.RR_types_dict)    
+        qclass_arr = swap_dict_values(dict(Counter(qclass_arr)),dcode.RR_classes_dict)   
+        opcode_arr = dict(Counter(opcode_arr))
+        trunk_arr = dict(Counter(trunk_arr))
+        recursion_arr = dict(Counter(recursion_arr))
 
         print("SERVER - " + nameserver)
         print("ans_count - " + str(ans_count))
@@ -264,6 +275,6 @@ def get_dns_profile(arr):
         print("rttl - " + str(rttl))
         print("average time - " + str(atime))
 
-        print("#--------------------------------------#")
+        # print("#--------------------------------------#")
 
 get_dns_profile(a)

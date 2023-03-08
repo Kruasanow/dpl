@@ -1,6 +1,6 @@
 import osh 
 import dns_prepare_fdb as dprep
-
+import dns_codes_list as dcode
 
 cap = osh.cap
 
@@ -8,25 +8,23 @@ cap = osh.cap
 print('------------')
 
 
-d = dprep.arr_needed_domain(dprep.to_dns_arr(cap),'vk.com') 
+d = dprep.get_dump_by_service(dprep.to_dns_arr(cap),'vk.com') 
 print(d)
 
 cap = dprep.to_dns_arr(cap)
 
-def compare_name_src(cap):
-    name_arr = []
-    srv_arr = []
-    arr_dump = []
-    u_dump = []
-    for i in cap:
-        if hasattr(i.dns, 'soa_mname') == True:
-            arr_dump.append(i)
-    for i in arr_dump:
-        if i.dns.soa_mname in u_dump:
-            continue
-        else:
-            u_dump.append(i.dns.soa_mname)
-    return(u_dump)
-print(compare_name_src(cap))
-    # for i in cap:
-    #     try:
+dict_a = {1: 2, 28: 2, 12: 2}
+dict_b = dcode.RR_types_dict
+# print(dict_a)
+print(dict_b)
+
+def swap_dict_values(dict_a,dict_b):
+    dict_a = dict(dict_a)
+    swaped_dict = {}
+    print(dict_a)
+    for key_a,value_a in dict_a.items():
+        for key_b,value_b in dict_b.items():
+            if key_a == key_b:
+                swaped_dict[value_b] = value_a
+    return swaped_dict
+print(swap_dict_values(dict_a,dict_b))
