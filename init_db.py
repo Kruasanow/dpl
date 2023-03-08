@@ -52,7 +52,24 @@ cur.execute('CREATE TABLE dns_flags (id serial PRIMARY KEY,' ### ОТРЕДАЧ�
 
 cur.execute('DROP TABLE IF EXISTS dns_srv_profile;')
 cur.execute('CREATE TABLE dns_srv_profile (id serial PRIMARY KEY,'
-                                 'srv_ip varchar (200));'
+                                 'server varchar (50),'
+                                 'name varchar (50),'
+                                 'returned_a varchar (40),'
+                                 'sum_pac varchar (256),'
+                                 'qtype varchar (100),'
+                                 'qclass varchar (30),'
+                                 'rcode varchar (100),'
+                                 'recursion varchar (10),'
+                                 'avg_time varchar (256),'
+                                 'avg_ttl varchar (256),'
+                                 'qname varchar (50),'
+                                 'opcode varchar (30),'
+                                 'ans_pac varchar (256),'
+                                 'req_pac varchar (256),'
+                                 'trunk varchar (256),'
+                                 'orphan varchar (200),'
+                                 'rtype varchar (100),'
+                                 'rclass varchar (30));'
                                  ) 
 
 
