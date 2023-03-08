@@ -38,7 +38,18 @@ RR_classes_name=[
                 'Reserved','IN','Unassigned',
                 'CH','HS','QCLASS NONE','QCLASS ANY'
                 ]
+Opcode_code =   [
+                0,1,2,3,4,5,6,7
+                ]
+Opcode_name =   [
+                'Query','IQuery (Inverse Query, OBSOLETE)','Status',
+                'Unassigned','Notify','Update',
+                'DNS Stateful Operations (DSO)','Unassigned'
+                ]
 
+Trunkated_pac = {1:'Trunkated', 0:'Non-Trunkated'}
+Recursive_pac = {1:'Recursive', 0:'Autoritative'}
 RR_types_dict = dict(zip(RR_types_code,RR_types_name))
 RR_classes_dict = dict(zip(RR_classes_code,RR_classes_name))
 RCODE_dict = dict(zip(RCODE_list,RCODE_name_list))
+OPCODE_dict = dict(zip(Opcode_code,Opcode_name))

@@ -9,7 +9,6 @@ a = osh.cap
 def swap_dict_values(dict_a,dict_b):
     dict_a = dict(dict_a)
     swaped_dict = {}
-    print(dict_a)
     for key_a,value_a in dict_a.items():
         for key_b,value_b in dict_b.items():
             if key_a == key_b:
@@ -141,7 +140,7 @@ def get_dns_profile(arr):
     print("SRV -" + str(list(compare_name_src(array).values())))
 
     for srv in compare_name_src(array).keys():
-        print(srv)
+        print('name - '+ str(srv))
         rec_count =   0
         ans_count =   0
         un_var =      []
@@ -249,13 +248,14 @@ def get_dns_profile(arr):
         rclass = swap_dict_values(dict(Counter(rclass)),dcode.RR_classes_dict)
         rttl = mean(rttl)
         atime = mean(avg_resp_time)
-        qname_list = is_unique(qname_list)
+        qname_list = is_unique(qname_list)[0]
         rcode_arr = swap_dict_values(dict(Counter(rcode_arr)),dcode.RCODE_dict)    
         qtype_arr = swap_dict_values(dict(Counter(qtype_arr)),dcode.RR_types_dict)    
         qclass_arr = swap_dict_values(dict(Counter(qclass_arr)),dcode.RR_classes_dict)   
-        opcode_arr = dict(Counter(opcode_arr))
-        trunk_arr = dict(Counter(trunk_arr))
-        recursion_arr = dict(Counter(recursion_arr))
+        opcode_arr = swap_dict_values(dict(Counter(opcode_arr)),dcode.OPCODE_dict)
+        trunk_arr = swap_dict_values(dict(Counter(trunk_arr)),dcode.Trunkated_pac)
+        recursion_arr = swap_dict_values(dict(Counter(recursion_arr)),dcode.Recursive_pac)
+
 
         print("SERVER - " + nameserver)
         print("ans_count - " + str(ans_count))
@@ -275,6 +275,6 @@ def get_dns_profile(arr):
         print("rttl - " + str(rttl))
         print("average time - " + str(atime))
 
-        # print("#--------------------------------------#")
+        print("#--------------------------------------#")
 
 get_dns_profile(a)
