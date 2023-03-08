@@ -1,14 +1,13 @@
 import main
 import osh
-import dns_prepare_fdb as dprep
-
+from dns_prepare_fdb import to_dns_arr
 a = osh.cap
 
 count_error = 0
 conn = main.get_db_connection() 
 cur = conn.cursor()
 bad = []
-for i in dprep.to_dns_arr(a):
+for i in to_dns_arr(a):
     if int(i.dns.flags_response) == 0:
             cur.execute('INSERT INTO dns_flags ('
                         'ip_src, ip_dst, id_pac,'
