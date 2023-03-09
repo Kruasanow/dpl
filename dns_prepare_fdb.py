@@ -148,9 +148,9 @@ def get_dns_profile(arr):
     print("SRV -" + str(list(compare_name_src(array).values())))
 
     for srv in compare_name_src(array).keys():
-        # print('name - '+ str(srv))
         rec_count =   0
         ans_count =   0
+        a_rec =       0
         un_var =      []
         orphan_pacs = []
         a_rec_arr =   []
@@ -178,11 +178,6 @@ def get_dns_profile(arr):
                 rec_count = rec_count + 1
             sum_pac = len(arr)
             ans_count = sum_pac - rec_count
-
-            sum_pac = str(sum_pac)
-            ans_count = str(sum_pac)
-            rec_count = str(rec_count)
-            #return ans_count, sum_pac, rec_count
             #----------------------------------
 
             # Find orphaned packets ----------
@@ -204,15 +199,14 @@ def get_dns_profile(arr):
             for i in arr:
                 try:
                     if i.dns.a:
-                        a_rec_arr.append(i)
+                        a_rec_arr.append(i.dns.a)
                 except AttributeError:
                     continue
             a_rec_arr = is_unique(a_rec_arr)
-            try:
-                a_rec_arr = str(a_rec_arr[0].dns.a)
-            except IndexError:
-                a_rec_arr = ""
-            #return a_rec_arr
+            # try:
+            #     a_rec_arr = str(a_rec_arr[0].dns.a)
+            # except IndexError:
+            #     a_rec_arr = ""
             #-----------------------------------
 
             # Count Errors and their type ------
@@ -258,6 +252,10 @@ def get_dns_profile(arr):
             except AttributeError:
                 pass
         
+        try:
+            a_rec = str(a_rec_arr[0])
+        except IndexError:
+            a_rec = ''
         rtype =  swap_dict_values(dict(Counter(rtype)),dcode.RR_types_dict)   
         rclass = swap_dict_values(dict(Counter(rclass)),dcode.RR_classes_dict)
         rttl = mean(rttl)
@@ -270,19 +268,16 @@ def get_dns_profile(arr):
         trunk_arr = swap_dict_values(dict(Counter(trunk_arr)),dcode.Trunkated_pac)
         recursion_arr = swap_dict_values(dict(Counter(recursion_arr)),dcode.Recursive_pac)
 
-        # print("SERVER - " + nameserver)
+        print("SERVER - " + nameserver)#
         print("ans_count - " + str(ans_count))
         print("rec_count - " + str(rec_count))
-        # print("sum_pac - " + str(sum_pac))
+        print("sum_pac - " + str(sum_pac))#
         print("orphan pacs - " + str(orphan_pacs))
-        # try:
-        #     print("a - " + str(a_rec_arr[0].dns.a))
-        # except IndexError:
-        #     print("a - NONE")
         print("rcode - " + str(rcode_arr))
-        # print("qtype - " + str(qtype_arr))
+        print("qtype - " + str(qtype_arr))#
         print("qclass - " + str(qclass_arr))
         print("qname - " + str(qname_list))
+        print('a_record - ' + a_rec)
         print("opcode - " + str(opcode_arr))
         print("trunk - " + str(trunk_arr))
         print("recursion - " + str(recursion_arr))
@@ -292,6 +287,6 @@ def get_dns_profile(arr):
         print("average time - " + str(atime))
 
         print("#--------------------------------------#")
-    return nameserver, srv, a_rec_arr, sum_pac, 
+    return [nameserver, srv, a_rec, sum_pac,]; 
             
 get_dns_profile(a)
