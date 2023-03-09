@@ -176,28 +176,22 @@ def get_dns_profile(arr):
                 nameserver = str(pac.dns.soa_mname)
             except AttributeError:
                 pass
-
             # Counting of request and response packets, their sum
             if int(pac.dns.flags_response) == 1:
                 rec_count = rec_count + 1
             sum_pac = len(arr)
             ans_count = sum_pac - rec_count
-            #----------------------------------
-
             # Find orphaned packets ----------
             for i in arr:
                 if i.dns.id in un_var:
                     continue
                 else:
                     un_var.append(str(i.dns.id))
-
             for un_dns_id in arr:
                 if un_dns_id.dns.id in un_var:
                     continue
                 else:
                     orphan_pacs.append(str(un_dns_id.dns.id))                   
-            #----------------------------------
-
             # IP-addr that DNS-server returned (type A)
             for i in arr:
                 try:
@@ -206,28 +200,18 @@ def get_dns_profile(arr):
                 except AttributeError:
                     continue
             a_rec_arr = is_unique(a_rec_arr)
-            #-----------------------------------
-
             # Count Errors and their type ------
             try:
                 rcode_arr.append(int(pac.dns.flags_rcode))
             except AttributeError:
                 pass
-            #-----------------------------------
-
             # Count query codes and their types
             qtype_arr.append(int(pac.dns.qry_type))
-            #-----------------------------------
-            
             # Count query classes and their types
             qclass_arr.append(pac.dns.qry_class)
-            #------------------------------------
-
             # Count query names and their types
             if int(pac.dns.qry_type) == 1 or int(pac.dns.qry_type) == 28:
                 qname_list.append(pac.dns.qry_name)
-            #------------------------------------
-
             # Count opcode's
             opcode_arr.append(int(pac.dns.flags_opcode))
             # Count trunkated
@@ -239,7 +223,6 @@ def get_dns_profile(arr):
                 rttl.append(float(pac.dns.resp_ttl))
             except AttributeError:
                 pass
-
             # Average response packet time
             try:
                 avg_resp_time.append(float(pac.dns.time))

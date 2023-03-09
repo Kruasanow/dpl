@@ -72,12 +72,12 @@ def about():
 
     # osh.exec_db_init_sh()
 
-    conn = get_db_connection() 
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM books;')
-    table1_test = cur.fetchall() # SAVE DATA IN VARIABLE
-    cur.close()
-    conn.close()
+    # conn = get_db_connection() 
+    # cur = conn.cursor()
+    # cur.execute('SELECT * FROM books;')
+    # table1_test = cur.fetchall() # SAVE DATA IN VARIABLE
+    # cur.close()
+    # conn.close()
 
     return render_template(
                             'about.html',
@@ -89,8 +89,8 @@ def about():
                             dnsTZ = sa.DNSTZ(),
                             dnsAP = sa.DNSAMPL(),
                             ssl = sa.level_ssl(),
-                            insaiders = sa.level_acl()[0],
-                            table = table1_test
+                            insaiders = sa.level_acl()[0]
+                            # table = table1_test
                           )
 
 #-----LOAD------------------------------------------------------------------------------
