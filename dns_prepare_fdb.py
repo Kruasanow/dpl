@@ -4,6 +4,7 @@ import ipaddress
 from statistics import mean
 import dns_codes_list as dcode
 import init_db as idb
+import main
 
 a = osh.cap
 
@@ -149,7 +150,8 @@ def get_dns_profile(arr):
     print("SRV -" + str(list(compare_name_src(array).values())))
 
     for srv in compare_name_src(array).keys():
-        cur = idb.conn.cursor()
+        conn = main.get_db_connection()
+        cur = conn.cursor()
         rec_count =   0
         ans_count =   0
         a_rec =       0
@@ -263,30 +265,58 @@ def get_dns_profile(arr):
         opcode_arr = str(swap_dict_values(dict(Counter(opcode_arr)),dcode.OPCODE_dict))
         trunk_arr = str(swap_dict_values(dict(Counter(trunk_arr)),dcode.Trunkated_pac))
         recursion_arr = str(swap_dict_values(dict(Counter(recursion_arr)),dcode.Recursive_pac))
-        orphan_pacs = str(orphan_pacs)
+        if orphan_pacs == []:
+            orphan_pacs = 'None'
+        else:
+            orphan_pacs = str(orphan_pacs)
         sum_pac = int(sum_pac)
         rec_count = int(rec_count)
         ans_count = int(ans_count)
         nameserver = str(nameserver)
 
+        cur.execute(
+                    'INSERT INTO dns_srv_profile ('
+                    'server, returned_a,'
+                    'sum_pac, qtype, qclass,'
+                    'rcode, recursion, avg_time,'
+                    'avg_ttl, qname, opcode,'
+                    'ans_pac, req_pac, trunk,'
+                    'orphan, rtype, rclass)'
+            'VALUES ('
+                    '%s, %s, %s, %s,'
+                    '%s, %s, %s, %s,'
+                    '%s, %s, %s, %s,'
+                    '%s, %s, %s, %s,'
+                    '%s'
+                    ')',
+                    (
+                    nameserver, a_rec, sum_pac,
+                    qtype_arr, qclass_arr, rcode_arr,
+                    recursion_arr, atime, rttl,
+                    qname_list, opcode_arr, ans_count,
+                    rec_count, trunk_arr, orphan_pacs,
+                    rtype, rclass,
+                    )
+                    )
+        conn.commit()
 
-        # print("SERVER - " + nameserver)#
-        # print("ans_count - " + str(ans_count))
-        # print("rec_count - " + str(rec_count))
-        # print("sum_pac - " + str(sum_pac))#
-        # print("orphan pacs - " + str(orphan_pacs))
-        # print("rcode - " + str(rcode_arr))
-        # print("qtype - " + str(qtype_arr))#
-        # print("qclass - " + str(qclass_arr))
-        # print("qname - " + str(qname_list))
-        # print('a_record - ' + a_rec)
-        # print("opcode - " + str(opcode_arr))
-        # print("trunk - " + str(trunk_arr))
-        # print("recursion - " + str(recursion_arr))
-        # print("rtype - " + str(rtype))
-        # print("rclass - " + str(rclass))
-        # print("rttl - " + str(rttl))
-        # print("average time - " + str(atime))
+        print("SERVER - " + nameserver)#
+        print("ans_count - " + str(ans_count))
+        print("rec_count - " + str(rec_count))
+        print("sum_pac - " + str(sum_pac))#
+        print("orphan pacs - " + str(orphan_pacs))
+        print("rcode - " + str(rcode_arr))
+        print("qtype - " + str(qtype_arr))#
+        print("qclass - " + str(qclass_arr))
+        print("qname - " + str(qname_list))
+        print('a_record - ' + a_rec)
+        print("opcode - " + str(opcode_arr))
+        print("trunk - " + str(trunk_arr))
+        print("recursion - " + str(recursion_arr))
+        print("rtype - " + str(rtype))
+        print("rclass - " + str(rclass))
+        print("rttl - " + str(rttl))
+        print("average time - " + str(atime))
 
         print("#--------------------------------------#")
     # return [nameserver, srv, a_rec, 
@@ -296,5 +326,7 @@ def get_dns_profile(arr):
     #         rttl, qname_list, opcode_arr, 
     #         trunk_arr, rtype, rclass, 
     #         orphan_pacs, ans_count, rec_count]; 
+    cur.close()
+    conn.close()
             
 get_dns_profile(a)
