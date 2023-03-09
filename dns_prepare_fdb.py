@@ -3,6 +3,7 @@ from collections import Counter
 import ipaddress
 from statistics import mean
 import dns_codes_list as dcode
+import init_db as idb
 
 a = osh.cap
 
@@ -148,6 +149,7 @@ def get_dns_profile(arr):
     print("SRV -" + str(list(compare_name_src(array).values())))
 
     for srv in compare_name_src(array).keys():
+        cur = idb.conn.cursor()
         rec_count =   0
         ans_count =   0
         a_rec =       0
@@ -191,8 +193,7 @@ def get_dns_profile(arr):
                 if un_dns_id.dns.id in un_var:
                     continue
                 else:
-                    orphan_pacs.append(str(un_dns_id.dns.id))
-            #return orphan_pacs                    
+                    orphan_pacs.append(str(un_dns_id.dns.id))                   
             #----------------------------------
 
             # IP-addr that DNS-server returned (type A)
@@ -203,10 +204,6 @@ def get_dns_profile(arr):
                 except AttributeError:
                     continue
             a_rec_arr = is_unique(a_rec_arr)
-            # try:
-            #     a_rec_arr = str(a_rec_arr[0].dns.a)
-            # except IndexError:
-            #     a_rec_arr = ""
             #-----------------------------------
 
             # Count Errors and their type ------
@@ -251,42 +248,53 @@ def get_dns_profile(arr):
                 recursion_arr.append(int(pac.dns.flags_recavail))
             except AttributeError:
                 pass
-        
         try:
             a_rec = str(a_rec_arr[0])
         except IndexError:
             a_rec = ''
-        rtype =  swap_dict_values(dict(Counter(rtype)),dcode.RR_types_dict)   
-        rclass = swap_dict_values(dict(Counter(rclass)),dcode.RR_classes_dict)
-        rttl = mean(rttl)
-        atime = mean(avg_resp_time)
+        rtype =  str(swap_dict_values(dict(Counter(rtype)),dcode.RR_types_dict))   
+        rclass = str(swap_dict_values(dict(Counter(rclass)),dcode.RR_classes_dict))
+        rttl = float(mean(rttl))
+        atime = float(mean(avg_resp_time))
         qname_list = is_unique(qname_list)[0]
-        rcode_arr = swap_dict_values(dict(Counter(rcode_arr)),dcode.RCODE_dict)    
-        qtype_arr = swap_dict_values(dict(Counter(qtype_arr)),dcode.RR_types_dict)    
-        qclass_arr = swap_dict_values(dict(Counter(qclass_arr)),dcode.RR_classes_dict)   
-        opcode_arr = swap_dict_values(dict(Counter(opcode_arr)),dcode.OPCODE_dict)
-        trunk_arr = swap_dict_values(dict(Counter(trunk_arr)),dcode.Trunkated_pac)
-        recursion_arr = swap_dict_values(dict(Counter(recursion_arr)),dcode.Recursive_pac)
+        rcode_arr = str(swap_dict_values(dict(Counter(rcode_arr)),dcode.RCODE_dict))    
+        qtype_arr = str(swap_dict_values(dict(Counter(qtype_arr)),dcode.RR_types_dict))    
+        qclass_arr = str(swap_dict_values(dict(Counter(qclass_arr)),dcode.RR_classes_dict))   
+        opcode_arr = str(swap_dict_values(dict(Counter(opcode_arr)),dcode.OPCODE_dict))
+        trunk_arr = str(swap_dict_values(dict(Counter(trunk_arr)),dcode.Trunkated_pac))
+        recursion_arr = str(swap_dict_values(dict(Counter(recursion_arr)),dcode.Recursive_pac))
+        orphan_pacs = str(orphan_pacs)
+        sum_pac = int(sum_pac)
+        rec_count = int(rec_count)
+        ans_count = int(ans_count)
+        nameserver = str(nameserver)
 
-        print("SERVER - " + nameserver)#
-        print("ans_count - " + str(ans_count))
-        print("rec_count - " + str(rec_count))
-        print("sum_pac - " + str(sum_pac))#
-        print("orphan pacs - " + str(orphan_pacs))
-        print("rcode - " + str(rcode_arr))
-        print("qtype - " + str(qtype_arr))#
-        print("qclass - " + str(qclass_arr))
-        print("qname - " + str(qname_list))
-        print('a_record - ' + a_rec)
-        print("opcode - " + str(opcode_arr))
-        print("trunk - " + str(trunk_arr))
-        print("recursion - " + str(recursion_arr))
-        print("rtype - " + str(rtype))
-        print("rclass - " + str(rclass))
-        print("rttl - " + str(rttl))
-        print("average time - " + str(atime))
+
+        # print("SERVER - " + nameserver)#
+        # print("ans_count - " + str(ans_count))
+        # print("rec_count - " + str(rec_count))
+        # print("sum_pac - " + str(sum_pac))#
+        # print("orphan pacs - " + str(orphan_pacs))
+        # print("rcode - " + str(rcode_arr))
+        # print("qtype - " + str(qtype_arr))#
+        # print("qclass - " + str(qclass_arr))
+        # print("qname - " + str(qname_list))
+        # print('a_record - ' + a_rec)
+        # print("opcode - " + str(opcode_arr))
+        # print("trunk - " + str(trunk_arr))
+        # print("recursion - " + str(recursion_arr))
+        # print("rtype - " + str(rtype))
+        # print("rclass - " + str(rclass))
+        # print("rttl - " + str(rttl))
+        # print("average time - " + str(atime))
 
         print("#--------------------------------------#")
-    return [nameserver, srv, a_rec, sum_pac,]; 
+    # return [nameserver, srv, a_rec, 
+    #         sum_pac, qtype_arr, 
+    #         qclass_arr, rcode_arr, 
+    #         recursion_arr, atime, 
+    #         rttl, qname_list, opcode_arr, 
+    #         trunk_arr, rtype, rclass, 
+    #         orphan_pacs, ans_count, rec_count]; 
             
 get_dns_profile(a)
