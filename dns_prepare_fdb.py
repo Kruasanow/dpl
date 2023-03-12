@@ -155,6 +155,10 @@ def get_dns_profile(arr):
         rec_count =   0
         ans_count =   0
         a_rec =       0
+        nameserver =  ''
+        soa_refresh = 0
+        soa_exp_limit=0
+        soa_min_ttl = 0
         un_var =      []
         orphan_pacs = []
         a_rec_arr =   []
@@ -171,9 +175,21 @@ def get_dns_profile(arr):
         avg_resp_time=[]
         arr = get_dump_by_service(array,str(srv))
         for pac in arr:
-            # Find nameserver
+            # 'soa_expire_limit', 'soa_mininum_ttl', 'soa_mname', 'soa_refresh_interval'
             try:
                 nameserver = str(pac.dns.soa_mname)
+            except AttributeError:
+                pass
+            try:
+                soa_refresh = int(pac.dns.soa_refresh_interval)
+            except AttributeError:
+                pass
+            try:
+                soa_exp_limit = int(pac.dns.soa_expire_limit)
+            except AttributeError:
+                pass
+            try:
+                soa_min_ttl = int(pac.dns.soa_mininum_ttl)
             except AttributeError:
                 pass
             # Counting of request and response packets, their sum
@@ -198,7 +214,7 @@ def get_dns_profile(arr):
                     if i.dns.a:
                         a_rec_arr.append(i.dns.a)
                 except AttributeError:
-                    continue
+                    pass
             a_rec_arr = is_unique(a_rec_arr)
             # Count Errors and their type ------
             try:
@@ -233,6 +249,7 @@ def get_dns_profile(arr):
                 recursion_arr.append(int(pac.dns.flags_recavail))
             except AttributeError:
                 pass
+
         try:
             a_rec = str(a_rec_arr[0])
         except IndexError:
@@ -256,6 +273,10 @@ def get_dns_profile(arr):
         rec_count = int(rec_count)
         ans_count = int(ans_count)
         nameserver = str(nameserver)
+        soa_refresh = int(soa_refresh)
+        soa_exp_limit = int(soa_exp_limit)
+        soa_min_ttl = int(soa_min_ttl)
+
 
         cur.execute(
                     'INSERT INTO dns_srv_profile ('
@@ -264,21 +285,23 @@ def get_dns_profile(arr):
                     'rcode, recursion, avg_time,'
                     'avg_ttl, qname, opcode,'
                     'ans_pac, req_pac, trunk,'
+                    'soa_refresh, soa_exp_limit, soa_min_ttl,'
                     'orphan, rtype, rclass)'
             'VALUES ('
                     '%s, %s, %s, %s,'
                     '%s, %s, %s, %s,'
                     '%s, %s, %s, %s,'
                     '%s, %s, %s, %s,'
-                    '%s'
+                    '%s, %s, %s, %s'
                     ')',
                     (
                     nameserver, a_rec, sum_pac,
                     qtype_arr, qclass_arr, rcode_arr,
                     recursion_arr, atime, rttl,
                     qname_list, opcode_arr, ans_count,
-                    rec_count, trunk_arr, orphan_pacs,
-                    rtype, rclass,
+                    rec_count, trunk_arr, soa_refresh,
+                    soa_exp_limit, soa_min_ttl,
+                    orphan_pacs, rtype, rclass,
                     )
                     )
         conn.commit()

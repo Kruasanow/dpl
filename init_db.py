@@ -66,6 +66,9 @@ cur.execute('CREATE TABLE dns_srv_profile (id serial PRIMARY KEY,'
                                  'ans_pac int,'# #
                                  'req_pac int,'# #
                                  'trunk varchar (256),'# #
+                                 'soa_refresh int,'
+                                 'soa_exp_limit int,'
+                                 'soa_min_ttl int,'
                                  'orphan varchar (200),'# #
                                  'rtype varchar (100),'# #
                                  'rclass varchar (100),'# #

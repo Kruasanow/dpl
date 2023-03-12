@@ -4,6 +4,7 @@ import dns_codes_list as dcode
 
 cap = osh.cap
 
+print(dir(dprep.to_dns_arr(cap)[39].dns))
 # dns_arr = dprep.dns_arr
 print('------------')
 
