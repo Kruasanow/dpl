@@ -146,8 +146,8 @@ def get_dump_by_service(arr, qname):
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
 
-    print("Domain names -" + str(list(compare_name_src(array).keys())))
-    print("SRV -" + str(list(compare_name_src(array).values())))
+    # print("Domain names -" + str(list(compare_name_src(array).keys())))
+    # print("SRV -" + str(list(compare_name_src(array).values())))
 
     for srv in compare_name_src(array).keys():
         conn = main.get_db_connection()
@@ -175,7 +175,6 @@ def get_dns_profile(arr):
         avg_resp_time=[]
         arr = get_dump_by_service(array,str(srv))
         for pac in arr:
-            # 'soa_expire_limit', 'soa_mininum_ttl', 'soa_mname', 'soa_refresh_interval'
             try:
                 nameserver = str(pac.dns.soa_mname)
             except AttributeError:
@@ -306,25 +305,25 @@ def get_dns_profile(arr):
                     )
         conn.commit()
 
-        print("SERVER - " + nameserver)#
-        print("ans_count - " + str(ans_count))
-        print("rec_count - " + str(rec_count))
-        print("sum_pac - " + str(sum_pac))#
-        print("orphan pacs - " + str(orphan_pacs))
-        print("rcode - " + str(rcode_arr))
-        print("qtype - " + str(qtype_arr))#
-        print("qclass - " + str(qclass_arr))
-        print("qname - " + str(qname_list))
-        print('a_record - ' + a_rec)
-        print("opcode - " + str(opcode_arr))
-        print("trunk - " + str(trunk_arr))
-        print("recursion - " + str(recursion_arr))
-        print("rtype - " + str(rtype))
-        print("rclass - " + str(rclass))
-        print("rttl - " + str(rttl))
-        print("average time - " + str(atime))
+        # print("SERVER - " + nameserver)#
+        # print("ans_count - " + str(ans_count))
+        # print("rec_count - " + str(rec_count))
+        # print("sum_pac - " + str(sum_pac))#
+        # print("orphan pacs - " + str(orphan_pacs))
+        # print("rcode - " + str(rcode_arr))
+        # print("qtype - " + str(qtype_arr))#
+        # print("qclass - " + str(qclass_arr))
+        # print("qname - " + str(qname_list))
+        # print('a_record - ' + a_rec)
+        # print("opcode - " + str(opcode_arr))
+        # print("trunk - " + str(trunk_arr))
+        # print("recursion - " + str(recursion_arr))
+        # print("rtype - " + str(rtype))
+        # print("rclass - " + str(rclass))
+        # print("rttl - " + str(rttl))
+        # print("average time - " + str(atime))
 
-        print("#--------------------------------------#")
+        # print("#--------------------------------------#")
     # return [nameserver, srv, a_rec, 
     #         sum_pac, qtype_arr, 
     #         qclass_arr, rcode_arr, 

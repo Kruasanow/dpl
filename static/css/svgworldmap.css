@@ -1,0 +1,8 @@
+.worldmap {fill:white;stroke:black;stroke-width:0.5px;}
+.worldmap:hover {fill:#e0ffe0;stroke:black;stroke-width:0.5px;}
+
+.worldmap_1 {fill:#c0c0c0;stroke:black;stroke-width:0.5px;}
+.worldmap_1:hover {fill:#c0ffc0;stroke:black;stroke-width:0.5px;}
+
+.worldmap_2 {fill:#e0e0e0;stroke:black;stroke-width:0.5px;}
+.worldmap_2:hover {fill:#e0ffe0;stroke:black;stroke-width:0.5px;}

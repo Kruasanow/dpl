@@ -3,3 +3,4 @@ flask-admin==1.6
 flask-sqlalchemy==2.5
 werkzeug
 ipaddress
+python-whois

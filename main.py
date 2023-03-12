@@ -93,6 +93,16 @@ def about():
                             # table = table1_test
                           )
 
+@app.route('/dnsmap', methods = ['get','post'])
+def dnsmap():
+    print(url_for('dnsmap'))
+
+
+
+    return render_template(
+                            'example.html'
+                            )
+
 #-----LOAD------------------------------------------------------------------------------
 
 if __name__ == "__main__":

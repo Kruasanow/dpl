@@ -26,6 +26,6 @@ packet size limit value		         DONE -> sum_pac
 time between answer and request      DONE -> avg_time
 recursion			                 DONE -> recursion
 tc				                     DONE -> trunk
-update time soa record
-numeber of slave servers 
+update time soa record               DONE -> 'soa_expire_limit', 'soa_mininum_ttl', 'soa_mname', 'soa_refresh_interval'
+number of slave servers 
 provider
