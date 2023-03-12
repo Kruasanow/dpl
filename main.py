@@ -97,10 +97,11 @@ def about():
 def dnsmap():
     print(url_for('dnsmap'))
 
-
+    rc = 'BR'
 
     return render_template(
-                            'example.html'
+                            'example.html',
+                            rc = rc
                             )
 
 #-----LOAD------------------------------------------------------------------------------

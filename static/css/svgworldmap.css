@@ -1,8 +1,8 @@
-.worldmap {fill:white;stroke:black;stroke-width:0.5px;}
-.worldmap:hover {fill:#e0ffe0;stroke:black;stroke-width:0.5px;}
+.worldmap {fill:rgb(255, 255, 255);stroke:black;stroke-width:0.5px;}
+.worldmap:hover {fill:#000000;stroke:black;stroke-width:0.5px;}
 
-.worldmap_1 {fill:#c0c0c0;stroke:black;stroke-width:0.5px;}
-.worldmap_1:hover {fill:#c0ffc0;stroke:black;stroke-width:0.5px;}
+.worldmap_1 {fill:#46f800;stroke:black;stroke-width:0.5px;}
+.worldmap_1:hover {fill:#000000;stroke:black;stroke-width:0.5px;}
 
-.worldmap_2 {fill:#e0e0e0;stroke:black;stroke-width:0.5px;}
-.worldmap_2:hover {fill:#e0ffe0;stroke:black;stroke-width:0.5px;}
+.worldmap_2 {fill:#ff0000;stroke:black;stroke-width:0.5px;}
+.worldmap_2:hover {fill:#000000;stroke:black;stroke-width:0.5px;}
