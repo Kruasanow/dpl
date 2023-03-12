@@ -19,3 +19,13 @@
 amplif dns recursion test
 check geoposition by root dns serv
 check provider
+
+PROFILE: 
+ttl				DONE -> avg_ttl
+packet size limit value		DONE -> sum_pac
+time between answer and request DONE -> avg_time
+recursion			DONE -> recursion
+tc				DONE -> trunk
+update time soa record
+numeber of slave servers 
+provider
