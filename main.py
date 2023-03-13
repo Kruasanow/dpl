@@ -4,7 +4,7 @@ import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
-import dns_whois as dnsw
+from dns_whois import get_qname_list, do_whois
 import conn_db as cdb
 
 app = Flask(__name__)    
@@ -99,11 +99,11 @@ def about():
 def dnsmap():
     print(url_for('dnsmap'))
 
-    rc = {'RU':2, 'UA':2, 'CA':2}
+    # rc = dnsw.do_whois(dnsw.do_whois(dnsw.get_qname_list)) # kostil ebany
 
     return render_template(
                             'example.html',
-                            data = rc
+                            data = do_whois(get_qname_list)
                             )
 
 #-----LOAD------------------------------------------------------------------------------

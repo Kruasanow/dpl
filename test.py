@@ -1,13 +1,29 @@
-import osh 
-import dns_prepare_fdb as dprep
-import dns_codes_list as dcode
 import whois
+import conn_db as cdb
 
-cap = osh.cap
+def get_qname_list():
+    try:
+        conn = cdb.get_db_connection()
+        cur = conn.cursor()
+        cur.execute('SELECT qname FROM dns_srv_profile;')
+        case1 = cur.fetchall()
+        cur.close()
+        conn.close()
+    except Exception:
+        print('error exists!')
 
-# print(dir(dprep.to_dns_arr(cap)[39].dns))
-# print('------------')
+    qname_arr = []
+    ldomain = 'localdomain'
+    for i in case1:
+        if ldomain in str(i):
+            continue
+        qname_arr.append(str(i).translate({
+                                    ord("'"): None, 
+                                    ord("("): None,
+                                    ord(")"): None,
+                                    ord(","): None
+                                    }))
+    
+    return qname_arr
 
-who = whois.whois('goal.footbal.com')
-print(dir(who))
-print(who)
+print(get_qname_list())
