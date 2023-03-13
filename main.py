@@ -86,7 +86,7 @@ def about():
 def dnsmap():
     print(url_for('dnsmap'))
     get_by_whois = do_whois(get_qname_list())
-    get_items = get_items_from_who(get_by_whois[1])
+    get_items = get_items_from_who(get_by_whois[1]) ## РАЗОБРАТЬСЯ БЛЯТЬ КАКОГО ХУЯ ЭТА МРАЗЬ ЗАЛУПУ КИДАЕТ
 
     return render_template(
                             'example.html',
