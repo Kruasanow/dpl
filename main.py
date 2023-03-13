@@ -5,6 +5,7 @@ import scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
 import dns_whois as dnsw
+import conn_db as cdb
 
 app = Flask(__name__)    
 app.config['UPLOAD_FOLDER'] = osh.UPLOAD_FOLDER
