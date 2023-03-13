@@ -47,7 +47,7 @@ jQuery(document).ready(function(){
 	jQuery('#place').SVGWorldMap({
 		bottom:20, /* Bottom padding (removes antarctica from map) */
 		clickhandler :'countryclick', /* Click handler function name */
-		c : {BR:2,RU:1,IN:1,CN:1,US:1,UK:1} /* Country classes */
+		c : {{ data|safe }} /* Country classes */
 		});
 
 	});
