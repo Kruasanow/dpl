@@ -1,4 +1,0 @@
-    1 0.000000000              →              ERF 0 Unknown type 77
-    2 671088508.960874054 d2:c2:01:bb:85:90 → 8a:09:9d:f0:fd:01 0xd912 17491 Ethernet II
-    3 51871961.602296265          DTE → DCE          ATM 35221 Unknown AAL
-    4 -199.828324141              →              ERF 3113 Unknown type 80

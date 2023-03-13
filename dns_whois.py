@@ -1,23 +1,22 @@
-import osh 
-import dns_prepare_fdb as dprep
-import dns_codes_list as dcode
 import whois
-import conn_db as cdb
 
-conn = cdb.get_db_connection() 
-cur = conn.cursor()
-cur.execute('SELECT server FROM dns_srv_profile;')
-table1_test = cur.fetchall() # SAVE DATA IN VARIABLE
-good_exec_arr = []
-print(table1_test)
-# for i in table1_test:
-#     t = 
-
-cur.close()
-conn.close()
-
-
-cap = osh.cap
 who_dict = {}
-# who = whois.whois('visitnorway.com')
-# print(who)
+res_arr = []
+good_arr = ['vk.com','lesta.ru','ucoz.com','cars.io']
+for i in good_arr:
+    who = whois.whois(i)
+    print(who)
+    if who.country != None:
+        res_arr.append(who.country)
+        if who.registrant_country != None:
+            res_arr.append(who.registrant_country)
+    else:
+        continue
+print(res_arr)
+
+res_arr_once = [3]*len(res_arr)
+print(res_arr_once)
+
+final_dict = dict(zip(res_arr,res_arr_once))
+
+print(final_dict)

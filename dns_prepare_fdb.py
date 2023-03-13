@@ -144,7 +144,7 @@ def get_dump_by_service(arr, qname):
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
     array = to_dns_arr(arr)
-
+    counter = 0
     # print("Domain names -" + str(list(compare_name_src(array).keys())))
     # print("SRV -" + str(list(compare_name_src(array).values())))
 
@@ -274,7 +274,8 @@ def get_dns_profile(arr):
         soa_refresh = int(soa_refresh)
         soa_exp_limit = int(soa_exp_limit)
         soa_min_ttl = int(soa_min_ttl)
-
+        
+        counter = counter + 1
 
         cur.execute(
                     'INSERT INTO dns_srv_profile ('
@@ -330,7 +331,9 @@ def get_dns_profile(arr):
     #         rttl, qname_list, opcode_arr, 
     #         trunk_arr, rtype, rclass, 
     #         orphan_pacs, ans_count, rec_count]; 
+    print(counter)
     cur.close()
     conn.close()
+    return counter
             
 get_dns_profile(a)

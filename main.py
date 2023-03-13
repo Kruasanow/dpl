@@ -99,7 +99,7 @@ def about():
 def dnsmap():
     print(url_for('dnsmap'))
 
-    rc = dnsw.who_dict
+    rc = {'RU':2, 'UA':2, 'CA':2}
 
     return render_template(
                             'example.html',
