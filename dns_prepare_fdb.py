@@ -1,11 +1,10 @@
-import osh
 from collections import Counter
 import ipaddress
 from statistics import mean
 import dns_codes_list as dcode
 import conn_db as cdb
 
-a = osh.cap
+# a = osh.cap
 
 def swap_dict_values(dict_a,dict_b):
     dict_a = dict(dict_a)
@@ -336,4 +335,3 @@ def get_dns_profile(arr):
     conn.close()
     return counter
             
-get_dns_profile(a)

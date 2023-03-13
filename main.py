@@ -4,8 +4,10 @@ import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
-from dns_whois import get_qname_list, do_whois
+from dns_whois import get_qname_list, do_whois, get_items_from_who
 import conn_db as cdb
+import dns_db_addiction as dnsadd
+import dns_prepare_fdb as dprep
 
 app = Flask(__name__)    
 app.config['UPLOAD_FOLDER'] = osh.UPLOAD_FOLDER
@@ -29,15 +31,9 @@ def jinja_is_prime(n):
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
-    
-    # CREATE DATABASE #
-    # conn = get_db_connection() 
-    # cur = conn.cursor()
-    # cur.execute('SELECT * FROM books;')
-    # table1_test = cur.fetchall() # СОХРАНЕНИЕ ДАННЫХ В ПЕРЕМЕННОЙ
-    # cur.close()
-    # conn.close()
-    # # # # # # # # # # 
+
+    dnsadd.init_db(osh.cap)
+    dprep.get_dns_profile(osh.cap)
 
     output_way = 'dump_output/' + osh.output_dump
     arr_dump = []
@@ -72,15 +68,6 @@ def index():
 def about():
     print(url_for('about'))
 
-    # osh.exec_db_init_sh()
-
-    # conn = get_db_connection() 
-    # cur = conn.cursor()
-    # cur.execute('SELECT * FROM books;')
-    # table1_test = cur.fetchall() # SAVE DATA IN VARIABLE
-    # cur.close()
-    # conn.close()
-
     return render_template(
                             'about.html',
                             acl = sa.level_acl()[1],
@@ -98,12 +85,13 @@ def about():
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
     print(url_for('dnsmap'))
-
-    # rc = dnsw.do_whois(dnsw.do_whois(dnsw.get_qname_list)) # kostil ebany
+    get_by_whois = do_whois(get_qname_list())
+    get_items = get_items_from_who(get_by_whois[1])
 
     return render_template(
                             'example.html',
-                            data = do_whois(get_qname_list)
+                            data = get_by_whois[0]
+                            # items = get_items
                             )
 
 #-----LOAD------------------------------------------------------------------------------

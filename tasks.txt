@@ -29,3 +29,15 @@ tc				                     DONE -> trunk
 update time soa record               DONE -> 'soa_expire_limit', 'soa_mininum_ttl', 'soa_mname', 'soa_refresh_interval'
 number of slave servers 
 provider
+
+country
+state
+city
+address
+org
+emails
+name_servers
+creation_date
+updated_date
+registrar
+domain_name
