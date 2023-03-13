@@ -3,8 +3,7 @@ from collections import Counter
 import ipaddress
 from statistics import mean
 import dns_codes_list as dcode
-import init_db as idb
-import main
+import conn_db as cdb
 
 a = osh.cap
 
@@ -150,7 +149,7 @@ def get_dns_profile(arr):
     # print("SRV -" + str(list(compare_name_src(array).values())))
 
     for srv in compare_name_src(array).keys():
-        conn = main.get_db_connection()
+        conn = cdb.get_db_connection()
         cur = conn.cursor()
         rec_count =   0
         ans_count =   0

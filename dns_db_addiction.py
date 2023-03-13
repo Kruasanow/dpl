@@ -1,10 +1,10 @@
-import main
+import conn_db as cdb
 import osh
 from dns_prepare_fdb import to_dns_arr
 a = osh.cap
 
 count_error = 0
-conn = main.get_db_connection() 
+conn = cdb.get_db_connection() 
 cur = conn.cursor()
 bad = []
 for i in to_dns_arr(a):

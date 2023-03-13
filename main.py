@@ -4,17 +4,18 @@ import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
+import dns_whois as dnsw
 
 app = Flask(__name__)    
 app.config['UPLOAD_FOLDER'] = osh.UPLOAD_FOLDER
 
-def get_db_connection():
-    conn = ps.connect(host='localhost',
-                      database='flask_db',
-                      user=os.environ['DB_USERNAME'],
-                      password=os.environ['DB_PASSWORD']
-                    )
-    return conn
+# def get_db_connection():
+#     conn = ps.connect(host='localhost',
+#                       database='flask_db',
+#                       user=os.environ['DB_USERNAME'],
+#                       password=os.environ['DB_PASSWORD']
+#                     )
+#     return conn
 
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
@@ -97,7 +98,7 @@ def about():
 def dnsmap():
     print(url_for('dnsmap'))
 
-    rc = {'BR':1, 'RU':1}
+    rc = dnsw.who_dict
 
     return render_template(
                             'example.html',
