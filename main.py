@@ -1,24 +1,16 @@
 from flask import Flask, render_template, url_for, request
-from osh import cap, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list
+from osh import cap, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh
 import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
 from dns_whois import get_qname_list, do_whois, get_items_from_who
 import conn_db as cdb
-import dns_db_addiction as dnsadd
-import dns_prepare_fdb as dprep
+from dns_db_addiction import init_db, add_dump
+from dns_prepare_fdb import get_dns_profile
 
 app = Flask(__name__)    
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# def get_db_connection():
-#     conn = ps.connect(host='localhost',
-#                       database='flask_db',
-#                       user=os.environ['DB_USERNAME'],
-#                       password=os.environ['DB_PASSWORD']
-#                     )
-#     return conn
 
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
@@ -32,9 +24,7 @@ def jinja_is_prime(n):
 def index():
     print(url_for('index'))
     print('main.py: osh.cap - ' +str(cap))
-    dnsadd.init_db(cap)
-    dprep.get_dns_profile(cap)
-
+    # exec_db_init_sh()
     output_way = 'dump_output/' + output_dump
     arr_dump = []
     with open(output_way) as file:
@@ -44,11 +34,13 @@ def index():
     if request.method == "POST":
         file = request.files['file']
         print('main.py: file - ' + str(file))
+        init_db(cap)
+        get_dns_profile(cap)
         if file and current_file(file.filename):
             filename = secure_filename(file.filename)
             print('main.py: filename - ' + str(filename))
 
-            dnsadd.add_dump(str(filename)) # add dump name to database
+            add_dump(str(filename)) # add dump name to database
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
