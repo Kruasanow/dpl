@@ -77,12 +77,14 @@ def about():
 def dnsmap():
     rc = []
     print(url_for('dnsmap'))
-    # for i in do_whois(get_qname_list()): #NO INET
-    #     rc.append(i)
+    for i in do_whois(get_qname_list()): #NO INET
+        rc.append(i)
+    # print(rc[1][1].domain_name)
+    who_json = get_items_from_who(rc[1])
     return render_template(
                             'example.html',
-                            data = {'BY':2, 'JP':2, 'IS':2} # KOSTIL'
-                            # items = get_items
+                            data = rc[0], # KOSTIL'
+                            who = who_json
                             )
 
 #-----LOAD------------------------------------------------------------------------------
