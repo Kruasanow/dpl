@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request
-import osh
+from osh import cap, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list
 import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
@@ -10,7 +10,7 @@ import dns_db_addiction as dnsadd
 import dns_prepare_fdb as dprep
 
 app = Flask(__name__)    
-app.config['UPLOAD_FOLDER'] = osh.UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # def get_db_connection():
 #     conn = ps.connect(host='localhost',
@@ -31,11 +31,11 @@ def jinja_is_prime(n):
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
+    print('main.py: osh.cap - ' +str(cap))
+    dnsadd.init_db(cap)
+    dprep.get_dns_profile(cap)
 
-    dnsadd.init_db(osh.cap)
-    dprep.get_dns_profile(osh.cap)
-
-    output_way = 'dump_output/' + osh.output_dump
+    output_way = 'dump_output/' + output_dump
     arr_dump = []
     with open(output_way) as file:
         for line in file:
@@ -43,21 +43,20 @@ def index():
 
     if request.method == "POST":
         file = request.files['file']
-        if file and osh.current_file(file.filename):
+        print('main.py: file - ' + str(file))
+        if file and current_file(file.filename):
             filename = secure_filename(file.filename)
+            print('main.py: filename - ' + str(filename))
+
+            dnsadd.add_dump(str(filename)) # add dump name to database
+
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            osh.convert_dump(filename,osh.output_dump)
+            convert_dump(filename,output_dump)
         return render_template(
                             'index.html', 
                             sd = arr_dump,
-                            filename = filename,
-                            dns_pack = osh.dns_pack,
-                            tcp_pack = osh.tcp_pack,
-                            udp_pack = osh.udp_pack,
-                            ssl_pack = osh.ssl_pack,
-                            vss_pack = osh.vss_pack,
-                            data_pack = osh.data_pack,
-                            icmp_pack = osh.icmp_pack,
+                            filename = get_dname_from_db(),
+                            counted_packets = analize_table(pac_t_list,cap),
                             )
         
     return render_template(
@@ -84,13 +83,13 @@ def about():
 
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
+    rc = []
     print(url_for('dnsmap'))
-    get_by_whois = do_whois(get_qname_list())
-    get_items = get_items_from_who(get_by_whois[1]) ## РАЗОБРАТЬСЯ БЛЯТЬ КАКОГО ХУЯ ЭТА МРАЗЬ ЗАЛУПУ КИДАЕТ
-
+    # for i in do_whois(get_qname_list()): #NO INET
+    #     rc.append(i)
     return render_template(
                             'example.html',
-                            data = get_by_whois[0]
+                            data = {'BY':2, 'JP':2, 'IS':2} # KOSTIL'
                             # items = get_items
                             )
 

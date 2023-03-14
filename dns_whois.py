@@ -10,7 +10,7 @@ def get_qname_list():
         cur.close()
         conn.close()
     except Exception:
-        print('error exists!')
+        print('dns_whois.py: error exists!')
 
     qname_arr = []
     ldomain = 'localdomain'
@@ -25,13 +25,14 @@ def get_qname_list():
                                     }))
     return qname_arr
 
-good_arr = get_qname_list()
-def do_whois(arr):
+# good_arr = get_qname_list()
+def do_whois(good_arr):
     res_arr = []
     who_list_json = []
     for i in good_arr:
         who = whois.whois(i)
         who_list_json.append(who)
+        print('dns_whois.py: ')
         print(who)
         print('-----------')
         if who.country != None:
@@ -39,6 +40,12 @@ def do_whois(arr):
             continue
         if who.registrant_country != None:
             res_arr.append(who.registrant_country)
+            continue
+        if who.country != 'GB':
+            res_arr.append('UK')
+            continue
+        if who.registrant_country != 'GB':
+            res_arr.append('UK')
             continue
     res_arr_once = [2]*len(res_arr)
     final_dict = dict(zip(res_arr,res_arr_once))

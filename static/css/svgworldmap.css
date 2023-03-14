@@ -1,8 +1,8 @@
 .worldmap {fill:rgb(255, 255, 255);stroke:black;stroke-width:0.5px;}
-.worldmap:hover {fill:#000000;stroke:black;stroke-width:0.5px;}
+.worldmap:hover {fill:#b9b9b9;stroke:black;stroke-width:0.5px;}
 
 .worldmap_1 {fill:#46f800;stroke:black;stroke-width:0.5px;}
-.worldmap_1:hover {fill:#000000;stroke:black;stroke-width:0.5px;}
+.worldmap_1:hover {fill:#b1ffa2;stroke:black;stroke-width:0.5px;}
 
 .worldmap_2 {fill:#ff0000;stroke:black;stroke-width:0.5px;}
-.worldmap_2:hover {fill:#000000;stroke:black;stroke-width:0.5px;}
+.worldmap_2:hover {fill:#ff8a8a;stroke:black;stroke-width:0.5px;}

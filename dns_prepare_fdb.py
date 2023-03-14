@@ -142,14 +142,14 @@ def get_dump_by_service(arr, qname):
 
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
+    conn = cdb.get_db_connection()
+    cur = conn.cursor()    
     array = to_dns_arr(arr)
     counter = 0
     # print("Domain names -" + str(list(compare_name_src(array).keys())))
     # print("SRV -" + str(list(compare_name_src(array).values())))
 
     for srv in compare_name_src(array).keys():
-        conn = cdb.get_db_connection()
-        cur = conn.cursor()
         rec_count =   0
         ans_count =   0
         a_rec =       0
@@ -330,7 +330,7 @@ def get_dns_profile(arr):
     #         rttl, qname_list, opcode_arr, 
     #         trunk_arr, rtype, rclass, 
     #         orphan_pacs, ans_count, rec_count]; 
-    print(counter)
+    print('dns_prepare_fdb.py: srv counter - '+str(counter))
     cur.close()
     conn.close()
     return counter

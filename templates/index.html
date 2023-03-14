@@ -73,13 +73,9 @@
                       </tr>
                       <tr>
                         <td>Количество пакетов</td>
-                        <td>{{ dns_pack }}</td>
-                        <td>{{ tcp_pack }}</td>
-                        <td>{{ udp_pack }}</td>
-                        <td>{{ ssl_pack }}</td>
-                        <td>{{ vss_pack }}</td>
-                        <td>{{ data_pack }}</td>
-                        <td>{{ icmp_pack }}</td>
+                        {% for i in counted_packets %}
+                        <td>{{ i }}</td>
+                        {% endfor %}
                       </tr>
                     </table>
                     <div class="indent-traffic">

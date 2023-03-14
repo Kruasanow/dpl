@@ -1,5 +1,8 @@
 import whois
 import conn_db as cdb
+import osh
+
+print(osh.get_dname_from_db())
 
 def get_qname_list():
     try:
@@ -26,4 +29,4 @@ def get_qname_list():
     
     return qname_arr
 
-print(get_qname_list())
+# print(get_qname_list())

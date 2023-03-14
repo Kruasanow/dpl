@@ -75,7 +75,8 @@ cur.execute('CREATE TABLE dns_srv_profile (id serial PRIMARY KEY,'
                                  'date_added date DEFAULT CURRENT_TIMESTAMP);'
                                  ) 
 
-
+cur.execute('DROP TABLE IF EXISTS dump_list;')
+cur.execute('CREATE TABLE dump_list (id serial PRIMARY KEY, dname varchar (64));') 
 conn.commit()
 
 cur.close()
