@@ -4,7 +4,7 @@ import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
-from dns_whois import get_qname_list, do_whois, get_items_from_who
+from dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
 import conn_db as cdb
 from dns_db_addiction import init_db, add_dump
 from dns_prepare_fdb import get_dns_profile
@@ -79,8 +79,10 @@ def dnsmap():
     print(url_for('dnsmap'))
     for i in do_whois(get_qname_list()): #NO INET
         rc.append(i)
-    # print(rc[1][1].domain_name)
+    print(rc[1])
     who_json = get_items_from_who(rc[1])
+    who_json = transponate_arr(who_json)
+
     return render_template(
                             'example.html',
                             data = rc[0], # KOSTIL'

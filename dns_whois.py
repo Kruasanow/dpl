@@ -115,3 +115,12 @@ def get_items_from_who(arr):
             updated_date, registrar,
             domain_name
             ]
+
+def transponate_arr(arr):
+    # tarr = [[]*len(arr[0])]*len(arr)
+    # for i in range(len(arr)):
+    #     for j in range(len(arr[0])):
+    #         tarr[j][i] = arr[i][j]
+    zarr = zip(*arr)
+    tarr = [list(row) for row in zarr]
+    return tarr

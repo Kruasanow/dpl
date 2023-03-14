@@ -53,12 +53,32 @@ jQuery(document).ready(function(){
 	});
 
 </script>
-<div>
-	<!-- {% for i in get_items %}
-		<h5>i</h5>
-	{% endfor %} -->
-</div>
+
 <div class="lastlink">
+	<div>
+		<table>
+			<tr>
+			  <th>Параметр</th>
+			  <th>Страна</th>
+			  <th>Штат</th>
+			  <th>Город</th>
+			  <th>Адресс</th>
+			  <th>Email</th>
+			  <th>DNS-сервера</th>
+			  <th>Дата создания</th>
+			  <th>Дата обновления</th>
+			  <th>Регистратор</th>
+			  <th>Доменное имя</th>
+			</tr>
+			{% for i in who %}
+			<tr>
+			  {% for j in i %}
+			  <td>{{ j }}</td>
+			  {% endfor %}
+			</tr>
+			{% endfor %}
+		  </table>
+	</div>
 </div>
 
 </body>
