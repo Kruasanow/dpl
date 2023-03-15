@@ -10,3 +10,9 @@ creation_date
 updated_date
 registrar
 domain_name
+
+
+fc2.com
+livedoor.com
+aajtak.in
+facebook.com

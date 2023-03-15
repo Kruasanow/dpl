@@ -27,12 +27,12 @@ def jinja_is_prime(n):
 def index():
     print(url_for('index'))
     # print('[*]main.py: osh.cap - ' +str(cap))
-    # exec_db_init_sh()
-    output_way = 'dump_output/' + output_dump
-    arr_dump = []
-    with open(output_way) as file:
-        for line in file:
-            arr_dump.append(line.rstrip())
+    exec_db_init_sh()
+    # output_way = 'dump_output/' + output_dump
+    # arr_dump = []
+    # with open(output_way) as file:
+    #     for line in file:
+    #         arr_dump.append(line.rstrip())
 
     if request.method == "POST":
         file = request.files['file']
@@ -53,7 +53,12 @@ def index():
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
-        return render_template(
+            output_way = 'dump_output/' + output_dump
+            arr_dump = []
+            with open(output_way) as file:
+                for line in file:
+                    arr_dump.append(line.rstrip())
+            return render_template(
                             'index.html', 
                             sd = arr_dump,
                             filename = get_dname_from_db(),
@@ -89,7 +94,6 @@ def dnsmap():
     print(url_for('dnsmap'))
     for i in do_whois(get_qname_list()): #NO INET
         rc.append(i)
-    print(rc[1])
     who_json = get_items_from_who(rc[1])
     who_json = transponate_arr(who_json)
 

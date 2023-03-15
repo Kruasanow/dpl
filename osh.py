@@ -60,7 +60,7 @@ def convert_dump(name_before,name_after):
     subprocess.call(["./scripts/scr.sh",name_before,name_after])
 
 def exec_db_init_sh():
-    subprocess.call([". ./scripts/environment_fix.sh"])
+    subprocess.call(["./scripts/environment_fix.sh"])
 
 pac_t_list =['DNS','TCP','UDP','SSL','VSSMONITORING','DATA','ICMP']
 def analize_table(pac_type_list,cap):

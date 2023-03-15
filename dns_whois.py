@@ -42,11 +42,11 @@ def do_whois(good_arr):
         if who.registrant_country != None:
             res_arr.append(who.registrant_country)
             continue
-        if who.country != 'GB':
-            res_arr.append('UK')
+        if who.country == 'UK':
+            res_arr.append('GB')
             continue
-        if who.registrant_country != 'GB':
-            res_arr.append('UK')
+        if who.registrant_country == 'UK':
+            res_arr.append('GB')
             continue
     res_arr_once = [2]*len(res_arr)
     final_dict = dict(zip(res_arr,res_arr_once))
@@ -117,7 +117,15 @@ def get_items_from_who(arr):
             domain_name
             ]
 
+# def delete_none(arr):
+#     for i in arr:
+#         for j in i:
+#             if j == None:
+#                 arr[i][j] = ''
+#     return arr
+
 def transponate_arr(arr):
+    # delete_none(arr)
     zarr = zip(*arr)
     tarr = [list(row) for row in zarr]
     return tarr
