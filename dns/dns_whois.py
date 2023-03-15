@@ -1,5 +1,5 @@
 import whois
-import conn_db as cdb
+import db_do.conn_db as cdb
 
 def get_qname_list():
     try:

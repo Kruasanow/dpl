@@ -1,7 +1,7 @@
 import pyshark
 import subprocess
 import os
-import conn_db as cdb
+import db_do.conn_db as cdb
 
 UPLOAD_FOLDER = 'dump_input/'
 ALLOWED_EXTENSIONS = set(['pcap','pcapng'])

@@ -4,10 +4,10 @@ import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
-from dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
-import conn_db as cdb
-from dns_db_addiction import init_db, add_dump
-from dns_prepare_fdb import get_dns_profile
+from dns.dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
+import db_do.conn_db as cdb
+from dns.dns_db_addiction import init_db, add_dump
+from dns.dns_prepare_fdb import get_dns_profile
 import logging
 
 app = Flask(__name__)    

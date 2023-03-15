@@ -1,8 +1,8 @@
 from collections import Counter
 import ipaddress
 from statistics import mean
-import dns_codes_list as dcode
-import conn_db as cdb
+import dns.dns_codes_list as dcode
+import db_do.conn_db as cdb
 
 # a = osh.cap
 
