@@ -18,6 +18,8 @@ def swap_dict_values(dict_a,dict_b):
 # Convert Main-dump to DNS-array
 def to_dns_arr(a):
     dns_arr = []
+    print('[*]dns_prepare_fdb.py: arr - ' + str(a))
+    print(a)
     for pac in a:
         if pac.highest_layer == 'DNS':
             dns_arr.append(pac)
@@ -330,7 +332,7 @@ def get_dns_profile(arr):
     #         rttl, qname_list, opcode_arr, 
     #         trunk_arr, rtype, rclass, 
     #         orphan_pacs, ans_count, rec_count]; 
-    print('dns_prepare_fdb.py: srv counter - '+str(counter))
+    print('[*]dns_prepare_fdb.py: srv counter - '+str(counter))
     cur.close()
     conn.close()
     return counter

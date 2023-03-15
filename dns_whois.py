@@ -7,10 +7,11 @@ def get_qname_list():
         cur = conn.cursor()
         cur.execute('SELECT qname FROM dns_srv_profile;')
         case1 = cur.fetchall()
+        print('[*]dns_whois.py: base selected - ' + str(case1[-1]))
         cur.close()
         conn.close()
     except Exception:
-        print('dns_whois.py: error exists!')
+        print('[*]dns_whois.py: error exists!')
 
     qname_arr = []
     ldomain = 'localdomain'
@@ -32,7 +33,7 @@ def do_whois(good_arr):
     for i in good_arr:
         who = whois.whois(i)
         who_list_json.append(who)
-        print('dns_whois.py: ')
+        print('[*]dns_whois.py: ')
         print(who)
         print('-----------')
         if who.country != None:

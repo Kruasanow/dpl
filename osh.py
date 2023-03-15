@@ -8,6 +8,7 @@ ALLOWED_EXTENSIONS = set(['pcap','pcapng'])
 output_dump = 'out.txt'
 
 def get_dname_from_db():
+    good_dname = ''
     try:
         conn = cdb.get_db_connection()
         cur = conn.cursor()
@@ -21,22 +22,25 @@ def get_dname_from_db():
                                     ord(")"): None,
                                     ord(","): None
                                     })
+        print('[*]osh.py element choosed - ' + good_dname)
     except Exception:
-        print('osh.py: bad get dname!')
-        good_dname = 'qwe.pcapng'
+        print('[*]osh.py: bad get dname!')
+        # good_dname = 'qwe.pcapng'
     return good_dname
 
 def get_file(name_of_file=None):
+    cap = []
     if name_of_file == None:
-        cap = pyshark.FileCapture('dump_input/qwe.pcapng')
+        print('[*]osh.py: nothing choosed')
     try:
         # dir_list = os.listdir('dump_input/')
         full_way = 'dump_input/'+str(name_of_file)
-        print('osh.py: full way - ' +str(full_way))
+        print('[*]osh.py: full way - ' +str(full_way))
         cap = pyshark.FileCapture(full_way)
-        print('osh.py: cap for pyshark - ' +str(cap))
+        print('[*]osh.py: cap for pyshark - ' +str(cap))
     except Exception:
-        cap = pyshark.FileCapture('dump_input/qwe.pcapng')
+        print('[*]osh.py: get_file - exceptions worked...')
+        # cap = pyshark.FileCapture('dump_input/qwe.pcapng')
     return cap
 
 cap = get_file(get_dname_from_db())
@@ -63,6 +67,7 @@ def analize_table(pac_type_list,cap):
     arr = []
     for i in pac_type_list:
         arr.append(packet_counter(i,cap))
+    print('[*]osh.py: packet counter - ' + str(arr))
     return arr
 
 

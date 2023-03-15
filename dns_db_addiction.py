@@ -4,7 +4,7 @@ from dns_prepare_fdb import to_dns_arr
 a = osh.cap
 
 def add_dump(dname):
-    print('dns_db_addiction.py: dump name - '+str(dname))
+    print('[*]dns_db_addiction.py: dump name - '+str(dname))
     conn = cdb.get_db_connection()
     cur = conn.cursor()
     cur.execute('INSERT INTO dump_list (dname) VALUES (%s)',[dname])
@@ -112,12 +112,12 @@ def init_db(arr):
                 )
                 )
             except AttributeError:
-                print('dns_db_addiction.py: something WRONG - ' + str(i.dns.id) + " " +str(i.dns.flags_response))
+                print('[*]dns_db_addiction.py: something WRONG - ' + str(i.dns.id) + " " +str(i.dns.flags_response))
                 bad.append(i)
                 count_error = count_error + 1
                 continue
-    print('dns_db_addiction.py: count error - '+str(count_error))
-    print('dns_db_addiction.py: bad array - '+str(bad))
+    # print('[*]dns_db_addiction.py: count error - '+str(count_error))
+    print('[*]dns_db_addiction.py: bad array - '+str(bad))
 
     conn.commit()
     cur.close()
