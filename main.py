@@ -88,6 +88,14 @@ def about():
                             # table = table1_test
                           )
 
+@app.route('/report', methods = ['get','post'])
+def report():
+    print(url_for('report'))
+    
+    return render_template(
+                            'report.html',
+                          )
+
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
     rc = []
