@@ -28,7 +28,70 @@
     </header>
     <!--==============================content================================-->
     <section id="content">
+      <!-- {% for i in case %}
+        {% for j in i %}
+          {{ j }} 
+        {% endfor %}
+      {% endfor  %} -->
 
+      <!-- {% for i in case2 %} 
+        {% for j in i %}
+          {{ j }} 
+        {% endfor %}
+      {% endfor  %} -->
+      <table>
+        <tr>
+          <th>№</th>
+          <th>DNS-сервер</th>
+          <th>Всего пакетов</th>
+          <th>Рекурсия</th>
+          <th>Среднее время</th>
+          <th>Средний TTL</th>
+          <th>FQDN запроса</th>
+          <th>Транк</th>
+          <th>Осиротевшие пакеты</th>
+          <th>Ошибки (RCODE)</th>
+          <th>Врема добавления</th>
+        </tr>
+        
+          {% for i in case %}
+        <tr>
+          {% for j in i %}
+          <td>
+              {{ j }}
+          </td> 
+            {% endfor %}
+        </tr>
+          {% endfor  %}
+      </table>
+      <table>
+        <tr>
+          <th>DNS-сервер</th>
+          <th>FQDN запроса</th>
+          <th>IP-адрес (A-record)</th>
+          <th>Порядок приема</th>
+          <th>Тип запроса</th>
+          <th>Класс запроса</th>
+          <th>Тип ответа</th>
+          <th>Класс ответа</th>
+          <th>Opcode</th>
+          <th>Количество ответов</th>
+          <th>Количество запросов</th>
+          <th>SOA-refresh</th>
+          <th>SOA-expire-limit</th>
+          <th>SOA-min-ttl</th>
+        </tr>
+        
+          {% for i in case2 %}
+        <tr>
+          {% for j in i %}
+          <td>
+              {{ j }}
+          </td> 
+            {% endfor %}
+        </tr>
+          {% endfor  %}
+      </table>
     </section>
     <!--==============================footer=================================-->
     <footer>

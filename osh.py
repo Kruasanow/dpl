@@ -7,6 +7,25 @@ UPLOAD_FOLDER = 'dump_input/'
 ALLOWED_EXTENSIONS = set(['pcap','pcapng'])
 output_dump = 'out.txt'
 
+def check_output():
+    res = True
+    with open('dump_output/out.txt', 'r') as f:
+        first_line = next(f).strip()
+    bad_line = 'ERF 0 Unknown type 77'
+    if bad_line in first_line:
+        res = False
+    return res
+
+def reload_arr(arr):
+    for i in range(0,len(arr)):
+        for j in range(0,len(arr[i])):
+            arr[i][j] = str(arr[i][j]).translate({
+                                ord("'"):None,
+                                ord("{"):None,
+                                ord("}"):None
+                                })
+    return arr
+
 def get_dname_from_db():
     good_dname = ''
     try:

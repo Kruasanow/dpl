@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request
-from osh import cap, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh, get_file
+from osh import  reload_arr, cap, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh, get_file
 import os
 import scoreattack as sa
 from werkzeug.utils import secure_filename
@@ -9,6 +9,8 @@ import db_do.conn_db as cdb
 from dns.dns_db_addiction import init_db, add_dump
 from dns.dns_prepare_fdb import get_dns_profile
 import logging
+from base_show.db_selector import get_srv_from_db
+import sys
 
 app = Flask(__name__)    
 log = logging.getLogger('werkzeug')
@@ -64,11 +66,16 @@ def index():
                             filename = get_dname_from_db(),
                             counted_packets = analize_table(pac_t_list,c),
                             )
-        
     return render_template(
                            'index.html',
                            
                           )
+
+@app.route('/restart')
+def restart_flask():
+    args = [sys.executable] + sys.argv[:]
+    os.execv(sys.executable, args)
+    return("")
 
 @app.route('/about', methods = ['get','post'])
 def about():
@@ -91,9 +98,11 @@ def about():
 @app.route('/report', methods = ['get','post'])
 def report():
     print(url_for('report'))
-    
+
     return render_template(
                             'report.html',
+                            case = reload_arr(get_srv_from_db()[0]),
+                            case2 = reload_arr(get_srv_from_db()[1]),
                           )
 
 @app.route('/dnsmap', methods = ['get','post'])
