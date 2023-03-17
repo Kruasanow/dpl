@@ -23,27 +23,15 @@
     <!--==============================header=================================-->
     <header>
       <div class="main">
-        
+        <img src="data:image/png;base64,{{ graph }}" alt="Graph">
       </div>
     </header>
     <!--==============================content================================-->
     <section id="content">
-      <!-- {% for i in case %}
-        {% for j in i %}
-          {{ j }} 
-        {% endfor %}
-      {% endfor  %} -->
-
-      <!-- {% for i in case2 %} 
-        {% for j in i %}
-          {{ j }} 
-        {% endfor %}
-      {% endfor  %} -->
       <table>
         <tr>
-          <th>№</th>
           <th>DNS-сервер</th>
-          <th>Всего пакетов</th>
+          <th>Сумма пакетов</th>
           <th>Рекурсия</th>
           <th>Среднее время</th>
           <th>Средний TTL</th>

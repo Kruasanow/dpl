@@ -26,6 +26,23 @@ def reload_arr(arr):
                                 })
     return arr
 
+def delete_datetime(line):
+    badline = 'datetime.datetime'
+    if badline in str(line):
+        new_line = line.replace(badline,'')
+    return new_line
+
+def reload_list_by_who(lst):
+    lst = str(lst).translate({
+                            ord("'"):None,
+                            ord("["):None,
+                            ord("]"):None,
+                            ord(")"):None,
+                            ord("("):None
+                             })
+    return lst
+
+
 def get_dname_from_db():
     good_dname = ''
     try:

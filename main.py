@@ -11,6 +11,9 @@ from dns.dns_prepare_fdb import get_dns_profile
 import logging
 from base_show.db_selector import get_srv_from_db
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
+import base64
 
 app = Flask(__name__)    
 log = logging.getLogger('werkzeug')
@@ -31,8 +34,8 @@ def index():
     # print('[*]main.py: osh.cap - ' +str(cap))
     exec_db_init_sh()
     # output_way = 'dump_output/' + output_dump
-    arr_dump = []
-    c = get_file(get_dname_from_db())
+    # arr_dump = []
+    # c = get_file(get_dname_from_db())
 
     # with open(output_way) as file:
     #     for line in file:
@@ -58,7 +61,7 @@ def index():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
             output_way = 'dump_output/' + output_dump
-            # arr_dump = []
+            arr_dump = []
             with open(output_way) as file:
                 for line in file:
                     arr_dump.append(line.rstrip())
@@ -70,9 +73,9 @@ def index():
                             )
     return render_template(
                            'index.html',
-                           sd = arr_dump,
-                           filename = get_dname_from_db(),
-                           counted_packets = analize_table(pac_t_list,c),
+                        #    sd = arr_dump,
+                        #    filename = get_dname_from_db(),
+                        #    counted_packets = analize_table(pac_t_list,c),
                            
                           )
 
@@ -104,10 +107,28 @@ def about():
 def report():
     print(url_for('report'))
 
+    x = np.array([1, 2, 10, 4, 5])
+    y = np.array([2, 24, 16, 8, 10])
+    
+    plt.plot(x, y)
+    plt.xlabel('X-axis')
+    plt.ylabel('Y-axis')
+    plt.title('Graph Title')
+    
+    # сохраняем график в буфер
+    from io import BytesIO
+    buf = BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    
+    # передаем буфер с графиком в шаблон
+    graph = base64.b64encode(buf.read()).decode('utf-8')
+
     return render_template(
                             'report.html',
                             case = reload_arr(get_srv_from_db()[0]),
                             case2 = reload_arr(get_srv_from_db()[1]),
+                            graph=graph,
                           )
 
 @app.route('/dnsmap', methods = ['get','post'])
