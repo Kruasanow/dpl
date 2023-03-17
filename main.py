@@ -31,7 +31,9 @@ def index():
     # print('[*]main.py: osh.cap - ' +str(cap))
     exec_db_init_sh()
     # output_way = 'dump_output/' + output_dump
-    # arr_dump = []
+    arr_dump = []
+    c = get_file(get_dname_from_db())
+
     # with open(output_way) as file:
     #     for line in file:
     #         arr_dump.append(line.rstrip())
@@ -56,7 +58,7 @@ def index():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
             output_way = 'dump_output/' + output_dump
-            arr_dump = []
+            # arr_dump = []
             with open(output_way) as file:
                 for line in file:
                     arr_dump.append(line.rstrip())
@@ -68,6 +70,9 @@ def index():
                             )
     return render_template(
                            'index.html',
+                           sd = arr_dump,
+                           filename = get_dname_from_db(),
+                           counted_packets = analize_table(pac_t_list,c),
                            
                           )
 
