@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>diploma_project</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css')}}" type="text/css" media="screen">
+<script src="{{ url_for('static', filename='js/jquery-1.7.1.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/cufon-yui.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/cufon-replace.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/Vegur_500.font.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/FF-cash.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/tms-0.3.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/tms_presets.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/jquery.equalheights.js')}}" type="text/javascript"></script>
+
+</head>
+<body id="page2">
+<div class="main-bg">
+  <div class="bg">
+    <!--==============================header=================================-->
+    <header>
+      <div class="main">
+        <img src="data:image/png;base64,{{ graph }}" alt="Graph">
+      </div>
+    </header>
+    <!--==============================content================================-->
+    <section id="content">
+      <table>
+        <tr>
+          <th>DNS-сервер</th>
+          <th>Сумма пакетов</th>
+          <th>Рекурсия</th>
+          <th>Среднее время</th>
+          <th>Средний TTL</th>
+          <th>FQDN запроса</th>
+          <th>Транк</th>
+          <th>Осиротевшие пакеты</th>
+          <th>Ошибки (RCODE)</th>
+          <th>Врема добавления</th>
+        </tr>
+        
+          {% for i in case %}
+        <tr>
+          {% for j in i %}
+          <td>
+              {{ j }}
+          </td> 
+            {% endfor %}
+        </tr>
+          {% endfor  %}
+      </table>
+      <table>
+        <tr>
+          <th>DNS-сервер</th>
+          <th>FQDN запроса</th>
+          <th>IP-адрес (A-record)</th>
+          <th>Порядок приема</th>
+          <th>Тип запроса</th>
+          <th>Класс запроса</th>
+          <th>Тип ответа</th>
+          <th>Класс ответа</th>
+          <th>Opcode</th>
+          <th>Количество ответов</th>
+          <th>Количество запросов</th>
+          <th>SOA-refresh</th>
+          <th>SOA-expire-limit</th>
+          <th>SOA-min-ttl</th>
+        </tr>
+        
+          {% for i in case2 %}
+        <tr>
+          {% for j in i %}
+          <td>
+              {{ j }}
+          </td> 
+            {% endfor %}
+        </tr>
+          {% endfor  %}
+      </table>
+      <p class="submit" >
+        <a href="/"> Вернуться на главную</a>
+      </p>
+      <p class="submit" >
+        <a href="/dnsmap"> Смотреть карту распределения DNS-серверов</a>
+      </p>
+    </section>
+    <!--==============================footer=================================-->
+    <footer>
+      <div class="main"> made by Kruasanow </div>
+    </footer>
+  </div>
+</body>
+</html>

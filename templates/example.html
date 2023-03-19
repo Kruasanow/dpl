@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU"> -->
+<!-- <head profile="http://gmpg.org/xfn/11"> -->
+<head>
+<title>SVG WorldMap example</title>
+
+<!-- <script type="text/javascript" src="map_local.js"></script> -->
+<!-- <script type="text/javascript" src="jquery.svgworldmap-2.1.src.js"></script> -->
+<!-- <link type="text/css" rel="stylesheet" href="svgworldmap.css" /> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/svgworldmap.css')}}" type="text/css" media="screen">
+<script src="{{ url_for('static', filename='js/map_local.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/jquery.svgworldmap-2.1.src.js')}}" type="text/javascript"></script>
+
+
+
+<style type="text/css">
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:100%;
+	color:#7f7f7f;
+	min-width:960px;
+	height:100%;
+	background:url(../images/body-bg.jpg) center top repeat #151515
+	}
+/* body {background:white;font-family:arial, sans-serif;font-size:12px;} */
+div.lastlink {border-top:1px solid #e0e0e0;margin-top:10px;padding:10px;}
+</style>
+
+</head>
+<body>
+
+<h1>SVG World map example</h1>
+
+<!-- World map containter. Width and height can be set here -->
+<!-- <div id="place" style="width:649px;height:400px;"></div> -->	
+<!-- <div id="place" style="width: 649px;height:400px;"></div> -->
+
+<div id="place" style="width: 975px;height:600px;" class="blocks_main"></div>
+<div class="blocks_main"> <iframe src="{{ url_for('static', filename='countries.html') }}" width="540px" height="600px"></iframe> </div>
+
+
+<script type="text/javascript">
+
+/* Country click handler */
+function countryclick(tld) {
+	alert('Country clicked: '+tld);
+	}
+
+jQuery(document).ready(function(){
+
+	jQuery('#place').SVGWorldMap({
+		bottom:20, /* Bottom padding (removes antarctica from map) */
+		clickhandler :'countryclick', /* Click handler function name */
+		c : {{ data|safe }} /* Country classes */
+		});
+
+	});
+
+</script>
+
+<div class="lastlink">
+	<div>
+		<table>
+			<tr>
+			  <th>Страна</th>
+			  <th>Штат</th>
+			  <th>Город</th>
+			  <th>Адресс</th>
+			  <th>Организация</th>
+			  <th>Email</th>
+			  <th>DNS-сервера</th>
+			  <th>Дата создания</th>
+			  <th>Дата обновления</th>
+			  <th>Регистратор</th>
+			  <th>Доменное имя</th>
+			</tr>
+			{% for i in who %}
+			<tr>
+			  {% for j in i %}
+			  <td>{{ j }}</td>
+			  {% endfor %}
+			</tr>
+			{% endfor %}
+		  </table>
+	</div>
+</div>
+
+	<p class="submit" >
+		<a href="/"> Вернуться на главную</a>
+  	</p>
+  	<p class="submit" >
+		<a href="/dnsmap"> Смотреть карту распределения DNS-серверов</a>
+  	</p>
+	  <footer>
+		<h5>made by Kruasanow</h5>
+	  </footer>
+</body>
+</html>
+

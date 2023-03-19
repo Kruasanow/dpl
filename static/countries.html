@@ -1,0 +1,1432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
+    <style type="text/css">
+      html { font-family:Calibri, Arial, Helvetica, sans-serif; font-size:11pt; background-color:white }
+      a.comment-indicator:hover + div.comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em }
+      a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em }
+      div.comment { display:none }
+      table { border-collapse:collapse; page-break-after:always }
+      .gridlines td { border:1px dotted black }
+      .gridlines th { border:1px dotted black }
+      .b { text-align:center }
+      .e { text-align:center }
+      .f { text-align:right }
+      .inlineStr { text-align:left }
+      .n { text-align:right }
+      .s { text-align:left }
+      td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      th.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+      td.style1 { vertical-align:middle; border-bottom:2px solid #E9E9E9 !important; border-top:2px solid #E9E9E9 !important; border-left:2px solid #E9E9E9 !important; border-right:2px solid #E9E9E9 !important; color:#333333; font-family:'Arial'; font-size:10pt; background-color:#F7F7F7 }
+      th.style1 { vertical-align:middle; border-bottom:2px solid #E9E9E9 !important; border-top:2px solid #E9E9E9 !important; border-left:2px solid #E9E9E9 !important; border-right:2px solid #E9E9E9 !important; color:#333333; font-family:'Arial'; font-size:10pt; background-color:#F7F7F7 }
+      td.style2 { vertical-align:middle; border-bottom:2px solid #E9E9E9 !important; border-top:2px solid #E9E9E9 !important; border-left:2px solid #E9E9E9 !important; border-right:2px solid #E9E9E9 !important; color:#333333; font-family:'Arial'; font-size:10pt; background-color:#FFFFFF }
+      th.style2 { vertical-align:middle; border-bottom:2px solid #E9E9E9 !important; border-top:2px solid #E9E9E9 !important; border-left:2px solid #E9E9E9 !important; border-right:2px solid #E9E9E9 !important; color:#333333; font-family:'Arial'; font-size:10pt; background-color:#FFFFFF }
+      table.sheet0 col.col0 { width:42pt }
+      table.sheet0 col.col1 { width:42pt }
+      table.sheet0 col.col2 { width:42pt }
+      table.sheet0 tr { height:15pt }
+      table.sheet0 tr.row0 { height:27pt }
+      table.sheet0 tr.row1 { height:15pt }
+      table.sheet0 tr.row2 { height:27pt }
+      table.sheet0 tr.row3 { height:15pt }
+      table.sheet0 tr.row4 { height:40.2pt }
+      table.sheet0 tr.row5 { height:15pt }
+      table.sheet0 tr.row6 { height:15pt }
+      table.sheet0 tr.row7 { height:15pt }
+      table.sheet0 tr.row8 { height:40.2pt }
+      table.sheet0 tr.row9 { height:27pt }
+      table.sheet0 tr.row10 { height:15pt }
+      table.sheet0 tr.row11 { height:15pt }
+      table.sheet0 tr.row12 { height:27pt }
+      table.sheet0 tr.row13 { height:15pt }
+      table.sheet0 tr.row14 { height:27pt }
+      table.sheet0 tr.row15 { height:27pt }
+      table.sheet0 tr.row16 { height:15pt }
+      table.sheet0 tr.row17 { height:119.4pt }
+      table.sheet0 tr.row18 { height:15pt }
+      table.sheet0 tr.row19 { height:15pt }
+      table.sheet0 tr.row20 { height:15pt }
+      table.sheet0 tr.row21 { height:15pt }
+      table.sheet0 tr.row22 { height:27pt }
+      table.sheet0 tr.row23 { height:15pt }
+      table.sheet0 tr.row24 { height:40.2pt }
+      table.sheet0 tr.row25 { height:27pt }
+      table.sheet0 tr.row26 { height:27pt }
+      table.sheet0 tr.row27 { height:40.2pt }
+      table.sheet0 tr.row28 { height:27pt }
+      table.sheet0 tr.row29 { height:15pt }
+      table.sheet0 tr.row30 { height:27pt }
+      table.sheet0 tr.row31 { height:15pt }
+      table.sheet0 tr.row32 { height:27pt }
+      table.sheet0 tr.row33 { height:53.4pt }
+      table.sheet0 tr.row34 { height:15pt }
+      table.sheet0 tr.row35 { height:27pt }
+      table.sheet0 tr.row36 { height:66.6pt }
+      table.sheet0 tr.row37 { height:53.4pt }
+      table.sheet0 tr.row38 { height:225pt }
+      table.sheet0 tr.row39 { height:15pt }
+      table.sheet0 tr.row40 { height:15pt }
+      table.sheet0 tr.row41 { height:15pt }
+      table.sheet0 tr.row42 { height:15pt }
+      table.sheet0 tr.row43 { height:15pt }
+      table.sheet0 tr.row44 { height:15pt }
+      table.sheet0 tr.row45 { height:27pt }
+      table.sheet0 tr.row46 { height:27pt }
+      table.sheet0 tr.row47 { height:66.6pt }
+      table.sheet0 tr.row48 { height:15pt }
+      table.sheet0 tr.row49 { height:159pt }
+      table.sheet0 tr.row50 { height:27pt }
+      table.sheet0 tr.row51 { height:40.2pt }
+      table.sheet0 tr.row52 { height:27pt }
+      table.sheet0 tr.row53 { height:27pt }
+      table.sheet0 tr.row54 { height:27pt }
+      table.sheet0 tr.row55 { height:15pt }
+      table.sheet0 tr.row56 { height:27pt }
+      table.sheet0 tr.row57 { height:15pt }
+      table.sheet0 tr.row58 { height:15pt }
+      table.sheet0 tr.row59 { height:27pt }
+      table.sheet0 tr.row60 { height:15pt }
+      table.sheet0 tr.row61 { height:15pt }
+      table.sheet0 tr.row62 { height:27pt }
+      table.sheet0 tr.row63 { height:53.4pt }
+      table.sheet0 tr.row64 { height:15pt }
+      table.sheet0 tr.row65 { height:15pt }
+      table.sheet0 tr.row66 { height:79.8pt }
+      table.sheet0 tr.row67 { height:27pt }
+      table.sheet0 tr.row68 { height:15pt }
+      table.sheet0 tr.row69 { height:15pt }
+      table.sheet0 tr.row70 { height:27pt }
+      table.sheet0 tr.row71 { height:27pt }
+      table.sheet0 tr.row72 { height:15pt }
+      table.sheet0 tr.row73 { height:15pt }
+      table.sheet0 tr.row74 { height:27pt }
+      table.sheet0 tr.row75 { height:27pt }
+      table.sheet0 tr.row76 { height:27pt }
+      table.sheet0 tr.row77 { height:15pt }
+      table.sheet0 tr.row78 { height:15pt }
+      table.sheet0 tr.row79 { height:27pt }
+      table.sheet0 tr.row80 { height:27pt }
+      table.sheet0 tr.row81 { height:53.4pt }
+      table.sheet0 tr.row82 { height:27pt }
+      table.sheet0 tr.row83 { height:15pt }
+      table.sheet0 tr.row84 { height:15pt }
+      table.sheet0 tr.row85 { height:15pt }
+      table.sheet0 tr.row86 { height:15pt }
+      table.sheet0 tr.row87 { height:27pt }
+      table.sheet0 tr.row88 { height:27pt }
+      table.sheet0 tr.row89 { height:15pt }
+      table.sheet0 tr.row90 { height:27pt }
+      table.sheet0 tr.row91 { height:66.6pt }
+      table.sheet0 tr.row92 { height:40.2pt }
+      table.sheet0 tr.row93 { height:66.6pt }
+      table.sheet0 tr.row94 { height:79.8pt }
+      table.sheet0 tr.row95 { height:40.2pt }
+      table.sheet0 tr.row96 { height:27pt }
+      table.sheet0 tr.row97 { height:40.2pt }
+      table.sheet0 tr.row98 { height:15pt }
+      table.sheet0 tr.row99 { height:15pt }
+      table.sheet0 tr.row100 { height:79.8pt }
+      table.sheet0 tr.row101 { height:15pt }
+      table.sheet0 tr.row102 { height:15pt }
+      table.sheet0 tr.row103 { height:15pt }
+      table.sheet0 tr.row104 { height:15pt }
+      table.sheet0 tr.row105 { height:27pt }
+      table.sheet0 tr.row106 { height:15pt }
+      table.sheet0 tr.row107 { height:27pt }
+      table.sheet0 tr.row108 { height:27pt }
+      table.sheet0 tr.row109 { height:40.2pt }
+      table.sheet0 tr.row110 { height:27pt }
+      table.sheet0 tr.row111 { height:27pt }
+      table.sheet0 tr.row112 { height:40.2pt }
+      table.sheet0 tr.row113 { height:40.2pt }
+      table.sheet0 tr.row114 { height:15pt }
+      table.sheet0 tr.row115 { height:27pt }
+      table.sheet0 tr.row116 { height:15pt }
+      table.sheet0 tr.row117 { height:27pt }
+      table.sheet0 tr.row118 { height:15pt }
+      table.sheet0 tr.row119 { height:15pt }
+      table.sheet0 tr.row120 { height:27pt }
+      table.sheet0 tr.row121 { height:40.2pt }
+      table.sheet0 tr.row122 { height:15pt }
+      table.sheet0 tr.row123 { height:66.6pt }
+      table.sheet0 tr.row124 { height:27pt }
+      table.sheet0 tr.row125 { height:27pt }
+      table.sheet0 tr.row126 { height:15pt }
+      table.sheet0 tr.row127 { height:27pt }
+      table.sheet0 tr.row128 { height:27pt }
+      table.sheet0 tr.row129 { height:15pt }
+      table.sheet0 tr.row130 { height:15pt }
+      table.sheet0 tr.row131 { height:15pt }
+      table.sheet0 tr.row132 { height:15pt }
+      table.sheet0 tr.row133 { height:15pt }
+      table.sheet0 tr.row134 { height:15pt }
+      table.sheet0 tr.row135 { height:40.2pt }
+      table.sheet0 tr.row136 { height:106.2pt }
+      table.sheet0 tr.row137 { height:27pt }
+      table.sheet0 tr.row138 { height:27pt }
+      table.sheet0 tr.row139 { height:15pt }
+      table.sheet0 tr.row140 { height:40.2pt }
+      table.sheet0 tr.row141 { height:93pt }
+      table.sheet0 tr.row142 { height:15pt }
+      table.sheet0 tr.row143 { height:79.8pt }
+      table.sheet0 tr.row144 { height:15pt }
+      table.sheet0 tr.row145 { height:27pt }
+      table.sheet0 tr.row146 { height:27pt }
+      table.sheet0 tr.row147 { height:40.2pt }
+      table.sheet0 tr.row148 { height:93pt }
+      table.sheet0 tr.row149 { height:27pt }
+      table.sheet0 tr.row150 { height:27pt }
+      table.sheet0 tr.row151 { height:106.2pt }
+      table.sheet0 tr.row152 { height:53.4pt }
+      table.sheet0 tr.row153 { height:53.4pt }
+      table.sheet0 tr.row154 { height:15pt }
+      table.sheet0 tr.row155 { height:119.4pt }
+      table.sheet0 tr.row156 { height:27pt }
+      table.sheet0 tr.row157 { height:15pt }
+      table.sheet0 tr.row158 { height:40.2pt }
+      table.sheet0 tr.row159 { height:15pt }
+      table.sheet0 tr.row160 { height:15pt }
+      table.sheet0 tr.row161 { height:53.4pt }
+      table.sheet0 tr.row162 { height:15pt }
+      table.sheet0 tr.row163 { height:27pt }
+      table.sheet0 tr.row164 { height:27pt }
+      table.sheet0 tr.row165 { height:27pt }
+      table.sheet0 tr.row166 { height:66.6pt }
+      table.sheet0 tr.row167 { height:15pt }
+      table.sheet0 tr.row168 { height:15pt }
+      table.sheet0 tr.row169 { height:27pt }
+      table.sheet0 tr.row170 { height:66.6pt }
+      table.sheet0 tr.row171 { height:40.2pt }
+      table.sheet0 tr.row172 { height:27pt }
+      table.sheet0 tr.row173 { height:53.4pt }
+      table.sheet0 tr.row174 { height:40.2pt }
+      table.sheet0 tr.row175 { height:27pt }
+      table.sheet0 tr.row176 { height:119.4pt }
+      table.sheet0 tr.row177 { height:40.2pt }
+      table.sheet0 tr.row178 { height:15pt }
+      table.sheet0 tr.row179 { height:66.6pt }
+      table.sheet0 tr.row180 { height:40.2pt }
+      table.sheet0 tr.row181 { height:27pt }
+      table.sheet0 tr.row182 { height:40.2pt }
+      table.sheet0 tr.row183 { height:27pt }
+      table.sheet0 tr.row184 { height:15pt }
+      table.sheet0 tr.row185 { height:27pt }
+      table.sheet0 tr.row186 { height:27pt }
+      table.sheet0 tr.row187 { height:66.6pt }
+      table.sheet0 tr.row188 { height:40.2pt }
+      table.sheet0 tr.row189 { height:15pt }
+      table.sheet0 tr.row190 { height:15pt }
+      table.sheet0 tr.row191 { height:15pt }
+      table.sheet0 tr.row192 { height:27pt }
+      table.sheet0 tr.row193 { height:27pt }
+      table.sheet0 tr.row194 { height:15pt }
+      table.sheet0 tr.row195 { height:15pt }
+      table.sheet0 tr.row196 { height:15pt }
+      table.sheet0 tr.row197 { height:15pt }
+      table.sheet0 tr.row198 { height:15pt }
+      table.sheet0 tr.row199 { height:40.2pt }
+      table.sheet0 tr.row200 { height:15pt }
+      table.sheet0 tr.row201 { height:15pt }
+      table.sheet0 tr.row202 { height:27pt }
+      table.sheet0 tr.row203 { height:15pt }
+      table.sheet0 tr.row204 { height:15pt }
+      table.sheet0 tr.row205 { height:27pt }
+      table.sheet0 tr.row206 { height:27pt }
+      table.sheet0 tr.row207 { height:40.2pt }
+      table.sheet0 tr.row208 { height:15pt }
+      table.sheet0 tr.row209 { height:40.2pt }
+      table.sheet0 tr.row210 { height:15pt }
+      table.sheet0 tr.row211 { height:27pt }
+      table.sheet0 tr.row212 { height:27pt }
+      table.sheet0 tr.row213 { height:66.6pt }
+      table.sheet0 tr.row214 { height:15pt }
+      table.sheet0 tr.row215 { height:27pt }
+      table.sheet0 tr.row216 { height:66.6pt }
+      table.sheet0 tr.row217 { height:27pt }
+      table.sheet0 tr.row218 { height:27pt }
+      table.sheet0 tr.row219 { height:15pt }
+      table.sheet0 tr.row220 { height:15pt }
+      table.sheet0 tr.row221 { height:119.4pt }
+      table.sheet0 tr.row222 { height:15pt }
+      table.sheet0 tr.row223 { height:27pt }
+      table.sheet0 tr.row224 { height:15pt }
+      table.sheet0 tr.row225 { height:15pt }
+      table.sheet0 tr.row226 { height:15pt }
+      table.sheet0 tr.row227 { height:15pt }
+      table.sheet0 tr.row228 { height:79.8pt }
+      table.sheet0 tr.row229 { height:15pt }
+      table.sheet0 tr.row230 { height:15pt }
+    </style>
+  </head>
+
+  <body>
+<style>
+@page { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
+body { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
+</style>
+    <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+        <col class="col0">
+        <col class="col1">
+        <col class="col2">
+        <tbody>
+          <tr class="row0">
+            <td class="column0 style1 s">Австралия</td>
+            <td class="column1 style1 s">.au</td>
+            <td class="column2 style1 s">Australia</td>
+          </tr>
+          <tr class="row1">
+            <td class="column0 style1 s">Австрия</td>
+            <td class="column1 style1 s">.at</td>
+            <td class="column2 style1 s">Austria</td>
+          </tr>
+          <tr class="row2">
+            <td class="column0 style1 s">Азербайджан</td>
+            <td class="column1 style1 s">.az</td>
+            <td class="column2 style1 s">Azerbaijan</td>
+          </tr>
+          <tr class="row3">
+            <td class="column0 style1 s">Албания</td>
+            <td class="column1 style1 s">.al</td>
+            <td class="column2 style1 s">Albania</td>
+          </tr>
+          <tr class="row4">
+            <td class="column0 style1 s">Алжир</td>
+            <td class="column1 style1 s">.dz</td>
+            <td class="column2 style1 s">Dzayer (самоназвание)</td>
+          </tr>
+          <tr class="row5">
+            <td class="column0 style1 s">Ангилья</td>
+            <td class="column1 style1 s">.ai</td>
+            <td class="column2 style1 s">Anguilla</td>
+          </tr>
+          <tr class="row6">
+            <td class="column0 style1 s">Ангола</td>
+            <td class="column1 style1 s">.ao</td>
+            <td class="column2 style1 s">Angola</td>
+          </tr>
+          <tr class="row7">
+            <td class="column0 style1 s">Андорра</td>
+            <td class="column1 style1 s">.ad</td>
+            <td class="column2 style1 s">Andorra</td>
+          </tr>
+          <tr class="row8">
+            <td class="column0 style1 s">Антигуа и Барбуда</td>
+            <td class="column1 style1 s">.ag</td>
+            <td class="column2 style1 s">Antigua and Barbuda</td>
+          </tr>
+          <tr class="row9">
+            <td class="column0 style1 s">Аргентина</td>
+            <td class="column1 style1 s">.ar</td>
+            <td class="column2 style1 s">Argentina</td>
+          </tr>
+          <tr class="row10">
+            <td class="column0 style1 s">Армения</td>
+            <td class="column1 style1 s">.am</td>
+            <td class="column2 style1 s">Armenia</td>
+          </tr>
+          <tr class="row11">
+            <td class="column0 style1 s">Аруба</td>
+            <td class="column1 style1 s">.aw</td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row12">
+            <td class="column0 style1 s">Афганистан</td>
+            <td class="column1 style1 s">.af</td>
+            <td class="column2 style1 s">Afghanistan</td>
+          </tr>
+          <tr class="row13">
+            <td class="column0 style1 s">Багамы</td>
+            <td class="column1 style1 s">.bs</td>
+            <td class="column2 style1 s">Bahamas</td>
+          </tr>
+          <tr class="row14">
+            <td class="column0 style1 s">Бангладеш</td>
+            <td class="column1 style1 s">.bd</td>
+            <td class="column2 style1 s">Bangladesh</td>
+          </tr>
+          <tr class="row15">
+            <td class="column0 style1 s">Барбадос</td>
+            <td class="column1 style1 s">.bb</td>
+            <td class="column2 style1 s">Barbados</td>
+          </tr>
+          <tr class="row16">
+            <td class="column0 style1 s">Бахрейн</td>
+            <td class="column1 style1 s">.bh</td>
+            <td class="column2 style1 s">Bahrain</td>
+          </tr>
+          <tr class="row17">
+            <td class="column0 style1 s">Беларусь</td>
+            <td class="column1 style1 s">.by, .бел</td>
+            <td class="column2 style1 s">.by – кодовое обозначением в соответствии со стандартом ISO 3166</td>
+          </tr>
+          <tr class="row18">
+            <td class="column0 style1 s">Белиз</td>
+            <td class="column1 style1 s">.bz</td>
+            <td class="column2 style1 s">Belize</td>
+          </tr>
+          <tr class="row19">
+            <td class="column0 style1 s">Бельгия</td>
+            <td class="column1 style1 s">.be</td>
+            <td class="column2 style1 s">Belgium</td>
+          </tr>
+          <tr class="row20">
+            <td class="column0 style1 s">Бенин</td>
+            <td class="column1 style1 s">.bj</td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row21">
+            <td class="column0 style1 s">Бермуды</td>
+            <td class="column1 style1 s">.bm</td>
+            <td class="column2 style1 s">Bermuda</td>
+          </tr>
+          <tr class="row22">
+            <td class="column0 style1 s">Болгария</td>
+            <td class="column1 style1 s">.bg</td>
+            <td class="column2 style1 s">Bulgaria</td>
+          </tr>
+          <tr class="row23">
+            <td class="column0 style1 s">Боливия</td>
+            <td class="column1 style1 s">.bo</td>
+            <td class="column2 style1 s">Bolivia</td>
+          </tr>
+          <tr class="row24">
+            <td class="column0 style1 s">Босния и Герцеговина</td>
+            <td class="column1 style1 s">.ba</td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row25">
+            <td class="column0 style1 s">Ботсвана</td>
+            <td class="column1 style1 s">.bw</td>
+            <td class="column2 style1 s">Botswana</td>
+          </tr>
+          <tr class="row26">
+            <td class="column0 style1 s">Бразилия</td>
+            <td class="column1 style1 s">.br</td>
+            <td class="column2 style1 s">Brazil</td>
+          </tr>
+          <tr class="row27">
+            <td class="column0 style1 s">Бруней-Даруссалам</td>
+            <td class="column1 style1 s">.bn</td>
+            <td class="column2 style1 s">Brunei Darussalam</td>
+          </tr>
+          <tr class="row28">
+            <td class="column0 style1 s">Буркина-Фасо</td>
+            <td class="column1 style1 s">.bf</td>
+            <td class="column2 style1 s">Burkina Faso</td>
+          </tr>
+          <tr class="row29">
+            <td class="column0 style1 s">Бурунди</td>
+            <td class="column1 style1 s">.bi</td>
+            <td class="column2 style1 s">Burundi</td>
+          </tr>
+          <tr class="row30">
+            <td class="column0 style1 s">Бутан</td>
+            <td class="column1 style1 s">.bt</td>
+            <td class="column2 style1 s">Kingdom of Bhutan</td>
+          </tr>
+          <tr class="row31">
+            <td class="column0 style1 s">Вануату</td>
+            <td class="column1 style1 s">.vu</td>
+            <td class="column2 style1 s">Vanuatu</td>
+          </tr>
+          <tr class="row32">
+            <td class="column0 style1 s">Ватикан</td>
+            <td class="column1 style1 s">.va</td>
+            <td class="column2 style1 s">Vatican City State</td>
+          </tr>
+          <tr class="row33">
+            <td class="column0 style1 s">Великобритания</td>
+            <td class="column1 style1 s">.uk, .gb</td>
+            <td class="column2 style1 s">United Kingdom, Great Britain</td>
+          </tr>
+          <tr class="row34">
+            <td class="column0 style1 s">Венгрия</td>
+            <td class="column1 style1 s">.hu</td>
+            <td class="column2 style1 s">Hungary</td>
+          </tr>
+          <tr class="row35">
+            <td class="column0 style1 s">Венесуэла</td>
+            <td class="column1 style1 s">.ve</td>
+            <td class="column2 style1 s">Venezuela</td>
+          </tr>
+          <tr class="row36">
+            <td class="column0 style1 s">Виргинские острова (Британские)</td>
+            <td class="column1 style1 s">.vg</td>
+            <td class="column2 style1 s">Virgin Islands</td>
+          </tr>
+          <tr class="row37">
+            <td class="column0 style1 s">Виргинские острова (США)</td>
+            <td class="column1 style1 s">.vi</td>
+            <td class="column2 style1 s">Virgin Islands</td>
+          </tr>
+          <tr class="row38">
+            <td class="column0 style1 s">Восточный Тимор</td>
+            <td class="column1 style1 s">.tl</td>
+            <td class="column2 style1 s">соответствует двухбуквенному коду страны по стандарту ISO 3166-1 (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">на тетуме</span><span style="color:#333333; font-family:'Arial'; font-size:10pt"> – Timor Lorosa'e, </span><span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">португ.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt"> – Timor Leste)</span></td>
+          </tr>
+          <tr class="row39">
+            <td class="column0 style1 s">Вьетнам</td>
+            <td class="column1 style1 s">.vn</td>
+            <td class="column2 style1 s">Vietnam</td>
+          </tr>
+          <tr class="row40">
+            <td class="column0 style1 s">Габон</td>
+            <td class="column1 style1 s">.ga</td>
+            <td class="column2 style1 s">Gabon</td>
+          </tr>
+          <tr class="row41">
+            <td class="column0 style1 s">Гаити</td>
+            <td class="column1 style1 s">.ht</td>
+            <td class="column2 style1 s">Haiti</td>
+          </tr>
+          <tr class="row42">
+            <td class="column0 style1 s">Гайана</td>
+            <td class="column1 style1 s">.gy</td>
+            <td class="column2 style1 s">Guyana</td>
+          </tr>
+          <tr class="row43">
+            <td class="column0 style1 s">Гамбия</td>
+            <td class="column1 style1 s">.gm</td>
+            <td class="column2 style1 s">Gambia</td>
+          </tr>
+          <tr class="row44">
+            <td class="column0 style1 s">Гана</td>
+            <td class="column1 style1 s">.gh</td>
+            <td class="column2 style1 s">Ghana</td>
+          </tr>
+          <tr class="row45">
+            <td class="column0 style1 s">Гваделупа</td>
+            <td class="column1 style1 s">.gp</td>
+            <td class="column2 style1 s">Guadeloupe</td>
+          </tr>
+          <tr class="row46">
+            <td class="column0 style1 s">Гватемала</td>
+            <td class="column1 style1 s">.gt</td>
+            <td class="column2 style1 s">Guatemala</td>
+          </tr>
+          <tr class="row47">
+            <td class="column0 style1 s">Гвиана (департамент Франции)</td>
+            <td class="column1 style1 s">.gf</td>
+            <td class="column2 style1 s">Guyane française (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row48">
+            <td class="column0 style1 s">Гвинея</td>
+            <td class="column1 style1 s">.gn</td>
+            <td class="column2 style1 s">Guinea</td>
+          </tr>
+          <tr class="row49">
+            <td class="column0 style1 s">Гвинея (Экваториальная)</td>
+            <td class="column1 style1 s">.gq</td>
+            <td class="column2 style1 s">Guinea Ecuatorial (реестр .gq позволяет создавать доменные имена с эмодзи)</td>
+          </tr>
+          <tr class="row50">
+            <td class="column0 style1 s">Гвинея-Бисау</td>
+            <td class="column1 style1 s">.gw</td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row51">
+            <td class="column0 style1 s">Германия</td>
+            <td class="column1 style1 s">.de</td>
+            <td class="column2 style1 s">Deutschland (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">нем.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row52">
+            <td class="column0 style1 s">Гибралтар</td>
+            <td class="column1 style1 s">.gi</td>
+            <td class="column2 style1 s">Gibraltar</td>
+          </tr>
+          <tr class="row53">
+            <td class="column0 style1 s">Гондурас</td>
+            <td class="column1 style1 s">.hn</td>
+            <td class="column2 style1 s">Honduras</td>
+          </tr>
+          <tr class="row54">
+            <td class="column0 style1 s">Гонконг</td>
+            <td class="column1 style1 s">.hk</td>
+            <td class="column2 style1 s">Hong Kong</td>
+          </tr>
+          <tr class="row55">
+            <td class="column0 style1 s">Гренада</td>
+            <td class="column1 style1 s">.gd</td>
+            <td class="column2 style1 s">Grenada</td>
+          </tr>
+          <tr class="row56">
+            <td class="column0 style1 s">Гренландия</td>
+            <td class="column1 style1 s">.gl</td>
+            <td class="column2 style1 s">Greenland</td>
+          </tr>
+          <tr class="row57">
+            <td class="column0 style1 s">Греция</td>
+            <td class="column1 style1 s">.gr</td>
+            <td class="column2 style1 s">Greece</td>
+          </tr>
+          <tr class="row58">
+            <td class="column0 style1 s">Грузия</td>
+            <td class="column1 style1 s">.ge</td>
+            <td class="column2 style1 s">Georgia</td>
+          </tr>
+          <tr class="row59">
+            <td class="column0 style1 s">Гуам</td>
+            <td class="column1 style1 s">.gu</td>
+            <td class="column2 style1 s">Territory of Guam</td>
+          </tr>
+          <tr class="row60">
+            <td class="column0 style1 s">Дания</td>
+            <td class="column1 style1 s">.dk</td>
+            <td class="column2 style1 s">Denmark</td>
+          </tr>
+          <tr class="row61">
+            <td class="column0 style1 s">Джибути</td>
+            <td class="column1 style1 s">.dj</td>
+            <td class="column2 style1 s">Djibouti</td>
+          </tr>
+          <tr class="row62">
+            <td class="column0 style1 s">Доминика</td>
+            <td class="column1 style1 s">.dm</td>
+            <td class="column2 style1 s">Dominica</td>
+          </tr>
+          <tr class="row63">
+            <td class="column0 style1 s">Доминиканская Республика</td>
+            <td class="column1 style1 s">.do</td>
+            <td class="column2 style1 s">Dominican Republic</td>
+          </tr>
+          <tr class="row64">
+            <td class="column0 style1 s">Египет</td>
+            <td class="column1 style1 s">.eg</td>
+            <td class="column2 style1 s">Egypt</td>
+          </tr>
+          <tr class="row65">
+            <td class="column0 style1 s">Замбия</td>
+            <td class="column1 style1 s">.zm</td>
+            <td class="column2 style1 s">Zambia</td>
+          </tr>
+          <tr class="row66">
+            <td class="column0 style1 s">Западная Сахара</td>
+            <td class="column1 style1 s">.eh</td>
+            <td class="column2 style1 s">Seguiet el Hamra (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">историческое название</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row67">
+            <td class="column0 style1 s">Зимбабве</td>
+            <td class="column1 style1 s">.zw</td>
+            <td class="column2 style1 s">Zimbabwe</td>
+          </tr>
+          <tr class="row68">
+            <td class="column0 style1 s">Израиль</td>
+            <td class="column1 style1 s">.il</td>
+            <td class="column2 style1 s">Israel</td>
+          </tr>
+          <tr class="row69">
+            <td class="column0 style1 s">Индия</td>
+            <td class="column1 style1 s">.in</td>
+            <td class="column2 style1 s">India</td>
+          </tr>
+          <tr class="row70">
+            <td class="column0 style1 s">Индонезия</td>
+            <td class="column1 style1 s">.id</td>
+            <td class="column2 style1 s">Indonesia</td>
+          </tr>
+          <tr class="row71">
+            <td class="column0 style1 s">Иордания</td>
+            <td class="column1 style1 s">.jo</td>
+            <td class="column2 style1 s">Jordan</td>
+          </tr>
+          <tr class="row72">
+            <td class="column0 style1 s">Ирак</td>
+            <td class="column1 style1 s">.iq</td>
+            <td class="column2 style1 s">Iraq</td>
+          </tr>
+          <tr class="row73">
+            <td class="column0 style1 s">Иран</td>
+            <td class="column1 style1 s">.ir</td>
+            <td class="column2 style1 s">Iran</td>
+          </tr>
+          <tr class="row74">
+            <td class="column0 style1 s">Ирландия</td>
+            <td class="column1 style1 s">.ie</td>
+            <td class="column2 style1 s">Ireland</td>
+          </tr>
+          <tr class="row75">
+            <td class="column0 style1 s">Исландия</td>
+            <td class="column1 style1 s">.is</td>
+            <td class="column2 style1 s">Iceland</td>
+          </tr>
+          <tr class="row76">
+            <td class="column0 style1 s">Испания</td>
+            <td class="column1 style1 s">.es</td>
+            <td class="column2 style1 s">España (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">исп.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row77">
+            <td class="column0 style1 s">Италия</td>
+            <td class="column1 style1 s">.it</td>
+            <td class="column2 style1 s">Italy</td>
+          </tr>
+          <tr class="row78">
+            <td class="column0 style1 s">Йемен</td>
+            <td class="column1 style1 s">.ye</td>
+            <td class="column2 style1 s">Yemen</td>
+          </tr>
+          <tr class="row79">
+            <td class="column0 style1 s">Кабо-Верде</td>
+            <td class="column1 style1 s">.cv</td>
+            <td class="column2 style1 s">Cape Verde</td>
+          </tr>
+          <tr class="row80">
+            <td class="column0 style1 s">Казахстан</td>
+            <td class="column1 style1 s">.kz,.?аз</td>
+            <td class="column2 style1 s">Kazakhstan</td>
+          </tr>
+          <tr class="row81">
+            <td class="column0 style1 s">Камбоджа</td>
+            <td class="column1 style1 s">.kh</td>
+            <td class="column2 style1 s">Kâmpuchéa (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">кхмерский</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row82">
+            <td class="column0 style1 s">Камерун</td>
+            <td class="column1 style1 s">.cm</td>
+            <td class="column2 style1 s">Cameroon</td>
+          </tr>
+          <tr class="row83">
+            <td class="column0 style1 s">Канада</td>
+            <td class="column1 style1 s">.ca</td>
+            <td class="column2 style1 s">Canada</td>
+          </tr>
+          <tr class="row84">
+            <td class="column0 style1 s">Катар</td>
+            <td class="column1 style1 s">.qa</td>
+            <td class="column2 style1 s">Qatar</td>
+          </tr>
+          <tr class="row85">
+            <td class="column0 style1 s">Кения</td>
+            <td class="column1 style1 s">.ke</td>
+            <td class="column2 style1 s">Kenya</td>
+          </tr>
+          <tr class="row86">
+            <td class="column0 style1 s">Кипр</td>
+            <td class="column1 style1 s">.cy</td>
+            <td class="column2 style1 s">Cyprus</td>
+          </tr>
+          <tr class="row87">
+            <td class="column0 style1 s">Киргизия</td>
+            <td class="column1 style1 s">.kg</td>
+            <td class="column2 style1 s">Kyrgyzstan</td>
+          </tr>
+          <tr class="row88">
+            <td class="column0 style1 s">Кирибати</td>
+            <td class="column1 style1 s">.ki</td>
+            <td class="column2 style1 s">Kiribati</td>
+          </tr>
+          <tr class="row89">
+            <td class="column0 style1 s">Китай</td>
+            <td class="column1 style1 s">.cn</td>
+            <td class="column2 style1 s">China</td>
+          </tr>
+          <tr class="row90">
+            <td class="column0 style1 s">Колумбия</td>
+            <td class="column1 style1 s">.co</td>
+            <td class="column2 style1 s">Colombia</td>
+          </tr>
+          <tr class="row91">
+            <td class="column0 style1 s">Коморы</td>
+            <td class="column1 style1 s">.km</td>
+            <td class="column2 style1 s">Udzima wa Komori (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">коморский</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row92">
+            <td class="column0 style1 s">Конго, Республика</td>
+            <td class="column1 style1 s">.cg</td>
+            <td class="column2 style1 s">Republic Congo</td>
+          </tr>
+          <tr class="row93">
+            <td class="column0 style1 s">Конго, Демократическая Республика</td>
+            <td class="column1 style1 s">.cd</td>
+            <td class="column2 style1 s">Democratic Republic of Congo</td>
+          </tr>
+          <tr class="row94">
+            <td class="column0 style1 s">Корея, Народно-Демократическая Республика</td>
+            <td class="column1 style1 s">.kp</td>
+            <td class="column2 style1 s">Democratic People's Republic of Korea</td>
+          </tr>
+          <tr class="row95">
+            <td class="column0 style1 s">Корея, Республика</td>
+            <td class="column1 style1 s">.kr</td>
+            <td class="column2 style1 s">The Republic of Korea</td>
+          </tr>
+          <tr class="row96">
+            <td class="column0 style1 s">Коста-Рика</td>
+            <td class="column1 style1 s">.cr</td>
+            <td class="column2 style1 s">Costa Rica</td>
+          </tr>
+          <tr class="row97">
+            <td class="column0 style1 s">Кот д'Ивуар</td>
+            <td class="column1 style1 s">.ci</td>
+            <td class="column2 style1 s">Cote d'Ivoire (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row98">
+            <td class="column0 style1 s">Куба</td>
+            <td class="column1 style1 s">.cu</td>
+            <td class="column2 style1 s">Cuba</td>
+          </tr>
+          <tr class="row99">
+            <td class="column0 style1 s">Кувейт</td>
+            <td class="column1 style1 s">.kw</td>
+            <td class="column2 style1 s">Kuwait</td>
+          </tr>
+          <tr class="row100">
+            <td class="column0 style1 s">Лаос, Народно-Демократическая Республика</td>
+            <td class="column1 style1 s">.la</td>
+            <td class="column2 style1 s">Lao People's Democratic Republic</td>
+          </tr>
+          <tr class="row101">
+            <td class="column0 style1 s">Латвия</td>
+            <td class="column1 style1 s">.lv</td>
+            <td class="column2 style1 s">Latvia</td>
+          </tr>
+          <tr class="row102">
+            <td class="column0 style1 s">Лесото</td>
+            <td class="column1 style1 s">.ls</td>
+            <td class="column2 style1 s">Lesotho</td>
+          </tr>
+          <tr class="row103">
+            <td class="column0 style1 s">Либерия</td>
+            <td class="column1 style1 s">.lr</td>
+            <td class="column2 style1 s">Liberia</td>
+          </tr>
+          <tr class="row104">
+            <td class="column0 style1 s">Ливан</td>
+            <td class="column1 style1 s">.lb</td>
+            <td class="column2 style1 s">Lebanon</td>
+          </tr>
+          <tr class="row105">
+            <td class="column0 style1 s">Ливия</td>
+            <td class="column1 style1 s">.ly</td>
+            <td class="column2 style1 s">Dawlat Libya</td>
+          </tr>
+          <tr class="row106">
+            <td class="column0 style1 s">Литва</td>
+            <td class="column1 style1 s">.lt</td>
+            <td class="column2 style1 s">Lithuania</td>
+          </tr>
+          <tr class="row107">
+            <td class="column0 style1 s">Лихтенштейн</td>
+            <td class="column1 style1 s">.li</td>
+            <td class="column2 style1 s">Liechtenstein</td>
+          </tr>
+          <tr class="row108">
+            <td class="column0 style1 s">Люксембург</td>
+            <td class="column1 style1 s">.lu</td>
+            <td class="column2 style1 s">Luxembourg</td>
+          </tr>
+          <tr class="row109">
+            <td class="column0 style1 s">Маврикий</td>
+            <td class="column1 style1 s">.mu</td>
+            <td class="column2 style1 s">Republic of Mauritius</td>
+          </tr>
+          <tr class="row110">
+            <td class="column0 style1 s">Мавритания</td>
+            <td class="column1 style1 s">.mr</td>
+            <td class="column2 style1 s">Mauritania</td>
+          </tr>
+          <tr class="row111">
+            <td class="column0 style1 s">Мадагаскар</td>
+            <td class="column1 style1 s">.mg</td>
+            <td class="column2 style1 s">Madagascar</td>
+          </tr>
+          <tr class="row112">
+            <td class="column0 style1 s">Макао (Аомынь)</td>
+            <td class="column1 style1 s">.mo</td>
+            <td class="column2 style1 s">Macao (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">англ.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row113">
+            <td class="column0 style1 s">Македония</td>
+            <td class="column1 style1 s">.mk</td>
+            <td class="column2 style1 s">Μακεδον?α (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">греч.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row114">
+            <td class="column0 style1 s">Малави</td>
+            <td class="column1 style1 s">.mw</td>
+            <td class="column2 style1 s">Malawi</td>
+          </tr>
+          <tr class="row115">
+            <td class="column0 style1 s">Малайзия</td>
+            <td class="column1 style1 s">.my</td>
+            <td class="column2 style1 s">Malaysia</td>
+          </tr>
+          <tr class="row116">
+            <td class="column0 style1 s">Мали</td>
+            <td class="column1 style1 s">.ml</td>
+            <td class="column2 style1 s">Mali</td>
+          </tr>
+          <tr class="row117">
+            <td class="column0 style1 s">Мальдивы</td>
+            <td class="column1 style1 s">.mv</td>
+            <td class="column2 style1 s">Maldives</td>
+          </tr>
+          <tr class="row118">
+            <td class="column0 style1 s">Мальта</td>
+            <td class="column1 style1 s">.mt</td>
+            <td class="column2 style1 s">Malta</td>
+          </tr>
+          <tr class="row119">
+            <td class="column0 style1 s">Марокко</td>
+            <td class="column1 style1 s">.ma</td>
+            <td class="column2 style1 s">Morocco</td>
+          </tr>
+          <tr class="row120">
+            <td class="column0 style1 s">Мартиника</td>
+            <td class="column1 style1 s">.mq</td>
+            <td class="column2 style1 s">Martinique</td>
+          </tr>
+          <tr class="row121">
+            <td class="column0 style1 s">Маршалловы Острова</td>
+            <td class="column1 style1 s">.mh</td>
+            <td class="column2 style1 s">Marshall Islands</td>
+          </tr>
+          <tr class="row122">
+            <td class="column0 style1 s">Мексика</td>
+            <td class="column1 style1 s">.mx</td>
+            <td class="column2 style1 s">Mexico</td>
+          </tr>
+          <tr class="row123">
+            <td class="column0 style1 s">Микронезия (федеративные штаты)</td>
+            <td class="column1 style1 s">.fm</td>
+            <td class="column2 style1 s">Federated States of Micronesia</td>
+          </tr>
+          <tr class="row124">
+            <td class="column0 style1 s">Мозамбик</td>
+            <td class="column1 style1 s">.mz</td>
+            <td class="column2 style1 s">Mozambique</td>
+          </tr>
+          <tr class="row125">
+            <td class="column0 style1 s">Молдавия</td>
+            <td class="column1 style1 s">.md</td>
+            <td class="column2 style1 s">Moldova</td>
+          </tr>
+          <tr class="row126">
+            <td class="column0 style1 s">Монако</td>
+            <td class="column1 style1 s">.mc</td>
+            <td class="column2 style1 s">Monaco</td>
+          </tr>
+          <tr class="row127">
+            <td class="column0 style1 s">Монголия</td>
+            <td class="column1 style1 s">.mn</td>
+            <td class="column2 style1 s">Mongolia</td>
+          </tr>
+          <tr class="row128">
+            <td class="column0 style1 s">Монтсеррат</td>
+            <td class="column1 style1 s">.ms</td>
+            <td class="column2 style1 s">Montserrat</td>
+          </tr>
+          <tr class="row129">
+            <td class="column0 style1 s">Мьянма</td>
+            <td class="column1 style1 s">.mm</td>
+            <td class="column2 style1 s">Myanmar</td>
+          </tr>
+          <tr class="row130">
+            <td class="column0 style1 s">Намибия</td>
+            <td class="column1 style1 s">.na</td>
+            <td class="column2 style1 s">Namibia</td>
+          </tr>
+          <tr class="row131">
+            <td class="column0 style1 s">Науру</td>
+            <td class="column1 style1 s">.nr</td>
+            <td class="column2 style1 s">Nauru</td>
+          </tr>
+          <tr class="row132">
+            <td class="column0 style1 s">Непал</td>
+            <td class="column1 style1 s">.np</td>
+            <td class="column2 style1 s">Nepal</td>
+          </tr>
+          <tr class="row133">
+            <td class="column0 style1 s">Нигер</td>
+            <td class="column1 style1 s">.ne</td>
+            <td class="column2 style1 s">Niger</td>
+          </tr>
+          <tr class="row134">
+            <td class="column0 style1 s">Нигерия</td>
+            <td class="column1 style1 s">.ng</td>
+            <td class="column2 style1 s">Nigeria</td>
+          </tr>
+          <tr class="row135">
+            <td class="column0 style1 s">Нидерландские Антилы</td>
+            <td class="column1 style1 s">.an</td>
+            <td class="column2 style1 s">Netherlands Antilles</td>
+          </tr>
+          <tr class="row136">
+            <td class="column0 style1 s">Нидерландские Антильские острова, Кюрасао</td>
+            <td class="column1 style1 s">.cw</td>
+            <td class="column2 style1 s">Netherlands Antilles, Curacao (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">столица</span><span style="color:#333333; font-family:'Arial'; font-size:10pt"> – Willemstad)</span></td>
+          </tr>
+          <tr class="row137">
+            <td class="column0 style1 s">Нидерланды</td>
+            <td class="column1 style1 s">.nl</td>
+            <td class="column2 style1 s">Netherlands</td>
+          </tr>
+          <tr class="row138">
+            <td class="column0 style1 s">Никарагуа</td>
+            <td class="column1 style1 s">.ni</td>
+            <td class="column2 style1 s">Nicaragua</td>
+          </tr>
+          <tr class="row139">
+            <td class="column0 style1 s">Ниуэ</td>
+            <td class="column1 style1 s">.nu</td>
+            <td class="column2 style1 s">Niue</td>
+          </tr>
+          <tr class="row140">
+            <td class="column0 style1 s">Новая Зеландия</td>
+            <td class="column1 style1 s">.nz</td>
+            <td class="column2 style1 s">New Zealand</td>
+          </tr>
+          <tr class="row141">
+            <td class="column0 style1 s">Новая Каледония</td>
+            <td class="column1 style1 s">.nc</td>
+            <td class="column2 style1 s">New Caledonia (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt"> Nouvelle-Calédonie)</span></td>
+          </tr>
+          <tr class="row142">
+            <td class="column0 style1 s">Норвегия</td>
+            <td class="column1 style1 s">.no</td>
+            <td class="column2 style1 s">Norway</td>
+          </tr>
+          <tr class="row143">
+            <td class="column0 style1 s">Объединенные Арабские Эмираты (ОАЭ)</td>
+            <td class="column1 style1 s">.ae</td>
+            <td class="column2 style1 s">United Arab Emirates (UAE)</td>
+          </tr>
+          <tr class="row144">
+            <td class="column0 style1 s">Оман</td>
+            <td class="column1 style1 s">.om</td>
+            <td class="column2 style1 s">Oman</td>
+          </tr>
+          <tr class="row145">
+            <td class="column0 style1 s">Остров Мэн</td>
+            <td class="column1 style1 s">.im</td>
+            <td class="column2 style1 s">Isle of Man</td>
+          </tr>
+          <tr class="row146">
+            <td class="column0 style1 s">Остров Норфолк</td>
+            <td class="column1 style1 s">.nf</td>
+            <td class="column2 style1 s">Norfolk Island</td>
+          </tr>
+          <tr class="row147">
+            <td class="column0 style1 s">Остров Святой Елены</td>
+            <td class="column1 style1 s">.sh</td>
+            <td class="column2 style1 s">Saint Helena</td>
+          </tr>
+          <tr class="row148">
+            <td class="column0 style1 s">Острова Кайман</td>
+            <td class="column1 style1 s">.ky</td>
+            <td class="column2 style1 s">Cayman Islands (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">официальное название</span><span style="color:#333333; font-family:'Arial'; font-size:10pt"> – KY, CYM)</span></td>
+          </tr>
+          <tr class="row149">
+            <td class="column0 style1 s">Острова Кука</td>
+            <td class="column1 style1 s">.ck</td>
+            <td class="column2 style1 s">Cook Islands</td>
+          </tr>
+          <tr class="row150">
+            <td class="column0 style1 s">Острова Питкерн</td>
+            <td class="column1 style1 s">.pn</td>
+            <td class="column2 style1 s">Pitcairn Islands</td>
+          </tr>
+          <tr class="row151">
+            <td class="column0 style1 s">Острова Сен-Пьер и Микелон</td>
+            <td class="column1 style1 s">.pm</td>
+            <td class="column2 style1 s">Saint Pierre and Miquelon (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt"> Saint-Pierre et Miquelon)</span></td>
+          </tr>
+          <tr class="row152">
+            <td class="column0 style1 s">Острова Теркс и Кайкос</td>
+            <td class="column1 style1 s">.tc</td>
+            <td class="column2 style1 s">Turks and Caicos Islands</td>
+          </tr>
+          <tr class="row153">
+            <td class="column0 style1 s">Острова Шпицберген и Ян-Майен</td>
+            <td class="column1 style1 s">.sj</td>
+            <td class="column2 style1 s">Svalbard og Jan Mayen (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">норв.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row154">
+            <td class="column0 style1 s">Пакистан</td>
+            <td class="column1 style1 s">.pk</td>
+            <td class="column2 style1 s">Pakistan</td>
+          </tr>
+          <tr class="row155">
+            <td class="column0 style1 s">Палау</td>
+            <td class="column1 style1 s">.pw</td>
+            <td class="column2 style1 s">Palau (предоставляется под новым брендом – the Professional Web)</td>
+          </tr>
+          <tr class="row156">
+            <td class="column0 style1 s">Палестина</td>
+            <td class="column1 style1 s">.ps</td>
+            <td class="column2 style1 s">Palestine</td>
+          </tr>
+          <tr class="row157">
+            <td class="column0 style1 s">Панама</td>
+            <td class="column1 style1 s">.pa</td>
+            <td class="column2 style1 s">Panama</td>
+          </tr>
+          <tr class="row158">
+            <td class="column0 style1 s">Папуа – Новая Гвинея</td>
+            <td class="column1 style1 s">.pg</td>
+            <td class="column2 style1 s">Papua New Guinea</td>
+          </tr>
+          <tr class="row159">
+            <td class="column0 style1 s">Парагвай</td>
+            <td class="column1 style1 s">.py</td>
+            <td class="column2 style1 s">Paraguay</td>
+          </tr>
+          <tr class="row160">
+            <td class="column0 style1 s">Перу</td>
+            <td class="column1 style1 s">.pe</td>
+            <td class="column2 style1 s">Peru</td>
+          </tr>
+          <tr class="row161">
+            <td class="column0 style1 s">Полинезия (Французская)</td>
+            <td class="column1 style1 s">.pf</td>
+            <td class="column2 style1 s">Polynésie française (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row162">
+            <td class="column0 style1 s">Польша</td>
+            <td class="column1 style1 s">.pl</td>
+            <td class="column2 style1 s">Poland</td>
+          </tr>
+          <tr class="row163">
+            <td class="column0 style1 s">Португалия</td>
+            <td class="column1 style1 s">.pt</td>
+            <td class="column2 style1 s">Portugal</td>
+          </tr>
+          <tr class="row164">
+            <td class="column0 style1 s">Пуэрто-Рико</td>
+            <td class="column1 style1 s">.pr</td>
+            <td class="column2 style1 s">Puerto Rico</td>
+          </tr>
+          <tr class="row165">
+            <td class="column0 style1 s">Реюньон</td>
+            <td class="column1 style1 s">.re</td>
+            <td class="column2 style1 s">Réunion (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row166">
+            <td class="column0 style1 s">Россия</td>
+            <td class="column1 style1 s">.ru, .рф</td>
+            <td class="column2 style1 s">Russia, Российская Федерация</td>
+          </tr>
+          <tr class="row167">
+            <td class="column0 style1 s">Руанда</td>
+            <td class="column1 style1 s">.rw</td>
+            <td class="column2 style1 s">Rwanda</td>
+          </tr>
+          <tr class="row168">
+            <td class="column0 style1 s">Румыния</td>
+            <td class="column1 style1 s">.ro</td>
+            <td class="column2 style1 s">Romania</td>
+          </tr>
+          <tr class="row169">
+            <td class="column0 style1 s">Сальвадор</td>
+            <td class="column1 style1 s">.sv</td>
+            <td class="column2 style1 s">Salvador</td>
+          </tr>
+          <tr class="row170">
+            <td class="column0 style1 s">Самоа, Независимое государство</td>
+            <td class="column1 style1 s">.ws</td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row171">
+            <td class="column0 style1 s">Самоа, Американские</td>
+            <td class="column1 style1 s">.as</td>
+            <td class="column2 style1 s">American Samoa</td>
+          </tr>
+          <tr class="row172">
+            <td class="column0 style1 s">Сан-Марино</td>
+            <td class="column1 style1 s">.sm</td>
+            <td class="column2 style1 s">San Marino</td>
+          </tr>
+          <tr class="row173">
+            <td class="column0 style1 s">Сан-Томе и Принсипи</td>
+            <td class="column1 style1 s">.st</td>
+            <td class="column2 style1 s">Sao Tome and Principe</td>
+          </tr>
+          <tr class="row174">
+            <td class="column0 style1 s">Саудовская Аравия</td>
+            <td class="column1 style1 s">.sa</td>
+            <td class="column2 style1 s">Saudi Arabia</td>
+          </tr>
+          <tr class="row175">
+            <td class="column0 style1 s">Свазиленд</td>
+            <td class="column1 style1 s">.sz</td>
+            <td class="column2 style1 s">Swaziland</td>
+          </tr>
+          <tr class="row176">
+            <td class="column0 style1 s">Северные Марианские острова</td>
+            <td class="column1 style1 s">.mp</td>
+            <td class="column2 style1 s">двухбуквенное обозначение островов по стандарту ISO 3166</td>
+          </tr>
+          <tr class="row177">
+            <td class="column0 style1 s">Сейшельские Острова</td>
+            <td class="column1 style1 s">.sc</td>
+            <td class="column2 style1 s">Seychelles</td>
+          </tr>
+          <tr class="row178">
+            <td class="column0 style1 s">Сенегал</td>
+            <td class="column1 style1 s">.sn</td>
+            <td class="column2 style1 s">Senegal</td>
+          </tr>
+          <tr class="row179">
+            <td class="column0 style1 s">Сент-Винсент и Гренадины</td>
+            <td class="column1 style1 s">.vc</td>
+            <td class="column2 style1 s">Saint Vincent and the Grenadines</td>
+          </tr>
+          <tr class="row180">
+            <td class="column0 style1 s">Сент-Китс и Невис</td>
+            <td class="column1 style1 s">.kn</td>
+            <td class="column2 style1 s">Saint Kitts and Nevis</td>
+          </tr>
+          <tr class="row181">
+            <td class="column0 style1 s">Сент-Люсия</td>
+            <td class="column1 style1 s">.lc</td>
+            <td class="column2 style1 s">Saint Lucia</td>
+          </tr>
+          <tr class="row182">
+            <td class="column0 style1 s">Сербия, Республика</td>
+            <td class="column1 style1 s">.rs</td>
+            <td class="column2 style1 s">Republic of Serbia</td>
+          </tr>
+          <tr class="row183">
+            <td class="column0 style1 s">Сингапур</td>
+            <td class="column1 style1 s">.sg</td>
+            <td class="column2 style1 s">Singapore</td>
+          </tr>
+          <tr class="row184">
+            <td class="column0 style1 s">Сирия</td>
+            <td class="column1 style1 s">.sy</td>
+            <td class="column2 style1 s">Syria</td>
+          </tr>
+          <tr class="row185">
+            <td class="column0 style1 s">Словакия</td>
+            <td class="column1 style1 s">.sk</td>
+            <td class="column2 style1 s">Slovakia</td>
+          </tr>
+          <tr class="row186">
+            <td class="column0 style1 s">Словения</td>
+            <td class="column1 style1 s">.si</td>
+            <td class="column2 style1 s">Slovenia</td>
+          </tr>
+          <tr class="row187">
+            <td class="column0 style1 s">Соединенные Штаты Америки (США)</td>
+            <td class="column1 style1 s">.us</td>
+            <td class="column2 style1 s">United States of America (USA)</td>
+          </tr>
+          <tr class="row188">
+            <td class="column0 style1 s">Соломоновы Острова</td>
+            <td class="column1 style1 s">.sb</td>
+            <td class="column2 style1 null"></td>
+          </tr>
+          <tr class="row189">
+            <td class="column0 style1 s">Сомали</td>
+            <td class="column1 style1 s">.so</td>
+            <td class="column2 style1 s">Somalia</td>
+          </tr>
+          <tr class="row190">
+            <td class="column0 style1 s">Судан</td>
+            <td class="column1 style1 s">.sd</td>
+            <td class="column2 style1 s">Sudan</td>
+          </tr>
+          <tr class="row191">
+            <td class="column0 style1 s">Суринам</td>
+            <td class="column1 style1 s">.sr</td>
+            <td class="column2 style1 s">Suriname</td>
+          </tr>
+          <tr class="row192">
+            <td class="column0 style1 s">Сьерра-Леоне</td>
+            <td class="column1 style1 s">.sl</td>
+            <td class="column2 style1 s">Sierra Leone</td>
+          </tr>
+          <tr class="row193">
+            <td class="column0 style1 s">Таджикистан</td>
+            <td class="column1 style1 s">.tj</td>
+            <td class="column2 style1 s">Tajikistan</td>
+          </tr>
+          <tr class="row194">
+            <td class="column0 style1 s">Таиланд</td>
+            <td class="column1 style1 s">.th</td>
+            <td class="column2 style1 s">Thailand</td>
+          </tr>
+          <tr class="row195">
+            <td class="column0 style1 s">Танзания</td>
+            <td class="column1 style1 s">.tz</td>
+            <td class="column2 style1 s">Tanzania</td>
+          </tr>
+          <tr class="row196">
+            <td class="column0 style1 s">Того</td>
+            <td class="column1 style1 s">.tg</td>
+            <td class="column2 style1 s">Togo</td>
+          </tr>
+          <tr class="row197">
+            <td class="column0 style1 s">Токелау</td>
+            <td class="column1 style1 s">.tk</td>
+            <td class="column2 style1 s">Tokelau</td>
+          </tr>
+          <tr class="row198">
+            <td class="column0 style1 s">Тонга</td>
+            <td class="column1 style1 s">.to</td>
+            <td class="column2 style1 s">Tonga</td>
+          </tr>
+          <tr class="row199">
+            <td class="column0 style1 s">Тринидад и Тобаго</td>
+            <td class="column1 style1 s">.tt</td>
+            <td class="column2 style1 s">Trinidad and Tobago</td>
+          </tr>
+          <tr class="row200">
+            <td class="column0 style1 s">Тувалу</td>
+            <td class="column1 style1 s">.tv</td>
+            <td class="column2 style1 s">Tuvalu</td>
+          </tr>
+          <tr class="row201">
+            <td class="column0 style1 s">Тунис</td>
+            <td class="column1 style1 s">.tn</td>
+            <td class="column2 style1 s">Tunisia</td>
+          </tr>
+          <tr class="row202">
+            <td class="column0 style1 s">Туркмения</td>
+            <td class="column1 style1 s">.tm</td>
+            <td class="column2 style1 s">Turkmenistan</td>
+          </tr>
+          <tr class="row203">
+            <td class="column0 style1 s">Турция</td>
+            <td class="column1 style1 s">.tr</td>
+            <td class="column2 style1 s">Turkey</td>
+          </tr>
+          <tr class="row204">
+            <td class="column0 style1 s">Уганда</td>
+            <td class="column1 style1 s">.ug</td>
+            <td class="column2 style1 s">Uganda</td>
+          </tr>
+          <tr class="row205">
+            <td class="column0 style1 s">Узбекистан</td>
+            <td class="column1 style1 s">.uz</td>
+            <td class="column2 style1 s">Uzbekistan</td>
+          </tr>
+          <tr class="row206">
+            <td class="column0 style1 s">Украина</td>
+            <td class="column1 style1 s">.ua, .укр</td>
+            <td class="column2 style1 s">Ukraine, Украина</td>
+          </tr>
+          <tr class="row207">
+            <td class="column0 style1 s">Уоллис и Футуна</td>
+            <td class="column1 style1 s">.wf</td>
+            <td class="column2 style1 s">Wallis et Futuna (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row208">
+            <td class="column0 style1 s">Уругвай</td>
+            <td class="column1 style1 s">.uy</td>
+            <td class="column2 style1 s">Uruguay</td>
+          </tr>
+          <tr class="row209">
+            <td class="column0 style1 s">Фарерские острова</td>
+            <td class="column1 style1 s">.fo</td>
+            <td class="column2 style1 s">Faroe islands</td>
+          </tr>
+          <tr class="row210">
+            <td class="column0 style1 s">Фиджи</td>
+            <td class="column1 style1 s">.fj</td>
+            <td class="column2 style1 s">Fiji</td>
+          </tr>
+          <tr class="row211">
+            <td class="column0 style1 s">Филиппины</td>
+            <td class="column1 style1 s">.ph</td>
+            <td class="column2 style1 s">Philippines</td>
+          </tr>
+          <tr class="row212">
+            <td class="column0 style1 s">Финляндия</td>
+            <td class="column1 style1 s">.fi</td>
+            <td class="column2 style1 s">Finland</td>
+          </tr>
+          <tr class="row213">
+            <td class="column0 style1 s">Фолклендские острова (Мальвинские)</td>
+            <td class="column1 style1 s">.fk</td>
+            <td class="column2 style1 s">Falkland Islands</td>
+          </tr>
+          <tr class="row214">
+            <td class="column0 style1 s">Франция</td>
+            <td class="column1 style1 s">.fr</td>
+            <td class="column2 style1 s">France</td>
+          </tr>
+          <tr class="row215">
+            <td class="column0 style1 s">Хорватия</td>
+            <td class="column1 style1 s">.hr</td>
+            <td class="column2 style1 s">Hrvatska (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">хорв.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row216">
+            <td class="column0 style1 s">Центральноафриканская Республика</td>
+            <td class="column1 style1 s">.cf</td>
+            <td class="column2 style1 s">Central African Republic</td>
+          </tr>
+          <tr class="row217">
+            <td class="column0 style1 s">Чад</td>
+            <td class="column1 style1 s">.td</td>
+            <td class="column2 style1 s">Tchad (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">фр.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row218">
+            <td class="column0 style1 s">Черногория</td>
+            <td class="column1 style1 s">.me</td>
+            <td class="column2 style1 s">Montenegro</td>
+          </tr>
+          <tr class="row219">
+            <td class="column0 style1 s">Чехия</td>
+            <td class="column1 style1 s">.cz</td>
+            <td class="column2 style1 s">Czech</td>
+          </tr>
+          <tr class="row220">
+            <td class="column0 style1 s">Чили</td>
+            <td class="column1 style1 s">.cl</td>
+            <td class="column2 style1 s">Chile</td>
+          </tr>
+          <tr class="row221">
+            <td class="column0 style1 s">Швейцария</td>
+            <td class="column1 style1 s">.ch</td>
+            <td class="column2 style1 s">Confoederatio Helvetica – Гельветская конфедерация (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">лат.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row222">
+            <td class="column0 style1 s">Швеция</td>
+            <td class="column1 style1 s">.se</td>
+            <td class="column2 style1 s">Sweden</td>
+          </tr>
+          <tr class="row223">
+            <td class="column0 style1 s">Шри-Ланка</td>
+            <td class="column1 style1 s">.lk</td>
+            <td class="column2 style1 s">Sri Lanka</td>
+          </tr>
+          <tr class="row224">
+            <td class="column0 style1 s">Эквадор</td>
+            <td class="column1 style1 s">.ec</td>
+            <td class="column2 style1 s">Ecuador</td>
+          </tr>
+          <tr class="row225">
+            <td class="column0 style1 s">Эритрея</td>
+            <td class="column1 style1 s">.er</td>
+            <td class="column2 style1 s">Eritrea</td>
+          </tr>
+          <tr class="row226">
+            <td class="column0 style1 s">Эстония</td>
+            <td class="column1 style1 s">.ee</td>
+            <td class="column2 style1 s">Estonia</td>
+          </tr>
+          <tr class="row227">
+            <td class="column0 style1 s">Эфиопия</td>
+            <td class="column1 style1 s">.et</td>
+            <td class="column2 style1 s">Ethiopia</td>
+          </tr>
+          <tr class="row228">
+            <td class="column0 style2 s">Южно-Африканская Республика (ЮАР)</td>
+            <td class="column1 style2 s">.za</td>
+            <td class="column2 style2 s">Zuid-Afrika (<span style="font-style:italic; color:#333333; font-family:'Arial'; font-size:10pt">нидерл.</span><span style="color:#333333; font-family:'Arial'; font-size:10pt">)</span></td>
+          </tr>
+          <tr class="row229">
+            <td class="column0 style1 s">Ямайка</td>
+            <td class="column1 style1 s">.jm</td>
+            <td class="column2 style1 s">Jamaica</td>
+          </tr>
+          <tr class="row230">
+            <td class="column0 style1 s">Япония</td>
+            <td class="column1 style1 s">.jp</td>
+            <td class="column2 style1 s">Japan</td>
+          </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
