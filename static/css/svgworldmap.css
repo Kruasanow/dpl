@@ -6,3 +6,7 @@
 
 .worldmap_2 {fill:#ff0000;stroke:black;stroke-width:0.5px;}
 .worldmap_2:hover {fill:#ff8a8a;stroke:black;stroke-width:0.5px;}
+
+.blocks_main {
+    display: inline-block;
+}

@@ -26,18 +26,6 @@ body {
 div.lastlink {border-top:1px solid #e0e0e0;margin-top:10px;padding:10px;}
 </style>
 
-<style>
-	.new123 { 
-			width:110px; 
-			height:50px; 
-			background:#151515; 
-			float:left; 
-			margin: 0 15px 15px 0; 
-			text-align:center;
-			padding: 10px;
-			}
-</style>
-
 </head>
 <body>
 
@@ -45,19 +33,10 @@ div.lastlink {border-top:1px solid #e0e0e0;margin-top:10px;padding:10px;}
 
 <!-- World map containter. Width and height can be set here -->
 <!-- <div id="place" style="width:649px;height:400px;"></div> -->
-<div style="width:100%; height:1px; clear:both;">	
-	<!-- <div id="place" style="width: 649px;height:400px;"></div> -->
-	<div id="place" style="width: 975px;height:600px;" class="new123"></div>
-	<div class="new123">
-		<script src="jquery.js"></script>
-    	<script>
-    	$(function(){
-    	  $("#includedContent").load("countries.html");
-	    });
-    	</script>
+<!-- <div id="place" style="width: 649px;height:400px;"></div> -->
 
-	</div>
-</div>
+<div id="place" style="width: 975px;height:600px;" class="blocks_main"></div>
+<div class="blocks_main"> <iframe src="{{ url_for('static', filename='countries.html') }}" width="540px" height="600px"></iframe> </div>
 
 <script type="text/javascript">
 
