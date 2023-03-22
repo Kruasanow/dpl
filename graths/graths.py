@@ -4,15 +4,15 @@ import base64
 import os
 from flask import Response
 
-def do_grath(arr1,arr2,arr3):
+def do_grath(arr1,arr2,xlabel,ylabel,title):
     x = np.array(arr1)
     y = np.array(arr2)
-    z = np.array(arr3)
+
     plt.plot(x, y)
-    plt.plot(x, z)
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.title('Graph Title')
+    plt.plot(x, y)
+    plt.xlabel(str(xlabel))
+    plt.ylabel(str(ylabel))
+    plt.title(str(title))
 
     # save grath to buffer
     from io import BytesIO

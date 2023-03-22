@@ -22,9 +22,11 @@
   <div class="bg">
     <!--==============================header=================================-->
     <header>
-      <div class="main">
-        <img src="data:image/png;base64,{{ graph }}" alt="Graph">
-      </div>
+      {% for i in graph %}
+        <div class="main">
+          <img src="data:image/png;base64,{{ i }}" alt="Graph">
+        </div>
+      {% endfor %}
     </header>
     <!--==============================content================================-->
     <section id="content">

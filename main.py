@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import base64
 from graths.graths import do_grath
+from graths.prepare_graths import list_w_grath
 
 sys.path.append('../')
 
@@ -61,11 +62,11 @@ def index():
             init_db(c)
             get_dns_profile(c) # TUT VSE IDET PO PIZDE
             print('###############')
-            from dnsf.dns_prepare_fdb import  TIME, TTL, SERVERS
-            print(SERVERS)
-            print(TTL)
-            print(TIME)
-            print('###############')
+            # from dnsf.dns_prepare_fdb import  TIME, TTL, SERVERS
+            # print(SERVERS)
+            # print(TTL)
+            # print(TIME)
+            # print('###############')
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
@@ -132,13 +133,13 @@ def report():
     
     # # передаем буфер с графиком в шаблон
     # graph = base64.b64encode(buf.read()).decode('utf-8')
-    grath =     do_grath()
+    # grath =     do_grath()
 
     return render_template(
                             'report.html',
                             case = reload_arr(get_srv_from_db()[0]),
                             case2 = reload_arr(get_srv_from_db()[1]),
-                            graph=grath,
+                            graph=list_w_grath(),
                           )
 
 @app.route('/dnsmap', methods = ['get','post'])
