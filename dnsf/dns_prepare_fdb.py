@@ -18,7 +18,6 @@ def swap_dict_values(dict_a,dict_b):
 # Convert Main-dump to DNS-array
 def to_dns_arr(a):
     dns_arr = []
-    # print('[*]dns_prepare_fdb.py: arr - ' + str(a))
     for pac in a:
         if pac.highest_layer == 'DNS':
             dns_arr.append(pac)
@@ -80,7 +79,6 @@ def arr_needed_domain(arr,domain):
 
 def arr_needed_dns_srv(arr,dns_name):
     needed_arr = []
-
     for i in arr:
         try:
             if i.dns.soa_mname == dns_name:
@@ -139,7 +137,6 @@ def get_dump_by_service(arr, qname):
         if key == str(i.dns.qry_name):
             a_req_pac_arr.append(i)
     return(a_req_pac_arr)
-# print(get_dump_by_service(a,'vk.com'))
 
 # Prepare values to create DNS-profile tables
 def get_dns_profile(arr):
@@ -147,8 +144,6 @@ def get_dns_profile(arr):
     cur = conn.cursor()    
     array = to_dns_arr(arr)
     counter = 0
-    # print("Domain names -" + str(list(compare_name_src(array).keys())))
-    # print("SRV -" + str(list(compare_name_src(array).values())))
     g_time =    []
     g_ttl =     []
     g_servers = []
@@ -183,38 +178,43 @@ def get_dns_profile(arr):
         g_servers.append(srv)
         
         for pac in arr:
+
             try:
                 nameserver = str(pac.dns.soa_mname)
             except AttributeError:
                 pass
+
             try:
                 soa_refresh = int(pac.dns.soa_refresh_interval)
             except AttributeError:
                 pass
+
             try:
                 soa_exp_limit = int(pac.dns.soa_expire_limit)
             except AttributeError:
                 pass
+
             try:
                 soa_min_ttl = int(pac.dns.soa_mininum_ttl)
             except AttributeError:
                 pass
-            # Counting of request and response packets, their sum
             if int(pac.dns.flags_response) == 1:
                 rec_count = rec_count + 1
             sum_pac = len(arr)
             ans_count = sum_pac - rec_count
-            # Find orphaned packets ----------
+
             for i in arr:
                 if i.dns.id in un_var:
                     continue
                 else:
                     un_var.append(str(i.dns.id))
+
             for un_dns_id in arr:
                 if un_dns_id.dns.id in un_var:
                     continue
                 else:
-                    orphan_pacs.append(str(un_dns_id.dns.id))                   
+                    orphan_pacs.append(str(un_dns_id.dns.id)) 
+
             # IP-addr that DNS-server returned (type A)
             for i in arr:
                 try:
@@ -223,22 +223,29 @@ def get_dns_profile(arr):
                 except AttributeError:
                     pass
             a_rec_arr = is_unique(a_rec_arr)
-            # Count Errors and their type ------
+
+            # Count Errors and their type
             try:
                 rcode_arr.append(int(pac.dns.flags_rcode))
             except AttributeError:
                 pass
+
             # Count query codes and their types
             qtype_arr.append(int(pac.dns.qry_type))
+
             # Count query classes and their types
             qclass_arr.append(pac.dns.qry_class)
+
             # Count query names and their types
             if int(pac.dns.qry_type) == 1 or int(pac.dns.qry_type) == 28:
                 qname_list.append(pac.dns.qry_name)
+
             # Count opcode's
             opcode_arr.append(int(pac.dns.flags_opcode))
+
             # Count trunkated
             trunk_arr.append(int(pac.dns.flags_truncated))
+
             # Count response class, type, ttl
             try:
                 rclass.append(pac.dns.resp_class)
@@ -247,11 +254,13 @@ def get_dns_profile(arr):
             except AttributeError:
                 pass
             # Average response packet time
+
             try:
                 avg_resp_time.append(float(pac.dns.time))
             except AttributeError:
                 pass
             # Is available recursion on server
+
             try:
                 recursion_arr.append(int(pac.dns.flags_recavail))
             except AttributeError:
@@ -261,6 +270,7 @@ def get_dns_profile(arr):
             a_rec = str(a_rec_arr[0])
         except IndexError:
             a_rec = ''
+
         rtype =  str(swap_dict_values(dict(Counter(rtype)),dcode.RR_types_dict))   
         rclass = str(swap_dict_values(dict(Counter(rclass)),dcode.RR_classes_dict))
         rttl = float(mean(rttl))
@@ -272,10 +282,12 @@ def get_dns_profile(arr):
         opcode_arr = str(swap_dict_values(dict(Counter(opcode_arr)),dcode.OPCODE_dict))
         trunk_arr = str(swap_dict_values(dict(Counter(trunk_arr)),dcode.Trunkated_pac))
         recursion_arr = str(swap_dict_values(dict(Counter(recursion_arr)),dcode.Recursive_pac))
+        
         if orphan_pacs == []:
             orphan_pacs = 'None'
         else:
             orphan_pacs = str(orphan_pacs)
+            
         sum_pac = int(sum_pac)
         rec_count = int(rec_count)
         ans_count = int(ans_count)
@@ -314,32 +326,6 @@ def get_dns_profile(arr):
                     )
         conn.commit()
 
-        # print("SERVER - " + nameserver)#
-        # print("ans_count - " + str(ans_count))
-        # print("rec_count - " + str(rec_count))
-        # print("sum_pac - " + str(sum_pac))#
-        # print("orphan pacs - " + str(orphan_pacs))
-        # print("rcode - " + str(rcode_arr))
-        # print("qtype - " + str(qtype_arr))#
-        # print("qclass - " + str(qclass_arr))
-        # print("qname - " + str(qname_list))
-        # print('a_record - ' + a_rec)
-        # print("opcode - " + str(opcode_arr))
-        # print("trunk - " + str(trunk_arr))
-        # print("recursion - " + str(recursion_arr))
-        # print("rtype - " + str(rtype))
-        # print("rclass - " + str(rclass))
-        # print("rttl - " + str(rttl))
-        # print("average time - " + str(atime))
-
-        # print("#--------------------------------------#")
-    # return [nameserver, srv, a_rec, 
-    #         sum_pac, qtype_arr, 
-    #         qclass_arr, rcode_arr, 
-    #         recursion_arr, atime, 
-    #         rttl, qname_list, opcode_arr, 
-    #         trunk_arr, rtype, rclass, 
-    #         orphan_pacs, ans_count, rec_count]; 
     print('[*]dns_prepare_fdb.py: srv counter - '+str(counter))
     cur.close()
     conn.close()

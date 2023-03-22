@@ -1,6 +1,5 @@
 import pyshark
 import subprocess
-import os
 import db_do.conn_db as cdb
 
 UPLOAD_FOLDER = 'dump_input/'
@@ -98,7 +97,7 @@ def convert_dump(name_before,name_after):
 def exec_db_init_sh():
     subprocess.call(["./scripts/environment_fix.sh"])
 
-pac_t_list =['DNS','TCP','UDP','SSL','VSSMONITORING','DATA','ICMP']
+pac_t_list =['DNS','TCP','SSL','VSSMONITORING','DATA','ICMP']
 def analize_table(pac_type_list,cap):
     arr = []
     for i in pac_type_list:
@@ -106,11 +105,3 @@ def analize_table(pac_type_list,cap):
     print('[*]osh.py: packet counter - ' + str(arr))
     return arr
 
-
-# dns_pack = packet_counter('DNS',cap)
-# tcp_pack = packet_counter('TCP',cap)
-# udp_pack = packet_counter('UDP',cap)
-# ssl_pack = packet_counter('SSL',cap)
-# vss_pack = packet_counter('VSSMONITORING',cap)
-# data_pack = packet_counter('DATA',cap)
-# icmp_pack = packet_counter('ICMP',cap)

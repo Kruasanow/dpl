@@ -116,7 +116,6 @@ def init_db(arr):
                 bad.append(i)
                 count_error = count_error + 1
                 continue
-    # print('[*]dns_db_addiction.py: count error - '+str(count_error))
     print('[*]dns_db_addiction.py: bad array - '+str(bad))
 
     conn.commit()

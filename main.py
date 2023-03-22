@@ -1,23 +1,15 @@
-from flask import Flask, render_template, url_for, request
-from osh import  reload_arr, cap, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh, get_file
-import os
-import attack_score.scoreattack as sa
-from werkzeug.utils import secure_filename
-import psycopg2 as ps
+from flask import Flask, render_template, url_for, request, redirect
+from osh import  reload_arr, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh, get_file
+from graths.prepare_graths import list_w_grath
 from dnsf.dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
-import db_do.conn_db as cdb
 from dnsf.dns_db_addiction import init_db, add_dump
 from dnsf.dns_prepare_fdb import get_dns_profile
-import logging
+from werkzeug.utils import secure_filename
 from base_show.db_selector import get_srv_from_db
+import attack_score.scoreattack as sa
+import logging
 import sys
-import matplotlib.pyplot as plt
-import numpy as np
-import base64
-from graths.graths import do_grath
-from graths.prepare_graths import list_w_grath
-
-sys.path.append('../')
+import os
 
 app = Flask(__name__)    
 log = logging.getLogger('werkzeug')
@@ -37,13 +29,6 @@ def index():
     print(url_for('index'))
     # print('[*]main.py: osh.cap - ' +str(cap))
     exec_db_init_sh()
-    # output_way = 'dump_output/' + output_dump
-    # arr_dump = []
-    # c = get_file(get_dname_from_db())
-
-    # with open(output_way) as file:
-    #     for line in file:
-    #         arr_dump.append(line.rstrip())
 
     if request.method == "POST":
         file = request.files['file']
@@ -60,13 +45,7 @@ def index():
             print('[*]main.py: file - ' + str(file))
 
             init_db(c)
-            get_dns_profile(c) # TUT VSE IDET PO PIZDE
-            print('###############')
-            # from dnsf.dns_prepare_fdb import  TIME, TTL, SERVERS
-            # print(SERVERS)
-            # print(TTL)
-            # print(TIME)
-            # print('###############')
+            get_dns_profile(c)
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
@@ -82,18 +61,14 @@ def index():
                             counted_packets = analize_table(pac_t_list,c),
                             )
     return render_template(
-                           'index.html',
-                        #    sd = arr_dump,
-                        #    filename = get_dname_from_db(),
-                        #    counted_packets = analize_table(pac_t_list,c),
-                           
+                           'index.html', 
                           )
 
 @app.route('/restart')
 def restart_flask():
     args = [sys.executable] + sys.argv[:]
     os.execv(sys.executable, args)
-    return("")
+    return redirect(url_for('/'), 301)
 
 @app.route('/about', methods = ['get','post'])
 def about():
@@ -109,31 +84,12 @@ def about():
                             dnsTZ = sa.DNSTZ(),
                             dnsAP = sa.DNSAMPL(),
                             ssl = sa.level_ssl(),
-                            insaiders = sa.level_acl()[0]
-                            # table = table1_test
+                            insaiders = sa.level_acl()[0],
                           )
 
 @app.route('/report', methods = ['get','post'])
 def report():
     print(url_for('report'))
-
-    # x = np.array([1, 2, 10, 4, 5])
-    # y = np.array([2, 24, 16, 8, 10])
-    
-    # plt.plot(x, y)
-    # plt.xlabel('X-axis')
-    # plt.ylabel('Y-axis')
-    # plt.title('Graph Title')
-    
-    # # сохраняем график в буфер
-    # from io import BytesIO
-    # buf = BytesIO()
-    # plt.savefig(buf, format='png')
-    # buf.seek(0)
-    
-    # # передаем буфер с графиком в шаблон
-    # graph = base64.b64encode(buf.read()).decode('utf-8')
-    # grath =     do_grath()
 
     return render_template(
                             'report.html',
@@ -146,14 +102,14 @@ def report():
 def dnsmap():
     rc = []
     print(url_for('dnsmap'))
-    for i in do_whois(get_qname_list()): #NO INET
+    for i in do_whois(get_qname_list()):
         rc.append(i)
     who_json = get_items_from_who(rc[1])
     who_json = transponate_arr(who_json)
 
     return render_template(
                             'example.html',
-                            data = rc[0], # KOSTIL'
+                            data = rc[0],
                             who = who_json
                             )
 

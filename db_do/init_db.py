@@ -1,6 +1,5 @@
 import os
 import psycopg2
-import conn_db as cdb
 
 conn = psycopg2.connect(
         host="localhost",

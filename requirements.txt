@@ -9,3 +9,5 @@ matplotlib
 numpy
 pybase64
 dnspython
+threading
+argparse

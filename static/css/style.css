@@ -28,6 +28,15 @@ body {
 	height: 300px;
 }
 
+.input_button {
+	max-width: 9450px;
+	margin-left: auto;
+	margin-right: auto;
+	/* display: flex;
+	justify-content: center;
+	width: 100%; */
+}
+
 .ic {
 	border:0;
 	float:right;
@@ -54,7 +63,7 @@ body {
 	width:960px;
 	padding:0;
 	margin:0 auto;
-	font-size:13px;
+	font-size:17px;
 	line-height:24px;
 }
 a {
@@ -121,6 +130,18 @@ p {
 	color:#b22300;
 }
 /*********************************boxes**********************************/
+.submit1 {
+	background-color: #7f7f7f;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	/* text-decoration: none; */
+	/* display: inline-block; */
+	font-size: 16px;
+	border-radius: 5px;
+
+}
 .submit {
 	background-color: #7f7f7f;
 	border: none;
@@ -130,7 +151,7 @@ p {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	border-radius: 12px;
+	border-radius: 5px;
 }
 .table_protocol1 {
 	font-size: medium;
@@ -168,8 +189,8 @@ p {
 	color: #000;
 	width: 100%;
 	background-color: whitesmoke;
-	height: 400px; /* высота нашего блока */
-	border: 5px solid rgb(15, 1, 77); 
+	height: 200px; /* высота нашего блока */
+	border: 5px solid rgb(0, 0, 0); 
 	overflow-x: scroll; /* прокрутка по горизонтали */
 	overflow-y: scroll; /* прокрутка по вертикали */
 	

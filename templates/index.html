@@ -24,19 +24,20 @@
     <header>
       <div class="main">
         <div class="wrapper">
-          <h1><a href="index.html">diploma_project</a></h1>
+          <h1><a href="index.html">VKA</a></h1>
           <div class="fright">
-            <div class="indent"> <span class="address">VKA</span> <span class="theme">ПРОГРАММНЫЙ КОМПЛЕКС ИДЕНТИФИКАЦИИ СОСТОЯНИЯ СЕТЕВОГО ВЗАИМОДЕЙСТВИЯ НА ОСНОВЕ ПАССИВНОГО МОНИТОРИНГА СЕТИ</span> </div>
+            <div class="indent"> <span class="address">ВОЕННО-КОСМИЧЕСКАЯ АКАДЕМИЯ</span> <span class="theme">ПРОГРАММНЫЙ КОМПЛЕКС ИДЕНТИФИКАЦИИ СОСТОЯНИЯ СЕТЕВОГО ВЗАИМОДЕЙСТВИЯ НА ОСНОВЕ ПАССИВНОГО МОНИТОРИНГА СЕТИ</span> </div>
           </div>
         </div>
+        <br><br>
         <nav>
           <ul class="menu">
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="about.html">О программе</a></li>
             <li><a href="">Справочник</a></li>
             <li><a href="">База</a></li>
-            <li><a href="">Сигнатуры</a></li>
-            <li><a href="">История</a></li>
+            <li><a href="">Эмуляция</a></li>
+            <li><a href="">Тенденции развития</a></li>
           </ul>
         </nav>
         <div class="slider-wrapper">
@@ -65,10 +66,9 @@
                         <td>Протокол</th>
                         <td>DNS</td>
                         <td>TCP</td>
-                        <td>UDP</td>
                         <td>SSL</td>
-                        <td>VSS</td>
-                        <td>DATA</td>
+                        <td>LLP</td>
+                        <td>UDP</td>
                         <td>ICMP</td>
                       </tr>
                       <tr>
@@ -83,24 +83,21 @@
                         {% if i[4]|int is jinja_is_prime%}
                         <p class="division_0">{{i}}</p>
                         {% else %}
-                        {{i}}<br> 
+                        {{i}}
                         {% endif %}
                       {% endfor %}
                     </div>
-                    
                   </article>
-                  
                 </div>
               </div>
             </div>
           </div>
-          <div align="center">
+          <div class="input_button"  width="100%">
             <form action="" method=post enctype=multipart/form-data>
-              <p class="submit"><input type=file name=file>
+              <p class="submit1"><input type=file name=file>
                  <input type=submit value=Загрузить></p>
             </form>
           </div>
-          <br><br>
           <div align="center">
             <p class="submit" >
               <a href="/about"> Перейти к отчету</a>
