@@ -1,0 +1,18 @@
+usage: DNSEnum.py domain [options]
+
+positional arguments:
+  domain                Hostname to run enumeration on
+
+optional arguments:
+  -h, --help            Display this helpful bit and exit
+  -w WORDLIST, --wordlist WORDLIST
+                        Specify wordlist file
+  --records {NS,A,CNAME,MX} [{NS,A,CNAME,MX} ...]
+                        Query for DNS records; Options are NS, A, CNAME, and MX
+  -z, --zone-transfer   Attempt a zone transfer on domain (Note: this may be illegal depending on your area, make sure
+                        you are authorized to perform a zone transfer on your target assets)
+  -o OUTPUT, --output OUTPUT
+                        Specify output file
+  --json                Output results in JSON format
+
+The only required arguments are domain, --records, and --wordlist, though I have added logging features and zone transfer capability which may be useful depending on the target surface.

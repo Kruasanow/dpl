@@ -78,8 +78,8 @@
    78 38.648627875 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=16/4096, ttl=66
    79 39.672823705 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=17/4352, ttl=66
    80 40.696364686 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=18/4608, ttl=66
-   81 40.759840238 Vmware_74:97:e4 →              ARP 44 Who has 192.168.138.2? Tell 192.168.138.15
-   82 40.760269245 Vmware_ee:2d:b6 →              ARP 62 192.168.138.2 is at 00:50:56:ee:2d:b6
+   81 40.759840238 VMware_74:97:e4 →              ARP 44 Who has 192.168.138.2? Tell 192.168.138.15
+   82 40.760269245 VMware_ee:2d:b6 →              ARP 62 192.168.138.2 is at 00:50:56:ee:2d:b6
    83 41.720776873 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=19/4864, ttl=66
    84 42.744695645 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=20/5120, ttl=66
    85 43.768483982 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=21/5376, ttl=66
@@ -249,8 +249,8 @@
   249 97.828535595 195.110.124.133 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2020, seq=2/512, ttl=128 (request in 248)
   250 98.702908559 192.168.138.15 → 195.110.124.133 ICMP 100 Echo (ping) request  id=0x2020, seq=3/768, ttl=66
   251 98.816602091 195.110.124.133 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2020, seq=3/768, ttl=128 (request in 250)
-  252 100.151949579 Vmware_74:97:e4 →              ARP 44 Who has 192.168.138.2? Tell 192.168.138.15
-  253 100.152559048 Vmware_ee:2d:b6 →              ARP 62 192.168.138.2 is at 00:50:56:ee:2d:b6
+  252 100.151949579 VMware_74:97:e4 →              ARP 44 Who has 192.168.138.2? Tell 192.168.138.15
+  253 100.152559048 VMware_ee:2d:b6 →              ARP 62 192.168.138.2 is at 00:50:56:ee:2d:b6
   254 102.572452837    127.0.0.1 → 127.0.0.53   DNS 102 Standard query 0xa917 A connectivity-check.ubuntu.com OPT
   255 102.572550012    127.0.0.1 → 127.0.0.53   DNS 102 Standard query 0x752e AAAA connectivity-check.ubuntu.com OPT
   256 102.573083233 192.168.138.15 → 192.168.138.2 DNS 102 Standard query 0x8839 A connectivity-check.ubuntu.com OPT

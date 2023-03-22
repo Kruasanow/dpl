@@ -1,19 +1,22 @@
 from flask import Flask, render_template, url_for, request
 from osh import  reload_arr, cap, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh, get_file
 import os
-import scoreattack as sa
+import attack_score.scoreattack as sa
 from werkzeug.utils import secure_filename
 import psycopg2 as ps
-from dns.dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
+from dnsf.dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
 import db_do.conn_db as cdb
-from dns.dns_db_addiction import init_db, add_dump
-from dns.dns_prepare_fdb import get_dns_profile
+from dnsf.dns_db_addiction import init_db, add_dump
+from dnsf.dns_prepare_fdb import get_dns_profile
 import logging
 from base_show.db_selector import get_srv_from_db
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import base64
+from graths.graths import do_grath
+
+sys.path.append('../')
 
 app = Flask(__name__)    
 log = logging.getLogger('werkzeug')
@@ -57,6 +60,12 @@ def index():
 
             init_db(c)
             get_dns_profile(c) # TUT VSE IDET PO PIZDE
+            print('###############')
+            from dnsf.dns_prepare_fdb import  TIME, TTL, SERVERS
+            print(SERVERS)
+            print(TTL)
+            print(TIME)
+            print('###############')
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
@@ -107,28 +116,29 @@ def about():
 def report():
     print(url_for('report'))
 
-    x = np.array([1, 2, 10, 4, 5])
-    y = np.array([2, 24, 16, 8, 10])
+    # x = np.array([1, 2, 10, 4, 5])
+    # y = np.array([2, 24, 16, 8, 10])
     
-    plt.plot(x, y)
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.title('Graph Title')
+    # plt.plot(x, y)
+    # plt.xlabel('X-axis')
+    # plt.ylabel('Y-axis')
+    # plt.title('Graph Title')
     
-    # сохраняем график в буфер
-    from io import BytesIO
-    buf = BytesIO()
-    plt.savefig(buf, format='png')
-    buf.seek(0)
+    # # сохраняем график в буфер
+    # from io import BytesIO
+    # buf = BytesIO()
+    # plt.savefig(buf, format='png')
+    # buf.seek(0)
     
-    # передаем буфер с графиком в шаблон
-    graph = base64.b64encode(buf.read()).decode('utf-8')
+    # # передаем буфер с графиком в шаблон
+    # graph = base64.b64encode(buf.read()).decode('utf-8')
+    grath =     do_grath()
 
     return render_template(
                             'report.html',
                             case = reload_arr(get_srv_from_db()[0]),
                             case2 = reload_arr(get_srv_from_db()[1]),
-                            graph=graph,
+                            graph=grath,
                           )
 
 @app.route('/dnsmap', methods = ['get','post'])
