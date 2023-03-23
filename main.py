@@ -91,11 +91,19 @@ def about():
 def report():
     print(url_for('report'))
 
+    try:
+        f_table = reload_arr(get_srv_from_db()[0])
+        s_table = reload_arr(get_srv_from_db()[1])
+        gr = list_w_grath()
+    except Exception:
+        f_table = '.....'
+        s_table = '.....'
+        gr = 'Для построения графика выберите дамп ...'
     return render_template(
                             'report.html',
-                            case = reload_arr(get_srv_from_db()[0]),
-                            case2 = reload_arr(get_srv_from_db()[1]),
-                            graph=list_w_grath(),
+                            case = f_table,
+                            case2 = s_table,
+                            graph=gr,
                           )
 
 @app.route('/dnsmap', methods = ['get','post'])

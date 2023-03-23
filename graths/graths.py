@@ -8,7 +8,7 @@ def do_grath(arr1,arr2,xlabel,ylabel,title):
     x = np.array(arr1)
     y = np.array(arr2)
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='red')
     plt.plot(x, y)
     plt.xlabel(str(xlabel))
     plt.ylabel(str(ylabel))

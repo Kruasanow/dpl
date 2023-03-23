@@ -22,13 +22,16 @@
   <div class="bg">
     <!--==============================header=================================-->
     <header>
-      {% for i in graph %}
-        <div class="blocks_main1">
-          <img class="gr_style"  src="data:image/png;base64,{{ i }}" alt="Graph">
-        </div>
-      {% endfor %}
+ 
     </header>
     <!--==============================content================================-->
+    
+    {% for i in graph %}
+    <div class="blocks_main1">
+      <img class="gr_style"  src="data:image/png;base64,{{ i }}" alt=".">
+    </div>
+    {% endfor %}
+
     <section id="content">
       <table>
         <tr>
