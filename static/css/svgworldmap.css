@@ -10,3 +10,9 @@
 .blocks_main {
     display: inline-block;
 }
+
+table {
+    width: 100%; /* Ширина таблицы */
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    border: 1px solid white; /* Прячем рамку вокруг таблицы */
+}
