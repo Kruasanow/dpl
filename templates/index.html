@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}" type="text/css" media="screen">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="screen">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css')}}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" type="text/css" media="screen">
 <script src="{{ url_for('static', filename='js/jquery-1.7.1.min.js')}}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/cufon-yui.js')}}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/cufon-replace.js')}}" type="text/javascript"></script>
@@ -94,9 +95,17 @@
           </div>
           <div class="input_button"  width="100%">
             <form action="" method=post enctype=multipart/form-data>
-              <p class="submit1"><input type=file name=file>
-                 <input type=submit value=Загрузить></p>
-            </form>
+              <p class="submit1">
+                
+                <label for="file-input" class="btn">Выбрать файл</label>
+                <input id="file-input" type="file" style="display: none;" class="btn" name="file">
+
+                <!-- <label for="file-input" class="btn">Выберите файл</label>
+                <input class="btn" id="file-input" type=file name=file> -->
+                <input class="btn" type=submit value=Загрузить>
+              </p>
+                <!-- <button type="button" class="btn btn-warning">Warning</button> --> 
+                </form>
           </div>
           <div align="center">
             <p class="submit" >
@@ -106,10 +115,13 @@
               <a href="/dnsmap">Смотреть карту DNS серверов</a>
             </p>
             <p class="submit">
-              <a href="/report">SHOW DB</a>
+              <a href="/report">Информация о серверах</a>
             </p>
             <p class="submit">
-              <a href="/restart">restart</a>
+              <a href="/restart">Перезапустить сервер</a>
+            </p>
+            <p class="submit">
+              <a href="/emulation">Эмуляция</a>
             </p>
           </div>
           <br><br>

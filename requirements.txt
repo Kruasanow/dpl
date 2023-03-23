@@ -11,3 +11,4 @@ pybase64
 dnspython
 threading
 argparse
+scapy

@@ -8,6 +8,7 @@
 <!-- <script type="text/javascript" src="jquery.svgworldmap-2.1.src.js"></script> -->
 <!-- <link type="text/css" rel="stylesheet" href="svgworldmap.css" /> -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/svgworldmap.css')}}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" type="text/css" media="screen">
 <script src="{{ url_for('static', filename='js/map_local.js')}}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/jquery.svgworldmap-2.1.src.js')}}" type="text/javascript"></script>
 
@@ -90,9 +91,11 @@ jQuery(document).ready(function(){
   	<p class="submit" >
 		<a href="/dnsmap"> Смотреть карту распределения DNS-серверов</a>
   	</p>
+	<div id="footerKruasanow">
 	  <footer>
 		<h5>made by Kruasanow</h5>
 	  </footer>
+	</div>
 </body>
 </html>
 

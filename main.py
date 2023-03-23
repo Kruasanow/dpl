@@ -106,6 +106,16 @@ def report():
                             graph=gr,
                           )
 
+@app.route('/emulation', methods = ['get','post'])
+def emulation():
+    print(url_for('emulation'))
+
+    
+
+    return render_template(
+                            'emulation.html',
+                          )
+
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
     rc = []

@@ -19,9 +19,23 @@ body {
 	background:url(../images/body-bg.jpg) center top repeat #151515
 }
 
+a {
+	text-decoration: none!important;
+}
+
 .blocks_main1 {
     display: inline-block;
 	text-align: center;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.main_block {
+	text-align: center;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .gr_style{
@@ -279,6 +293,11 @@ h1 a {
 	margin-top:-5px;
 }
 /***** menu *****/
+
+/* #footerKruasanow {
+	text-align: center;
+} */
+
 header nav {
 	width:100%;
 	height:52px;

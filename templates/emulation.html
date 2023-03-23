@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>diploma_project</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css')}}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" type="text/css" media="screen">
+<script src="{{ url_for('static', filename='js/jquery-1.7.1.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/cufon-yui.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/cufon-replace.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/Vegur_500.font.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/FF-cash.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/tms-0.3.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/tms_presets.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/jquery.equalheights.js')}}" type="text/javascript"></script>
+
+</head>
+<body id="page2">
+<div class="main-bg">
+  <div class="bg">
+    <!--==============================header=================================-->
+    <header>
+ 
+    </header>
+    <!--==============================content================================-->
+    
+    {% for i in graph %}
+    <div class="blocks_main1">
+      <img class="gr_style"  src="data:image/png;base64,{{ i }}" alt=".">
+    </div>
+    {% endfor %}
+
+    <section id="content">
+
+      <p class="submit" >
+        <a href="/"> Вернуться на главную</a>
+      </p>
+      <p class="submit" >
+        <a href="/dnsmap"> Смотреть карту распределения DNS-серверов</a>
+      </p>
+    </section>
+    <!--==============================footer=================================-->
+    <footer>
+      <div class="main"> made by Kruasanow </div>
+    </footer>
+  </div>
+</body>
+</html>
