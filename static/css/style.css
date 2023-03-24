@@ -23,6 +23,37 @@ a {
 	text-decoration: none!important;
 }
 
+.tabletvar {
+	width: 100%;
+}
+
+
+
+.tabletvar {
+	width: 100%;
+	margin-bottom: 20px;
+	border-collapse: collapse; 
+}
+.tabletvar th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+.tabletvar td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+}
+.tabletvar tr td:first-child, .tabletvar tr th:first-child {
+	border-left: none;
+}
+.tabletvar tr td:last-child, .tabletvar tr th:last-child {
+	border-right: none;
+}
+
+
+
+
 .blocks_main1 {
     display: inline-block;
 	text-align: center;

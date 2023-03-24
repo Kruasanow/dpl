@@ -19,13 +19,15 @@
 
 </head>
 <body id="page2">
+<h3>Статистика по рассматриваемым DNS-серверам</h3><br><br><br>
 <div class="main-bg">
   <div class="bg">
     <!--==============================header=================================-->
     <header>
- 
+      
     </header>
     <!--==============================content================================-->
+    
     <div class="main_block">
       {% for i in graph %}
       <div class="blocks_main1">
@@ -34,7 +36,7 @@
       {% endfor %}
     </div>
     <section id="content">
-      <table>
+      <table class="tabletvar">
         <tr>
           <th>DNS-сервер</th>
           <th>Сумма пакетов</th>
@@ -58,7 +60,7 @@
         </tr>
           {% endfor  %}
       </table>
-      <table>
+      <table class="tabletvar">
         <tr>
           <th>DNS-сервер</th>
           <th>FQDN запроса</th>
