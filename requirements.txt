@@ -1,4 +1,4 @@
-flask==2.1
+flask
 werkzeug
 ipaddress
 python-whois
