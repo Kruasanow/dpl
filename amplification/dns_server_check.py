@@ -1,44 +1,41 @@
 from scapy.all import *
 import argparse
+from db_do.conn_db import get_db_connection
 
 #Check server ability to make flood influence 
-def read_servers(data_file):
-    with open(data_file) as servers_file:
-        server_list = [row.strip() for row in servers_file]
+def read_servers():
+    # with open(data_file) as servers_file:
+    #     server_list = [row.strip() for row in servers_file]
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM dnsampl;')
+    dsave = cur.fetchall()
+    cur.close()
+    conn.close()
+    server_list = []
+    for i in dsave:
+        server_list.append(list(i))
+    print('[*]dns_server_check.py: ' + str(server_list))
     return server_list
     
-def main(servers_list, output, timeout):
-    f = open(output, 'w')
+# read_servers()
+
+def dns_server_check_main(servers_list = read_servers(), timeout=2):
     i = 0
-    for element in servers_list:
+    # servers_list = read_servers()
+    for param in servers_list:
+        status = False
         source_port = random.randint(1025, 65534)
-        param = servers_list[i].split()
-        p = IP(dst = param[0]) / UDP(sport = source_port, dport = 53) / DNS(rd = 1, qd = DNSQR(qname = param[1], qtype = param[2]))
+        p = IP(dst = param[1]) / UDP(sport = source_port, dport = 53) / DNS(rd = 1, qd = DNSQR(qname = param[2], qtype = param[3]))
         send(p, inter = 0, verbose = 0, count = 100)
         resp = sr(p, timeout = timeout, verbose = 0)
         for a in resp[0]:
             if a[1].haslayer(DNS):
                 ampl_ratio = len(a[1]) / len(p)
-                if ampl_ratio >= float(param[3]):
-                    print(a[1].src, 'is good')
-                    f.write(param[0] + ' ' + param[1] + ' ' + param[2] + ' ' + param[3] + '\n')
+                if ampl_ratio >= float(param[4]):
+                    print('[*]dns_server_check.py: status - ',a[1].src, 'is good')
+                    status = True
         i += 1
-    f.close()
-    
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-input', help = 'File with list of servers to be checked (Format: IP DNS_query Query_type Amplification_ratio)')
-    parser.add_argument('-timeout', type = int, default = 2, help = 'Timeout. 0 - infinite timeout (Default: 2s)')
-    parser.add_argument('-output', help = 'Output file (Format: IP DNS_query Query_type Amplification_ratio)')
-    args = parser.parse_args()
-    input_file = args.input
-    timeout = args.timeout
-    output_file = args.output
-    if (input_file == None) or (output_file == None):
-        print('Some arguments are missing')
-        parser.print_help()
-        sys.exit(0)
-    print('Beginning of scan')
-    servers = read_servers(input_file)
-    main(servers, output_file, timeout)
-    print('Scan complete')
+    return status
+
+# print(dns_server_check_main())
