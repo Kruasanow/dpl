@@ -24,10 +24,9 @@
   <div class="bg">
     <!--==============================header=================================-->
     <header>
-      
+
     </header>
     <!--==============================content================================-->
-    
     <div class="main_block">
       {% for i in graph %}
       <div class="blocks_main1">
@@ -88,17 +87,37 @@
         </tr>
           {% endfor  %}
       </table>
-      <p class="submit" >
-        <a href="/"> Вернуться на главную</a>
-      </p>
-      <p class="submit" >
-        <a href="/dnsmap"> Смотреть карту распределения DNS-серверов</a>
-      </p>
+    <section id="content">
+      <div class="main">
+        <div class="container_12">
+
+          <div align="center">
+            <p class="submit" >
+              <a href="/about"> Перейти к отчету</a>
+            </p>
+            <p class="submit">
+              <a href="/dnsmap">Смотреть карту DNS серверов</a>
+            </p>
+            <p class="submit">
+              <a href="/report">Информация о серверах</a>
+            </p>
+            <p class="submit">
+              <a href="/restart">Перезапустить сервер</a>
+            </p>
+            <p class="submit">
+              <a href="/emulation">Эмуляция</a>
+            </p>
+          </div>
+  
+        </div>
+      </div>
     </section>
     <!--==============================footer=================================-->
     <footer>
-      <div class="main"> made by Kruasanow </div>
+      <h5>made by Kruasanow</h5>
     </footer>
   </div>
+</div>
 </body>
 </html>
+
