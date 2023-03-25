@@ -1,6 +1,7 @@
 from scapy.all import *
 import argparse
 
+#do request to dns server and check amplification koef
 def dns_scan(ip, q, qt, timeout, output):
     source_port = random.randint(1025, 65534)
     p = IP(dst = ip) / UDP(sport = source_port, dport = 53) / DNS(rd = 1, qd = DNSQR(qname = q, qtype = qt))

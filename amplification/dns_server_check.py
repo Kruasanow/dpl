@@ -1,6 +1,7 @@
 from scapy.all import *
 import argparse
 
+#Check server ability to make flood influence 
 def read_servers(data_file):
     with open(data_file) as servers_file:
         server_list = [row.strip() for row in servers_file]
