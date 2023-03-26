@@ -3,7 +3,7 @@ import argparse
 from db_do.conn_db import get_db_connection
 
 #do request to dns server and check amplification koef
-def dns_scan(ip, q, qt, timeout=2):
+def dns_scan(ip, qt,  q = '.',timeout=2):
     source_port = random.randint(1025, 65534)
     p = IP(dst = ip) / UDP(sport = source_port, dport = 53) / DNS(rd = 1, qd = DNSQR(qname = q, qtype = qt))
     resp = sr(p, timeout = timeout, verbose = 0)
@@ -29,4 +29,4 @@ def dns_scan(ip, q, qt, timeout=2):
     cur.close()
     conn.close()
 
-dns_scan('8.8.8.8', '.', 'NS')
+dns_scan('216.239.34.10', 'NS')

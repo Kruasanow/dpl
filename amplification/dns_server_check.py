@@ -16,11 +16,12 @@ def read_servers():
     for i in dsave:
         server_list.append(list(i))
     print('[*]dns_server_check.py: ' + str(server_list))
-    return server_list
+    packets = 0
+    return [server_list, packets] 
     
 # read_servers()
 
-def dns_server_check_main(servers_list = read_servers(), timeout=2):
+def dns_server_check_main(servers_list = read_servers()[0], timeout=2):
     i = 0
     # servers_list = read_servers()
     for param in servers_list:
@@ -38,4 +39,4 @@ def dns_server_check_main(servers_list = read_servers(), timeout=2):
         i += 1
     return status
 
-# print(dns_server_check_main())
+print(dns_server_check_main())
