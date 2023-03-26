@@ -37,10 +37,34 @@
                 {% endfor %}
             </select>
             <br><br>
+            <select name="qtype">
+              {% for n in qtype %}
+                  <option value="{{ n }}">{{ n }}</option>
+              {% endfor %}
+          </select>
+          <br><br>
             <input type="submit" value="Submit">
         </form>
+        {{ ampl }}
 
+        <form method="post">
+          <button name="scheck"> Проверить на уязвимость </button>
+        </form>
+        {% for i in good_ip %}
+          {{ i }}
+        {% endfor %}
 
+        <form method="POST" action="{{ url_for('emulation') }}">
+          <label for="name">Введите IP цели:</label>
+          <input type="text" name="doampl" id="name"><br><br>
+          <input type="submit" value="Начать">
+        </form>
+        {{ pac }}
+
+        
+        <!-- {% for i in good_ns %}
+          {{ i }}
+        {% endfor %} -->
 
           <div align="center">
             <p class="submit" >

@@ -46,6 +46,21 @@ Opcode_name =   [
                 'Unassigned','Notify','Update',
                 'DNS Stateful Operations (DSO)','Unassigned'
                 ]
+to_remove =     ['Reserved', 'MD', 'MF',
+                'NULL', 'HINFO', 'MINFO',
+                'RP','SIG','KEY','LOC','NXT'
+                ]
+
+def delete_bad_qtype():
+    good_list = RR_types_name
+    for i in to_remove:
+        try:
+            good_list.remove(i)
+        except ValueError:
+            continue 
+    return good_list
+
+# print(delete_bad_qtype())
 
 Trunkated_pac = {1:'Trunkated', 0:'Non-Trunkated'}
 Recursive_pac = {1:'Recursive', 0:'Autoritative'}

@@ -34,8 +34,8 @@ def get_ns_ip():
 
 # print(get_ns_ip(get_ns_list()))
 
-def do_ns_ip_tuple(nslist,iplist):
-    g_ip_ns = dict(zip(nslist,iplist))
+def do_ns_ip_tuple():
+    g_ip_ns = dict(zip(get_ns_list(),get_ns_ip()))
     return g_ip_ns
 
-# print(do_ns_ip_tuple(get_ns_list(),get_ns_ip()))
+# print(do_ns_ip_tuple())

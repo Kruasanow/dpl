@@ -4,10 +4,11 @@ from db_do.conn_db import get_db_connection
 
 #do request to dns server and check amplification koef
 def dns_scan(ip, qt,  q = '.',timeout=2):
+    ampl_ratio = 0
     source_port = random.randint(1025, 65534)
     p = IP(dst = ip) / UDP(sport = source_port, dport = 53) / DNS(rd = 1, qd = DNSQR(qname = q, qtype = qt))
     resp = sr(p, timeout = timeout, verbose = 0)
-
+    
     conn = get_db_connection()
     cur = conn.cursor()
     for a in resp[0]:
@@ -28,5 +29,8 @@ def dns_scan(ip, qt,  q = '.',timeout=2):
     conn.commit()
     cur.close()
     conn.close()
+    return ampl_ratio
+# dns_scan('216.239.34.10', 'NS')
 
-dns_scan('216.239.34.10', 'NS')
+# if __name__ == '__main__':
+#     dns_scan()

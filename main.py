@@ -1,12 +1,14 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, session
 from osh import  reload_arr, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh, get_file
 from graths.prepare_graths import list_w_grath
 from dnsf.dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
 from dnsf.dns_db_addiction import init_db, add_dump
 from dnsf.dns_prepare_fdb import get_dns_profile
+from dnsf.dns_codes_list import delete_bad_qtype
 from werkzeug.utils import secure_filename
 from base_show.db_selector import get_srv_from_db
 from base_show.get_ns_list import get_ns_list, do_ns_ip_tuple
+# import amplification.dns_amplification
 import attack_score.scoreattack as sa
 import logging
 import sys
@@ -16,6 +18,7 @@ app = Flask(__name__)
 log = logging.getLogger('werkzeug')
 log.disabled = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = 'ebat_kakoy_secretniy_klu4'
 
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
@@ -111,15 +114,60 @@ def report():
 def emulation():
     print(url_for('emulation'))
     ns = get_ns_list()
-    # если метод запроса - POST, то пользователь выбрал город из списка
+    qtype = delete_bad_qtype()
+
     if request.method == "POST":
-        selected_ns = request.form.get("ns")
-        return f"You selected: {selected_ns}"
-    # иначе - выводим форму с выпадающим списком
+        if 'ns' in request.form:
+            selected_ns = request.form.get("ns")
+            selected_type = request.form.get("qtype")
+            current_ip = do_ns_ip_tuple()[selected_ns]
+
+            from amplification.dns_server_scan import dns_scan
+            
+            ampl_koef = dns_scan(current_ip,selected_type)
+            session['ampl_koef'] = ampl_koef
+            return render_template(
+                                'emulation.html',
+                                ns=ns,
+                                qtype=qtype,
+                                ampl = ampl_koef,
+                            )
+        if 'scheck' in request.form:
+            from amplification.dns_server_check import dns_server_check_main
+            good_ampl = dns_server_check_main()[1]
+            from base_show.get_ns_list import get_ns_ip
+            select_by_gni = []
+            for i  in get_ns_ip():
+                if i in good_ampl:
+                    select_by_gni.append(i)
+            return render_template(
+                                'emulation.html',
+                                ns=ns,
+                                qtype=qtype,
+                                ampl = session['ampl_koef'],
+                                good_ip = good_ampl,
+                                good_ns = select_by_gni,
+                            )
+        if 'doampl' in request.form:
+            ip = request.form["doampl"]
+            from amplification.dns_amplification import maintain
+            count_packets_receved = maintain(ip)
+            return render_template(
+                                'emulation.html',
+                                ns=ns,
+                                qtype=qtype,
+                                ampl = session['ampl_koef'],
+                                pac = count_packets_receved,
+                                )
+
+
+
+
     return render_template(
-                            'emulation.html',
-                             ns=ns,
-                          )
+                                'emulation.html',
+                                ns=ns,
+                                qtype=qtype,
+                            )
 
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():

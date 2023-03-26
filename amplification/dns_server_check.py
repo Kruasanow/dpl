@@ -30,13 +30,20 @@ def dns_server_check_main(servers_list = read_servers()[0], timeout=2):
         p = IP(dst = param[1]) / UDP(sport = source_port, dport = 53) / DNS(rd = 1, qd = DNSQR(qname = param[2], qtype = param[3]))
         send(p, inter = 0, verbose = 0, count = 100)
         resp = sr(p, timeout = timeout, verbose = 0)
+        stat_arr = []
         for a in resp[0]:
             if a[1].haslayer(DNS):
                 ampl_ratio = len(a[1]) / len(p)
                 if ampl_ratio >= float(param[4]):
-                    print('[*]dns_server_check.py: status - ',a[1].src, 'is good')
+                    stat_var = a[1].src
+                    stat_arr.append(stat_var)
+                    # print('[*]dns_server_check.py: status - ',a[1].src, 'is good')
                     status = True
         i += 1
-    return status
+    return [status, stat_arr]
 
-print(dns_server_check_main())
+print(dns_server_check_main()[1])
+
+# if __name__ == '__main__':
+    # read_servers()
+    # dns_server_check_main()
