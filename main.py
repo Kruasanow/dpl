@@ -6,6 +6,7 @@ from dnsf.dns_db_addiction import init_db, add_dump
 from dnsf.dns_prepare_fdb import get_dns_profile
 from werkzeug.utils import secure_filename
 from base_show.db_selector import get_srv_from_db
+from base_show.get_ns_list import get_ns_list, do_ns_ip_tuple
 import attack_score.scoreattack as sa
 import logging
 import sys
@@ -109,11 +110,15 @@ def report():
 @app.route('/emulation', methods = ['get','post'])
 def emulation():
     print(url_for('emulation'))
-
-    
-
+    ns = get_ns_list()
+    # если метод запроса - POST, то пользователь выбрал город из списка
+    if request.method == "POST":
+        selected_ns = request.form.get("ns")
+        return f"You selected: {selected_ns}"
+    # иначе - выводим форму с выпадающим списком
     return render_template(
                             'emulation.html',
+                             ns=ns,
                           )
 
 @app.route('/dnsmap', methods = ['get','post'])

@@ -12,3 +12,4 @@ dnspython
 threading
 argparse
 scapy
+socket
