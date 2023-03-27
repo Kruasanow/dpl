@@ -1,18 +1,12 @@
+Существует несколько видов атак на DNS-серверы:
 
-country
-state
-city
-address
-org
-emails
-name_servers
-creation_date
-updated_date
-registrar
-domain_name
+Атака отравления кеша DNS (DNS cache poisoning): 		save ___
 
+Атака перегрузки (DNS Amplification Attack): 			attack save
 
-fc2.com
-livedoor.com
-aajtak.in
-facebook.com
+Атака отказа в обслуживании (DNS Denial of Service Attack):	 ___ save
+
+Атака на защищенную зону (DNS Zone Transfer Attack): 		attack save
+
+DNS Spoofing:							 ___ save
+
