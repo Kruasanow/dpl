@@ -3,7 +3,6 @@ werkzeug
 ipaddress
 python-whois
 pyshark
-psycopg2
 psycopg2-binary
 matplotlib
 numpy
