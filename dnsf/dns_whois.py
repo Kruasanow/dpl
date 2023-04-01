@@ -1,6 +1,6 @@
 import whois
 import db_do.conn_db as cdb
-from osh import reload_list_by_who, delete_datetime
+from osh import reload_list_by_who
 
 def get_qname_list():
     try:
@@ -31,10 +31,10 @@ def do_whois(good_arr):
     res_arr = []
     who_list_json = []
 
+    print('[*]dns_whois.py: ')
     for i in good_arr:
         who = whois.whois(i)
         who_list_json.append(who)
-        print('[*]dns_whois.py: ')
         print(who)
         print('-----------')
 
@@ -57,19 +57,20 @@ def do_whois(good_arr):
 
 def get_items_from_who(arr):
 
-    country =      []
-    state =        []
-    city =         []
-    address =      []
-    org =          []
-    emails =       []
-    name_servers = []
-    creation_date= []
-    updated_date = []
-    registrar =    []
-    domain_name =  []
+    country       = []
+    state         = []
+    city          = []
+    address       = []
+    org           = []
+    emails        = []
+    name_servers  = []
+    creation_date = []
+    updated_date  = []
+    registrar     = []
+    domain_name   = []
 
     for i in arr:
+
         try:
             country.append(reload_list_by_who( i.country))
         except Exception:
@@ -134,7 +135,6 @@ def get_items_from_who(arr):
             ]
 
 def transponate_arr(arr):
-    # delete_none(arr)
     zarr = zip(*arr)
     tarr = [list(row) for row in zarr]
     return tarr

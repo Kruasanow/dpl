@@ -4,8 +4,6 @@ from statistics import mean
 import dnsf.dns_codes_list as dcode
 import db_do.conn_db as cdb
 
-# a = osh.cap
-
 def swap_dict_values(dict_a,dict_b):
     dict_a = dict(dict_a)
     swaped_dict = {}
@@ -147,7 +145,6 @@ def get_dns_profile(arr):
     g_time =    []
     g_ttl =     []
     g_servers = []
-
     for srv in compare_name_src(array).keys():
 
         rec_count =   0
@@ -202,7 +199,7 @@ def get_dns_profile(arr):
                 rec_count = rec_count + 1
             sum_pac = len(arr)
             ans_count = sum_pac - rec_count
-
+            
             for i in arr:
                 if i.dns.id in un_var:
                     continue
@@ -253,8 +250,8 @@ def get_dns_profile(arr):
                 rttl.append(float(pac.dns.resp_ttl))
             except AttributeError:
                 pass
+            
             # Average response packet time
-
             try:
                 avg_resp_time.append(float(pac.dns.time))
             except AttributeError:
@@ -265,7 +262,6 @@ def get_dns_profile(arr):
                 recursion_arr.append(int(pac.dns.flags_recavail))
             except AttributeError:
                 pass
-
         try:
             a_rec = str(a_rec_arr[0])
         except IndexError:

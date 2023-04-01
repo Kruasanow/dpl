@@ -44,7 +44,6 @@ def index():
             add_dump(str(filename)) # add dump name to database
 
             c = get_file(get_dname_from_db())
-            print(c)
             print('[*]main.py: osh.cap after choose - ' +str(c))
             print('[*]main.py: file - ' + str(file))
 
@@ -72,7 +71,7 @@ def index():
 def restart_flask():
     args = [sys.executable] + sys.argv[:]
     os.execv(sys.executable, args)
-    return redirect(url_for('/'), 301)
+    return ""
 
 @app.route('/about', methods = ['get','post'])
 def about():
@@ -159,10 +158,6 @@ def emulation():
                                 ampl = session['ampl_koef'],
                                 pac = count_packets_receved,
                                 )
-
-
-
-
     return render_template(
                                 'emulation.html',
                                 ns=ns,
@@ -177,7 +172,6 @@ def dnsmap():
         rc.append(i)
     who_json = get_items_from_who(rc[1])
     who_json = transponate_arr(who_json)
-
     return render_template(
                             'example.html',
                             data = rc[0],

@@ -18,12 +18,9 @@ def read_servers():
     print('[*]dns_server_check.py: ' + str(server_list))
     packets = 0
     return [server_list, packets] 
-    
-# read_servers()
 
 def dns_server_check_main(servers_list = read_servers()[0], timeout=2):
     i = 0
-    # servers_list = read_servers()
     for param in servers_list:
         status = False
         source_port = random.randint(1025, 65534)
@@ -37,13 +34,9 @@ def dns_server_check_main(servers_list = read_servers()[0], timeout=2):
                 if ampl_ratio >= float(param[4]):
                     stat_var = a[1].src
                     stat_arr.append(stat_var)
-                    # print('[*]dns_server_check.py: status - ',a[1].src, 'is good')
+
                     status = True
         i += 1
     return [status, stat_arr]
 
 print(dns_server_check_main()[1])
-
-# if __name__ == '__main__':
-    # read_servers()
-    # dns_server_check_main()

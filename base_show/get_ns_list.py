@@ -14,13 +14,9 @@ def get_ns_list():
                             replace('[','').
                             replace(']','').
                             replace("'",''))
-    # print('[*]get_ns_list.py: nameservers - ',get_servers)
     cur.close()
     conn.close()
-
     return get_servers
-
-# get_ns_list()
 
 def get_ns_ip():
     nslist = get_ns_list()
@@ -32,10 +28,6 @@ def get_ns_ip():
             ip_list.append('None')
     return ip_list
 
-# print(get_ns_ip(get_ns_list()))
-
 def do_ns_ip_tuple():
     g_ip_ns = dict(zip(get_ns_list(),get_ns_ip()))
     return g_ip_ns
-
-# print(do_ns_ip_tuple())

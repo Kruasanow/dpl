@@ -1,4 +1,3 @@
-
 from graths.graths import do_grath
 
 def do_same_shape(arr):

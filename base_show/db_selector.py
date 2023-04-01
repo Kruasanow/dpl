@@ -27,8 +27,6 @@ def get_srv_from_db():
             case22.append(list(i))
         for i in case1:
             case2.append(list(i))
-
     except Exception:
         print('[*]db_selector.py: error exists!')
-
     return [case2, case22]

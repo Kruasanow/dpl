@@ -10,7 +10,7 @@ def check_output():
     res = True
     with open('dump_output/out.txt', 'r') as f:
         first_line = next(f).strip()
-    bad_line = 'ERF 0 Unknown type 77'
+    bad_line = 'ERF 0 Unknown type 77' #eto kakogo-to hu9 ne rabotaet tvar'
     if bad_line in first_line:
         res = False
     return res
@@ -26,7 +26,7 @@ def reload_arr(arr):
     return arr
 
 def delete_datetime(line):
-    badline = 'datetime.datetime'
+    badline = 'datetime.datetime' # this does not work too, i do not know when i will fix it
     if badline in str(line):
         new_line = line.replace(badline,'')
     return new_line
@@ -60,7 +60,6 @@ def get_dname_from_db():
         print('[*]osh.py element choosed - ' + good_dname)
     except Exception:
         print('[*]osh.py: bad get dname!')
-        # good_dname = 'qwe.pcapng'
     return good_dname
 
 def get_file(name_of_file=None):
@@ -68,14 +67,12 @@ def get_file(name_of_file=None):
     if name_of_file == None:
         print('[*]osh.py: nothing choosed')
     try:
-        # dir_list = os.listdir('dump_input/')
         full_way = 'dump_input/'+str(name_of_file)
         print('[*]osh.py: full way - ' +str(full_way))
         cap = pyshark.FileCapture(full_way)
         print('[*]osh.py: cap for pyshark - ' +str(cap))
     except Exception:
         print('[*]osh.py: get_file - exceptions worked...')
-        # cap = pyshark.FileCapture('dump_input/qwe.pcapng')
     return cap
 
 cap = get_file(get_dname_from_db())

@@ -1,6 +1,7 @@
 import db_do.conn_db as cdb
 import osh
 from dnsf.dns_prepare_fdb import to_dns_arr
+
 a = osh.cap
 
 def add_dump(dname):
