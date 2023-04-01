@@ -27,11 +27,10 @@ def jinja_is_prime(n):
     else:
         return False
 
-
 @app.route('/', methods = ['get','post'])
 def index():
     print(url_for('index'))
-    # print('[*]main.py: osh.cap - ' +str(cap))
+    
     exec_db_init_sh()
 
     if request.method == "POST":
