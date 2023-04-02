@@ -8,8 +8,7 @@ matplotlib
 numpy
 pybase64
 dnspython
-threading
 argparse
 scapy
-socket
+sockets
 cryptography
