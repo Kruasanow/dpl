@@ -148,7 +148,9 @@ def emulation():
                             )
         if 'doampl' in request.form:
             ip = request.form["doampl"]
+            
             from amplification.dns_amplification import maintain
+            
             count_packets_receved = maintain(ip)
             return render_template(
                                 'emulation.html',
@@ -157,6 +159,22 @@ def emulation():
                                 ampl = session['ampl_koef'],
                                 pac = count_packets_receved,
                                 )
+        if 'checktransfer' in request.form:
+
+            from dns_emul.dns_transfer import test_dns_trans_zone
+            
+            ip_ns = request.form['ip_ns']
+            ip_domain = request.form['ip_domain']
+
+            status = test_dns_trans_zone(ip_ns,ip_domain)[1]
+            transfered_zone = test_dns_trans_zone(ip_ns,ip_domain)[0]
+
+            return render_template(
+                                    'emulation.html',
+                                    status = status,
+                                    tzone = transfered_zone,
+            )
+
     return render_template(
                                 'emulation.html',
                                 ns=ns,
