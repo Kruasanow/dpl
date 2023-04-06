@@ -61,6 +61,17 @@
         </form>
         {{ pac }}
 
+        <form method="POST" action="{{ url_for('emulation') }}">
+          <label for="name">Введите DNS-сервер:</label>
+          <input type="text" name="ip_ns" id="name"><br><br>
+          <label for="name">Введите домен:</label>
+          <input type="text" name="ip_domain" id="name"><br><br>
+
+          <input type="submit" name="tzone" value="Начать">
+        </form>
+          {{ status }}
+          {{ tzone }}
+
           <div align="center">
             <p class="submit" >
               <a href="/about"> Перейти к отчету</a>

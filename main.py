@@ -159,15 +159,15 @@ def emulation():
                                 ampl = session['ampl_koef'],
                                 pac = count_packets_receved,
                                 )
-        if 'checktransfer' in request.form:
+        if 'tzone' in request.form:
 
             from dns_emul.dns_transfer import test_dns_trans_zone
             
             ip_ns = request.form['ip_ns']
             ip_domain = request.form['ip_domain']
-
-            status = test_dns_trans_zone(ip_ns,ip_domain)[1]
-            transfered_zone = test_dns_trans_zone(ip_ns,ip_domain)[0]
+            a = test_dns_trans_zone(ip_ns,ip_domain)
+            status = a[1]
+            transfered_zone = a[0]
 
             return render_template(
                                     'emulation.html',
