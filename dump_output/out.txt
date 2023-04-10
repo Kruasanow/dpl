@@ -1,203 +1,398 @@
-    1 0.000000000 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-    2 0.000025783 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=1 Ack=40 Win=63180 Len=0
-    3 0.265425742 192.168.212.129 → 52.213.91.221 TCP 54 44858 → 80 [ACK] Seq=1 Ack=1 Win=63112 Len=0
-    4 0.265901037 52.213.91.221 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 44858 [ACK] Seq=1 Ack=2 Win=64240 Len=0
-    5 1.033440120 192.168.212.129 → 54.72.47.234 TCP 54 38220 → 80 [ACK] Seq=1 Ack=1 Win=65535 Len=0
-    6 1.033592701 192.168.212.129 → 54.72.47.234 TCP 54 38224 → 80 [ACK] Seq=1 Ack=1 Win=62780 Len=0
-    7 1.033877662 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38220 [ACK] Seq=1 Ack=2 Win=64240 Len=0
-    8 1.033902297 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38224 [ACK] Seq=1 Ack=2 Win=64240 Len=0
-    9 1.289362330 192.168.212.129 → 54.72.47.234 TCP 54 38228 → 80 [ACK] Seq=1 Ack=1 Win=65535 Len=0
-   10 1.289900124 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38228 [ACK] Seq=1 Ack=2 Win=64240 Len=0
-   11 1.545406975 192.168.212.129 → 54.72.47.234 TCP 54 38222 → 80 [ACK] Seq=1 Ack=1 Win=65535 Len=0
-   12 1.545555667 192.168.212.129 → 54.72.47.234 TCP 54 38226 → 80 [ACK] Seq=1 Ack=1 Win=65535 Len=0
-   13 1.545883615 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38222 [ACK] Seq=1 Ack=2 Win=64240 Len=0
-   14 1.545907892 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38226 [ACK] Seq=1 Ack=2 Win=64240 Len=0
-   15 3.382437898 52.213.91.221 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 44858 [FIN, PSH, ACK] Seq=1 Ack=2 Win=64240 Len=0
-   16 3.382908336 192.168.212.129 → 52.213.91.221 TCP 54 [TCP Previous segment not captured] 44858 → 80 [FIN, ACK] Seq=2 Ack=2 Win=63112 Len=0
-   17 3.383248746 52.213.91.221 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 44858 [ACK] Seq=2 Ack=3 Win=64239 Len=0
-   18 3.996855610 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38220 [FIN, PSH, ACK] Seq=1 Ack=2 Win=64240 Len=0
-   19 3.996946701 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38224 [FIN, PSH, ACK] Seq=1 Ack=2 Win=64240 Len=0
-   20 3.997385556 192.168.212.129 → 54.72.47.234 TCP 54 [TCP Previous segment not captured] 38224 → 80 [FIN, ACK] Seq=2 Ack=2 Win=62780 Len=0
-   21 3.997552766 192.168.212.129 → 54.72.47.234 TCP 54 [TCP Previous segment not captured] 38220 → 80 [FIN, ACK] Seq=2 Ack=2 Win=65535 Len=0
-   22 3.997762751 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38224 [ACK] Seq=2 Ack=3 Win=64239 Len=0
-   23 3.997801277 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38220 [ACK] Seq=2 Ack=3 Win=64239 Len=0
-   24 4.107545133 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38228 [FIN, PSH, ACK] Seq=1 Ack=2 Win=64240 Len=0
-   25 4.107927550 192.168.212.129 → 54.72.47.234 TCP 54 [TCP Previous segment not captured] 38228 → 80 [FIN, ACK] Seq=2 Ack=2 Win=65535 Len=0
-   26 4.108453857 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38228 [ACK] Seq=2 Ack=3 Win=64239 Len=0
-   27 4.194046810 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38226 [FIN, PSH, ACK] Seq=1 Ack=2 Win=64240 Len=0
-   28 4.194453021 192.168.212.129 → 54.72.47.234 TCP 54 [TCP Previous segment not captured] 38226 → 80 [FIN, ACK] Seq=2 Ack=2 Win=65535 Len=0
-   29 4.195010192 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38226 [ACK] Seq=2 Ack=3 Win=64239 Len=0
-   30 4.232017082 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38222 [FIN, PSH, ACK] Seq=1 Ack=2 Win=64240 Len=0
-   31 4.232398242 192.168.212.129 → 54.72.47.234 TCP 54 [TCP Previous segment not captured] 38222 → 80 [FIN, ACK] Seq=2 Ack=2 Win=65535 Len=0
-   32 4.232788385 54.72.47.234 → 192.168.212.129 TCP 60 [TCP ACKed unseen segment] 80 → 38222 [ACK] Seq=2 Ack=3 Win=64239 Len=0
-   33 5.848049600 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-   34 5.848470266 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=40 Ack=40 Win=64240 Len=0
-   35 5.946737736 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-   36 5.946780985 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=40 Ack=79 Win=63180 Len=0
-   37 7.171342350 192.168.212.129 → 192.168.212.2 DNS 71 Standard query 0xe018 A ebalovo.net
-   38 7.171587477 192.168.212.129 → 192.168.212.2 DNS 71 Standard query 0x2322 AAAA ebalovo.net
-   39 7.202142845 192.168.212.2 → 192.168.212.129 DNS 71 Standard query response 0xe018 No such name A ebalovo.net
-   40 7.219705029 192.168.212.2 → 192.168.212.129 DNS 71 Standard query response 0x2322 No such name AAAA ebalovo.net
-   41 7.220549544 192.168.212.129 → 192.168.212.2 DNS 83 Standard query 0x4b76 A ebalovo.net.localdomain
-   42 7.220758952 192.168.212.129 → 192.168.212.2 DNS 83 Standard query 0x151e AAAA ebalovo.net.localdomain
-   43 7.283713591 192.168.212.2 → 192.168.212.129 DNS 83 Standard query response 0x4b76 No such name A ebalovo.net.localdomain
-   44 7.304711651 192.168.212.2 → 192.168.212.129 DNS 83 Standard query response 0x151e No such name AAAA ebalovo.net.localdomain
-   45 10.057543034 192.168.212.129 → 192.168.212.2 DNS 71 Standard query 0xf7e2 A ebalovo.com
-   46 10.057851358 192.168.212.129 → 192.168.212.2 DNS 71 Standard query 0xf82b AAAA ebalovo.com
-   47 10.140247319 192.168.212.2 → 192.168.212.129 DNS 71 Standard query response 0xf7e2 No such name A ebalovo.com
-   48 10.140324651 192.168.212.2 → 192.168.212.129 DNS 71 Standard query response 0xf82b No such name AAAA ebalovo.com
-   49 10.141509940 192.168.212.129 → 192.168.212.2 DNS 83 Standard query 0xe407 A ebalovo.com.localdomain
-   50 10.141711450 192.168.212.129 → 192.168.212.2 DNS 83 Standard query 0x0268 AAAA ebalovo.com.localdomain
-   51 10.191945516 192.168.212.2 → 192.168.212.129 DNS 83 Standard query response 0x0268 No such name AAAA ebalovo.com.localdomain
-   52 10.204219537 192.168.212.2 → 192.168.212.129 DNS 83 Standard query response 0xe407 No such name A ebalovo.com.localdomain
-   53 11.850076854 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-   54 11.850537743 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=79 Ack=79 Win=64240 Len=0
-   55 11.898144460 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-   56 11.898172427 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=79 Ack=118 Win=63180 Len=0
-   57 17.754574286 192.168.212.129 → 192.168.212.2 DNS 67 Standard query 0x628c A home.ru
-   58 17.754916399 192.168.212.129 → 192.168.212.2 DNS 67 Standard query 0xb4e7 AAAA home.ru
-   59 17.851687052 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-   60 17.852109133 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=118 Ack=118 Win=64240 Len=0
-   61 17.892404731 192.168.212.2 → 192.168.212.129 DNS 83 Standard query response 0x628c A home.ru A 193.26.18.114
-   62 17.904314422 192.168.212.2 → 192.168.212.129 DNS 118 Standard query response 0xb4e7 AAAA home.ru SOA ns1.home.ru
-   63 17.905465635 192.168.212.129 → 193.26.18.114 ICMP 98 Echo (ping) request  id=0xd61d, seq=1/256, ttl=65
-   64 17.909239248 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-   65 17.909282156 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=118 Ack=157 Win=63180 Len=0
-   66 17.971377532 193.26.18.114 → 192.168.212.129 ICMP 98 Echo (ping) reply    id=0xd61d, seq=1/256, ttl=128 (request in 63)
-   67 17.972357813 192.168.212.129 → 192.168.212.2 DNS 86 Standard query 0x1c20 PTR 114.18.26.193.in-addr.arpa
-   68 18.127061086 192.168.212.2 → 192.168.212.129 DNS 108 Standard query response 0x1c20 PTR 114.18.26.193.in-addr.arpa PTR homes.ru
-   69 18.906931677 192.168.212.129 → 193.26.18.114 ICMP 98 Echo (ping) request  id=0xd61d, seq=2/512, ttl=65
-   70 18.937332799 193.26.18.114 → 192.168.212.129 ICMP 98 Echo (ping) reply    id=0xd61d, seq=2/512, ttl=128 (request in 69)
-   71 19.908975758 192.168.212.129 → 193.26.18.114 ICMP 98 Echo (ping) request  id=0xd61d, seq=3/768, ttl=65
-   72 19.948035851 193.26.18.114 → 192.168.212.129 ICMP 98 Echo (ping) reply    id=0xd61d, seq=3/768, ttl=128 (request in 71)
-   73 23.853407334 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-   74 23.854048285 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=157 Ack=157 Win=64240 Len=0
-   75 23.963329900 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-   76 23.963369136 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=157 Ack=196 Win=63180 Len=0
-   77 27.603633560 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x2c0c A how.ua
-   78 27.603927954 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xe5da AAAA how.ua
-   79 27.855194224 192.168.212.2 → 192.168.212.129 DNS 129 Standard query response 0x2c0c No such name A how.ua SOA in1.ns.ua
-   80 28.060103814 192.168.212.2 → 192.168.212.129 DNS 129 Standard query response 0xe5da No such name AAAA how.ua SOA in1.ns.ua
-   81 28.061261069 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0xaff3 A how.ua.localdomain
-   82 28.061533330 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x13ed AAAA how.ua.localdomain
-   83 28.071192903 192.168.212.2 → 192.168.212.129 DNS 78 Standard query response 0xaff3 No such name A how.ua.localdomain
-   84 28.071272544 192.168.212.2 → 192.168.212.129 DNS 78 Standard query response 0x13ed No such name AAAA how.ua.localdomain
-   85 29.855342723 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-   86 29.855790078 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=196 Ack=196 Win=64240 Len=0
-   87 29.924943491 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-   88 29.924982250 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=196 Ack=235 Win=63180 Len=0
-   89 30.213575096 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-   90 30.213893270 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-   91 35.218962130 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-   92 35.219211063 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-   93 35.857010075 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-   94 35.857515481 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=235 Ack=235 Win=64240 Len=0
-   95 35.913050130 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-   96 35.913085668 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=235 Ack=274 Win=63180 Len=0
-   97 40.224424346 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-   98 40.224779640 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-   99 40.224869346 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  100 40.225318084 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  101 41.858994503 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-  102 41.859416552 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=274 Ack=274 Win=64240 Len=0
-  103 41.932905142 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-  104 41.932946008 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=274 Ack=313 Win=63180 Len=0
-  105 45.229829659 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  106 45.230102746 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  107 45.230303097 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  108 45.230541149 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  109 47.860773976 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-  110 47.861255472 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=313 Ack=313 Win=64240 Len=0
-  111 47.916923179 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-  112 47.916963427 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=313 Ack=352 Win=63180 Len=0
-  113 50.414913304 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  114 50.415122276 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  115 50.415191948 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  116 50.415255869 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  117 53.347205166 192.168.212.129 → 192.168.212.2 DNS 67 Standard query 0x6095 A mgei.ru
-  118 53.347526059 192.168.212.129 → 192.168.212.2 DNS 67 Standard query 0xb3e4 AAAA mgei.ru
-  119 53.372126016 192.168.212.2 → 192.168.212.129 DNS 83 Standard query response 0x6095 A mgei.ru A 176.57.210.2
-  120 53.424659738 192.168.212.2 → 192.168.212.129 DNS 119 Standard query response 0xb3e4 AAAA mgei.ru SOA ns1.timeweb.ru
-  121 53.425577294 192.168.212.129 → 176.57.210.2 ICMP 98 Echo (ping) request  id=0xd620, seq=1/256, ttl=65
-  122 53.455500042 176.57.210.2 → 192.168.212.129 ICMP 98 Echo (ping) reply    id=0xd620, seq=1/256, ttl=128 (request in 121)
-  123 53.456395597 192.168.212.129 → 192.168.212.2 DNS 85 Standard query 0x298c PTR 2.210.57.176.in-addr.arpa
-  124 53.510945552 192.168.212.2 → 192.168.212.129 DNS 119 Standard query response 0x298c PTR 2.210.57.176.in-addr.arpa PTR bitrix276.timeweb.ru
-  125 53.862727601 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-  126 53.863361882 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=352 Ack=352 Win=64240 Len=0
-  127 53.918262779 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-  128 53.918305735 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=352 Ack=391 Win=63180 Len=0
-  129 54.427014264 192.168.212.129 → 176.57.210.2 ICMP 98 Echo (ping) request  id=0xd620, seq=2/512, ttl=65
-  130 54.463316167 176.57.210.2 → 192.168.212.129 ICMP 98 Echo (ping) reply    id=0xd620, seq=2/512, ttl=128 (request in 129)
-  131 55.429040884 192.168.212.129 → 176.57.210.2 ICMP 98 Echo (ping) request  id=0xd620, seq=3/768, ttl=65
-  132 55.460580273 176.57.210.2 → 192.168.212.129 ICMP 98 Echo (ping) reply    id=0xd620, seq=3/768, ttl=128 (request in 131)
-  133 55.665034507 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  134 55.665282936 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  135 55.665361167 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  136 55.665560901 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  137 55.864651905 192.168.212.129 → 34.117.237.239 TLSv1.2 93 Application Data
-  138 55.865272980 34.117.237.239 → 192.168.212.129 TCP 60 443 → 35024 [ACK] Seq=1 Ack=40 Win=64240 Len=0
-  139 55.953718177 34.117.237.239 → 192.168.212.129 TLSv1.2 93 Application Data
-  140 55.953761602 192.168.212.129 → 34.117.237.239 TCP 54 35024 → 443 [ACK] Seq=40 Ack=40 Win=64028 Len=0
-  141 57.246069222 192.168.212.129 → 192.168.212.2 DNS 89 Standard query 0xe225 AAAA connectivity-check.ubuntu.com
-  142 57.271676637 192.168.212.2 → 192.168.212.129 DNS 257 Standard query response 0xe225 AAAA connectivity-check.ubuntu.com AAAA 2001:67c:1562::23 AAAA 2620:2d:4000:1::2b AAAA 2620:2d:4000:1::22 AAAA 2620:2d:4000:1::2a AAAA 2620:2d:4000:1::23 AAAA 2001:67c:1562::24
-  143 58.416373211 fe80::85f7:499a:f33e:33d9 → ff02::fb     MDNS 203 Standard query 0x0000 PTR _nfs._tcp.local, "QM" question PTR _ipp._tcp.local, "QM" question PTR _ipps._tcp.local, "QM" question PTR _ftp._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question
-  144 58.416707068 fe80::85f7:499a:f33e:33d9 → ff02::1:ff00:0 ICMPv6 86 Neighbor Solicitation for :: from 00:0c:29:1e:d9:80
-  145 58.540018500 192.168.212.129 → 224.0.0.251  MDNS 183 Standard query 0x0000 PTR _nfs._tcp.local, "QM" question PTR _ipp._tcp.local, "QM" question PTR _ipps._tcp.local, "QM" question PTR _ftp._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question
-  146 59.866483467 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-  147 59.866951225 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=391 Ack=391 Win=64240 Len=0
-  148 59.922316489 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-  149 59.922352258 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=391 Ack=430 Win=63180 Len=0
-  150 60.915085838 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  151 60.915294791 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  152 60.915370450 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  153 60.915441295 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  154 64.044547266 192.168.212.129 → 192.168.212.2 DNS 69 Standard query 0x6dc7 A fabric.ua
-  155 64.044864106 192.168.212.129 → 192.168.212.2 DNS 69 Standard query 0x45aa AAAA fabric.ua
-  156 64.205982343 192.168.212.2 → 192.168.212.129 DNS 132 Standard query response 0x6dc7 No such name A fabric.ua SOA in1.ns.ua
-  157 64.206116480 192.168.212.2 → 192.168.212.129 DNS 132 Standard query response 0x45aa No such name AAAA fabric.ua SOA in1.ns.ua
-  158 64.207272499 192.168.212.129 → 192.168.212.2 DNS 81 Standard query 0xfec4 A fabric.ua.localdomain
-  159 64.207545493 192.168.212.129 → 192.168.212.2 DNS 81 Standard query 0x4fb3 AAAA fabric.ua.localdomain
-  160 64.216944114 192.168.212.2 → 192.168.212.129 DNS 81 Standard query response 0xfec4 No such name A fabric.ua.localdomain
-  161 64.217423936 192.168.212.2 → 192.168.212.129 DNS 81 Standard query response 0x4fb3 No such name AAAA fabric.ua.localdomain
-  162 65.867980325 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-  163 65.868410536 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=430 Ack=430 Win=64240 Len=0
-  164 65.912980557 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-  165 65.913019869 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=430 Ack=469 Win=63180 Len=0
-  166 66.037687301 192.168.212.129 → 192.168.212.2 DNS 69 Standard query 0x3225 A fabric.uk
-  167 66.037868424 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  168 66.038097736 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  169 66.038271058 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  170 66.038458780 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  171 66.038758394 192.168.212.129 → 192.168.212.2 DNS 69 Standard query 0xae57 AAAA fabric.uk
-  172 66.116081622 192.168.212.2 → 192.168.212.129 DNS 125 Standard query response 0xae57 No such name AAAA fabric.uk SOA dns1.nic.uk
-  173 66.133025941 192.168.212.2 → 192.168.212.129 DNS 125 Standard query response 0x3225 No such name A fabric.uk SOA dns1.nic.uk
-  174 66.133911699 192.168.212.129 → 192.168.212.2 DNS 81 Standard query 0x09d2 A fabric.uk.localdomain
-  175 66.134189955 192.168.212.129 → 192.168.212.2 DNS 81 Standard query 0xfc67 AAAA fabric.uk.localdomain
-  176 66.143732712 192.168.212.2 → 192.168.212.129 DNS 81 Standard query response 0x09d2 No such name A fabric.uk.localdomain
-  177 66.144606245 192.168.212.2 → 192.168.212.129 DNS 81 Standard query response 0xfc67 No such name AAAA fabric.uk.localdomain
-  178 70.541458251 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xe9be A fab.uk
-  179 70.541786480 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x3bb0 AAAA fab.uk
-  180 71.165089165 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  181 71.165345357 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  182 71.165446529 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  183 71.165623993 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  184 71.869882792 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-  185 71.870512195 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=469 Ack=469 Win=64240 Len=0
-  186 71.917697528 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-  187 71.917717482 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=469 Ack=508 Win=63180 Len=0
-  188 75.546949857 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x3bb0 AAAA fab.uk
-  189 75.547169401 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xe9be A fab.uk
-  190 76.415073403 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  191 76.415314940 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
-  192 76.415391408 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  193 76.415601457 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  194 77.871555480 192.168.212.129 → 104.16.249.249 TLSv1.2 93 Application Data
-  195 77.872010705 104.16.249.249 → 192.168.212.129 TCP 60 443 → 43724 [ACK] Seq=508 Ack=508 Win=64240 Len=0
-  196 77.945578350 104.16.249.249 → 192.168.212.129 TLSv1.2 93 Application Data
-  197 77.945622559 192.168.212.129 → 104.16.249.249 TCP 54 43724 → 443 [ACK] Seq=508 Ack=547 Win=63180 Len=0
-  198 80.665046091 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x3bb0 AAAA fab.uk
-  199 80.665344327 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xe9be A fab.uk
-  200 81.664976621 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x0ebc A how.uk.localdomain
-  201 81.665190624 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0x5f0e A how.uk
-  202 81.665271784 192.168.212.129 → 192.168.212.2 DNS 66 Standard query 0xf52c AAAA how.uk
-  203 81.665343880 192.168.212.129 → 192.168.212.2 DNS 78 Standard query 0x33f0 AAAA how.uk.localdomain
+    1 0.000000000 192.168.138.15 → 104.16.249.249 TLSv1.2 95 Application Data
+    2 0.001125106 104.16.249.249 → 192.168.138.15 TCP 62 443 → 49704 [ACK] Seq=1 Ack=40 Win=64240 Len=0
+    3 0.027596932 104.16.249.249 → 192.168.138.15 TLSv1.2 95 Application Data
+    4 0.027640558 192.168.138.15 → 104.16.249.249 TCP 56 49704 → 443 [ACK] Seq=40 Ack=40 Win=65535 Len=0
+    5 1.001305989 192.168.138.15 → 188.114.99.229 TLSv1.2 95 Application Data
+    6 1.001622725 188.114.99.229 → 192.168.138.15 TCP 62 443 → 36966 [ACK] Seq=1 Ack=40 Win=64240 Len=0
+    7 1.048952416 188.114.99.229 → 192.168.138.15 TLSv1.2 95 Application Data
+    8 1.048985599 192.168.138.15 → 188.114.99.229 TCP 56 36966 → 443 [ACK] Seq=40 Ack=40 Win=64028 Len=0
+    9 8.164484635    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0x2c6b A fc2.com OPT
+   10 8.164562122    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0x9c73 AAAA fc2.com OPT
+   11 8.164734395 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x50d0 A fc2.com OPT
+   12 8.164925081 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x2493 AAAA fc2.com OPT
+   13 8.250196269 192.168.138.2 → 192.168.138.15 DNS 162 Standard query response 0x2493 AAAA fc2.com SOA ns-1489.awsdns-58.org OPT
+   14 8.250468125   127.0.0.53 → 127.0.0.1    DNS 80 Standard query response 0x9c73 AAAA fc2.com OPT
+   15 8.257280504 192.168.138.2 → 192.168.138.15 DNS 112 Standard query response 0x50d0 A fc2.com A 52.24.98.229 A 44.226.94.94 OPT
+   16 8.257450602   127.0.0.53 → 127.0.0.1    DNS 112 Standard query response 0x2c6b A fc2.com A 52.24.98.229 A 44.226.94.94 OPT
+   17 8.257808971 192.168.138.15 → 52.24.98.229 ICMP 100 Echo (ping) request  id=0x1ff8, seq=1/256, ttl=66
+   18 8.496047215 52.24.98.229 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x1ff8, seq=1/256, ttl=128 (request in 17)
+   19 8.496477642    127.0.0.1 → 127.0.0.53   DNS 98 Standard query 0x3a71 PTR 229.98.24.52.in-addr.arpa OPT
+   20 8.497006970 192.168.138.15 → 192.168.138.2 DNS 98 Standard query 0x8af3 PTR 229.98.24.52.in-addr.arpa OPT
+   21 8.614880511 192.168.138.2 → 192.168.138.15 DNS 160 Standard query response 0x8af3 PTR 229.98.24.52.in-addr.arpa PTR ec2-52-24-98-229.us-west-2.compute.amazonaws.com OPT
+   22 8.615356268   127.0.0.53 → 127.0.0.1    DNS 160 Standard query response 0x3a71 PTR 229.98.24.52.in-addr.arpa PTR ec2-52-24-98-229.us-west-2.compute.amazonaws.com OPT
+   23 9.260250044 192.168.138.15 → 52.24.98.229 ICMP 100 Echo (ping) request  id=0x1ff8, seq=2/512, ttl=66
+   24 9.489343941 52.24.98.229 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x1ff8, seq=2/512, ttl=128 (request in 23)
+   25 10.262284066 192.168.138.15 → 52.24.98.229 ICMP 100 Echo (ping) request  id=0x1ff8, seq=3/768, ttl=66
+   26 10.487728672 52.24.98.229 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x1ff8, seq=3/768, ttl=128 (request in 25)
+   27 11.264555455 192.168.138.15 → 52.24.98.229 ICMP 100 Echo (ping) request  id=0x1ff8, seq=4/1024, ttl=66
+   28 11.521495385 52.24.98.229 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x1ff8, seq=4/1024, ttl=128 (request in 27)
+   29 16.589872033    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+   30 16.610370924    127.0.0.1 → 127.0.0.1    UDP 68 45610 → 45610 Len=24
+   31 16.614801504    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+   32 16.626595628    127.0.0.1 → 127.0.0.1    UDP 980 45610 → 45610 Len=936
+   33 16.626670413    127.0.0.1 → 127.0.0.1    UDP 420 45610 → 45610 Len=376
+   34 16.626677967    127.0.0.1 → 127.0.0.1    UDP 420 45610 → 45610 Len=376
+   35 18.277843445    127.0.0.1 → 127.0.0.53   DNS 93 Standard query 0x216e A livedoor.localdomain OPT
+   36 18.277870054    127.0.0.1 → 127.0.0.53   DNS 93 Standard query 0xc375 AAAA livedoor.localdomain OPT
+   37 18.278682888 192.168.138.15 → 192.168.138.2 DNS 93 Standard query 0xf8ef A livedoor.localdomain OPT
+   38 18.280079213 192.168.138.15 → 192.168.138.2 DNS 93 Standard query 0x5832 AAAA livedoor.localdomain OPT
+   39 18.391104225 192.168.138.2 → 192.168.138.15 DNS 168 Standard query response 0x5832 No such name AAAA livedoor.localdomain SOA a.root-servers.net OPT
+   40 18.391890331 192.168.138.15 → 192.168.138.2 DNS 82 Standard query 0x5832 AAAA livedoor.localdomain
+   41 18.476072487 192.168.138.2 → 192.168.138.15 DNS 157 Standard query response 0x5832 No such name AAAA livedoor.localdomain SOA a.root-servers.net
+   42 18.476230057   127.0.0.53 → 127.0.0.1    DNS 93 Standard query response 0xc375 No such name AAAA livedoor.localdomain OPT
+   43 19.209806067   127.0.0.53 → 127.0.0.1    DNS 93 Standard query response 0x216e No such name A livedoor.localdomain OPT
+   44 19.210142140    127.0.0.1 → 127.0.0.53   DNS 81 Standard query 0xde39 A livedoor OPT
+   45 19.210210422    127.0.0.1 → 127.0.0.53   DNS 81 Standard query 0x9a41 AAAA livedoor OPT
+   46 19.210463514   127.0.0.53 → 127.0.0.1    DNS 81 Standard query response 0xde39 Server failure A livedoor OPT
+   47 19.210735521   127.0.0.53 → 127.0.0.1    DNS 81 Standard query response 0x9a41 Server failure AAAA livedoor OPT
+   48 19.210916349    127.0.0.1 → 127.0.0.53   DNS 81 Standard query 0xde39 A livedoor OPT
+   49 19.210976308    127.0.0.1 → 127.0.0.53   DNS 81 Standard query 0x9a41 AAAA livedoor OPT
+   50 19.211284259   127.0.0.53 → 127.0.0.1    DNS 81 Standard query response 0xde39 Server failure A livedoor OPT
+   51 19.211563476   127.0.0.53 → 127.0.0.1    DNS 81 Standard query response 0x9a41 Server failure AAAA livedoor OPT
+   52 21.603351302    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0x85e5 A livedoor.com OPT
+   53 21.603399504    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0xfded AAAA livedoor.com OPT
+   54 21.603594543 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0x2d51 A livedoor.com OPT
+   55 21.603773753 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0x05bd AAAA livedoor.com OPT
+   56 21.694487059 192.168.138.2 → 192.168.138.15 DNS 149 Standard query response 0x05bd AAAA livedoor.com SOA ns1.naver.jp OPT
+   57 21.694879354   127.0.0.53 → 127.0.0.1    DNS 85 Standard query response 0xfded AAAA livedoor.com OPT
+   58 22.375568808 192.168.138.2 → 192.168.138.15 DNS 168 Standard query response 0xf8ef No such name A livedoor.localdomain SOA a.root-servers.net OPT
+   59 22.375594073 192.168.138.15 → 192.168.138.2 ICMP 196 Destination unreachable (Port unreachable)
+   60 23.210555987 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0x2d51 A livedoor.com OPT
+   61 23.287496689 192.168.138.2 → 192.168.138.15 DNS 101 Standard query response 0x2d51 A livedoor.com A 147.92.184.22 OPT
+   62 23.287953389   127.0.0.53 → 127.0.0.1    DNS 101 Standard query response 0x85e5 A livedoor.com A 147.92.184.22 OPT
+   63 23.288590290 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=1/256, ttl=66
+   64 24.312649205 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=2/512, ttl=66
+   65 25.336744989 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=3/768, ttl=66
+   66 26.360429123 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=4/1024, ttl=66
+   67 27.384631115 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=5/1280, ttl=66
+   68 28.408156178 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=6/1536, ttl=66
+   69 29.432839153 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=7/1792, ttl=66
+   70 30.456778845 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=8/2048, ttl=66
+   71 31.480254455 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=9/2304, ttl=66
+   72 32.504829465 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=10/2560, ttl=66
+   73 33.528618477 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=11/2816, ttl=66
+   74 34.552639266 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=12/3072, ttl=66
+   75 35.576387399 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=13/3328, ttl=66
+   76 36.600895818 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=14/3584, ttl=66
+   77 37.624777767 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=15/3840, ttl=66
+   78 38.648627875 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=16/4096, ttl=66
+   79 39.672823705 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=17/4352, ttl=66
+   80 40.696364686 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=18/4608, ttl=66
+   81 40.759840238 Vmware_74:97:e4 →              ARP 44 Who has 192.168.138.2? Tell 192.168.138.15
+   82 40.760269245 Vmware_ee:2d:b6 →              ARP 62 192.168.138.2 is at 00:50:56:ee:2d:b6
+   83 41.720776873 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=19/4864, ttl=66
+   84 42.744695645 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=20/5120, ttl=66
+   85 43.768483982 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=21/5376, ttl=66
+   86 44.792030937 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffc, seq=22/5632, ttl=66
+   87 45.589301601    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+   88 45.603623692    127.0.0.1 → 127.0.0.1    UDP 68 45610 → 45610 Len=24
+   89 45.616365522    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+   90 45.628180360    127.0.0.1 → 127.0.0.1    UDP 980 45610 → 45610 Len=936
+   91 45.628356290    127.0.0.1 → 127.0.0.1    UDP 420 45610 → 45610 Len=376
+   92 45.628371320    127.0.0.1 → 127.0.0.1    UDP 532 45610 → 45610 Len=488
+   93 46.252741703    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0xf4df A livedoor.com OPT
+   94 46.252777009    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0xbeea AAAA livedoor.com OPT
+   95 46.253046455 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xd09b A livedoor.com OPT
+   96 46.253194783 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xb1ee AAAA livedoor.com OPT
+   97 46.319409554 192.168.138.2 → 192.168.138.15 DNS 149 Standard query response 0xb1ee AAAA livedoor.com SOA ns1.naver.jp OPT
+   98 46.319619555   127.0.0.53 → 127.0.0.1    DNS 85 Standard query response 0xbeea AAAA livedoor.com OPT
+   99 46.331308050 192.168.138.2 → 192.168.138.15 DNS 101 Standard query response 0xd09b A livedoor.com A 147.92.184.22 OPT
+  100 46.331567505   127.0.0.53 → 127.0.0.1    DNS 101 Standard query response 0xf4df A livedoor.com A 147.92.184.22 OPT
+  101 46.331913967 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffe, seq=1/256, ttl=66
+  102 47.352106930 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x1ffe, seq=2/512, ttl=66
+  103 53.255728743 192.168.138.15 → 188.114.99.229 TLSv1.2 95 Application Data
+  104 53.256668348 188.114.99.229 → 192.168.138.15 TCP 62 443 → 36966 [ACK] Seq=40 Ack=79 Win=64240 Len=0
+  105 53.256680106 192.168.138.15 → 188.114.99.229 TLSv1.2 80 Application Data
+  106 53.257510405 188.114.99.229 → 192.168.138.15 TCP 62 443 → 36966 [ACK] Seq=40 Ack=104 Win=64239 Len=0
+  107 53.303220206 188.114.99.229 → 192.168.138.15 TCP 62 443 → 36966 [FIN, PSH, ACK] Seq=40 Ack=104 Win=64239 Len=0
+  108 53.303274469 192.168.138.15 → 188.114.99.229 TCP 56 36966 → 443 [ACK] Seq=104 Ack=41 Win=64028 Len=0
+  109 55.935363062    127.0.0.1 → 127.0.0.53   DNS 83 Standard query 0x418c A aajtak.com OPT
+  110 55.935399777    127.0.0.1 → 127.0.0.53   DNS 83 Standard query 0x4395 AAAA aajtak.com OPT
+  111 55.935598775 192.168.138.15 → 192.168.138.2 DNS 83 Standard query 0x5ee9 A aajtak.com OPT
+  112 55.935786781 192.168.138.15 → 192.168.138.2 DNS 83 Standard query 0x63c7 AAAA aajtak.com OPT
+  113 56.024135316 192.168.138.2 → 192.168.138.15 DNS 115 Standard query response 0x5ee9 A aajtak.com A 13.250.68.118 A 18.140.21.118 OPT
+  114 56.024303757   127.0.0.53 → 127.0.0.1    DNS 115 Standard query response 0x418c A aajtak.com A 13.250.68.118 A 18.140.21.118 OPT
+  115 56.709730368 192.168.138.15 → 192.168.138.2 DNS 83 Standard query 0x63c7 AAAA aajtak.com OPT
+  116 56.764518000 192.168.138.2 → 192.168.138.15 DNS 167 Standard query response 0x63c7 AAAA aajtak.com SOA ns-1634.awsdns-12.co.uk OPT
+  117 56.765071724   127.0.0.53 → 127.0.0.1    DNS 83 Standard query response 0x4395 AAAA aajtak.com OPT
+  118 56.766010988 192.168.138.15 → 13.250.68.118 ICMP 100 Echo (ping) request  id=0x1fff, seq=1/256, ttl=66
+  119 57.784261353 192.168.138.15 → 13.250.68.118 ICMP 100 Echo (ping) request  id=0x1fff, seq=2/512, ttl=66
+  120 58.808197418 192.168.138.15 → 13.250.68.118 ICMP 100 Echo (ping) request  id=0x1fff, seq=3/768, ttl=66
+  121 59.002386702 192.168.138.15 → 104.16.249.249 TLSv1.2 95 Application Data
+  122 59.003292922 104.16.249.249 → 192.168.138.15 TCP 62 443 → 49704 [ACK] Seq=40 Ack=79 Win=64240 Len=0
+  123 59.029200676 104.16.249.249 → 192.168.138.15 TLSv1.2 95 Application Data
+  124 59.029217820 192.168.138.15 → 104.16.249.249 TCP 56 49704 → 443 [ACK] Seq=79 Ack=79 Win=65535 Len=0
+  125 59.832425680 192.168.138.15 → 13.250.68.118 ICMP 100 Echo (ping) request  id=0x1fff, seq=4/1024, ttl=66
+  126 60.037775403 192.168.138.2 → 192.168.138.15 DNS 167 Standard query response 0x63c7 AAAA aajtak.com SOA ns-1634.awsdns-12.co.uk OPT
+  127 60.037800602 192.168.138.15 → 192.168.138.2 ICMP 195 Destination unreachable (Port unreachable)
+  128 62.979088411    127.0.0.1 → 127.0.0.53   DNS 78 Standard query 0xc700 A ya.ru OPT
+  129 62.979124774    127.0.0.1 → 127.0.0.53   DNS 78 Standard query 0x530b AAAA ya.ru OPT
+  130 62.979336247 192.168.138.15 → 192.168.138.2 DNS 78 Standard query 0x5ba1 A ya.ru OPT
+  131 62.979511972 192.168.138.15 → 192.168.138.2 DNS 78 Standard query 0x0a64 AAAA ya.ru OPT
+  132 63.039258944 192.168.138.2 → 192.168.138.15 DNS 110 Standard query response 0x5ba1 A ya.ru A 77.88.55.242 A 5.255.255.242 OPT
+  133 63.039673848   127.0.0.53 → 127.0.0.1    DNS 110 Standard query response 0xc700 A ya.ru A 77.88.55.242 A 5.255.255.242 OPT
+  134 63.053656133 192.168.138.2 → 192.168.138.15 DNS 106 Standard query response 0x0a64 AAAA ya.ru AAAA 2a02:6b8::2:242 OPT
+  135 63.054102011   127.0.0.53 → 127.0.0.1    DNS 106 Standard query response 0x530b AAAA ya.ru AAAA 2a02:6b8::2:242 OPT
+  136 63.054690881 192.168.138.15 → 77.88.55.242 ICMP 100 Echo (ping) request  id=0x2000, seq=1/256, ttl=66
+  137 63.120244374 77.88.55.242 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2000, seq=1/256, ttl=128 (request in 136)
+  138 63.120535890    127.0.0.1 → 127.0.0.53   DNS 98 Standard query 0xf4aa PTR 242.55.88.77.in-addr.arpa OPT
+  139 63.120854185 192.168.138.15 → 192.168.138.2 DNS 98 Standard query 0xa866 PTR 242.55.88.77.in-addr.arpa OPT
+  140 63.179435607 192.168.138.2 → 192.168.138.15 DNS 117 Standard query response 0xa866 PTR 242.55.88.77.in-addr.arpa PTR ya.ru OPT
+  141 63.180000994   127.0.0.53 → 127.0.0.1    DNS 117 Standard query response 0xf4aa PTR 242.55.88.77.in-addr.arpa PTR ya.ru OPT
+  142 65.685424054    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0x5d3d A livedoor.com OPT
+  143 65.685465214    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0x4748 AAAA livedoor.com OPT
+  144 65.685670633 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xa919 A livedoor.com OPT
+  145 65.685848881 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xa6ea AAAA livedoor.com OPT
+  146 65.748479485 192.168.138.2 → 192.168.138.15 DNS 101 Standard query response 0xa919 A livedoor.com A 147.92.184.22 OPT
+  147 65.748965175   127.0.0.53 → 127.0.0.1    DNS 101 Standard query response 0x5d3d A livedoor.com A 147.92.184.22 OPT
+  148 65.761737596 192.168.138.2 → 192.168.138.15 DNS 149 Standard query response 0xa6ea AAAA livedoor.com SOA ns1.naver.jp OPT
+  149 65.762316593   127.0.0.53 → 127.0.0.1    DNS 85 Standard query response 0x4748 AAAA livedoor.com OPT
+  150 65.762938018 192.168.138.15 → 147.92.184.22 ICMP 100 Echo (ping) request  id=0x2001, seq=1/256, ttl=66
+  151 67.617245229    127.0.0.1 → 127.0.0.53   DNS 83 Standard query 0x0d65 A aajtak.com OPT
+  152 67.617285157    127.0.0.1 → 127.0.0.53   DNS 83 Standard query 0xcf6d AAAA aajtak.com OPT
+  153 67.617480784 192.168.138.15 → 192.168.138.2 DNS 83 Standard query 0x0297 A aajtak.com OPT
+  154 67.617654033 192.168.138.15 → 192.168.138.2 DNS 83 Standard query 0x0bc5 AAAA aajtak.com OPT
+  155 67.708715252 192.168.138.2 → 192.168.138.15 DNS 167 Standard query response 0x0bc5 AAAA aajtak.com SOA ns-1634.awsdns-12.co.uk OPT
+  156 67.709231838   127.0.0.53 → 127.0.0.1    DNS 83 Standard query response 0xcf6d AAAA aajtak.com OPT
+  157 67.721544785 192.168.138.2 → 192.168.138.15 DNS 115 Standard query response 0x0297 A aajtak.com A 13.250.68.118 A 18.140.21.118 OPT
+  158 67.722124979   127.0.0.53 → 127.0.0.1    DNS 115 Standard query response 0x0d65 A aajtak.com A 13.250.68.118 A 18.140.21.118 OPT
+  159 67.723106011 192.168.138.15 → 13.250.68.118 ICMP 100 Echo (ping) request  id=0x2002, seq=1/256, ttl=66
+  160 68.728068839 192.168.138.15 → 13.250.68.118 ICMP 100 Echo (ping) request  id=0x2002, seq=2/512, ttl=66
+  161 76.606696268    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+  162 76.620779126    127.0.0.1 → 127.0.0.1    UDP 68 45610 → 45610 Len=24
+  163 76.625201912    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+  164 76.637746833    127.0.0.1 → 127.0.0.1    UDP 980 45610 → 45610 Len=936
+  165 76.637845446    127.0.0.1 → 127.0.0.1    UDP 420 45610 → 45610 Len=376
+  166 76.637858413    127.0.0.1 → 127.0.0.1    UDP 532 45610 → 45610 Len=488
+  167 77.536976098    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0x957c A facebook.com OPT
+  168 77.537016881    127.0.0.1 → 127.0.0.53   DNS 85 Standard query 0xcb84 AAAA facebook.com OPT
+  169 77.537216644 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xc3c9 A facebook.com OPT
+  170 77.537417273 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xed96 AAAA facebook.com OPT
+  171 77.628503047 192.168.138.2 → 192.168.138.15 DNS 101 Standard query response 0xc3c9 A facebook.com A 157.240.205.35 OPT
+  172 77.628717992   127.0.0.53 → 127.0.0.1    DNS 101 Standard query response 0x957c A facebook.com A 157.240.205.35 OPT
+  173 77.672932301 192.168.138.2 → 192.168.138.15 DNS 113 Standard query response 0xed96 AAAA facebook.com AAAA 2a03:2880:f113:81:face:b00c:0:25de OPT
+  174 77.673398916   127.0.0.53 → 127.0.0.1    DNS 113 Standard query response 0xcb84 AAAA facebook.com AAAA 2a03:2880:f113:81:face:b00c:0:25de OPT
+  175 77.674304257 192.168.138.15 → 157.240.205.35 ICMP 100 Echo (ping) request  id=0x201e, seq=1/256, ttl=66
+  176 77.782528370 157.240.205.35 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x201e, seq=1/256, ttl=128 (request in 175)
+  177 77.782791130    127.0.0.1 → 127.0.0.53   DNS 100 Standard query 0x1980 PTR 35.205.240.157.in-addr.arpa OPT
+  178 77.783027030 192.168.138.15 → 192.168.138.2 DNS 100 Standard query 0xda1b PTR 35.205.240.157.in-addr.arpa OPT
+  179 77.839148388 192.168.138.2 → 192.168.138.15 DNS 153 Standard query response 0xda1b PTR 35.205.240.157.in-addr.arpa PTR edge-star-mini-shv-01-hel3.facebook.com OPT
+  180 77.839685894   127.0.0.53 → 127.0.0.1    DNS 153 Standard query response 0x1980 PTR 35.205.240.157.in-addr.arpa PTR edge-star-mini-shv-01-hel3.facebook.com OPT
+  181 78.676893891 192.168.138.15 → 157.240.205.35 ICMP 100 Echo (ping) request  id=0x201e, seq=2/512, ttl=66
+  182 78.777713298 157.240.205.35 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x201e, seq=2/512, ttl=128 (request in 181)
+  183 79.678643753 192.168.138.15 → 157.240.205.35 ICMP 100 Echo (ping) request  id=0x201e, seq=3/768, ttl=66
+  184 79.749168399 157.240.205.35 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x201e, seq=3/768, ttl=128 (request in 183)
+  185 84.731322301    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0xae9c A home.in OPT
+  186 84.731363733    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0x4aa7 AAAA home.in OPT
+  187 84.731572951 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x431b A home.in OPT
+  188 84.731786591 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x47fb AAAA home.in OPT
+  189 85.710063423 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x431b A home.in OPT
+  190 85.710387761 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x47fb AAAA home.in OPT
+  191 87.460406739 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x431b A home.in OPT
+  192 87.460699896 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x47fb AAAA home.in OPT
+  193 89.736628334    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0xae9c A home.in OPT
+  194 89.736732599    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0x4aa7 AAAA home.in OPT
+  195 89.836948525 192.168.138.2 → 192.168.138.15 DNS 80 Standard query response 0x431b Server failure A home.in OPT
+  196 89.837324237 192.168.138.15 → 192.168.138.2 DNS 69 Standard query 0x431b A home.in
+  197 89.860979283 192.168.138.2 → 192.168.138.15 DNS 80 Standard query response 0x47fb Server failure AAAA home.in OPT
+  198 89.861353137 192.168.138.15 → 192.168.138.2 DNS 69 Standard query 0x47fb AAAA home.in
+  199 90.935478821 192.168.138.2 → 192.168.138.15 DNS 80 Standard query response 0x431b Server failure A home.in OPT
+  200 90.935926453   127.0.0.53 → 127.0.0.1    DNS 80 Standard query response 0xae9c Server failure A home.in OPT
+  201 90.936043795   127.0.0.53 → 127.0.0.1    DNS 80 Standard query response 0xae9c Server failure A home.in OPT
+  202 90.936289305 192.168.138.2 → 192.168.138.15 DNS 80 Standard query response 0x47fb Server failure AAAA home.in OPT
+  203 90.936436068   127.0.0.53 → 127.0.0.1    DNS 80 Standard query response 0x4aa7 Server failure AAAA home.in OPT
+  204 90.936481412   127.0.0.53 → 127.0.0.1    DNS 80 Standard query response 0x4aa7 Server failure AAAA home.in OPT
+  205 90.936570718    127.0.0.1 → 127.0.0.53   DNS 92 Standard query 0x4b64 A home.in.localdomain OPT
+  206 90.936600892    127.0.0.1 → 127.0.0.53   DNS 92 Standard query 0xab6a AAAA home.in.localdomain OPT
+  207 90.936774249 192.168.138.15 → 192.168.138.2 DNS 92 Standard query 0x3142 A home.in.localdomain OPT
+  208 90.936905611 192.168.138.15 → 192.168.138.2 DNS 92 Standard query 0xb372 AAAA home.in.localdomain OPT
+  209 90.988125593 192.168.138.2 → 192.168.138.15 DNS 167 Standard query response 0x3142 No such name A home.in.localdomain SOA a.root-servers.net OPT
+  210 90.988596876 192.168.138.15 → 192.168.138.2 DNS 81 Standard query 0x3142 A home.in.localdomain
+  211 91.026912936 192.168.138.2 → 192.168.138.15 DNS 167 Standard query response 0xb372 No such name AAAA home.in.localdomain SOA a.root-servers.net OPT
+  212 91.027369118 192.168.138.15 → 192.168.138.2 DNS 81 Standard query 0xb372 AAAA home.in.localdomain
+  213 91.076945314 192.168.138.2 → 192.168.138.15 DNS 156 Standard query response 0xb372 No such name AAAA home.in.localdomain SOA a.root-servers.net
+  214 91.077575427   127.0.0.53 → 127.0.0.1    DNS 92 Standard query response 0xab6a No such name AAAA home.in.localdomain OPT
+  215 92.559883233 192.168.138.2 → 192.168.138.15 DNS 80 Standard query response 0x47fb Server failure AAAA home.in OPT
+  216 92.559910052 192.168.138.15 → 192.168.138.2 ICMP 108 Destination unreachable (Port unreachable)
+  217 92.655427434 192.168.138.2 → 192.168.138.15 DNS 80 Standard query response 0x431b Server failure A home.in OPT
+  218 92.655482545 192.168.138.15 → 192.168.138.2 ICMP 108 Destination unreachable (Port unreachable)
+  219 92.960775180   127.0.0.53 → 127.0.0.1    DNS 92 Standard query response 0x4b64 No such name A home.in.localdomain OPT
+  220 95.089255038 192.168.138.2 → 192.168.138.15 DNS 69 Standard query response 0x431b Server failure A home.in
+  221 95.089314464 192.168.138.15 → 192.168.138.2 ICMP 97 Destination unreachable (Port unreachable)
+  222 96.131951569 192.168.138.100 → 224.0.0.251  MDNS 234 Standard query response 0x0000 PTR WIN-SI88TSREFDE._dosvc._tcp.local SRV 0 0 7680 WIN-SI88TSREFDE.local TXT
+  223 96.133806096 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 254 Standard query response 0x0000 PTR WIN-SI88TSREFDE._dosvc._tcp.local SRV 0 0 7680 WIN-SI88TSREFDE.local TXT
+  224 96.134549835 192.168.138.100 → 224.0.0.251  MDNS 95 Standard query 0x0000 ANY WIN-SI88TSREFDE._dosvc._tcp.local, "QM" question
+  225 96.134975769 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 115 Standard query 0x0000 ANY WIN-SI88TSREFDE._dosvc._tcp.local, "QM" question
+  226 96.396119752 192.168.138.100 → 224.0.0.251  MDNS 95 Standard query 0x0000 ANY WIN-SI88TSREFDE._dosvc._tcp.local, "QM" question
+  227 96.398378772 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 115 Standard query 0x0000 ANY WIN-SI88TSREFDE._dosvc._tcp.local, "QM" question
+  228 96.497468580    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0xf955 A home.it OPT
+  229 96.497504582    127.0.0.1 → 127.0.0.53   DNS 80 Standard query 0x6762 AAAA home.it OPT
+  230 96.497712574 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0xf26d A home.it OPT
+  231 96.497873077 192.168.138.15 → 192.168.138.2 DNS 80 Standard query 0x4d64 AAAA home.it OPT
+  232 96.658728091 192.168.138.100 → 224.0.0.251  MDNS 95 Standard query 0x0000 ANY WIN-SI88TSREFDE._dosvc._tcp.local, "QM" question
+  233 96.659599396 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 115 Standard query 0x0000 ANY WIN-SI88TSREFDE._dosvc._tcp.local, "QM" question
+  234 96.660626942 192.168.138.2 → 192.168.138.15 DNS 96 Standard query response 0xf26d A home.it A 195.110.124.133 OPT
+  235 96.660783653   127.0.0.53 → 127.0.0.1    DNS 96 Standard query response 0xf955 A home.it A 195.110.124.133 OPT
+  236 96.700313788 192.168.138.2 → 192.168.138.15 DNS 140 Standard query response 0x4d64 AAAA home.it SOA ns1.register.it OPT
+  237 96.700477109   127.0.0.53 → 127.0.0.1    DNS 80 Standard query response 0x6762 AAAA home.it OPT
+  238 96.700656169 192.168.138.15 → 195.110.124.133 ICMP 100 Echo (ping) request  id=0x2020, seq=1/256, ttl=66
+  239 96.834025380 195.110.124.133 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2020, seq=1/256, ttl=128 (request in 238)
+  240 96.834240679    127.0.0.1 → 127.0.0.53   DNS 101 Standard query 0x5e76 PTR 133.124.110.195.in-addr.arpa OPT
+  241 96.834456755 192.168.138.15 → 192.168.138.2 DNS 101 Standard query 0xbcac PTR 133.124.110.195.in-addr.arpa OPT
+  242 96.927605375 192.168.138.100 → 224.0.0.251  MDNS 299 Standard query response 0x0000 PTR WIN-SI88TSREFDE._dosvc._tcp.local SRV 0 0 7680 WIN-SI88TSREFDE.local TXT A 192.168.138.100 AAAA fe80::9164:7942:2a60:5237
+  243 96.930090068 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 319 Standard query response 0x0000 PTR WIN-SI88TSREFDE._dosvc._tcp.local SRV 0 0 7680 WIN-SI88TSREFDE.local TXT A 192.168.138.100 AAAA fe80::9164:7942:2a60:5237
+  244 96.932323590 192.168.138.100 → 224.0.0.251  MDNS 235 Standard query response 0x0000 SRV 0 0 7680 WIN-SI88TSREFDE.local TXT A 192.168.138.100 AAAA fe80::9164:7942:2a60:5237
+  245 96.935386505 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 255 Standard query response 0x0000 SRV 0 0 7680 WIN-SI88TSREFDE.local TXT A 192.168.138.100 AAAA fe80::9164:7942:2a60:5237
+  246 97.047942054 192.168.138.2 → 192.168.138.15 DNS 131 Standard query response 0xbcac PTR 133.124.110.195.in-addr.arpa PTR opus.register.it OPT
+  247 97.048152813   127.0.0.53 → 127.0.0.1    DNS 131 Standard query response 0x5e76 PTR 133.124.110.195.in-addr.arpa PTR opus.register.it OPT
+  248 97.701122139 192.168.138.15 → 195.110.124.133 ICMP 100 Echo (ping) request  id=0x2020, seq=2/512, ttl=66
+  249 97.828535595 195.110.124.133 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2020, seq=2/512, ttl=128 (request in 248)
+  250 98.702908559 192.168.138.15 → 195.110.124.133 ICMP 100 Echo (ping) request  id=0x2020, seq=3/768, ttl=66
+  251 98.816602091 195.110.124.133 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2020, seq=3/768, ttl=128 (request in 250)
+  252 100.151949579 Vmware_74:97:e4 →              ARP 44 Who has 192.168.138.2? Tell 192.168.138.15
+  253 100.152559048 Vmware_ee:2d:b6 →              ARP 62 192.168.138.2 is at 00:50:56:ee:2d:b6
+  254 102.572452837    127.0.0.1 → 127.0.0.53   DNS 102 Standard query 0xa917 A connectivity-check.ubuntu.com OPT
+  255 102.572550012    127.0.0.1 → 127.0.0.53   DNS 102 Standard query 0x752e AAAA connectivity-check.ubuntu.com OPT
+  256 102.573083233 192.168.138.15 → 192.168.138.2 DNS 102 Standard query 0x8839 A connectivity-check.ubuntu.com OPT
+  257 102.573661538 192.168.138.15 → 192.168.138.2 DNS 102 Standard query 0x0c83 AAAA connectivity-check.ubuntu.com OPT
+  258 102.666265001 192.168.138.2 → 192.168.138.15 DNS 246 Standard query response 0x8839 A connectivity-check.ubuntu.com A 91.189.91.48 A 185.125.190.17 A 35.224.170.84 A 35.232.111.17 A 185.125.190.48 A 91.189.91.49 A 185.125.190.18 A 185.125.190.49 A 34.122.121.32 OPT
+  259 102.666924314   127.0.0.53 → 127.0.0.1    DNS 246 Standard query response 0xa917 A connectivity-check.ubuntu.com A 91.189.91.48 A 185.125.190.17 A 35.224.170.84 A 35.232.111.17 A 185.125.190.48 A 91.189.91.49 A 185.125.190.18 A 185.125.190.49 A 34.122.121.32 OPT
+  260 102.731914511 192.168.138.2 → 192.168.138.15 DNS 270 Standard query response 0x0c83 AAAA connectivity-check.ubuntu.com AAAA 2620:2d:4000:1::22 AAAA 2001:67c:1562::24 AAAA 2001:67c:1562::23 AAAA 2620:2d:4000:1::2b AAAA 2620:2d:4000:1::2a AAAA 2620:2d:4000:1::23 OPT
+  261 102.732586059   127.0.0.53 → 127.0.0.1    DNS 270 Standard query response 0x752e AAAA connectivity-check.ubuntu.com AAAA 2620:2d:4000:1::22 AAAA 2001:67c:1562::24 AAAA 2001:67c:1562::23 AAAA 2620:2d:4000:1::2b AAAA 2620:2d:4000:1::2a AAAA 2620:2d:4000:1::23 OPT
+  262 103.573925122 192.168.138.15 → 91.189.91.48 TCP 76 33512 → 80 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=4208806810 TSecr=0 WS=128
+  263 103.771541254 91.189.91.48 → 192.168.138.15 TCP 62 80 → 33512 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+  264 103.771704536 192.168.138.15 → 91.189.91.48 TCP 56 33512 → 80 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+  265 103.771955111 192.168.138.15 → 91.189.91.48 HTTP 143 GET / HTTP/1.1 
+  266 103.772983603 91.189.91.48 → 192.168.138.15 TCP 62 80 → 33512 [ACK] Seq=1 Ack=88 Win=64240 Len=0
+  267 103.935250489 91.189.91.48 → 192.168.138.15 HTTP 203 HTTP/1.1 204 No Content 
+  268 103.935296538 192.168.138.15 → 91.189.91.48 TCP 56 33512 → 80 [ACK] Seq=88 Ack=148 Win=64093 Len=0
+  269 103.935824932 192.168.138.15 → 91.189.91.48 TCP 56 33512 → 80 [FIN, ACK] Seq=88 Ack=148 Win=64093 Len=0
+  270 103.936704544 91.189.91.48 → 192.168.138.15 TCP 62 80 → 33512 [ACK] Seq=148 Ack=89 Win=64239 Len=0
+  271 103.940660512 91.189.91.48 → 192.168.138.15 TCP 62 80 → 33512 [FIN, PSH, ACK] Seq=148 Ack=89 Win=64239 Len=0
+  272 103.940710641 192.168.138.15 → 91.189.91.48 TCP 56 33512 → 80 [ACK] Seq=89 Ack=149 Win=64093 Len=0
+  273 105.596711706    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+  274 105.608069235    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  275 105.610855062    127.0.0.1 → 127.0.0.1    UDP 68 45610 → 45610 Len=24
+  276 105.614618425    127.0.0.1 → 127.0.0.1    UDP 76 45610 → 45610 Len=32
+  277 105.626876820    127.0.0.1 → 127.0.0.1    UDP 980 45610 → 45610 Len=936
+  278 105.626986060    127.0.0.1 → 127.0.0.1    UDP 420 45610 → 45610 Len=376
+  279 105.627000037    127.0.0.1 → 127.0.0.1    UDP 532 45610 → 45610 Len=488
+  280 105.708978721    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  281 105.809866152    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  282 105.911625360    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  283 106.013469286    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  284 106.114646242    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  285 106.215231189    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  286 106.316617640    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  287 106.417067737    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  288 106.518329145    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  289 106.619339088    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  290 106.720103930    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  291 106.820850623    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  292 106.880341907    127.0.0.1 → 127.0.0.53   DNS 84 Standard query 0x55e6 A florence.it OPT
+  293 106.880382465    127.0.0.1 → 127.0.0.53   DNS 84 Standard query 0x25ef AAAA florence.it OPT
+  294 106.880587313 192.168.138.15 → 192.168.138.2 DNS 84 Standard query 0x49d9 A florence.it OPT
+  295 106.880792236 192.168.138.15 → 192.168.138.2 DNS 84 Standard query 0x368d AAAA florence.it OPT
+  296 106.921129604    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  297 106.960183454 192.168.138.2 → 192.168.138.15 DNS 139 Standard query response 0x49d9 A florence.it SOA dns.nic.it OPT
+  298 106.960370840   127.0.0.53 → 127.0.0.1    DNS 84 Standard query response 0x55e6 A florence.it OPT
+  299 107.022313639    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  300 107.035594374 192.168.138.2 → 192.168.138.15 DNS 139 Standard query response 0x368d AAAA florence.it SOA dns.nic.it OPT
+  301 107.036096527   127.0.0.53 → 127.0.0.1    DNS 84 Standard query response 0x25ef AAAA florence.it OPT
+  302 107.036591589    127.0.0.1 → 127.0.0.53   DNS 96 Standard query 0x5d8d A florence.it.localdomain OPT
+  303 107.036688924    127.0.0.1 → 127.0.0.53   DNS 96 Standard query 0x61a5 AAAA florence.it.localdomain OPT
+  304 107.037098248 192.168.138.15 → 192.168.138.2 DNS 96 Standard query 0xfd02 A florence.it.localdomain OPT
+  305 107.037530821 192.168.138.15 → 192.168.138.2 DNS 96 Standard query 0xf58c AAAA florence.it.localdomain OPT
+  306 107.099081992 192.168.138.2 → 192.168.138.15 DNS 171 Standard query response 0xf58c No such name AAAA florence.it.localdomain SOA a.root-servers.net OPT
+  307 107.099489504 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xf58c AAAA florence.it.localdomain
+  308 107.123755756    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  309 107.140111217 192.168.138.2 → 192.168.138.15 DNS 171 Standard query response 0xfd02 No such name A florence.it.localdomain SOA a.root-servers.net OPT
+  310 107.140561719 192.168.138.15 → 192.168.138.2 DNS 85 Standard query 0xfd02 A florence.it.localdomain
+  311 107.151485870 192.168.138.2 → 192.168.138.15 DNS 160 Standard query response 0xf58c No such name AAAA florence.it.localdomain SOA a.root-servers.net
+  312 107.151910778   127.0.0.53 → 127.0.0.1    DNS 96 Standard query response 0x61a5 No such name AAAA florence.it.localdomain OPT
+  313 107.224795272    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  314 107.325868811    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  315 107.427006610    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  316 107.536354905    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  317 107.637689360    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  318 107.738556459    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  319 107.839330226    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  320 107.947133740    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  321 107.959819406   127.0.0.53 → 127.0.0.1    DNS 96 Standard query response 0x5d8d No such name A florence.it.localdomain OPT
+  322 108.048363634    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  323 108.149196986    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  324 108.250279570    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  325 108.351664347    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  326 108.451930605    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  327 108.553114055    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  328 108.653591557    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  329 108.770395289    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  330 108.872019567    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  331 108.973017105    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  332 109.074151654    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  333 109.175083680    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  334 109.276618843    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  335 109.377768440    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  336 109.478027841    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  337 109.579036400    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  338 109.680591998    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  339 109.781552551    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  340 109.882783089    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  341 109.991416386    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  342 110.092065500    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  343 110.193103772    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  344 110.293923845    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  345 110.394620174    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  346 110.495492161    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  347 110.596549333    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  348 110.697818408    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  349 110.799634689    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  350 110.900422365    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  351 111.001760295    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  352 111.110384666    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  353 111.211947570    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  354 111.313103976    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  355 111.413987155    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  356 111.515337218    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  357 111.615696139    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  358 111.717159514    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  359 111.818648865    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  360 111.920196441    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  361 112.022326699    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  362 112.123153876    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  363 112.223623864    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  364 112.324785266    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  365 112.425897598    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  366 112.526397234    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  367 112.627276600    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  368 112.728682567    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  369 112.829482018    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  370 112.930464964    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  371 113.031819467    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  372 113.146235375    127.0.0.1 → 127.0.0.1    UDP 132 45610 → 45610 Len=88
+  373 113.566965485    127.0.0.1 → 127.0.0.53   DNS 81 Standard query 0x7538 A flora.it OPT
+  374 113.567001619    127.0.0.1 → 127.0.0.53   DNS 81 Standard query 0x3942 AAAA flora.it OPT
+  375 113.567217442 192.168.138.15 → 192.168.138.2 DNS 81 Standard query 0x2e47 A flora.it OPT
+  376 113.567414890 192.168.138.15 → 192.168.138.2 DNS 81 Standard query 0xf0a0 AAAA flora.it OPT
+  377 113.743547814 192.168.138.2 → 192.168.138.15 DNS 146 Standard query response 0xf0a0 AAAA flora.it SOA dns.technorail.com OPT
+  378 113.743788291   127.0.0.53 → 127.0.0.1    DNS 81 Standard query response 0x3942 AAAA flora.it OPT
+  379 115.210431857 192.168.138.15 → 192.168.138.2 DNS 81 Standard query 0x2e47 A flora.it OPT
+  380 115.320242191 192.168.138.2 → 192.168.138.15 DNS 177 Standard query response 0x2e47 A flora.it A 62.149.128.160 A 62.149.128.151 A 62.149.128.166 A 62.149.128.163 A 62.149.128.157 A 62.149.128.154 OPT
+  381 115.320824850   127.0.0.53 → 127.0.0.1    DNS 177 Standard query response 0x7538 A flora.it A 62.149.128.160 A 62.149.128.151 A 62.149.128.166 A 62.149.128.163 A 62.149.128.157 A 62.149.128.154 OPT
+  382 115.321726057 192.168.138.15 → 62.149.128.160 ICMP 100 Echo (ping) request  id=0x2025, seq=1/256, ttl=66
+  383 116.344607094 192.168.138.15 → 62.149.128.160 ICMP 100 Echo (ping) request  id=0x2025, seq=2/512, ttl=66
+  384 116.546819087 62.149.128.160 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2025, seq=2/512, ttl=128 (request in 383)
+  385 116.546979854    127.0.0.1 → 127.0.0.53   DNS 100 Standard query 0xb52e PTR 160.128.149.62.in-addr.arpa OPT
+  386 116.547123052 192.168.138.15 → 192.168.138.2 DNS 100 Standard query 0x61f5 PTR 160.128.149.62.in-addr.arpa OPT
+  387 116.634173013 192.168.138.2 → 192.168.138.15 DNS 127 Standard query response 0x61f5 PTR 160.128.149.62.in-addr.arpa PTR mxd1.aruba.it OPT
+  388 116.634449274   127.0.0.53 → 127.0.0.1    DNS 127 Standard query response 0xb52e PTR 160.128.149.62.in-addr.arpa PTR mxd1.aruba.it OPT
+  389 117.345893630 192.168.138.15 → 62.149.128.160 ICMP 100 Echo (ping) request  id=0x2025, seq=3/768, ttl=66
+  390 117.432838167 62.149.128.160 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2025, seq=3/768, ttl=128 (request in 389)
+  391 117.722747865 192.168.138.2 → 192.168.138.15 DNS 177 Standard query response 0x2e47 A flora.it A 62.149.128.160 A 62.149.128.163 A 62.149.128.151 A 62.149.128.166 A 62.149.128.157 A 62.149.128.154 OPT
+  392 117.722769394 192.168.138.15 → 192.168.138.2 ICMP 205 Destination unreachable (Port unreachable)
+  393 118.005892564 192.168.138.15 → 104.16.249.249 TLSv1.2 95 Application Data
+  394 118.006681741 104.16.249.249 → 192.168.138.15 TCP 62 443 → 49704 [ACK] Seq=79 Ack=118 Win=64240 Len=0
+  395 118.039536160 104.16.249.249 → 192.168.138.15 TLSv1.2 95 Application Data
+  396 118.039577234 192.168.138.15 → 104.16.249.249 TCP 56 49704 → 443 [ACK] Seq=118 Ack=118 Win=65535 Len=0
+  397 118.347924027 192.168.138.15 → 62.149.128.160 ICMP 100 Echo (ping) request  id=0x2025, seq=4/1024, ttl=66
+  398 118.425057908 62.149.128.160 → 192.168.138.15 ICMP 100 Echo (ping) reply    id=0x2025, seq=4/1024, ttl=128 (request in 397)

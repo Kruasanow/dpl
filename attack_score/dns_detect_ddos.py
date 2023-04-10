@@ -19,7 +19,8 @@ def detect_dns_ddos(cap, limit):
     for ip in ip_counts:
         if ip_counts[ip] > limit: # Limit 
             ddos_attacker = ip
-
+        else:
+            ddos_attacker = ''
     return ddos_attacker
 
-# print(detect_dns_ddos('398in190-150323.pcapng',50))
+# print(detect_dns_ddos('../test.pcapng',50))

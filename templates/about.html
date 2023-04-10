@@ -28,30 +28,44 @@
       </div>
     </header>
     <!--==============================content================================-->
-    <section id="content">
-      <div class="main">
-        <table class="table_protocol1">
-          <tr>
-            <td>Проверка TTL</td>
-            <td>ICMP-flood</td>
-            <td>UDP-flood</td>
-            <td>SYN-flood</td>
-            <td>Проверка ACL</td>
-            <td>SSL/TLS-DDoS</td>
+      
+    <form method="POST" action="{{ url_for('about') }}">
+      <label for="ur_ip">Введите IP:</label>
+      <input type="text" name="ur_ip" id="name"><br><br>
+      <label for="limit">Введите триггерную величину:</label>
+      <input type="text" name="limit" id="name"><br><br>
+      <input type="submit" value="Cканировать">
+    </form>
+    
+    <div class="lastlink">
+        <table class="tabletvar">
+          <tr style="padding: 3px; border: 1px solid rgb(255, 255, 255); text-align: left;">
+            <td>DNS DDOS</td>
+            <td>DNS Amplification</td>
+            <td>Zone transfer</td>
+            <td>DNS spoofing</td>
+            <td>DNS poisoning</td>
+            <!-- <td>SSL/TLS-DDoS</td>
             <td>DNS-transferZone</td>
-            <td>DNS-Amplification</td>
+            <td>DNS-Amplification</td> -->
           </tr>
           <tr>
-            <td>{{ ttl }}</td>
-            <td>{{ icmp }}</td>
-            <td>{{ udp }}</td>
-            <td>{{ syn }}</td>
-            <td>{{ acl }}</td>
-            <td>{{ ssl }}</td>
+            <td>{{ a }}</td>
+            <td>{{ b }}</td>
+            <td>{{ c }}</td>
+            <td>{{ d }}</td>
+            <td>{{ e }}</td>
+            <!-- <td>{{ ssl }}</td>
             <td>{{ dnsTZ }}</td>
-            <td>{{ dnsAP }}</td>
+            <td>{{ dnsAP }}</td> -->
           </tr>
         </table>
+        <!-- {{a}}
+        {{b}}
+        {{c}}
+        {{d}}
+        {{e}} -->
+        
         <br><br>
         <p align="center"> 
           Возможные инсайдеры: <br> 
@@ -59,7 +73,7 @@
         </p>
         <br><br>
       </div>
-    </section>
+
     <div align="center">
       {% block content %}
         {% for field in table %}

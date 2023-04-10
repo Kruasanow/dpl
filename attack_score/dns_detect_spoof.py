@@ -11,7 +11,10 @@ def detect_dns_spoofing(cap):
                 ip_src = packet[IP].src
                 ip_dst = packet[IP].dst
                 if ip_dst != dnsrr.rdata: # Check ip add src and ip dst
-                    attacker.append(ip_src) 
+                    if '127.0.0' in str(ip_src):
+                        continue
+                    else:
+                        attacker.append(ip_src) 
     return attacker
 
-# print(detect_dns_spoofing('398in190-150323.pcapng'))
+# print(detect_dns_spoofing('test.pcapng'))

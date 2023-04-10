@@ -1,4 +1,5 @@
 from scapy.all import *
+
 def detect_dnscachepois(cap, ur_ip):
     pcap = rdpcap(cap)
 

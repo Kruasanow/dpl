@@ -76,18 +76,57 @@ def restart_flask():
 def about():
     print(url_for('about'))
 
+    name = get_dname_from_db()
+    prename = 'dump_input/'
+    fullname = prename + name
+    print('[*]main.py: fullname for save module ' + fullname)
+    from attack_score.dns_detect_ddos import detect_dns_ddos
+    from attack_score.dns_detect_dnsampl import detect_dnsampl
+    from attack_score.dns_detect_dnstransfzone import detect_dns_zone_transfer
+    from attack_score.dns_detect_spoof import detect_dns_spoofing
+    from attack_score.dns_detect_cache_pois import detect_dnscachepois
+
+    if 'ur_ip' in request.form:
+        ur_ip = request.form['ur_ip']
+        limit = request.form['limit']
+
+        from osh import delete_empty
+        from dnsf.dns_prepare_fdb import is_unique
+
+        ddos = delete_empty(is_unique(detect_dns_ddos(fullname, int(limit))))
+        dnsampl = delete_empty(is_unique(detect_dnsampl(fullname)))
+        ztrans = delete_empty(is_unique(detect_dns_zone_transfer(fullname)))
+        spoof = delete_empty(is_unique(detect_dns_spoofing(fullname)))
+        pois = delete_empty(is_unique(detect_dnscachepois(fullname, ur_ip)))
+
+
+
+        # from osh import reload_list_by_who
+        return render_template(
+                                'about.html',
+                                a = ddos,
+                                b = dnsampl,
+                                c = ztrans,
+                                d = spoof,
+                                e = pois,
+                                # acl = sa.level_acl()[1],
+                                # icmp = sa.level_icmp(),
+                                # udp = sa.level_udp(),
+                                # syn = sa.level_syn(),
+                                # ttl = sa.level_ttl(),
+                                # dnsTZ = sa.DNSTZ(),
+                                # dnsAP = sa.DNSAMPL(),
+                                # ssl = sa.level_ssl(),
+                                # insaiders = sa.level_acl()[0],
+                            )
     return render_template(
-                            'about.html',
-                            acl = sa.level_acl()[1],
-                            icmp = sa.level_icmp(),
-                            udp = sa.level_udp(),
-                            syn = sa.level_syn(),
-                            ttl = sa.level_ttl(),
-                            dnsTZ = sa.DNSTZ(),
-                            dnsAP = sa.DNSAMPL(),
-                            ssl = sa.level_ssl(),
-                            insaiders = sa.level_acl()[0],
-                          )
+                                'about.html',
+                                a = '',
+                                b = '',
+                                c = '',
+                                d = '',
+                                e = '',
+                            )
 
 @app.route('/report', methods = ['get','post'])
 def report():

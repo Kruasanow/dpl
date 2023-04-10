@@ -41,6 +41,11 @@ def reload_list_by_who(lst):
                              })
     return lst
 
+def delete_empty(lst):
+    lst = str(lst)
+    if lst == '[]':
+        lst = ''
+    return lst
 
 def get_dname_from_db():
     good_dname = ''

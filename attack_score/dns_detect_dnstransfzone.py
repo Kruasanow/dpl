@@ -8,6 +8,7 @@ def detect_dns_zone_transfer(cap):
             dns = packet[DNS]
             if dns.opcode == 6: # if opcode has 6 value it mean transfer may be exist
                 res.append(packet[IP].src)
+    print(packets)
     return res
 
-# print(detect_dns_zone_transfer('398in190-150323.pcapng'))
+# print(detect_dns_zone_transfer('../dump_input/qwe1.pcapng'))
