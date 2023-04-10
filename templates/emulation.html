@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>diploma_project</title>
+<title>Эмулятор атак</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}" type="text/css" media="screen">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="screen">
@@ -30,7 +30,48 @@
       <div class="main">
         <div class="container_12">
 
+          <style>
+            form {
+              display: flex;
+              flex-direction: column;
+              max-width: 400px;
+              margin: 0 auto;
+              padding: 20px;
+              background-color: #202020;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+          
+            label {
+              margin-bottom: 5px;
+              font-weight: bold;
+              font-size: 16px;
+            }
+          
+            input[type="text"] {
+              padding: 10px;
+              margin-bottom: 10px;
+              border-radius: 5px;
+              border: none;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+          
+            input[type="submit"] {
+              background-color: #7f7f7f;
+              color: white;
+              padding: 10px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+          
+            input[type="submit"]:hover {
+              background-color: #666666;
+            }
+          </style>
+
         <form method="post">
+            <label for="ns"> Проверка коэффициента :</label>
             <select name="ns">
                 {% for n in ns %}
                     <option value="{{ n }}">{{ n }}</option>
@@ -43,24 +84,24 @@
               {% endfor %}
           </select>
           <br><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Oпределить">
         </form>
-        {{ ampl }}
-
+        <p style="text-align: center;">{{ ampl }}</p>
+        <br>
         <form method="post">
           <button name="scheck"> Проверить на уязвимость </button>
         </form>
         {% for i in good_ip %}
-          {{ i }}
+        <p style="text-align: center;">{{ i }}</p>
         {% endfor %}
-
+        <br>
         <form method="POST" action="{{ url_for('emulation') }}">
           <label for="name">Введите IP цели:</label>
           <input type="text" name="doampl" id="name"><br><br>
           <input type="submit" value="Начать">
         </form>
-        {{ pac }}
-
+        <p style="text-align: center;">{{ pac }}</p>
+        <br>
         <form method="POST" action="{{ url_for('emulation') }}">
           <label for="name">Введите DNS-сервер:</label>
           <input type="text" name="ip_ns" id="name"><br><br>
@@ -69,9 +110,12 @@
 
           <input type="submit" name="tzone" value="Начать">
         </form>
-          {{ status }}
-          {{ tzone }}
+        <p style="text-align: center;">{{ status }}</p>
+        <p style="text-align: center;">{{ tzone }}</p>
+  
+          
 
+          <br><br>
           <div align="center">
             <p class="submit" >
               <a href="/about"> Перейти к отчету</a>
@@ -87,6 +131,9 @@
             </p>
             <p class="submit">
               <a href="/emulation">Эмуляция</a>
+            </p>
+            <p class="submit">
+              <a href="/">На главную</a>
             </p>
           </div>
   

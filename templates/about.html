@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>diploma_project</title>
+<title>Проверка на воздействие</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}" type="text/css" media="screen">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="screen">
@@ -28,7 +28,47 @@
       </div>
     </header>
     <!--==============================content================================-->
-      
+     
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #202020;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+    
+      label {
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    
+      input[type="text"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+    
+      input[type="submit"] {
+        background-color: #7f7f7f;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    
+      input[type="submit"]:hover {
+        background-color: #666666;
+      }
+    </style>
+    <h3>Проверка трафика на присутствие атаки</h3>
     <form method="POST" action="{{ url_for('about') }}">
       <label for="ur_ip">Введите IP:</label>
       <input type="text" name="ur_ip" id="name"><br><br>
@@ -37,6 +77,8 @@
       <input type="submit" value="Cканировать">
     </form>
     
+    <br><br>
+
     <div class="lastlink">
         <table class="tabletvar">
           <tr style="padding: 3px; border: 1px solid rgb(255, 255, 255); text-align: left;">
@@ -67,13 +109,13 @@
         {{e}} -->
         
         <br><br>
-        <p align="center"> 
+        <!-- <p align="center"> 
           Возможные инсайдеры: <br> 
           {{ insaiders }} 
-        </p>
+        </p> -->
         <br><br>
       </div>
-
+<!-- 
     <div align="center">
       {% block content %}
         {% for field in table %}
@@ -81,11 +123,35 @@
           <br>
           {% endfor %}
       {% endblock %}
+    </div> -->
+
+    <div align="center">
+      <p class="submit" >
+        <a href="/about"> Перейти к отчету</a>
+      </p>
+      <p class="submit">
+        <a href="/dnsmap">Смотреть карту DNS серверов</a>
+      </p>
+      <p class="submit">
+        <a href="/report">Информация о серверах</a>
+      </p>
+      <p class="submit">
+        <a href="/restart">Перезапустить сервер</a>
+      </p>
+      <p class="submit">
+        <a href="/emulation">Эмуляция</a>
+      </p>
+      <p class="submit">
+        <a href="/">На главную</a>
+      </p>
     </div>
+    <br><br>
     <!--==============================footer=================================-->
     <footer>
       <div class="main"> made by Kruasanow </div>
     </footer>
   </div>
+
+
 </body>
 </html>

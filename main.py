@@ -93,7 +93,7 @@ def about():
         from osh import delete_empty
         from dnsf.dns_prepare_fdb import is_unique
 
-        ddos = delete_empty(is_unique(detect_dns_ddos(fullname, int(limit))))
+        ddos = delete_empty(detect_dns_ddos(fullname, int(limit)))
         dnsampl = delete_empty(is_unique(detect_dnsampl(fullname)))
         ztrans = delete_empty(is_unique(detect_dns_zone_transfer(fullname)))
         spoof = delete_empty(is_unique(detect_dns_spoofing(fullname)))
