@@ -8,8 +8,14 @@ def detect_dns_spoofing(cap):
         if packet.haslayer(DNSRR):
             dnsrr = packet[DNSRR]
             if dnsrr.type == 1: # 1 equals type A
-                ip_src = packet[IP].src
-                ip_dst = packet[IP].dst
+                try:
+                    ip_src = packet[IP].src
+                except Exception:
+                    ip_src = ''
+                try:
+                    ip_dst = packet[IP].dst
+                except Exception:
+                    ip_dst = ''
                 if ip_dst != dnsrr.rdata: # Check ip add src and ip dst
                     if '127.0.0' in str(ip_src):
                         continue
