@@ -100,6 +100,7 @@ def exec_db_init_sh():
     subprocess.call(["./scripts/environment_fix.sh"])
 
 pac_t_list =['DNS','TCP','SSL','VSSMONITORING','DATA','ICMP']
+
 def analize_table(pac_type_list,cap):
     arr = []
     for i in pac_type_list:

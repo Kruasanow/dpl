@@ -43,6 +43,7 @@ def index():
             add_dump(str(filename)) # add dump name to database
 
             c = get_file(get_dname_from_db())
+
             print('[*]main.py: osh.cap after choose - ' +str(c))
             print('[*]main.py: file - ' + str(file))
 
@@ -145,6 +146,43 @@ def report():
                             case = f_table,
                             case2 = s_table,
                             graph=gr,
+                          )
+
+@app.route('/ftp', methods = ['get','post'])
+def ftp():
+    print(url_for('ftp'))
+
+    from ftpf.ftp_prepare import select_ftp_get_arg
+    from osh import cap
+
+    a = select_ftp_get_arg(cap)
+    
+    return render_template(
+                            'ftp.html',
+                            arr = a
+                          )
+
+@app.route('/acl', methods = ['get','post'])
+def acl():
+    print(url_for('acl'))
+
+    from db_do.conn_db import get_db_connection
+    conn = get_db_connection()
+
+    if request.method == "POST":
+        if 'octet1' in request.form:
+            compare_ip = request.form['octet1']+ '.' +request.form['octet2'] + '.' + request.form['octet3'] + '.' + request.form['octet4']
+            print("[*]main.py: added ip -"+ str(compare_ip))
+
+            cur = conn.cursor()
+            cur.execute('INSERT INTO acl (ipaddr) VALUES (%s)', (str(compare_ip),))
+            conn.commit()
+
+            cur.close()
+            conn.close()
+    
+    return render_template(
+                            'acl.html',
                           )
 
 @app.route('/emulation', methods = ['get','post'])

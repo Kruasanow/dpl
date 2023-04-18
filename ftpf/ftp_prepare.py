@@ -1,6 +1,3 @@
-from pyshark import FileCapture
-
-cap = FileCapture('ftp.pcapng')
 
 def select_ftp_get_arg(cap):
     
@@ -29,10 +26,3 @@ def select_ftp_get_arg(cap):
                 command_arr.append(pac.ftp.request_command)
 
     return [ftp_arr, response_arg_arr, request_arg_arr, command_arr]
-
-# a = select_ftp_get_arg(cap)
-
-# print(a[0])
-# print(a[1])
-# print(a[2])
-# print(a[3])
