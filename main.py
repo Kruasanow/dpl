@@ -260,16 +260,37 @@ def emulation():
 
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
+
+    from geo_ident import base_to_db, show_dir_base
+    base_to_db()
+
+    base_list = show_dir_base()
+
     rc = []
     print(url_for('dnsmap'))
     for i in do_whois(get_qname_list()):
         rc.append(i)
+    from geo_ident import get_country_list
     who_json = get_items_from_who(rc[1])
     who_json = transponate_arr(who_json)
+
+    if 'option' in request.form:
+        select = request.form['option']
+        prefix_path = 'ip_base/'
+        fill_path_to_base = prefix_path + str(select)
+        print(get_country_list(fill_path_to_base))
+        return render_template(
+                            'example.html',
+                            data = get_country_list(fill_path_to_base),
+
+        )
+    
     return render_template(
                             'example.html',
+                            # data = get_country_list('ip_base/asn-country-ipv4.csv'),
+                            base = base_list,
                             data = rc[0],
-                            who = who_json
+                            who = who_json,
                             )
 
 #-----LOAD------------------------------------------------------------------------------

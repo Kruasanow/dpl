@@ -57,6 +57,20 @@ jQuery(document).ready(function(){
 
 </script>
 <br>
+
+<form method="POST" action="/dnsmap">
+	<select name="option">
+		{% for option in base %}
+			<option value="{{ option }}">{{ option }}</option>
+		{% endfor %}
+	</select>
+	<br><br>
+	<input type="submit" value="Выбрать">
+</form>
+
+<!-- {% for i in base %}
+	{{i}}
+{% endfor %} -->
 <div class="lastlink">
 	<h3>Информация о доменных именах и делегируемых им DNS-серверах:</h3>	
 	<br>	

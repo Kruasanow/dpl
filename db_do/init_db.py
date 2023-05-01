@@ -84,6 +84,9 @@ cur.execute('CREATE TABLE dnsampl (id serial PRIMARY KEY, ip varchar (200), quer
 cur.execute('DROP TABLE IF EXISTS acl;')
 cur.execute('CREATE TABLE acl (id serial PRIMARY KEY, ipaddr varchar (40));') 
 
+cur.execute('DROP TABLE IF EXISTS geo_base;')
+cur.execute('CREATE TABLE geo_base (id serial PRIMARY KEY, base varchar (40));') 
+
 conn.commit()
 
 cur.close()

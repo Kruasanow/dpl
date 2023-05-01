@@ -1,38 +1,26 @@
-from pyshark import FileCapture
+import csv
 
-cap = FileCapture('ftp.pcapng')
+def is_ip_in_range(ip_address, ip_range):
 
-def select_ftp_get_arg(cap):
-    
-    ftp_arr          = []
-    response_arg_arr = []
-    request_arg_arr  = []
-    command_arr      = []
-    
-    for pac in cap:
-        if 'FTP' in pac:
-            ftp_arr.append(pac)
+    ip = [int(x) for x in ip_address.split('.')]
+    start, end = ip_range.split('-')
+    start = [int(x) for x in start.split('.')]
+    end = [int(x) for x in end.split('.')]
+    start_int = start[0] * 256 ** 3 + start[1] * 256 ** 2 + start[2] * 256 + start[3]
+    end_int = end[0] * 256 ** 3 + end[1] * 256 ** 2 + end[2] * 256 + end[3]
+    ip_int = ip[0] * 256 ** 3 + ip[1] * 256 ** 2 + ip[2] * 256 + ip[3]
+    return start_int <= ip_int <= end_int
 
-            if hasattr(pac.ftp,'response_arg'):
-                # print('---------------response')
-                # print(pac.ftp.response_arg)
-                response_arg_arr.append(pac.ftp.response_arg)
 
-            elif hasattr(pac.ftp,'request_arg'):
-                # print('---------------request')
-                # print(pac.ftp.request_arg)
-                request_arg_arr.append(pac.ftp.request_arg)
+def get_geo_asn(ip):
+    with open('ip_base/geo-asn-country-ipv4.csv', newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        for row in reader:
+            range_ip = str(row[0]+'-'+row[1])
+            if is_ip_in_range(ip,range_ip):
+                res = row[2]
+                # print(row[2])
+    return res
 
-            else:
-                # print('---------------no-exception')
-                # print(pac.ftp.request_command)
-                command_arr.append(pac.ftp.request_command)
-
-    return [ftp_arr, response_arg_arr, request_arg_arr, command_arr]
-
-# a = select_ftp_get_arg(cap)
-
-# print(a[0])
-# print(a[1])
-# print(a[2])
-# print(a[3])
+# print(get_geo_asn('4.4.4.4'))
+# print(is_ip_in_range('192.168.3.32','192.168.1.1-192.168.4.255'))
