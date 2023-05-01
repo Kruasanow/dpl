@@ -261,36 +261,60 @@ def emulation():
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
 
-    from geo_ident import base_to_db, show_dir_base
+    from geo_ident import base_to_db, show_dir_base,get_country_list
     base_to_db()
 
     base_list = show_dir_base()
 
-    rc = []
-    print(url_for('dnsmap'))
-    for i in do_whois(get_qname_list()):
-        rc.append(i)
-    from geo_ident import get_country_list
-    who_json = get_items_from_who(rc[1])
-    who_json = transponate_arr(who_json)
+    # if 'whois' in request.form:
+    #     rc = []
+    #     print(url_for('dnsmap'))
+    #     for i in do_whois(get_qname_list()):
+    #         rc.append(i)
+    #     from geo_ident import get_country_list
+    #     who_json = get_items_from_who(rc[1])
+    #     who_json = transponate_arr(who_json)
+    #     return render_template(
+    #                         'example.html',
+    #                         base = base_list,
+    #                         data = rc[0],
+    #                         who = who_json,
+    #                         )
 
     if 'option' in request.form:
         select = request.form['option']
+        if select == 'whois':
+            rc = []
+            print(url_for('dnsmap'))
+            for i in do_whois(get_qname_list()):
+                rc.append(i)
+
+            who_json = get_items_from_who(rc[1])
+            who_json = transponate_arr(who_json)
+            return render_template(
+                            'example.html',
+                            base = base_list,
+                            data = rc[0],
+                            who = who_json,
+                            )
         prefix_path = 'ip_base/'
         fill_path_to_base = prefix_path + str(select)
-        print(get_country_list(fill_path_to_base))
+        # print(get_country_list(fill_path_to_base))
         return render_template(
                             'example.html',
                             data = get_country_list(fill_path_to_base),
+                            base = base_list,
 
         )
     
     return render_template(
                             'example.html',
-                            # data = get_country_list('ip_base/asn-country-ipv4.csv'),
+                            data = {},
                             base = base_list,
-                            data = rc[0],
-                            who = who_json,
+    #                         # data = get_country_list('ip_base/asn-country-ipv4.csv'),
+    #                         base = base_list,
+    #                         data = rc[0],
+    #                         who = who_json,
                             )
 
 #-----LOAD------------------------------------------------------------------------------
