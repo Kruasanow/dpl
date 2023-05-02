@@ -108,3 +108,19 @@ def analize_table(pac_type_list,cap):
     print('[*]osh.py: packet counter - ' + str(arr))
     return arr
 
+def get_par_from_dns_srv(dbase,param1,param2):
+    from db_do.conn_db import get_db_connection
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute(f"SELECT {param1}, {param2} FROM {dbase}")
+    parms = cur.fetchall()
+    fpar = []
+    spar = []
+    for i in range(len(parms)):
+        fpar.append(parms[i][0])
+        spar.append(parms[i][1])
+    cur.close()
+    conn.close()
+    return [fpar,spar]
+
+# print(get_par_from_dns_srv('dns_srv_profile','server','sum_pac')[1])

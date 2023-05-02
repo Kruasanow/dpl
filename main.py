@@ -132,12 +132,16 @@ def about():
 @app.route('/report', methods = ['get','post'])
 def report():
     print(url_for('report'))
-
+    from graths.graths import build_circle
+    from osh import get_par_from_dns_srv
+    pars = get_par_from_dns_srv('dns_srv_profile','server','sum_pac')
     try:
         f_table = reload_arr(get_srv_from_db()[0])
         s_table = reload_arr(get_srv_from_db()[1])
         gr = list_w_grath()
+        circle = build_circle(pars[0],pars[1])
     except Exception:
+        circle = ''
         f_table = '.....'
         s_table = '.....'
         gr = 'Для построения графика выберите дамп ...'
@@ -146,6 +150,7 @@ def report():
                             case = f_table,
                             case2 = s_table,
                             graph=gr,
+                            cir = circle,
                           )
 
 @app.route('/ftp', methods = ['get','post'])
@@ -316,6 +321,28 @@ def dnsmap():
     #                         data = rc[0],
     #                         who = who_json,
                             )
+
+
+@app.route('/wireshark', methods = ['get','post'])
+def wireshark():
+    print(url_for('wireshark'))
+    return render_template(
+                            'wireshark.html',
+                          )
+
+@app.route('/tshark', methods = ['get','post'])
+def tshark():
+    print(url_for('tshark'))
+    return render_template(
+                            'tshark.html',
+                          )
+
+@app.route('/tcpdump', methods = ['get','post'])
+def tcpdump():
+    print(url_for('tcpdump'))
+    return render_template(
+                            'tcpdump.html',
+                          )
 
 #-----LOAD------------------------------------------------------------------------------
 
