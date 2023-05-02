@@ -32,6 +32,21 @@ def index():
     print(url_for('index'))
     
     exec_db_init_sh()
+    
+    try:
+        with open(output_way) as file:
+            for line in file:
+                arr_dump.append(line.rstrip())  
+    except Exception:
+        arr_dump = ['Дамп не выбран...']
+
+    fname = get_dname_from_db(),
+    if '(' in str(fname):
+        fname = ''
+    try:
+        cpackets = analize_table(pac_t_list,c)
+    except Exception:
+        cpackets = []
 
     if request.method == "POST":
         file = request.files['file']
@@ -65,6 +80,9 @@ def index():
                             )
     return render_template(
                            'index.html', 
+                           sd = arr_dump,
+                           filename = fname,
+                           counted_packets = cpackets
                           )
 
 @app.route('/restart')
@@ -161,10 +179,24 @@ def ftp():
     from osh import cap
 
     a = select_ftp_get_arg(cap)
-    
+
+    len_cap = len(list(cap))
+    len_a = len(list(a[0]))
+    cap_ga_a = len_cap - len_a
+    pacs = [cap_ga_a,len_a]
+    leb_pacs = ['Другие протоколы','FTP']
+
+    from graths.graths import build_circle
+    circ = build_circle(leb_pacs,pacs)
+
     return render_template(
                             'ftp.html',
-                            arr = a
+                            # arr = a,
+                            circle = circ,
+                            headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса'],
+                            ftp1 =  a[1],
+                            ftp2 =  a[2],
+                            ftp3 =  a[3],
                           )
 
 @app.route('/acl', methods = ['get','post'])

@@ -4,31 +4,7 @@ import base64
 import os
 from flask import Response
 
-# def do_grath(arr1,arr2,xlabel,ylabel,title):
-#     x = np.array(arr1)
-#     y = np.array(arr2)
 
-#     plt.plot(x, y, color='red')
-#     plt.plot(x, y)
-#     plt.xlabel(str(xlabel))
-#     plt.ylabel(str(ylabel))
-#     plt.title(str(title))
-
-#     # save grath to buffer
-#     from io import BytesIO
-#     buf = BytesIO()
-#     plt.savefig(buf, format='png')
-#     buf.seek(0)
-
-#     # buffer with grath to var
-#     graph = base64.b64encode(buf.read()).decode('utf-8')
-    
-#     return graph
-# arr1 = [1,5,2,2,1,3,1]
-# arr2 = [4,3,3,1,1,2,2]
-# xlabel = 'x123'
-# ylabel = 'y123'
-# title = 'title'
 def do_grath(arr1, arr2, xlabel, ylabel, title):
     x = np.array(arr1)
     y = np.array(arr2)
