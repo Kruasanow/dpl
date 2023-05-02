@@ -189,9 +189,16 @@ def ftp():
     from graths.graths import build_circle
     circ = build_circle(leb_pacs,pacs)
 
+    filename = get_dname_from_db() #########!!!!!!!!!!!!!!!!!
+    convert_dump(filename,output_dump)
+    output_way = 'dump_output/ftp/' + output_dump
+    arr_dump = []
+    with open(output_way) as file:
+        for line in file:
+            arr_dump.append(line.rstrip())
     return render_template(
                             'ftp.html',
-                            # arr = a,
+                            sd = arr_dump,
                             circle = circ,
                             headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса'],
                             ftp1 =  a[1],

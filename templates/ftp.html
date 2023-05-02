@@ -63,7 +63,15 @@
         {% endfor %}
       </table>
     </div>
-
+    <div class="indent-traffic">
+      {% for i in sd %}
+        {% if i[4]|int is jinja_is_prime%}
+        <p class="division_0">{{i}}</p>
+        {% else %}
+        {{i}}
+        {% endif %}
+      {% endfor %}
+    </div>
 
     <!-- {% for i in arr %}
       {{i}}

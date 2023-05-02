@@ -26,7 +26,7 @@ def select_ftp_get_arg(cap):
                 command_arr.append(pac.ftp.request_command)
 
     return [ftp_arr, response_arg_arr, request_arg_arr, command_arr]
-import subprocess 
+# import subprocess 
 
 # subprocess.call('scripts/sftp_decript.sh')
 # print(select_ftp_get_arg(FileCapture('dump_input/ftp.pcapng')))
