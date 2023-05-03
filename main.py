@@ -188,14 +188,12 @@ def ftp():
 
     from graths.graths import build_circle
     circ = build_circle(leb_pacs,pacs)
+    from osh import read_and_sort_outdump
+    try:
+        arr_dump = read_and_sort_outdump('FTP')
+    except Exception:
+        arr_dump = ['Исходный дамп не выбран...']
 
-    filename = get_dname_from_db() #########!!!!!!!!!!!!!!!!!
-    convert_dump(filename,output_dump)
-    output_way = 'dump_output/ftp/' + output_dump
-    arr_dump = []
-    with open(output_way) as file:
-        for line in file:
-            arr_dump.append(line.rstrip())
     return render_template(
                             'ftp.html',
                             sd = arr_dump,

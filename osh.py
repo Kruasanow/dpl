@@ -124,3 +124,14 @@ def get_par_from_dns_srv(dbase,param1,param2):
     return [fpar,spar]
 
 # print(get_par_from_dns_srv('dns_srv_profile','server','sum_pac')[1])
+
+def read_and_sort_outdump(proto):
+    out_arr = []
+    file = 'dump_output/out.txt'
+    with open(file, 'r') as f:
+      for line in f:
+        if proto in line:
+            out_arr.append(line.replace('\n',''))
+            print(line)
+    return out_arr
+print(read_and_sort_outdump('FTP'))
