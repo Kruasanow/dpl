@@ -62,7 +62,7 @@ def index():
             print('[*]main.py: osh.cap after choose - ' +str(c))
             print('[*]main.py: file - ' + str(file))
 
-            init_db()
+            init_db(c)
             get_dns_profile(c)
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))

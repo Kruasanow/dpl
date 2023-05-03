@@ -112,7 +112,7 @@ def init_db():
                 str(i.dns.soa_serial_number if hasattr(i.dns, "soa_serial_number") else ""),
                 )
                 )
-                print('[*]dns_db_addiction.py: data inserted')
+                # print('[*]dns_db_addiction.py: data inserted')
             except AttributeError:
                 print('[*]dns_db_addiction.py: something WRONG - ' + str(i.dns.id) + " " +str(i.dns.flags_response))
                 bad.append(i)
