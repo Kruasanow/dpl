@@ -14,11 +14,16 @@ import logging
 import sys
 import os
 
+PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl'
+if PROJECT_PATH not in sys.path:
+    sys.path.append(PROJECT_PATH)
+
 app = Flask(__name__)    
 log = logging.getLogger('werkzeug')
 log.disabled = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'ebat_kakoy_secretniy_klu4'
+
 
 @app.template_test("jinja_is_prime")
 def jinja_is_prime(n):
@@ -62,7 +67,7 @@ def index():
             print('[*]main.py: osh.cap after choose - ' +str(c))
             print('[*]main.py: file - ' + str(file))
 
-            init_db(c)
+            init_db()
             get_dns_profile(c)
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -239,17 +244,26 @@ def ftp():
 @app.route('/acl', methods = ['get','post'])
 def acl():
     print(url_for('acl'))
-
+    from wr_acl.acl import insert_ip_to_acl, get_ip_f_db, is_valid_ip, unique_ip
+    acl_list = get_ip_f_db()
+    bad_ip = 'Формат [1-255].[1-255].[1-255].[1-255]'
     if request.method == "POST":
         if 'octet1' in request.form:
             compare_ip = request.form['octet1']+ '.' +request.form['octet2'] + '.' + request.form['octet3'] + '.' + request.form['octet4']
-            print("[*]main.py: added ip -"+ str(compare_ip))
-            from acl.acl import insert_ip_to_acl
-            insert_ip_to_acl(compare_ip)
-
+            if is_valid_ip(compare_ip) == True:
+                if unique_ip(compare_ip) == False:
+                    bad_ip = 'IP уже существует'
+                else:
+                    bad_ip = 'IP внесен в ACL'
+                    print("[*]main.py: added ip -"+ str(compare_ip))
+                    insert_ip_to_acl(compare_ip)
+            else:
+                bad_ip = 'Неверный формат IP'
     
     return render_template(
                             'acl.html',
+                            acl = acl_list,
+                            ip_message = bad_ip,
                           )
 
 @app.route('/emulation', methods = ['get','post'])

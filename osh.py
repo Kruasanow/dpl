@@ -134,4 +134,5 @@ def read_and_sort_outdump(proto):
             out_arr.append(line.replace('\n',''))
             # print(line)
     return out_arr
-print(read_and_sort_outdump('FTP'))
+print(read_and_sort_outdump('DNS'))
+
