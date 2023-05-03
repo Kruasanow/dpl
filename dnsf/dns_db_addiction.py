@@ -13,12 +13,12 @@ def add_dump(dname):
     cur.close()
     conn.close()
 
-def init_db(arr):
+def init_db():
     count_error = 0
     conn = cdb.get_db_connection() 
     cur = conn.cursor()
     bad = []
-    for i in to_dns_arr(a):
+    for i in to_dns_arr(osh.cap):
         if int(i.dns.flags_response) == 0:
                 cur.execute('INSERT INTO dns_flags ('
                             'ip_src, ip_dst, id_pac,'
@@ -112,6 +112,7 @@ def init_db(arr):
                 str(i.dns.soa_serial_number if hasattr(i.dns, "soa_serial_number") else ""),
                 )
                 )
+                print('[*]dns_db_addiction.py: data inserted')
             except AttributeError:
                 print('[*]dns_db_addiction.py: something WRONG - ' + str(i.dns.id) + " " +str(i.dns.flags_response))
                 bad.append(i)

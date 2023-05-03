@@ -62,7 +62,7 @@ def index():
             print('[*]main.py: osh.cap after choose - ' +str(c))
             print('[*]main.py: file - ' + str(file))
 
-            init_db(c)
+            init_db()
             get_dns_profile(c)
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -150,25 +150,57 @@ def about():
 @app.route('/report', methods = ['get','post'])
 def report():
     print(url_for('report'))
+
+    # import subprocess
+    # subprocess.call(["./scripts/rm_png_static.sh"])
+
     from graths.graths import build_circle
     from osh import get_par_from_dns_srv
     pars = get_par_from_dns_srv('dns_srv_profile','server','sum_pac')
     try:
-        f_table = reload_arr(get_srv_from_db()[0])
+        f_table = reload_arr(get_srv_from_db()[0])   
+    except Exception:  
+        f_table = ''
+    try:
         s_table = reload_arr(get_srv_from_db()[1])
+    except Exception:
+        s_table = ''
+    try:
         gr = list_w_grath()
+    except Exception:
+        gr = 'Для построения графика выберите дамп ...'
+    try:
         circle = build_circle(pars[0],pars[1])
     except Exception:
         circle = ''
-        f_table = '.....'
-        s_table = '.....'
-        gr = 'Для построения графика выберите дамп ...'
+
+    from osh import cap
+    from dnsf.dns_prepare_fdb import to_dns_arr
+    
+    a = to_dns_arr(cap)
+
+    len_cap = len(list(cap))
+    len_a = len(list(a))
+    cap_ga_a = len_cap - len_a
+    pacs = [cap_ga_a,len_a]
+    leb_pacs = ['Другие протоколы','DNS']
+
+    from graths.graths import build_circle
+    circ = build_circle(leb_pacs,pacs)
+    from osh import read_and_sort_outdump
+    try:
+        arr_dump = read_and_sort_outdump('DNS')
+    except Exception:
+        arr_dump = ['Исходный дамп не выбран...']
+
     return render_template(
                             'report.html',
                             case = f_table,
                             case2 = s_table,
                             graph=gr,
                             cir = circle,
+                            cir1 = circ,
+                            sd = arr_dump,
                           )
 
 @app.route('/ftp', methods = ['get','post'])
@@ -208,20 +240,13 @@ def ftp():
 def acl():
     print(url_for('acl'))
 
-    from db_do.conn_db import get_db_connection
-    conn = get_db_connection()
-
     if request.method == "POST":
         if 'octet1' in request.form:
             compare_ip = request.form['octet1']+ '.' +request.form['octet2'] + '.' + request.form['octet3'] + '.' + request.form['octet4']
             print("[*]main.py: added ip -"+ str(compare_ip))
+            from acl.acl import insert_ip_to_acl
+            insert_ip_to_acl(compare_ip)
 
-            cur = conn.cursor()
-            cur.execute('INSERT INTO acl (ipaddr) VALUES (%s)', (str(compare_ip),))
-            conn.commit()
-
-            cur.close()
-            conn.close()
     
     return render_template(
                             'acl.html',
@@ -303,25 +328,10 @@ def emulation():
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
 
-    from geo_ident import base_to_db, show_dir_base,get_country_list
+    from dnsf.geo_ident import base_to_db, show_dir_base,get_country_list
     base_to_db()
 
     base_list = show_dir_base()
-
-    # if 'whois' in request.form:
-    #     rc = []
-    #     print(url_for('dnsmap'))
-    #     for i in do_whois(get_qname_list()):
-    #         rc.append(i)
-    #     from geo_ident import get_country_list
-    #     who_json = get_items_from_who(rc[1])
-    #     who_json = transponate_arr(who_json)
-    #     return render_template(
-    #                         'example.html',
-    #                         base = base_list,
-    #                         data = rc[0],
-    #                         who = who_json,
-    #                         )
 
     if 'option' in request.form:
         select = request.form['option']

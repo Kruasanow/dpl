@@ -132,6 +132,6 @@ def read_and_sort_outdump(proto):
       for line in f:
         if proto in line:
             out_arr.append(line.replace('\n',''))
-            print(line)
+            # print(line)
     return out_arr
 print(read_and_sort_outdump('FTP'))
