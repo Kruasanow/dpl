@@ -13,6 +13,7 @@
     <!--==============================content================================-->
     <div class="main_block">
       
+{% if show == True %}      
       <div class="blocks_main1">
         <img class="gr_style"  src="data:image/png;base64,{{ circle }}" alt=".">
       </div>
@@ -63,6 +64,7 @@
         {% endfor %}
       </table>
     </div>
+    {% endif %}
     <div class="indent-traffic">
       {% for i in sd %}
         {% if i[4]|int is jinja_is_prime%}
@@ -71,7 +73,8 @@
         {{i}}
         {% endif %}
       {% endfor %}
-    </div>
+    </div>    
+
 
     <!-- {% for i in arr %}
       {{i}}

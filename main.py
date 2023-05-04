@@ -40,6 +40,12 @@ def index():
     arr_dump = []
     output_way = 'dump_output/' + output_dump
     # print(output_way)
+
+    try:
+        button_status = session['button_activate']
+    except Exception:
+        button_status = False
+
     try:
         with open(output_way) as file:
             for line in file:
@@ -59,11 +65,13 @@ def index():
             cpackets = session['counted_packets']
         except Exception:
             cpackets = ""
-            
+
     if request.method == "POST":
         file = request.files['file']
 
         if file and current_file(file.filename):
+            session['button_activate'] = True
+            button_status = session['button_activate']
             filename = secure_filename(file.filename)
             session['filename'] = filename
             print('[*]main.py: filename - ' + str(filename))
@@ -92,12 +100,14 @@ def index():
                             sd = arr_dump,
                             filename = get_dname_from_db(),
                             counted_packets = counted_packets,
+                            bstatus = button_status,
                             )
     return render_template(
                            'index.html', 
                            sd = arr_dump,
                            filename = fname,
-                           counted_packets = cpackets
+                           counted_packets = cpackets,
+                           bstatus = button_status,
                           )
 
 @app.route('/restart')
@@ -224,8 +234,9 @@ def ftp():
 
     from ftpf.ftp_prepare import select_ftp_get_arg
     from osh import cap
-
+    # asyncio.get_child_watcher().attach_loop(cap.eventloop)
     a = select_ftp_get_arg(cap)
+    cap.close()
 
     len_cap = len(list(cap))
     len_a = len(list(a[0]))
@@ -238,7 +249,12 @@ def ftp():
     from wr_acl.acl import find_acl
     try:
         arr_dump = find_acl('FTP')
+        show_content = True
+        if arr_dump == []:
+            arr_dump = ['Нет пакетов FTP']
+            show_content = False
     except Exception:
+        show_content = False
         arr_dump = ['Исходный дамп не выбран...']
 
     return render_template(
@@ -249,6 +265,7 @@ def ftp():
                             ftp1 =  a[1],
                             ftp2 =  a[2],
                             ftp3 =  a[3],
+                            show = show_content,
                           )
 
 @app.route('/acl', methods = ['get','post'])

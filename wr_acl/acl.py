@@ -71,7 +71,9 @@ def find_acl(proto):
         a = i.split(" ")
         start_point = a.index('→')
         if a[start_point-1] not in list_ip_from_acl or a[start_point+1] not in list_ip_from_acl:
-            i = '!NOTACL! '+i
+            i = '[NOT ACL] '+i
+        else:
+            i = '[ACL]'+i
         out_arr.append(i)
     return out_arr
 # print(find_acl('DNS'))

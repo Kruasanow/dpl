@@ -1,4 +1,4 @@
-from pyshark import FileCapture
+# from pyshark import FileCapture
 def select_ftp_get_arg(cap):
     
     ftp_arr          = []
