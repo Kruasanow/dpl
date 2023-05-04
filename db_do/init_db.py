@@ -75,9 +75,12 @@ cur.execute('CREATE TABLE dns_srv_profile (id serial PRIMARY KEY,'
                                  'date_added date DEFAULT CURRENT_TIMESTAMP);'
                                  ) 
 
-cur.execute('DROP TABLE IF EXISTS dump_list;')
-cur.execute('CREATE TABLE dump_list (id serial PRIMARY KEY, dname varchar (64));') 
-
+# cur.execute('DROP TABLE IF EXISTS dump_list;')
+try:
+        cur.execute('CREATE TABLE dump_list (id serial PRIMARY KEY, dname varchar (64));') 
+except Exception:
+        print('[*]init.py: Exception of dump_list worked!')
+        
 cur.execute('DROP TABLE IF EXISTS dnsampl;')
 cur.execute('CREATE TABLE dnsampl (id serial PRIMARY KEY, ip varchar (200), query varchar (200), qtype varchar (200), koef varchar (200));') 
 

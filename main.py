@@ -37,7 +37,9 @@ def index():
     print(url_for('index'))
     
     exec_db_init_sh()
-    
+    arr_dump = []
+    output_way = 'dump_output/' + output_dump
+    # print(output_way)
     try:
         with open(output_way) as file:
             for line in file:
@@ -45,19 +47,25 @@ def index():
     except Exception:
         arr_dump = ['Дамп не выбран...']
 
-    fname = get_dname_from_db(),
-    if '(' in str(fname):
-        fname = ''
+    # fname = session['filename']
+    fname = get_dname_from_db()
+
+    # if '(' in str(fname):
+    #     fname = ''
     try:
         cpackets = analize_table(pac_t_list,c)
     except Exception:
-        cpackets = []
-
+        try:
+            cpackets = session['counted_packets']
+        except Exception:
+            cpackets = ""
+            
     if request.method == "POST":
         file = request.files['file']
 
         if file and current_file(file.filename):
             filename = secure_filename(file.filename)
+            session['filename'] = filename
             print('[*]main.py: filename - ' + str(filename))
 
             add_dump(str(filename)) # add dump name to database
@@ -77,11 +85,13 @@ def index():
             with open(output_way) as file:
                 for line in file:
                     arr_dump.append(line.rstrip())
+            counted_packets = analize_table(pac_t_list,c)
+            session['counted_packets'] = counted_packets
             return render_template(
                             'index.html', 
                             sd = arr_dump,
                             filename = get_dname_from_db(),
-                            counted_packets = analize_table(pac_t_list,c),
+                            counted_packets = counted_packets,
                             )
     return render_template(
                            'index.html', 
@@ -382,7 +392,6 @@ def dnsmap():
     #                         data = rc[0],
     #                         who = who_json,
                             )
-
 
 @app.route('/wireshark', methods = ['get','post'])
 def wireshark():
