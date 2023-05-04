@@ -36,14 +36,14 @@ def is_valid_ip(ip):
     except ValueError:
         return False
 
-def clear_acl():
+def clear_acl(base):
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute ('DELETE FROM acl')
+    cur.execute (f'DELETE FROM {base}')
     conn.commit()
     cur.close()
     conn.close()
-# clear_acl()
+# clear_acl('dns_flags')
 
 def unique_ip(ip):
     res = True
@@ -66,15 +66,17 @@ def find_acl(proto):
     list_ip_from_acl = get_ip_f_db()
     file = read_and_sort_outdump(proto)
     out_arr = []
-    # print(list_ip_from_acl)
+    print(list_ip_from_acl)
+    print(read_and_sort_outdump(proto))
     for i in file:
         a = i.split(" ")
         start_point = a.index('→')
-        if a[start_point-1] not in list_ip_from_acl or a[start_point+1] not in list_ip_from_acl:
-            i = '[NOT ACL] '+i
+        if a[start_point-1] in list_ip_from_acl or a[start_point+1] in list_ip_from_acl:
+            print(a[start_point-1])
+            i = '[ACL] '+i
         else:
-            i = '[ACL]'+i
+            i = '[NOT ACL]'+i
         out_arr.append(i)
     return out_arr
-# print(find_acl('DNS'))
+# print(find_acl('FTP'))
 

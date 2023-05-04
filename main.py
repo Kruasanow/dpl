@@ -83,8 +83,8 @@ def index():
             print('[*]main.py: osh.cap after choose - ' +str(c))
             print('[*]main.py: file - ' + str(file))
 
-            init_db()
-            get_dns_profile(c)
+            # init_db()
+            # get_dns_profile(c)
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert_dump(filename,output_dump)
@@ -172,10 +172,15 @@ def about():
                                 e = '',
                             )
 
-@app.route('/report', methods = ['get','post'])
+@app.route('/report', methods = ['get','post']) # Надо разобраться с блядскими графиками - хуле они друг на друга лезут 
 def report():
     print(url_for('report'))
-
+    
+    from wr_acl.acl import clear_acl
+    clear_acl('dns_srv_profile')
+    clear_acl('dns_flags')
+    init_db()
+    get_dns_profile(get_file(get_dname_from_db()))
     # import subprocess
     # subprocess.call(["./scripts/rm_png_static.sh"])
 
@@ -199,12 +204,12 @@ def report():
     except Exception:
         circle = ''
 
-    from osh import cap
+    # from osh import cap
     from dnsf.dns_prepare_fdb import to_dns_arr
     
-    a = to_dns_arr(cap)
+    a = to_dns_arr(get_file(get_dname_from_db()))
 
-    len_cap = len(list(cap))
+    len_cap = len(list(get_file(get_dname_from_db())))
     len_a = len(list(a))
     cap_ga_a = len_cap - len_a
     pacs = [cap_ga_a,len_a]
@@ -212,10 +217,15 @@ def report():
 
     from graths.graths import build_circle
     circ = build_circle(leb_pacs,pacs)
-    from osh import read_and_sort_outdump
+    from wr_acl.acl import find_acl
     try:
-        arr_dump = read_and_sort_outdump('DNS')
+        arr_dump = find_acl('DNS')
+        show_content = True
+        if arr_dump == []:
+            arr_dump = ['Нет пакетов DNS']
+            show_content = False
     except Exception:
+        show_content = False
         arr_dump = ['Исходный дамп не выбран...']
 
     return render_template(
@@ -226,6 +236,7 @@ def report():
                             cir = circle,
                             cir1 = circ,
                             sd = arr_dump,
+                            show = show_content,
                           )
 
 @app.route('/ftp', methods = ['get','post'])
@@ -233,12 +244,13 @@ def ftp():
     print(url_for('ftp'))
 
     from ftpf.ftp_prepare import select_ftp_get_arg
-    from osh import cap
+    # from osh import cap
     # asyncio.get_child_watcher().attach_loop(cap.eventloop)
-    a = select_ftp_get_arg(cap)
-    cap.close()
-
-    len_cap = len(list(cap))
+    a = select_ftp_get_arg(get_file(get_dname_from_db()))
+    # cap.close()
+    # print(cap)
+    # print(get_file(get_dname_from_db()))
+    len_cap = len(list(get_file(get_dname_from_db())))
     len_a = len(list(a[0]))
     cap_ga_a = len_cap - len_a
     pacs = [cap_ga_a,len_a]

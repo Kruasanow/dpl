@@ -1,8 +1,8 @@
 import db_do.conn_db as cdb
-import osh
+from osh import get_file, get_dname_from_db
 from dnsf.dns_prepare_fdb import to_dns_arr
 
-a = osh.cap
+# a = get_file(get_dname_from_db())
 
 def add_dump(dname):
     print('[*]dns_db_addiction.py: dump name - '+str(dname))
@@ -18,7 +18,7 @@ def init_db():
     conn = cdb.get_db_connection() 
     cur = conn.cursor()
     bad = []
-    for i in to_dns_arr(osh.cap):
+    for i in to_dns_arr(get_file(get_dname_from_db())):
         if int(i.dns.flags_response) == 0:
                 cur.execute('INSERT INTO dns_flags ('
                             'ip_src, ip_dst, id_pac,'

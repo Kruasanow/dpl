@@ -11,18 +11,19 @@
       <h3></h3><br><br><br>
     </header>
     <!--==============================content================================-->
+    {% if show == True %}
     <div class="main_block">
       {% for i in graph %}
       <div class="blocks_main1">
         <img class="gr_style"  src="data:image/png;base64,{{ i }}" alt=".">
       </div>
-      {% endfor %}
+{% endfor %}
     </div>
 
     <div class="blocks_main1">
       <img class="gr_style"  src="data:image/png;base64,{{ cir1 }}" alt=".">
     </div>
-
+{% endif %}
     <div class="indent-traffic">
       {% for i in sd %}
         {% if i[4]|int is jinja_is_prime%}
@@ -32,6 +33,7 @@
         {% endif %}
       {% endfor %}
     </div>
+{% if show == True %}   
     <img class="gr_style"  src="data:image/png;base64,{{ cir }}" alt=".">
 
     <section id="content">
@@ -88,4 +90,5 @@
           {% endfor  %}
       </table>
     </div></div>
+    {% endif %}
     {% endblock %}

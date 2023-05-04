@@ -48,17 +48,28 @@ def show_dir_base():
     path = 'ip_base'  # путь к папке
     dir_contents = os.listdir(path) 
     return dir_contents
+# print(show_dir_base())
 
-def base_to_db():
+def base_to_db(): # не реализовано удаление из базы если убрали файл из директории - да и хуй с ним, я буду дома вовремя
     from db_do.conn_db import get_db_connection
     conn = get_db_connection()
     cur = conn.cursor()
+    cur.execute("SELECT * FROM geo_base")
+    actual_base = cur.fetchall()
+    # print(actual_base)
+    a_base = []
+    for i in actual_base:
+        a_base.append(i[1])
+    # print(a_base)
     for i in show_dir_base():
-        cur.execute('INSERT INTO geo_base (base) VALUES (%s)',(i,))
-        conn.commit()
+        if i in a_base:
+            continue
+        else:
+            cur.execute('INSERT INTO geo_base (base) VALUES (%s)',(i,))
+            conn.commit()
     cur.close()
     conn.close()
 
-base_to_db()
+# base_to_db()
 # print(show_dir_base())
 # print(get_country_list('ip_base/asn-country-ipv4.csv'))
