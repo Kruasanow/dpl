@@ -70,8 +70,8 @@ def find_acl(proto):
     for i in file:
         a = i.split(" ")
         start_point = a.index('→')
-        if a[start_point-1] in list_ip_from_acl or a[start_point+1] in list_ip_from_acl:
-            i+=' #ACL#'
+        if a[start_point-1] not in list_ip_from_acl or a[start_point+1] not in list_ip_from_acl:
+            i = '!NOTACL! '+i
         out_arr.append(i)
     return out_arr
 # print(find_acl('DNS'))
