@@ -225,9 +225,9 @@ def ftp():
 
     from graths.graths import build_circle
     circ = build_circle(leb_pacs,pacs)
-    from osh import read_and_sort_outdump
+    from wr_acl.acl import find_acl
     try:
-        arr_dump = read_and_sort_outdump('FTP')
+        arr_dump = find_acl('FTP')
     except Exception:
         arr_dump = ['Исходный дамп не выбран...']
 

@@ -26,7 +26,7 @@ def get_ip_f_db():
     list_ips = []
     for i in ips:
         list_ips.append(i[0])
-    print(list_ips)
+    # print(list_ips)
     return list_ips
 
 def is_valid_ip(ip):
@@ -43,6 +43,7 @@ def clear_acl():
     conn.commit()
     cur.close()
     conn.close()
+# clear_acl()
 
 def unique_ip(ip):
     res = True
@@ -65,12 +66,13 @@ def find_acl(proto):
     list_ip_from_acl = get_ip_f_db()
     file = read_and_sort_outdump(proto)
     out_arr = []
-
+    # print(list_ip_from_acl)
     for i in file:
         a = i.split(" ")
         start_point = a.index('→')
         if a[start_point-1] in list_ip_from_acl or a[start_point+1] in list_ip_from_acl:
-            i+='#ACL#'
+            i+=' #ACL#'
         out_arr.append(i)
     return out_arr
-find_acl('DNS')
+# print(find_acl('DNS'))
+
