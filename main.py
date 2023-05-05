@@ -14,8 +14,8 @@ import logging
 import sys
 import os
 
-#PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarium
+PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+# PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
 if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
@@ -23,7 +23,7 @@ app = Flask(__name__)
 log = logging.getLogger('werkzeug')
 log.disabled = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = 'ebat_kakoy_secretniy_klu4'
+app.secret_key = 'krugloenesemkvadratnoekatim'
 
 
 @app.template_test("jinja_is_prime")
