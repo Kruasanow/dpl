@@ -199,7 +199,7 @@ def report():
     try:
         gr = list_w_grath()
     except Exception:
-        gr = 'Для построения графика выберите дамп ...'
+        gr = ''
     try:
         circle = build_circle(pars[0],pars[1])
     except Exception:

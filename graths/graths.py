@@ -3,7 +3,7 @@ import numpy as np
 import base64
 import os
 from flask import Response
-
+import io
 
 def do_grath(arr1, arr2, xlabel, ylabel, title):
     x = np.array(arr1)
@@ -15,18 +15,18 @@ def do_grath(arr1, arr2, xlabel, ylabel, title):
     plt.ylabel(str(ylabel))
     plt.title(str(title))
 
-    # save graph as PNG file
-    plt.savefig(f'/home/ubuntu18/diploma-1/dpl/static/graph_{title}.png', format='png')
+    # get the image as a base64-encoded string
+    buffer = io.BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    image_base64 = base64.b64encode(buffer.read()).decode('utf-8')
+    # graph.append(image_base64)
+    graph = image_base64
     plt.close()
-    # read PNG file and encode as base64 string
-    with open(f'/home/ubuntu18/diploma-1/dpl/static/graph_{title}.png', 'rb') as f:
-        graph = base64.b64encode(f.read()).decode('utf-8')
-    
     return graph
-# l = ['a','b','c']
-# for i in l:
-#     do_grath([1,2,3,3,1],[11,2,1,2,1],'xlabel','ylabel',i)
-
+# arr1 = [1,2,1,13,2,1]
+# arr2 = [2,3,3,1,12,3]
+# print(do_grath(arr1,arr2,'x','y','title'))
 
 def histogram(arr):
     plt.hist(arr, bins=10)
@@ -38,7 +38,7 @@ def histogram(arr):
 
 def build_circle(labels,sizes):
 
-    import io
+    # import io
     # Создаем круговую диаграмму
     fig, ax = plt.subplots()
     ax.pie(sizes, labels=labels, autopct='%1.1f%%')
@@ -53,4 +53,5 @@ def build_circle(labels,sizes):
     # Кодируем буфер в base64
     image_png = buffer.getvalue()
     graphic = base64.b64encode(image_png).decode('utf-8')
+    plt.close()
     return graphic
