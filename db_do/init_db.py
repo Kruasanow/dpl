@@ -80,12 +80,18 @@ try:
         cur.execute('CREATE TABLE dump_list (id serial PRIMARY KEY, dname varchar (64));') 
 except Exception:
         print('[*]init.py: Exception of dump_list worked!')
-        
+        conn.rollback()
+
 cur.execute('DROP TABLE IF EXISTS dnsampl;')
 cur.execute('CREATE TABLE dnsampl (id serial PRIMARY KEY, ip varchar (200), query varchar (200), qtype varchar (200), koef varchar (200));') 
 
-cur.execute('DROP TABLE IF EXISTS acl;')
-cur.execute('CREATE TABLE acl (id serial PRIMARY KEY, ipaddr varchar (40));') 
+# cur.execute('DROP TABLE IF EXISTS acl;')
+# cur.execute('CREATE TABLE acl (id serial PRIMARY KEY, ipaddr varchar (40));') 
+try:
+        cur.execute('CREATE TABLE acl (id serial PRIMARY KEY, ipaddr varchar (40));') 
+except Exception:
+        print('[*]init.py: Exception of dump_list worked!')
+        conn.rollback()
 
 cur.execute('DROP TABLE IF EXISTS geo_base;')
 cur.execute('CREATE TABLE geo_base (id serial PRIMARY KEY, base varchar (40));') 

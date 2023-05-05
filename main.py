@@ -14,7 +14,8 @@ import logging
 import sys
 import os
 
-PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl'
+#PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarium
 if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 

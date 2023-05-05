@@ -23,9 +23,9 @@ def do_grath(arr1, arr2, xlabel, ylabel, title):
         graph = base64.b64encode(f.read()).decode('utf-8')
     
     return graph
-l = ['a','b','c']
-for i in l:
-    do_grath([1,2,3,3,1],[11,2,1,2,1],'xlabel','ylabel',i)
+# l = ['a','b','c']
+# for i in l:
+#     do_grath([1,2,3,3,1],[11,2,1,2,1],'xlabel','ylabel',i)
 
 
 def histogram(arr):
