@@ -136,3 +136,12 @@ def read_and_sort_outdump(proto):
     return out_arr
 # print(read_and_sort_outdump('FTP'))
 
+def get_txt_dump_f_decrypt(proto,decr_name):
+    out_arr = []
+    file = f'dump_output/decrypted_txt_out/decrypted_{decr_name}'
+    with open(file, 'r') as f:
+      for line in f:
+        if proto in line:
+            out_arr.append(line.replace('\n',''))
+            # print(line)
+    return out_arr

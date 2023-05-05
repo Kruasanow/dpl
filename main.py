@@ -311,23 +311,46 @@ def smtp():
     print(url_for('smtp'))
     import subprocess
     from dnsf.geo_ident import show_dir_base
+    from wr_acl.acl import find_acl
+    show_decrypted = False          #ОТЛАДИТЬ!!!!
+    decrypted_sd = []               #ОТЛАДИТЬ!!!!
+    try:
+        arr_dump = find_acl('SMTP')
+        show_content = True
+        if arr_dump == []:
+            arr_dump = ['Нет пакетов SMTP']
+            show_content = False
+    except Exception:
+        show_content = False
+        arr_dump = ['Исходный дамп не выбран...']
 
     full_way = PROJECT_PATH + "/scripts/traf_decrypt.sh"
     key_list = show_dir_base('ssl_keys')
     if request.method == "POST":
         if 'key' in request.form:
+            # from osh import get_txt_dump_f_decrypt
+            from wr_acl.acl import find_acl_f_decrypt
             dump = get_dname_from_db()
             key = request.form['key']
             print(key)
             subprocess.run([full_way, dump, key])
+            decrypted_sd = find_acl_f_decrypt('SMTP',dump)
+            show_decrypted = True
         return render_template(
                             'smtp.html',
                             dir = key_list,
+                            sd = arr_dump,
+                            dsd = decrypted_sd,
+                            show = show_content,
+                            dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
             )
-    
     return render_template(
                             'smtp.html',
                             dir = key_list,
+                            sd = arr_dump,
+                            show = show_content,
+                            dsd = decrypted_sd,
+                            dshow = show_decrypted,
                           )
 
 @app.route('/emulation', methods = ['get','post'])

@@ -16,7 +16,28 @@
         <button type="submit" name="button" value="1">Кнопка 1</button>
         <button type="submit" name="button" value="2">Кнопка 2</button>
       </form> -->
-      
+
+      <div class="indent-traffic">
+        {% for i in sd %}
+          {% if i[4]|int is jinja_is_prime%}
+          <p class="division_0">{{i}}</p>
+          {% else %}
+          {{i}}
+          {% endif %}
+        {% endfor %}
+      </div> 
+      <br><br>
+{% if dshow == True %}
+      <div class="indent-traffic">
+        {% for i in dsd %}
+          {% if i[4]|int is jinja_is_prime%}
+          <p class="division_0">{{i}}</p>
+          {% else %}
+          {{i}}
+          {% endif %}
+        {% endfor %}
+      </div> 
+{% endif %}
       <form method="POST" action="/smtp">
         <select name="key">
           {% for key in dir %}

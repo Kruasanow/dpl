@@ -66,8 +66,8 @@ def find_acl(proto):
     list_ip_from_acl = get_ip_f_db()
     file = read_and_sort_outdump(proto)
     out_arr = []
-    print(list_ip_from_acl)
-    print(read_and_sort_outdump(proto))
+    # print(list_ip_from_acl)
+    # print(read_and_sort_outdump(proto))
     for i in file:
         a = i.split(" ")
         start_point = a.index('→')
@@ -80,3 +80,20 @@ def find_acl(proto):
     return out_arr
 # print(find_acl('FTP'))
 
+def find_acl_f_decrypt(proto,decr_name):
+    from osh import get_txt_dump_f_decrypt
+    list_ip_from_acl = get_ip_f_db()
+    file = get_txt_dump_f_decrypt(proto,decr_name)
+    out_arr = []
+    # print(list_ip_from_acl)
+    # print(get_txt_dump_f_decrypt(proto,decr_name))
+    for i in file:
+        a = i.split(" ")
+        start_point = a.index('→')
+        if a[start_point-1] in list_ip_from_acl or a[start_point+1] in list_ip_from_acl:
+            print(a[start_point-1])
+            i = '[ACL] '+i
+        else:
+            i = '[NOT ACL]'+i
+        out_arr.append(i)
+    return out_arr
