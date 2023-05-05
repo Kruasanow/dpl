@@ -311,22 +311,15 @@ def smtp():
     print(url_for('smtp'))
     import subprocess
     from dnsf.geo_ident import show_dir_base
-    decode_list = ['Декодировать','Оставить']
 
     full_way = PROJECT_PATH + "/scripts/traf_decrypt.sh"
-    key_list = show_dir_base('dump_input/keys')
+    key_list = show_dir_base('ssl_keys')
     if request.method == "POST":
-        # button_action = request.form['button']
-        # print(button_action)
         if 'key' in request.form:
             dump = get_dname_from_db()
             key = request.form['key']
             print(key)
             subprocess.run([full_way, dump, key])
-            # return render_template(
-            #                 'smtp.html',
-            #                 dir = key_list,
-            # )
         return render_template(
                             'smtp.html',
                             dir = key_list,
