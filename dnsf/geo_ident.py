@@ -43,9 +43,8 @@ def get_country_list(base):
         co_dict[j] = 2
     return co_dict
 
-def show_dir_base():
+def show_dir_base(path):
     import os
-    path = 'ip_base'  # путь к папке
     dir_contents = os.listdir(path) 
     return dir_contents
 # print(show_dir_base())

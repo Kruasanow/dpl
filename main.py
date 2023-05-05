@@ -173,7 +173,7 @@ def about():
                                 e = '',
                             )
 
-@app.route('/report', methods = ['get','post']) # Надо разобраться с блядскими графиками - хуле они друг на друга лезут 
+@app.route('/report', methods = ['get','post'])
 def report():
     print(url_for('report'))
     
@@ -306,6 +306,37 @@ def acl():
                             ip_message = bad_ip,
                           )
 
+@app.route('/smtp', methods = ['get','post'])
+def smtp():
+    print(url_for('smtp'))
+    import subprocess
+    from dnsf.geo_ident import show_dir_base
+    decode_list = ['Декодировать','Оставить']
+
+    full_way = PROJECT_PATH + "/scripts/traf_decrypt.sh"
+    key_list = show_dir_base('dump_input/keys')
+    if request.method == "POST":
+        # button_action = request.form['button']
+        # print(button_action)
+        if 'key' in request.form:
+            dump = get_dname_from_db()
+            key = request.form['key']
+            print(key)
+            subprocess.run([full_way, dump, key])
+            # return render_template(
+            #                 'smtp.html',
+            #                 dir = key_list,
+            # )
+        return render_template(
+                            'smtp.html',
+                            dir = key_list,
+            )
+    
+    return render_template(
+                            'smtp.html',
+                            dir = key_list,
+                          )
+
 @app.route('/emulation', methods = ['get','post'])
 def emulation():
     print(url_for('emulation'))
@@ -385,7 +416,7 @@ def dnsmap():
     from dnsf.geo_ident import base_to_db, show_dir_base,get_country_list
     base_to_db()
 
-    base_list = show_dir_base()
+    base_list = show_dir_base('ip_base')
 
     # try:
     #     whois_status = session['whois_show']
