@@ -387,9 +387,16 @@ def dnsmap():
 
     base_list = show_dir_base()
 
+    # try:
+    #     whois_status = session['whois_show']
+    # except Exception:
+    whois_status = False
+
     if 'option' in request.form:
         select = request.form['option']
         if select == 'whois':
+            session['whois_show'] = True
+            whois_status = session['whois_show']
             rc = []
             print(url_for('dnsmap'))
             for i in do_whois(get_qname_list()):
@@ -402,6 +409,7 @@ def dnsmap():
                             base = base_list,
                             data = rc[0],
                             who = who_json,
+                            w_show = whois_status,
                             )
         prefix_path = 'ip_base/'
         fill_path_to_base = prefix_path + str(select)
@@ -410,6 +418,7 @@ def dnsmap():
                             'example.html',
                             data = get_country_list(fill_path_to_base),
                             base = base_list,
+                            w_show = whois_status,
 
         )
     
@@ -417,6 +426,7 @@ def dnsmap():
                             'example.html',
                             data = {},
                             base = base_list,
+                            w_show = whois_status,
     #                         # data = get_country_list('ip_base/asn-country-ipv4.csv'),
     #                         base = base_list,
     #                         data = rc[0],
