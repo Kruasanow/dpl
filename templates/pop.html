@@ -17,6 +17,23 @@
         <button type="submit" name="button" value="2">Кнопка 2</button>
       </form> -->
 
+      ключ - имя
+      <form method="POST" action="/pop">
+        <input type="text" name="addedkey">
+        <input type="text" name="keyname">
+        <button type="submit">Создать</button>
+      </form>
+  
+      <form method="POST" action="/pop">
+        <select name="delkey">
+          {% for key in dir %}
+            <option value="{{ key }}">{{ key }}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Выбрать">
+      </form>
+
       <div class="indent-traffic">
         {% for i in sd %}
           {% if i[4]|int is jinja_is_prime%}

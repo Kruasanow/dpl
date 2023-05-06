@@ -16,6 +16,22 @@
         <button type="submit" name="button" value="1">Кнопка 1</button>
         <button type="submit" name="button" value="2">Кнопка 2</button>
       </form> -->
+      ключ - имя
+      <form method="POST" action="/imap">
+        <input type="text" name="addedkey">
+        <input type="text" name="keyname">
+        <button type="submit">Создать</button>
+      </form>
+  
+      <form method="POST" action="/imap">
+        <select name="delkey">
+          {% for key in dir %}
+            <option value="{{ key }}">{{ key }}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Выбрать">
+      </form>
 
       <div class="indent-traffic">
         {% for i in sd %}
