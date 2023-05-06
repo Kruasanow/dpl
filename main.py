@@ -284,7 +284,7 @@ def ftp():
 @app.route('/acl', methods = ['get','post'])
 def acl():
     print(url_for('acl'))
-    from wr_acl.acl import insert_ip_to_acl, get_ip_f_db, is_valid_ip, unique_ip
+    from wr_acl.acl import insert_ip_to_acl, get_ip_f_db, is_valid_ip, unique_ip, delete_ip_f_acl
     acl_list = get_ip_f_db()
     bad_ip = 'Формат [1-255].[1-255].[1-255].[1-255]'
     if request.method == "POST":
@@ -299,6 +299,14 @@ def acl():
                     insert_ip_to_acl(compare_ip)
             else:
                 bad_ip = 'Неверный формат IP'
+        if 'clear' in request.form:
+            from wr_acl.acl import clear_acl
+            print('[*]main.py: acl cleared')
+            clear_acl('acl')
+        if 'ip_acl' in request.form:
+            selected_ip = request.form['ip_acl']
+            delete_ip_f_acl(selected_ip,'acl')
+            print(f'[*]main.py: {selected_ip} deleted form acl')  
     
     return render_template(
                             'acl.html',

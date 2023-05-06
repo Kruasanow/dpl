@@ -13,11 +13,25 @@
     <!--==============================content================================-->
     <div class="main_block">
       
-      <div class="blocks_main1">
+      <!-- <div class="blocks_main1">
         <img class="gr_style"  src="data:image/png;base64,{{ i }}" alt=".">
-      </div>
+      </div> -->
       
     </div>
+    <form action="/acl" method="POST">
+      <button name="clear" value="1">Очистить ACL</button>
+    </form>
+
+    <form method="POST" action="/acl">
+      <select name="ip_acl">
+        {% for ip in acl %}
+          <option value="{{ ip }}">{{ ip }}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <input type="submit" value="Выбрать">
+    </form>
+
     {% for i in acl %}
     {{i}}
     {% endfor %}

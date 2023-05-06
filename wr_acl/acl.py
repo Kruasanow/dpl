@@ -45,6 +45,14 @@ def clear_acl(base):
     conn.close()
 # clear_acl('dns_flags')
 
+def delete_ip_f_acl(ip,base):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute(f"DELETE FROM {base} WHERE ipaddr = '{ip}'")
+    conn.commit()
+    cur.close()
+    conn.close()
+
 def unique_ip(ip):
     res = True
     conn = get_db_connection()

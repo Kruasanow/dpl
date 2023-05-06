@@ -99,7 +99,7 @@ def convert_dump(name_before,name_after):
 def exec_db_init_sh():
     subprocess.call(["./scripts/environment_fix.sh"])
 
-pac_t_list =['DNS','TCP','SSL','VSSMONITORING','DATA','ICMP']
+pac_t_list =['DNS','TCP','SSL','HTTP','DATA','ICMP','SMTP','IMAP','POP','SNMP']
 
 def analize_table(pac_type_list,cap):
     arr = []
