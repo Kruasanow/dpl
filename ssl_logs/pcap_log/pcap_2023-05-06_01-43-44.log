@@ -5,11 +5,11 @@ GnuTLS version:    3.5.18
 Libgcrypt version: 1.8.1
 
 ssl_starttls: old frame 0, app_handle=(nil) ((null))
-ssl_starttls: current frame 11, app_handle=0x7f68130537f0 (smtp)
+ssl_starttls: current frame 11, app_handle=0x7ff360c587f0 (smtp)
 
 dissect_ssl enter frame #12 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 362
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 357, ssl state 0x00
@@ -22,7 +22,7 @@ ssl_dissect_hnd_hello_common found CLIENT RANDOM -> state 0x01
 
 dissect_ssl enter frame #14 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 1873
 ssl_try_set_version found version 0x0303 -> state 0x11
 dissect_ssl3_record: content_type 22 Handshake
@@ -35,7 +35,7 @@ ssl_try_set_version found version 0x0303 -> state 0x11
 Calculating hash with offset 5 81
 ssl_dissect_hnd_hello_common found SERVER RANDOM -> state 0x13
 ssl_set_cipher found CIPHER 0x006B TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 -> state 0x17
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/test_err
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/test_err
 tls13_load_secret TLS version 0x303 is not 1.3
 tls13_load_secret TLS version 0x303 is not 1.3
   record: offset = 86, reported_length_remaining = 1787
@@ -69,7 +69,7 @@ Calculating hash with offset 1869 4
 
 dissect_ssl enter frame #16 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 358
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 262, ssl state 0x17
@@ -78,7 +78,7 @@ decrypt_ssl3_record: using client decoder
 decrypt_ssl3_record: no decoder available
 dissect_ssl3_handshake iteration 1 type 16 offset 5 length 258 bytes, remaining 267 
 Calculating hash with offset 5 262
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/test_err
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/test_err
 ssl_generate_pre_master_secret: found SSL_HND_CLIENT_KEY_EXCHG, state 17
 ssl_restore_master_key can't find pre-master secret by Unencrypted pre-master secret
 ssl_restore_master_key can't find pre-master secret by Encrypted pre-master secret
@@ -89,7 +89,7 @@ decrypt_ssl3_record: app_data len 1, ssl state 0x17
 packet_from_server: is from server - FALSE
 decrypt_ssl3_record: using client decoder
 decrypt_ssl3_record: no decoder available
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/test_err
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/test_err
 ssl_finalize_decryption state = 0x17
 ssl_restore_master_key can't find master secret by Session ID
 ssl_restore_master_key can't find master secret by Client Random
@@ -106,7 +106,7 @@ dissect_ssl3_handshake iteration 1 type 169 offset 278 length 7027386 bytes, rem
 
 dissect_ssl enter frame #18 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 6
 dissect_ssl3_record: content_type 20 Change Cipher Spec
 decrypt_ssl3_record: app_data len 1, ssl state 0x17
@@ -114,7 +114,7 @@ packet_from_server: is from server - TRUE
 decrypt_ssl3_record: using server decoder
 decrypt_ssl3_record: no decoder available
 ssl_dissect_change_cipher_spec Not using Session resumption
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/test_err
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/test_err
 ssl_finalize_decryption state = 0x17
 ssl_restore_master_key can't find master secret by Session ID
 ssl_restore_master_key can't find master secret by Client Random
@@ -124,7 +124,7 @@ ssl_change_cipher SERVER
 
 dissect_ssl enter frame #20 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 277
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 272, ssl state 0x17
@@ -135,7 +135,7 @@ dissect_ssl3_handshake iteration 1 type 92 offset 5 length 9142105 bytes, remain
 
 dissect_ssl enter frame #22 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 85
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 80, ssl state 0x17
@@ -145,7 +145,7 @@ decrypt_ssl3_record: no decoder available
 
 dissect_ssl enter frame #24 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 357
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 352, ssl state 0x17
@@ -155,7 +155,7 @@ decrypt_ssl3_record: no decoder available
 
 dissect_ssl enter frame #26 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 101
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 96, ssl state 0x17
@@ -165,7 +165,7 @@ decrypt_ssl3_record: no decoder available
 
 dissect_ssl enter frame #28 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 197
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 192, ssl state 0x17
@@ -175,7 +175,7 @@ decrypt_ssl3_record: no decoder available
 
 dissect_ssl enter frame #30 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 437
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 432, ssl state 0x17
@@ -186,7 +186,7 @@ dissect_ssl3_handshake iteration 1 type 35 offset 5 length 16638690 bytes, remai
 
 dissect_ssl enter frame #32 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 277
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 272, ssl state 0x17
@@ -196,7 +196,7 @@ decrypt_ssl3_record: no decoder available
 
 dissect_ssl enter frame #35 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f680b82db00, ssl_session = 0x7f680b82f840
+  conversation = 0x7ff35d5acb00, ssl_session = 0x7ff35d5ae840
   record: offset = 0, reported_length_remaining = 69
 dissect_ssl3_record: content_type 21 Alert
 decrypt_ssl3_record: app_data len 64, ssl state 0x17

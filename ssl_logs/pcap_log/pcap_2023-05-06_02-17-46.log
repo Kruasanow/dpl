@@ -5,11 +5,11 @@ GnuTLS version:    3.5.18
 Libgcrypt version: 1.8.1
 
 ssl_starttls: old frame 0, app_handle=(nil) ((null))
-ssl_starttls: current frame 11, app_handle=0x7fe6db641670 (imap)
+ssl_starttls: current frame 11, app_handle=0x7f3492839670 (imap)
 
 dissect_ssl enter frame #12 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 362
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 357, ssl state 0x00
@@ -22,7 +22,7 @@ ssl_dissect_hnd_hello_common found CLIENT RANDOM -> state 0x01
 
 dissect_ssl enter frame #14 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 1388
 ssl_try_set_version found version 0x0303 -> state 0x11
 dissect_ssl3_record: content_type 22 Handshake
@@ -35,7 +35,7 @@ ssl_try_set_version found version 0x0303 -> state 0x11
 Calculating hash with offset 5 66
 ssl_dissect_hnd_hello_common found SERVER RANDOM -> state 0x13
 ssl_set_cipher found CIPHER 0xC030 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 -> state 0x17
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
   checking keylog line: CLIENT_RANDOM CAF63AEAC3D75B0298DB493F05612431C573E14D085F125F07FD6B3E4FADFDAD 6ECD9EE13ACF86CFB9CEBB30C8020FD444260ABCAAD1064F18C129DBAE15DD03D1942FC147EBF63D61FEA9468406F68F
     matched client_random
   checking keylog line: CLIENT_RANDOM 5D81A3E35850D9F9D15AE8EA78009C1088082DD59F2C1A2DCEC36F3A1AC50BB9 0EBBA1355FC642105D3724CF5B7C727166E903B65CCE4DC67D7DECFE29813CD34B2A7A9B8AC0C8E9DF6BCBD7BB49F447
@@ -73,7 +73,7 @@ Calculating hash with offset 1384 4
 
 dissect_ssl enter frame #16 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 158
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 102, ssl state 0x17
@@ -82,7 +82,7 @@ decrypt_ssl3_record: using client decoder
 decrypt_ssl3_record: no decoder available
 dissect_ssl3_handshake iteration 1 type 16 offset 5 length 98 bytes, remaining 107 
 Calculating hash with offset 5 102
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 ssl_generate_pre_master_secret: found SSL_HND_CLIENT_KEY_EXCHG, state 17
 ssl_restore_master_key can't find pre-master secret by Unencrypted pre-master secret
 ssl_restore_master_key can't find pre-master secret by Encrypted pre-master secret
@@ -93,7 +93,7 @@ decrypt_ssl3_record: app_data len 1, ssl state 0x17
 packet_from_server: is from server - FALSE
 decrypt_ssl3_record: using client decoder
 decrypt_ssl3_record: no decoder available
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 ssl_finalize_decryption state = 0x17
 ssl_restore_master_key can't restore master secret using an empty Session ID
 ssl_restore_master_key master secret retrieved using Client Random
@@ -199,12 +199,12 @@ auth_tag(OK)[16]:
 Plaintext[16]:
 | 14 00 00 0c 67 91 c0 ad 9e a0 aa 9f f9 c7 3e a4 |....g.........>.|
 dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 tls13_load_secret TLS version 0x303 is not 1.3
 
 dissect_ssl enter frame #18 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 226
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 170, ssl state 0x3F
@@ -235,7 +235,7 @@ packet_from_server: is from server - TRUE
 decrypt_ssl3_record: using server decoder
 decrypt_ssl3_record: no decoder available
 ssl_dissect_change_cipher_spec Not using Session resumption
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 ssl_finalize_decryption state = 0x43F
   session key already available, nothing to do.
 packet_from_server: is from server - TRUE
@@ -259,12 +259,12 @@ auth_tag(OK)[16]:
 Plaintext[16]:
 | 14 00 00 0c fd d7 04 1a e3 12 b7 52 22 b6 b0 61 |...........R"..a|
 dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 tls13_load_secret TLS version 0x303 is not 1.3
 
 dissect_ssl enter frame #20 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 45
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 40, ssl state 0x43F
@@ -283,16 +283,16 @@ auth_tag(OK)[16]:
 | e8 93 3a 85 a5 bc ba cd e1 60 70 24 d5 31 22 b5 |..:......`p$.1".|
 Plaintext[16]:
 | 61 30 30 31 20 43 41 50 41 42 49 4c 49 54 59 0a |a001 CAPABILITY.|
-ssl_add_record_info stored decrypted record seq=0 nxtseq=16 flow=0x7fe6d3830190
+ssl_add_record_info stored decrypted record seq=0 nxtseq=16 flow=0x7f348b1ab190
 dissect_ssl_payload decrypted len 16
 decrypted app data fragment[16]:
 | 61 30 30 31 20 43 41 50 41 42 49 4c 49 54 59 0a |a001 CAPABILITY.|
-process_ssl_payload: found handle 0x7fe6db641670 (imap)
+process_ssl_payload: found handle 0x7f3492839670 (imap)
 packet_from_server: is from server - FALSE
 
 dissect_ssl enter frame #22 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 187
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 182, ssl state 0x43F
@@ -330,7 +330,7 @@ Plaintext[158]:
 | 73 20 6c 69 73 74 65 64 2c 20 70 6f 73 74 2d 6c |s listed, post-l|
 | 6f 67 69 6e 20 63 61 70 61 62 69 6c 69 74 69 65 |ogin capabilitie|
 | 73 20 68 61 76 65 20 6d 6f 72 65 2e 0d 0a       |s have more...  |
-ssl_add_record_info stored decrypted record seq=0 nxtseq=158 flow=0x7fe6d38301b0
+ssl_add_record_info stored decrypted record seq=0 nxtseq=158 flow=0x7f348b1ab1b0
 dissect_ssl_payload decrypted len 158
 decrypted app data fragment[158]:
 | 2a 20 43 41 50 41 42 49 4c 49 54 59 20 49 4d 41 |* CAPABILITY IMA|
@@ -343,12 +343,12 @@ decrypted app data fragment[158]:
 | 73 20 6c 69 73 74 65 64 2c 20 70 6f 73 74 2d 6c |s listed, post-l|
 | 6f 67 69 6e 20 63 61 70 61 62 69 6c 69 74 69 65 |ogin capabilitie|
 | 73 20 68 61 76 65 20 6d 6f 72 65 2e 0d 0a       |s have more...  |
-process_ssl_payload: found handle 0x7fe6db641670 (imap)
+process_ssl_payload: found handle 0x7f3492839670 (imap)
 packet_from_server: is from server - TRUE
 
 dissect_ssl enter frame #24 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 401
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 396, ssl state 0x43F
@@ -419,7 +419,7 @@ ssl_dissect_hnd_hello_common found CLIENT RANDOM -> state 0x417
 
 dissect_ssl enter frame #26 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 1508
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 114, ssl state 0x417
@@ -454,7 +454,7 @@ Calculating hash with offset 0 90
 ssl_reset_session detected renegotiation, clearing 0x400 (server side)
 ssl_dissect_hnd_hello_common found SERVER RANDOM -> state 0x17
 ssl_set_cipher found CIPHER 0xC030 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 -> state 0x17
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 tls13_load_secret TLS version 0x303 is not 1.3
 tls13_load_secret TLS version 0x303 is not 1.3
   record: offset = 119, reported_length_remaining = 1389
@@ -683,7 +683,7 @@ Calculating hash with offset 0 4
 
 dissect_ssl enter frame #28 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 206
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 126, ssl state 0x17
@@ -715,7 +715,7 @@ Plaintext[102]:
 | ce cf 94 bf 6d 8b                               |....m.          |
 dissect_ssl3_handshake iteration 1 type 16 offset 0 length 98 bytes, remaining 102 
 Calculating hash with offset 0 102
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 ssl_generate_pre_master_secret: found SSL_HND_CLIENT_KEY_EXCHG, state 17
 ssl_restore_master_key can't find pre-master secret by Unencrypted pre-master secret
 ssl_restore_master_key can't find pre-master secret by Encrypted pre-master secret
@@ -737,7 +737,7 @@ auth_tag(OK)[16]:
 | d6 8f 49 97 9c ce bb c6 d1 62 3c ad 13 c5 25 85 |..I......b<...%.|
 Plaintext[1]:
 | 01                                              |.               |
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 ssl_finalize_decryption state = 0x17
 ssl_restore_master_key can't restore master secret using an empty Session ID
 ssl_restore_master_key master secret retrieved using Client Random
@@ -842,12 +842,12 @@ auth_tag(OK)[16]:
 Plaintext[16]:
 | 14 00 00 0c d6 15 df a6 f7 0e 90 eb 7c 8f c0 1b |............|...|
 dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 tls13_load_secret TLS version 0x303 is not 1.3
 
 dissect_ssl enter frame #30 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 274
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 194, ssl state 0x3F
@@ -921,7 +921,7 @@ auth_tag(OK)[16]:
 Plaintext[1]:
 | 01                                              |.               |
 ssl_dissect_change_cipher_spec Not using Session resumption
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 ssl_finalize_decryption state = 0x43F
   session key already available, nothing to do.
 packet_from_server: is from server - TRUE
@@ -945,12 +945,12 @@ auth_tag(OK)[16]:
 Plaintext[16]:
 | 14 00 00 0c f0 fb 18 6f 73 7d 9a 50 8f b8 db 8b |.......os}.P....|
 dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/imap-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/imap-ssl.key
 tls13_load_secret TLS version 0x303 is not 1.3
 
 dissect_ssl enter frame #32 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 45
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 40, ssl state 0x43F
@@ -969,16 +969,16 @@ auth_tag(OK)[16]:
 | 90 59 31 fd de 97 99 ba 7b da 6a e6 d0 8b 98 8d |.Y1.....{.j.....|
 Plaintext[16]:
 | 61 30 30 32 20 43 41 50 41 42 49 4c 49 54 59 0a |a002 CAPABILITY.|
-ssl_add_record_info stored decrypted record seq=16 nxtseq=32 flow=0x7fe6d3830190
+ssl_add_record_info stored decrypted record seq=16 nxtseq=32 flow=0x7f348b1ab190
 dissect_ssl_payload decrypted len 16
 decrypted app data fragment[16]:
 | 61 30 30 32 20 43 41 50 41 42 49 4c 49 54 59 0a |a002 CAPABILITY.|
-process_ssl_payload: found handle 0x7fe6db641670 (imap)
+process_ssl_payload: found handle 0x7f3492839670 (imap)
 packet_from_server: is from server - FALSE
 
 dissect_ssl enter frame #34 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 187
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 182, ssl state 0x43F
@@ -1015,7 +1015,7 @@ Plaintext[158]:
 | 73 20 6c 69 73 74 65 64 2c 20 70 6f 73 74 2d 6c |s listed, post-l|
 | 6f 67 69 6e 20 63 61 70 61 62 69 6c 69 74 69 65 |ogin capabilitie|
 | 73 20 68 61 76 65 20 6d 6f 72 65 2e 0d 0a       |s have more...  |
-ssl_add_record_info stored decrypted record seq=158 nxtseq=316 flow=0x7fe6d38301b0
+ssl_add_record_info stored decrypted record seq=158 nxtseq=316 flow=0x7f348b1ab1b0
 dissect_ssl_payload decrypted len 158
 decrypted app data fragment[158]:
 | 2a 20 43 41 50 41 42 49 4c 49 54 59 20 49 4d 41 |* CAPABILITY IMA|
@@ -1028,12 +1028,12 @@ decrypted app data fragment[158]:
 | 73 20 6c 69 73 74 65 64 2c 20 70 6f 73 74 2d 6c |s listed, post-l|
 | 6f 67 69 6e 20 63 61 70 61 62 69 6c 69 74 69 65 |ogin capabilitie|
 | 73 20 68 61 76 65 20 6d 6f 72 65 2e 0d 0a       |s have more...  |
-process_ssl_payload: found handle 0x7fe6db641670 (imap)
+process_ssl_payload: found handle 0x7f3492839670 (imap)
 packet_from_server: is from server - TRUE
 
 dissect_ssl enter frame #36 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 31
 dissect_ssl3_record: content_type 21 Alert
 decrypt_ssl3_record: app_data len 26, ssl state 0x43F
@@ -1054,7 +1054,7 @@ Plaintext[2]:
 
 dissect_ssl enter frame #40 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7fe6d382db00, ssl_session = 0x7fe6d382f780
+  conversation = 0x7f348b1a8b00, ssl_session = 0x7f348b1aa780
   record: offset = 0, reported_length_remaining = 31
 dissect_ssl3_record: content_type 21 Alert
 decrypt_ssl3_record: app_data len 26, ssl state 0x43F

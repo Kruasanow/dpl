@@ -60,7 +60,7 @@ def base_to_db(): # не реализовано удаление из базы �
     for i in actual_base:
         a_base.append(i[1])
     # print(a_base)
-    for i in show_dir_base():
+    for i in show_dir_base('ip_base'):
         if i in a_base:
             continue
         else:

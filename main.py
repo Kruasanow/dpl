@@ -14,8 +14,8 @@ import logging
 import sys
 import os
 
-PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-# PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
+# PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
 if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
@@ -333,7 +333,7 @@ def smtp():
             dump = get_dname_from_db()
             key = request.form['key']
             print(key)
-            subprocess.run([full_way, dump, key])
+            subprocess.run([full_way, dump, key, PROJECT_PATH])
             decrypted_sd = find_acl_f_decrypt('SMTP',dump)
             show_decrypted = True
         return render_template(
@@ -346,6 +346,100 @@ def smtp():
             )
     return render_template(
                             'smtp.html',
+                            dir = key_list,
+                            sd = arr_dump,
+                            show = show_content,
+                            dsd = decrypted_sd,
+                            dshow = show_decrypted,
+                          )
+
+@app.route('/imap', methods = ['get','post'])
+def imap():
+    print(url_for('imap'))
+    import subprocess
+    from dnsf.geo_ident import show_dir_base
+    from wr_acl.acl import find_acl
+    show_decrypted = False          #ОТЛАДИТЬ!!!!
+    decrypted_sd = []               #ОТЛАДИТЬ!!!!
+    try:
+        arr_dump = find_acl('IMAP')
+        show_content = True
+        if arr_dump == []:
+            arr_dump = ['Нет пакетов IMAP']
+            show_content = False
+    except Exception:
+        show_content = False
+        arr_dump = ['Исходный дамп не выбран...']
+
+    full_way = PROJECT_PATH + "/scripts/traf_decrypt.sh"
+    key_list = show_dir_base('ssl_keys')
+    if request.method == "POST":
+        if 'key' in request.form:
+            # from osh import get_txt_dump_f_decrypt
+            from wr_acl.acl import find_acl_f_decrypt
+            dump = get_dname_from_db()
+            key = request.form['key']
+            print(key)
+            subprocess.run([full_way, dump, key, PROJECT_PATH])
+            decrypted_sd = find_acl_f_decrypt('IMAP',dump)
+            show_decrypted = True
+        return render_template(
+                            'imap.html',
+                            dir = key_list,
+                            sd = arr_dump,
+                            dsd = decrypted_sd,
+                            show = show_content,
+                            dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
+            )
+    return render_template(
+                            'imap.html',
+                            dir = key_list,
+                            sd = arr_dump,
+                            show = show_content,
+                            dsd = decrypted_sd,
+                            dshow = show_decrypted,
+                          )
+
+@app.route('/pop', methods = ['get','post'])
+def pop():
+    print(url_for('pop'))
+    import subprocess
+    from dnsf.geo_ident import show_dir_base
+    from wr_acl.acl import find_acl
+    show_decrypted = False          #ОТЛАДИТЬ!!!!
+    decrypted_sd = []               #ОТЛАДИТЬ!!!!
+    try:
+        arr_dump = find_acl('POP')
+        show_content = True
+        if arr_dump == []:
+            arr_dump = ['Нет пакетов POP']
+            show_content = False
+    except Exception:
+        show_content = False
+        arr_dump = ['Исходный дамп не выбран...']
+
+    full_way = PROJECT_PATH + "/scripts/traf_decrypt.sh"
+    key_list = show_dir_base('ssl_keys')
+    if request.method == "POST":
+        if 'key' in request.form:
+            # from osh import get_txt_dump_f_decrypt
+            from wr_acl.acl import find_acl_f_decrypt
+            dump = get_dname_from_db()
+            key = request.form['key']
+            print(key)
+            subprocess.run([full_way, dump, key, PROJECT_PATH])
+            decrypted_sd = find_acl_f_decrypt('POP',dump)
+            show_decrypted = True
+        return render_template(
+                            'pop.html',
+                            dir = key_list,
+                            sd = arr_dump,
+                            dsd = decrypted_sd,
+                            show = show_content,
+                            dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
+            )
+    return render_template(
+                            'pop.html',
                             dir = key_list,
                             sd = arr_dump,
                             show = show_content,

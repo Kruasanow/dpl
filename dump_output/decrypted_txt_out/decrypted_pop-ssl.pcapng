@@ -10,29 +10,29 @@
    10 0.126901694    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=62 Ack=369 Win=44800 Len=0 TSval=689304978 TSecr=689304978
    11 0.175311356    127.0.0.1 → 127.0.0.1    TLSv1.2 1454 Server Hello, Certificate, Server Key Exchange, Server Hello Done
    12 0.175360227    127.0.0.1 → 127.0.0.1    TCP 66 47261 → 110 [ACK] Seq=369 Ack=1450 Win=174720 Len=0 TSval=689304993 TSecr=689304993
-   13 0.182076773    127.0.0.1 → 127.0.0.1    TLSv1.2 224 Client Key Exchange, Change Cipher Spec, Encrypted Handshake Message
+   13 0.182076773    127.0.0.1 → 127.0.0.1    TLSv1.2 224 Client Key Exchange, Change Cipher Spec, Finished
    14 0.182101908    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=1450 Ack=527 Win=45952 Len=0 TSval=689304995 TSecr=689304995
-   15 0.226073118    127.0.0.1 → 127.0.0.1    TLSv1.2 292 New Session Ticket, Change Cipher Spec, Encrypted Handshake Message
+   15 0.226073118    127.0.0.1 → 127.0.0.1    TLSv1.2 292 New Session Ticket, Change Cipher Spec, Finished
    16 0.265203981    127.0.0.1 → 127.0.0.1    TCP 66 47261 → 110 [ACK] Seq=527 Ack=1676 Win=177536 Len=0 TSval=689305020 TSecr=689305008
-   17 4.782873574    127.0.0.1 → 127.0.0.1    TLSv1.2 100 Application Data
+   17 4.782873574    127.0.0.1 → 127.0.0.1    POP 100 C: CAPA
    18 4.782908514    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=1676 Ack=561 Win=45952 Len=0 TSval=689306375 TSecr=689306375
-   19 4.825875042    127.0.0.1 → 127.0.0.1    TLSv1.2 178 Application Data
+   19 4.825875042    127.0.0.1 → 127.0.0.1    POP 178 S: +OK
    20 4.825887087    127.0.0.1 → 127.0.0.1    TCP 66 47261 → 110 [ACK] Seq=561 Ack=1788 Win=177536 Len=0 TSval=689306388 TSecr=689306388
-   21 6.775024937    127.0.0.1 → 127.0.0.1    TLSv1.2 467 Encrypted Handshake Message
+   21 6.775024937    127.0.0.1 → 127.0.0.1    TLSv1.2 467 Client Hello
    22 6.775053479    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=1788 Ack=962 Win=46976 Len=0 TSval=689306972 TSecr=689306972
-   23 6.826193705    127.0.0.1 → 127.0.0.1    TLSv1.2 1574 Encrypted Handshake Message, Encrypted Handshake Message, Encrypted Handshake Message, Encrypted Handshake Message
+   23 6.826193705    127.0.0.1 → 127.0.0.1    TLSv1.2 1574 Server Hello, Certificate, Server Key Exchange, Server Hello Done
    24 6.826233604    127.0.0.1 → 127.0.0.1    TCP 66 47261 → 110 [ACK] Seq=962 Ack=3296 Win=308480 Len=0 TSval=689306988 TSecr=689306988
-   25 6.833421970    127.0.0.1 → 127.0.0.1    TLSv1.2 272 Encrypted Handshake Message, Change Cipher Spec, Encrypted Handshake Message
+   25 6.833421970    127.0.0.1 → 127.0.0.1    TLSv1.2 272 Client Key Exchange, Change Cipher Spec, Finished
    26 6.833438659    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=3296 Ack=1168 Win=48000 Len=0 TSval=689306990 TSecr=689306990
-   27 6.879581049    127.0.0.1 → 127.0.0.1    TLSv1.2 340 Encrypted Handshake Message, Change Cipher Spec, Encrypted Handshake Message
+   27 6.879581049    127.0.0.1 → 127.0.0.1    TLSv1.2 340 New Session Ticket, Change Cipher Spec, Finished
    28 6.918566166    127.0.0.1 → 127.0.0.1    TCP 66 47261 → 110 [ACK] Seq=1168 Ack=3570 Win=311424 Len=0 TSval=689307016 TSecr=689307004
-   29 9.927037739    127.0.0.1 → 127.0.0.1    TLSv1.2 100 Application Data
+   29 9.927037739    127.0.0.1 → 127.0.0.1    POP 100 C: CAPA
    30 9.927079566    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=3570 Ack=1202 Win=48000 Len=0 TSval=689307918 TSecr=689307918
-   31 9.970329835    127.0.0.1 → 127.0.0.1    TLSv1.2 178 Application Data
+   31 9.970329835    127.0.0.1 → 127.0.0.1    POP 178 S: +OK
    32 9.970341488    127.0.0.1 → 127.0.0.1    TCP 66 47261 → 110 [ACK] Seq=1202 Ack=3682 Win=311424 Len=0 TSval=689307931 TSecr=689307931
-   33 11.710944752    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Encrypted Alert
+   33 11.710944752    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Alert (Level: Warning, Description: Close Notify)
    34 11.710977141    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=3682 Ack=1233 Win=48000 Len=0 TSval=689308453 TSecr=689308453
    35 11.711017204    127.0.0.1 → 127.0.0.1    TCP 66 47261 → 110 [FIN, ACK] Seq=1233 Ack=3682 Win=311424 Len=0 TSval=689308453 TSecr=689308453
    36 11.748586419    127.0.0.1 → 127.0.0.1    TCP 66 110 → 47261 [ACK] Seq=3682 Ack=1234 Win=48000 Len=0 TSval=689308465 TSecr=689308453
-   37 11.754816654    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Encrypted Alert
+   37 11.754816654    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Alert (Level: Warning, Description: Close Notify)
    38 11.754854098    127.0.0.1 → 127.0.0.1    TCP 54 47261 → 110 [RST] Seq=1234 Win=0 Len=0

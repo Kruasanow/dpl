@@ -5,11 +5,11 @@ GnuTLS version:    3.5.18
 Libgcrypt version: 1.8.1
 
 ssl_starttls: old frame 0, app_handle=(nil) ((null))
-ssl_starttls: current frame 11, app_handle=0x7f48416b27f0 (smtp)
+ssl_starttls: current frame 11, app_handle=0x7f18bf9267f0 (smtp)
 
 dissect_ssl enter frame #12 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 362
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 357, ssl state 0x00
@@ -22,7 +22,7 @@ ssl_dissect_hnd_hello_common found CLIENT RANDOM -> state 0x01
 
 dissect_ssl enter frame #14 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 1873
 ssl_try_set_version found version 0x0303 -> state 0x11
 dissect_ssl3_record: content_type 22 Handshake
@@ -35,7 +35,7 @@ ssl_try_set_version found version 0x0303 -> state 0x11
 Calculating hash with offset 5 81
 ssl_dissect_hnd_hello_common found SERVER RANDOM -> state 0x13
 ssl_set_cipher found CIPHER 0x006B TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 -> state 0x17
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/smtp-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/smtp-ssl.key
   checking keylog line: CLIENT_RANDOM 1ED24D31EB077F45CF6CB0145390C4F1C86F3B7DC3E9868C00FDCF791E414ACC BFAB4EEAEE92E1091AFECC965CDCA60D69D62B409DDC1027B058FB5F09E380EC0F2B5B5222BAD49CBFA77CEF05615B45
     matched client_random
 tls13_load_secret TLS version 0x303 is not 1.3
@@ -71,7 +71,7 @@ Calculating hash with offset 1869 4
 
 dissect_ssl enter frame #16 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 358
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 262, ssl state 0x17
@@ -80,7 +80,7 @@ decrypt_ssl3_record: using client decoder
 decrypt_ssl3_record: no decoder available
 dissect_ssl3_handshake iteration 1 type 16 offset 5 length 258 bytes, remaining 267 
 Calculating hash with offset 5 262
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/smtp-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/smtp-ssl.key
 ssl_generate_pre_master_secret: found SSL_HND_CLIENT_KEY_EXCHG, state 17
 ssl_restore_master_key can't find pre-master secret by Unencrypted pre-master secret
 ssl_restore_master_key can't find pre-master secret by Encrypted pre-master secret
@@ -91,7 +91,7 @@ decrypt_ssl3_record: app_data len 1, ssl state 0x17
 packet_from_server: is from server - FALSE
 decrypt_ssl3_record: using client decoder
 decrypt_ssl3_record: no decoder available
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/smtp-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/smtp-ssl.key
 ssl_finalize_decryption state = 0x17
 ssl_restore_master_key can't find master secret by Session ID
 ssl_restore_master_key master secret retrieved using Client Random
@@ -213,12 +213,12 @@ Mac[32]:
 | 85 e6 40 d9 c6 cb f7 fb 4a 8a b9 9b 4c 14 05 e9 |..@.....J...L...|
 ssl_decrypt_record: mac ok
 dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/smtp-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/smtp-ssl.key
 tls13_load_secret TLS version 0x303 is not 1.3
 
 dissect_ssl enter frame #18 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 6
 dissect_ssl3_record: content_type 20 Change Cipher Spec
 decrypt_ssl3_record: app_data len 1, ssl state 0x3F
@@ -226,7 +226,7 @@ packet_from_server: is from server - TRUE
 decrypt_ssl3_record: using server decoder
 decrypt_ssl3_record: no decoder available
 ssl_dissect_change_cipher_spec Not using Session resumption
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/smtp-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/smtp-ssl.key
 ssl_finalize_decryption state = 0x3F
   session key already available, nothing to do.
 packet_from_server: is from server - TRUE
@@ -234,7 +234,7 @@ ssl_change_cipher SERVER
 
 dissect_ssl enter frame #20 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 277
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 272, ssl state 0x3F
@@ -285,12 +285,12 @@ Mac[32]:
 | 29 9a f8 a3 7c 06 bd 96 46 b0 57 f2 79 ea db 27 |)...|...F.W.y..'|
 ssl_decrypt_record: mac ok
 dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
-trying to use SSL keylog in /home/ubuntu18/diploma-1/dpl/ssl_keys/smtp-ssl.key
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/smtp-ssl.key
 tls13_load_secret TLS version 0x303 is not 1.3
 
 dissect_ssl enter frame #22 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 85
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 80, ssl state 0x3F
@@ -315,16 +315,16 @@ Mac[32]:
 | 05 84 42 e9 f2 f6 21 8c f7 f7 96 29 2a e2 d7 99 |..B...!....)*...|
 | f7 3f f4 04 4b 68 ad c8 f6 92 e0 6b 2c 86 0b 69 |.?..Kh.....k,..i|
 ssl_decrypt_record: mac ok
-ssl_add_record_info stored decrypted record seq=0 nxtseq=16 flow=0x7f483e0096e0
+ssl_add_record_info stored decrypted record seq=0 nxtseq=16 flow=0x7f18bc27d6e0
 dissect_ssl_payload decrypted len 16
 decrypted app data fragment[16]:
 | 45 48 4c 4f 20 6c 65 6b 65 6e 73 74 65 79 6e 0a |EHLO lekensteyn.|
-process_ssl_payload: found handle 0x7f48416b27f0 (smtp)
+process_ssl_payload: found handle 0x7f18bf9267f0 (smtp)
 packet_from_server: is from server - FALSE
 
 dissect_ssl enter frame #24 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 357
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 352, ssl state 0x3F
@@ -384,7 +384,7 @@ Mac[32]:
 | dd 07 b7 1e 8d df e1 dc 1e 4e d9 c3 47 4c a6 45 |.........N..GL.E|
 | 54 3b f0 11 4a 8c 4c b9 a8 cc 9a 10 cb 88 7e dc |T;..J.L.......~.|
 ssl_decrypt_record: mac ok
-ssl_add_record_info stored decrypted record seq=0 nxtseq=99 flow=0x7f483e009740
+ssl_add_record_info stored decrypted record seq=0 nxtseq=99 flow=0x7f18bc27d740
 dissect_ssl_payload decrypted len 99
 decrypted app data fragment[99]:
 | 32 35 30 2d 75 62 75 6e 74 75 20 48 65 6c 6c 6f |250-ubuntu Hello|
@@ -394,12 +394,12 @@ decrypted app data fragment[99]:
 | 42 49 54 4d 49 4d 45 0d 0a 32 35 30 2d 50 49 50 |BITMIME..250-PIP|
 | 45 4c 49 4e 49 4e 47 0d 0a 32 35 30 20 48 45 4c |ELINING..250 HEL|
 | 50 0d 0a                                        |P..             |
-process_ssl_payload: found handle 0x7f48416b27f0 (smtp)
+process_ssl_payload: found handle 0x7f18bf9267f0 (smtp)
 packet_from_server: is from server - TRUE
 
 dissect_ssl enter frame #26 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 101
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 96, ssl state 0x3F
@@ -426,18 +426,18 @@ Mac[32]:
 | 51 3a e3 75 a2 7e d0 7b ea d9 c3 df 37 5f 68 ac |Q:.u.~.{....7_h.|
 | 02 cc 27 33 f2 ca b1 0e 97 0b 98 f3 83 65 bf c3 |..'3.........e..|
 ssl_decrypt_record: mac ok
-ssl_add_record_info stored decrypted record seq=16 nxtseq=49 flow=0x7f483e0096e0
+ssl_add_record_info stored decrypted record seq=16 nxtseq=49 flow=0x7f18bc27d6e0
 dissect_ssl_payload decrypted len 33
 decrypted app data fragment[33]:
 | 4d 41 49 4c 20 46 52 4f 4d 3a 20 3c 70 65 74 65 |MAIL FROM: <pete|
 | 72 40 6c 65 6b 65 6e 73 74 65 79 6e 2e 6e 6c 3e |r@lekensteyn.nl>|
 | 0a                                              |.               |
-process_ssl_payload: found handle 0x7f48416b27f0 (smtp)
+process_ssl_payload: found handle 0x7f18bf9267f0 (smtp)
 packet_from_server: is from server - FALSE
 
 dissect_ssl enter frame #28 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 197
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 192, ssl state 0x3F
@@ -476,16 +476,16 @@ Mac[32]:
 | 2c 1a 41 80 4a c0 03 7b 84 99 42 c8 9d eb d5 a3 |,.A.J..{..B.....|
 | fc 48 74 19 a7 f0 ea 85 df 9a 78 21 04 3a b5 f4 |.Ht.......x!.:..|
 ssl_decrypt_record: mac ok
-ssl_add_record_info stored decrypted record seq=99 nxtseq=107 flow=0x7f483e009740
+ssl_add_record_info stored decrypted record seq=99 nxtseq=107 flow=0x7f18bc27d740
 dissect_ssl_payload decrypted len 8
 decrypted app data fragment[8]:
 | 32 35 30 20 4f 4b 0d 0a                         |250 OK..        |
-process_ssl_payload: found handle 0x7f48416b27f0 (smtp)
+process_ssl_payload: found handle 0x7f18bf9267f0 (smtp)
 packet_from_server: is from server - TRUE
 
 dissect_ssl enter frame #30 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 437
 dissect_ssl3_record: content_type 22 Handshake
 decrypt_ssl3_record: app_data len 432, ssl state 0x3F
@@ -561,7 +561,7 @@ ssl_dissect_hnd_hello_common found CLIENT RANDOM -> state 0x17
 
 dissect_ssl enter frame #32 (first time)
 packet_from_server: is from server - TRUE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 277
 dissect_ssl3_record: content_type 23 Application Data
 decrypt_ssl3_record: app_data len 272, ssl state 0x17
@@ -610,18 +610,18 @@ Mac[32]:
 | b6 ef 38 ca 65 64 27 87 01 b2 d5 37 8b 96 a8 e3 |..8.ed'....7....|
 | 9c 0a 3f e7 0a 64 34 ad fc 80 c8 d1 52 46 bd 50 |..?..d4.....RF.P|
 ssl_decrypt_record: mac ok
-ssl_add_record_info stored decrypted record seq=107 nxtseq=141 flow=0x7f483e009740
+ssl_add_record_info stored decrypted record seq=107 nxtseq=141 flow=0x7f18bc27d740
 dissect_ssl_payload decrypted len 34
 decrypted app data fragment[34]:
 | 34 32 31 20 75 62 75 6e 74 75 20 6c 6f 73 74 20 |421 ubuntu lost |
 | 69 6e 70 75 74 20 63 6f 6e 6e 65 63 74 69 6f 6e |input connection|
 | 0d 0a                                           |..              |
-process_ssl_payload: found handle 0x7f48416b27f0 (smtp)
+process_ssl_payload: found handle 0x7f18bf9267f0 (smtp)
 packet_from_server: is from server - TRUE
 
 dissect_ssl enter frame #35 (first time)
 packet_from_server: is from server - FALSE
-  conversation = 0x7f483e006b00, ssl_session = 0x7f483e008840
+  conversation = 0x7f18bc27ab00, ssl_session = 0x7f18bc27c840
   record: offset = 0, reported_length_remaining = 69
 dissect_ssl3_record: content_type 21 Alert
 decrypt_ssl3_record: app_data len 64, ssl state 0x17

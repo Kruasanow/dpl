@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+
+{% block title %}Список доступа{% endblock %}
+
+{% block content %}
+<div class="main-bg">
+  <div class="bg">
+    <!--==============================header=================================-->
+    <header>
+      <h3></h3><br><br><br>
+    </header>
+    <!--==============================content================================-->
+
+      <!-- <form action="/smtp" method="POST">
+        <button type="submit" name="button" value="1">Кнопка 1</button>
+        <button type="submit" name="button" value="2">Кнопка 2</button>
+      </form> -->
+
+      <div class="indent-traffic">
+        {% for i in sd %}
+          {% if i[4]|int is jinja_is_prime%}
+          <p class="division_0">{{i}}</p>
+          {% else %}
+          {{i}}
+          {% endif %}
+        {% endfor %}
+      </div> 
+      <br><br>
+{% if dshow == True %}
+      <div class="indent-traffic">
+        {% for i in dsd %}
+          {% if i[4]|int is jinja_is_prime%}
+          <p class="division_0">{{i}}</p>
+          {% else %}
+          {{i}}
+          {% endif %}
+        {% endfor %}
+      </div> 
+{% endif %}
+      <form method="POST" action="/imap">
+        <select name="key">
+          {% for key in dir %}
+            <option value="{{ key }}">{{ key }}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Выбрать">
+      </form>
+      
+    </div>
+
+    <!-- <h1>Введите IP-адрес</h1>
+    <form action="{{ url_for('acl') }}" method="POST">
+      <input type="text" name="octet1" maxlength="3" size="3" value="{{ request.form.octet1 }}">.
+      <input type="text" name="octet2" maxlength="3" size="3" value="{{ request.form.octet2 }}">.
+      <input type="text" name="octet3" maxlength="3" size="3" value="{{ request.form.octet3 }}">.
+      <input type="text" name="octet4" maxlength="3" size="3" value="{{ request.form.octet4 }}">
+      <br><br>
+      <input type="submit" value="Отправить">
+    </form> -->
+</div></div>
+{% endblock %}
