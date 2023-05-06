@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, session
+from flask import Flask, render_template, url_for, request, session
 from osh import  reload_arr, output_dump, current_file, UPLOAD_FOLDER, convert_dump, get_dname_from_db, analize_table, pac_t_list, exec_db_init_sh, get_file
 from graths.prepare_graths import list_w_grath
 from dnsf.dns_whois import get_qname_list, do_whois, get_items_from_who, transponate_arr
@@ -9,13 +9,13 @@ from werkzeug.utils import secure_filename
 from base_show.db_selector import get_srv_from_db
 from base_show.get_ns_list import get_ns_list, do_ns_ip_tuple
 # import amplification.dns_amplification
-import attack_score.scoreattack as sa
+# import attack_score.scoreattack as sa
 import logging
 import sys
 import os
 
-# PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
+PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+# PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
 if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 

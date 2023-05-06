@@ -271,7 +271,10 @@ def get_dns_profile(arr):
         rclass = str(swap_dict_values(dict(Counter(rclass)),dcode.RR_classes_dict))
         rttl = float(mean(rttl))
         atime = float(mean(avg_resp_time))
-        qname_list = is_unique(qname_list)[0]
+        # try:
+        qname_list = is_unique(qname_list)#[0] #Нахуя я тут 0-элем вызываю кто-нибудь вообще знает?
+        # except IndexError:
+        #     qname_list = []
         rcode_arr = str(swap_dict_values(dict(Counter(rcode_arr)),dcode.RCODE_dict))    
         qtype_arr = str(swap_dict_values(dict(Counter(qtype_arr)),dcode.RR_types_dict))    
         qclass_arr = str(swap_dict_values(dict(Counter(qclass_arr)),dcode.RR_classes_dict))   
