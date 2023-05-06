@@ -344,6 +344,17 @@ def smtp():
             subprocess.run([full_way, dump, key, PROJECT_PATH])
             decrypted_sd = find_acl_f_decrypt('SMTP',dump)
             show_decrypted = True
+        if 'keyname' in request.form:
+            key_name = request.form['keyname']
+            added_key = request.form['addedkey']
+            full_way_keycreate = PROJECT_PATH + '/scripts/create_key.sh'
+            subprocess.run([full_way_keycreate,PROJECT_PATH,key_name,added_key])
+            print(f'[*]main.py: had been added key - {key_name} with value - {added_key}')
+        if 'delkey' in request.form:
+            full_way_keydel = PROJECT_PATH + '/scripts/delete_key.sh'
+            del_key = request.form["delkey"]
+            subprocess.run([full_way_keydel,PROJECT_PATH,del_key])
+            print(f'[*]main.py: key {del_key} had been deleted')
         return render_template(
                             'smtp.html',
                             dir = key_list,

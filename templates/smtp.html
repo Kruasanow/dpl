@@ -11,11 +11,22 @@
       <h3></h3><br><br><br>
     </header>
     <!--==============================content================================-->
+    ключ - имя
+    <form method="POST" action="/smtp">
+      <input type="text" name="addedkey">
+      <input type="text" name="keyname">
+      <button type="submit">Создать</button>
+    </form>
 
-      <!-- <form action="/smtp" method="POST">
-        <button type="submit" name="button" value="1">Кнопка 1</button>
-        <button type="submit" name="button" value="2">Кнопка 2</button>
-      </form> -->
+    <form method="POST" action="/smtp">
+      <select name="delkey">
+        {% for key in dir %}
+          <option value="{{ key }}">{{ key }}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <input type="submit" value="Выбрать">
+    </form>
 
       <div class="indent-traffic">
         {% for i in sd %}
