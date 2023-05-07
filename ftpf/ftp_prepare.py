@@ -1,4 +1,16 @@
 # from pyshark import FileCapture
+# arr = ['USER','PASS','SITE']
+
+def code_list_compare(arr):
+    from ftpf.ftp_codes import code_dict
+    good_list = []
+    for i in arr:
+        for j in code_dict:
+            if i == j:
+                good_list.append(code_dict[j])
+    return good_list
+# print(code_list_compare(arr))
+
 def select_ftp_get_arg(cap):
     
     ftp_arr          = []
@@ -7,27 +19,26 @@ def select_ftp_get_arg(cap):
     command_arr      = []
 
     for pac in cap:
-        if 'FTP' in pac:
+        if hasattr(pac,'ftp'):
             ftp_arr.append(pac)
 
             if hasattr(pac.ftp,'response_arg'):
                 # print('---------------response')
                 # print(pac.ftp.response_arg)
                 response_arg_arr.append(pac.ftp.response_arg)
-
-            elif hasattr(pac.ftp,'request_arg'):
+            if hasattr(pac.ftp,'request_arg'):
                 # print('---------------request')
                 # print(pac.ftp.request_arg)
                 request_arg_arr.append(pac.ftp.request_arg)
-
-            elif hasattr(pac.ftp,'request_command'):
+            if hasattr(pac.ftp,'request_command'):
                 # print('---------------no-exception')
                 # print(pac.ftp.request_command)
                 command_arr.append(pac.ftp.request_command)
             else:
                 print('[*]ftp_prepare.py: else arg validator works')
+    description_list = code_list_compare(command_arr)
 
-    return [ftp_arr, response_arg_arr, request_arg_arr, command_arr]
+    return [ftp_arr, response_arg_arr, request_arg_arr, command_arr,description_list]
 # import subprocess 
 
 def to_ftp_arr(a):
@@ -75,9 +86,9 @@ def detect_ftp_anomaly(cap):
         counter = Counter(command_counter)
         count_user = counter['USER']
         count_pass = counter['PASS']
-        count_port = counter['PORT']
+        # count_port = counter['PORT']
         count_pasv = counter['PASV']
-        if count_port < 2 and count_pasv > 2:
+        if count_pasv > 2:
             general_out['detector_secureport'][0] = True
             general_out['detector_secureport'][1] = f'Команды FTP поиска порта: активные - {count_pass}, пассивные - {count_pasv}'
         if count_user > 3 or count_pass > 3:
@@ -112,3 +123,4 @@ def detect_ftp_anomaly(cap):
     return general_out
     # return [detector_brute, detector_secureport,detect_duplicate_acknowledgment,detect_retransmission,detect_encrypted_connection,detect_conf_troubles]
 # print(detect_ftp_anomaly(get_file('ftp_brute.pcapng'))) 
+
