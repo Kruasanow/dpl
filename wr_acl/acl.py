@@ -80,7 +80,7 @@ def find_acl(proto):
         a = i.split(" ")
         start_point = a.index('→')
         if a[start_point-1] in list_ip_from_acl or a[start_point+1] in list_ip_from_acl:
-            print(a[start_point-1])
+            # print(a[start_point-1])
             i = '[ACL] '+i
         else:
             i = '[NOT ACL]'+i

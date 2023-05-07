@@ -244,14 +244,11 @@ def report():
 def ftp():
     print(url_for('ftp'))
 
-    from ftpf.ftp_prepare import select_ftp_get_arg
-    # from osh import cap
-    # asyncio.get_child_watcher().attach_loop(cap.eventloop)
-    a = select_ftp_get_arg(get_file(get_dname_from_db()))
-    # cap.close()
-    # print(cap)
-    # print(get_file(get_dname_from_db()))
-    len_cap = len(list(get_file(get_dname_from_db())))
+    from ftpf.ftp_prepare import select_ftp_get_arg, detect_ftp_anomaly
+    dbase_capture = get_file(get_dname_from_db())
+
+    a = select_ftp_get_arg(dbase_capture)
+    len_cap = len(list(dbase_capture))
     len_a = len(list(a[0]))
     cap_ga_a = len_cap - len_a
     pacs = [cap_ga_a,len_a]
@@ -269,7 +266,27 @@ def ftp():
     except Exception:
         show_content = False
         arr_dump = ['Исходный дамп не выбран...']
-
+        
+    if request.method == "POST":
+        if 'showanomaly' in request.form:
+            anomaly_12elem = dict(list(detect_ftp_anomaly(dbase_capture).items())[:2])
+            anomaly_other_elements = detect_ftp_anomaly(dbase_capture)
+            del anomaly_other_elements['detector_brute']
+            del anomaly_other_elements['detector_secureport']
+            # print(anomaly_12elem.keys())
+            # print(anomaly_other_elements.keys())
+        return render_template(
+                                'ftp.html',
+                                sd = arr_dump,
+                                circle = circ,
+                                headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса'],
+                                ftp1 =  a[1],
+                                ftp2 =  a[2],
+                                ftp3 =  a[3],
+                                show = show_content,
+                                an12 = anomaly_12elem,
+                                another = anomaly_other_elements,
+        )
     return render_template(
                             'ftp.html',
                             sd = arr_dump,

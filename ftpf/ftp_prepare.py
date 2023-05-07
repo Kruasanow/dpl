@@ -39,13 +39,14 @@ def to_ftp_arr(a):
 
 # subprocess.call('scripts/sftp_decript.sh')
 # print(select_ftp_get_arg(FileCapture('dump_input/ftp.pcapng')))
-import sys
-PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-# PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-from osh import get_file, get_dname_from_db
+# import sys
+# PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+# # PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
+# if PROJECT_PATH not in sys.path:
+#     sys.path.append(PROJECT_PATH)
+
+# from osh import get_file, get_dname_from_db
 
 def detect_ftp_anomaly(cap):
     from collections import Counter
@@ -54,7 +55,7 @@ def detect_ftp_anomaly(cap):
     command_counter = []
 
     cap = to_ftp_arr(cap)
-    print(len(cap))
+    # print(len(cap))
     general_out = {
                 'detector_brute':[False,''],
                 'detector_secureport':[False,''],
@@ -64,14 +65,6 @@ def detect_ftp_anomaly(cap):
                 'detect_conf_troubles':[False,[]],
                 'detect_window_size':[False,[]]
                 }
-    # detector_brute = False #брутят
-    # detector_secureport = False #админ еблан не сменил порт
-    # detect_duplicate_acknowledgment = False #двойное подтверждение
-    # detect_retransmission = False # проблема с передачей
-    # detect_encrypted_connection = False #работа без TLS
-    # detect_conf_troubles = False 
-
-
 
     for pac in cap:
         # print(str(pac))
@@ -116,6 +109,6 @@ def detect_ftp_anomaly(cap):
         if len(window_sizes) > 1:
             general_out['detect_window_size'][0] = True 
             general_out['detect_window_size'][1].append(window_sizes)    
-    return general_out.values()
+    return general_out
     # return [detector_brute, detector_secureport,detect_duplicate_acknowledgment,detect_retransmission,detect_encrypted_connection,detect_conf_troubles]
-print(detect_ftp_anomaly(get_file('ftp_brute.pcapng'))) 
+# print(detect_ftp_anomaly(get_file('ftp_brute.pcapng'))) 

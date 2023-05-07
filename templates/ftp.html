@@ -65,7 +65,8 @@
       </table>
     </div>
     {% endif %}
-    <div class="indent-traffic">
+
+      <div class="indent-traffic">
       {% for i in sd %}
         {% if i[4]|int is jinja_is_prime%}
         <p class="division_0">{{i}}</p>
@@ -74,10 +75,11 @@
         {% endif %}
       {% endfor %}
     </div>    
-
-
-    <!-- {% for i in arr %}
-      {{i}}
-    {% endfor %} -->
-
+    <form method="POST" action="/ftp">
+      <button  type="submit" name="showanomaly" value="1">Проанализировать на аномалии</button>
+    </form>
+      {{an12}}
+      <br>
+      {{another}}
+      <br>
     {% endblock %}
