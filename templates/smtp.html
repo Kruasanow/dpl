@@ -58,7 +58,67 @@
         <br><br>
         <input type="submit" value="Выбрать">
       </form>
-      
+      <br>
+
+      <style>
+        table {
+          border-collapse: collapse;
+          width: 30%;
+          margin: 0 1%;
+          display: inline-block;
+          vertical-align: top;
+        }
+        th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+        }
+      </style>
+{% if show == True %} 
+  <div class="blocks_main1">
+    <img class="gr_style"  src="data:image/png;base64,{{ circle }}" alt=".">
+  </div>
+      <table> 
+        <tr>
+          <th>{{headsmtp[0]}}</th>
+        </tr>
+        {% for i in reqc %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headsmtp[1]}}</th>
+        </tr>
+        {% for i in rspp %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headsmtp[2]}}</th>
+        </tr>
+        {% for i in rspc %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headsmtp[3]}}</th>
+        </tr>
+        {% for i in decodes %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+{% endif %}
     </div>
 
     <!-- <h1>Введите IP-адрес</h1>

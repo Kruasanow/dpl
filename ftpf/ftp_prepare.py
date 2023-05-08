@@ -35,7 +35,7 @@ def select_ftp_get_arg(cap):
                 # print(pac.ftp.request_command)
                 command_arr.append(pac.ftp.request_command)
             else:
-                print('[*]ftp_prepare.py: else arg validator works')
+                pass
     description_list = code_list_compare(command_arr)
 
     return [ftp_arr, response_arg_arr, request_arg_arr, command_arr,description_list]

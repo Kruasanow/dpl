@@ -339,6 +339,25 @@ def smtp():
     import subprocess
     from dnsf.geo_ident import show_dir_base
     from wr_acl.acl import find_acl
+    from smtpf.smtp_frepare import compare_code_smtp, get_smtp_info, to_smtp_arr
+    
+    a = get_file(get_dname_from_db())
+    
+    rspparam_rspcode_req = get_smtp_info(a) 
+    decoded_codes = compare_code_smtp(rspparam_rspcode_req[1])
+    rspparam = rspparam_rspcode_req[0]
+    rspcode = rspparam_rspcode_req[1]
+    req = rspparam_rspcode_req[2]
+
+    len_cap = len(list(a))
+    len_a = len(list(to_smtp_arr(a)))
+    cap_ga_a = len_cap - len_a
+    pacs = [cap_ga_a,len_a]
+    leb_pacs = ['Другие протоколы','SMTP']
+
+    from graths.graths import build_circle
+    circ = build_circle(leb_pacs,pacs)
+
     show_decrypted = False          #ОТЛАДИТЬ!!!!
     decrypted_sd = []               #ОТЛАДИТЬ!!!!
     try:
@@ -381,6 +400,13 @@ def smtp():
                             dsd = decrypted_sd,
                             show = show_content,
                             dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
+                            decodes = decoded_codes,
+                            rspp = rspparam,
+                            rspc = rspcode,
+                            reqc = req,
+                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание'],
+                            circle = circ,
+                          
             )
     return render_template(
                             'smtp.html',
@@ -389,6 +415,12 @@ def smtp():
                             show = show_content,
                             dsd = decrypted_sd,
                             dshow = show_decrypted,
+                            decodes = decoded_codes,
+                            rspp = rspparam,
+                            rspc = rspcode,
+                            reqc = req,
+                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание'],
+                            circle = circ,
                           )
 
 @app.route('/imap', methods = ['get','post'])
