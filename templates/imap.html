@@ -63,7 +63,67 @@
         <br><br>
         <input type="submit" value="Выбрать">
       </form>
-      
+  
+
+      <style>
+        table {
+          border-collapse: collapse;
+          width: 30%;
+          margin: 0 1%;
+          display: inline-block;
+          vertical-align: top;
+        }
+        th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+        }
+      </style>
+{% if show == True %} 
+  <div class="blocks_main1">
+    <img class="gr_style"  src="data:image/png;base64,{{ circle }}" alt=".">
+  </div>
+      <table> 
+        <tr>
+          <th>{{headimap[0]}}</th>
+        </tr>
+        {% for i in # %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headimap[1]}}</th>
+        </tr>
+        {% for i in # %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headimap[2]}}</th>
+        </tr>
+        {% for i in # %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headimap[3]}}</th>
+        </tr>
+        {% for i in # %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+{% endif %}
     </div>
 
     <!-- <h1>Введите IP-адрес</h1>

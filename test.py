@@ -1,19 +1,16 @@
 import pyshark
 
-cap = pyshark.FileCapture('dump_input/smtp.pcap')
-# 'response', 'response_code', 'rsp', 'rsp_parameter'
-for pkt in cap:
-    # try:
-    #     # print(pkt['smtp'].rsp_parameter)
-    #     # print(pkt['smtp'].response_code)
-    #     # print(pkt['smtp'].req_command)
-    # except Exception:
-    #     pass
+cap = pyshark.FileCapture('dump_input/imap.pcap')
+# 'response', 'response_status', 'response_tag'
+# 'request', 'request_command', 'request_tag'
+for pac in cap:
     try:
-        if 'UGFzc3dvcmQ6' in pkt['smtp'].rsp_parameter:
-            # print('Authentication failed in packet %s' % pkt.number)
-            print('xc90.websitewelcome.com closing connection %s' % pkt.number)
+        print(pac['imap'].request_command)
+        print('---------')
+        # print(pkt['smtp'].response_code)
+        # print(pkt['smtp'].req_command)
     except Exception:
         pass
+
 
     

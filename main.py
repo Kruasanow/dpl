@@ -429,6 +429,27 @@ def imap():
     import subprocess
     from dnsf.geo_ident import show_dir_base
     from wr_acl.acl import find_acl
+    from imapf.imap_prepare import compare_code_imap, get_imap_info, to_imap_arr
+    
+    a = get_file(get_dname_from_db())
+    
+    rspparam_rspcode_req = get_smtp_info(a)
+
+    #decoded_codes = compare_code_imap(rspparam_rspcode_req[1])
+    #rspparam = rspparam_rspcode_req[0]
+    #rspcode = rspparam_rspcode_req[1]
+    #req = rspparam_rspcode_req[2]
+
+    len_cap = len(list(a))
+    len_a = len(list(to_imap_arr(a)))
+    cap_ga_a = len_cap - len_a
+    pacs = [cap_ga_a,len_a]
+    leb_pacs = ['Другие протоколы','IMAP']
+
+    from graths.graths import build_circle
+    circ = build_circle(leb_pacs,pacs)
+
+
     show_decrypted = False          #ОТЛАДИТЬ!!!!
     decrypted_sd = []               #ОТЛАДИТЬ!!!!
     try:
