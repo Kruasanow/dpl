@@ -1,14 +1,14 @@
 import pyshark
 
 cap = pyshark.FileCapture('dump_input/imap.pcap')
-# 'response', 'response_status', 'response_tag'
-# 'request', 'request_command', 'request_tag'
+# 'response_description', 'response_indicator', 'response_data''
+# ' 'request_command' 'request_parameter'
 for pac in cap:
     try:
-        print(pac['imap'].request_command)
-        print('---------')
-        # print(pkt['smtp'].response_code)
-        # print(pkt['smtp'].req_command)
+        if hasattr(pac,'imap'):
+            print(pac.imap.response_tag)
+            print(pac.frame_info.number)
+            print('---------')
     except Exception:
         pass
 

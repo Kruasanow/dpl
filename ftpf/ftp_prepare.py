@@ -1,5 +1,5 @@
 # from pyshark import FileCapture
-# arr = ['USER','PASS','SITE']
+
 
 def code_list_compare(arr):
     from ftpf.ftp_codes import code_dict
@@ -14,31 +14,32 @@ def code_list_compare(arr):
 def select_ftp_get_arg(cap):
     
     ftp_arr          = []
-    response_arg_arr = []
-    request_arg_arr  = []
-    command_arr      = []
+    response_arg_arr = [[],[]]
+    request_arg_arr  = [[],[]]
+    command_arr      = [[],[]]
+    response_code    = [[],[]]
 
     for pac in cap:
         if hasattr(pac,'ftp'):
             ftp_arr.append(pac)
 
             if hasattr(pac.ftp,'response_arg'):
-                # print('---------------response')
-                # print(pac.ftp.response_arg)
-                response_arg_arr.append(pac.ftp.response_arg)
+                response_arg_arr[0].append(pac.frame_info.number)
+                response_arg_arr[1].append(pac.ftp.response_arg)
             if hasattr(pac.ftp,'request_arg'):
-                # print('---------------request')
-                # print(pac.ftp.request_arg)
-                request_arg_arr.append(pac.ftp.request_arg)
+                request_arg_arr[0].append(pac.frame_info.number)
+                request_arg_arr[1].append(pac.ftp.request_arg)
             if hasattr(pac.ftp,'request_command'):
-                # print('---------------no-exception')
-                # print(pac.ftp.request_command)
-                command_arr.append(pac.ftp.request_command)
+                command_arr[0].append(pac.frame_info.number)
+                command_arr[1].append(pac.ftp.request_command)
+            if hasattr(pac.ftp,'response_code'):
+                response_code[0].append(pac.frame_info.number)
+                response_code[1].append(pac.ftp.response_code)
             else:
                 pass
     description_list = code_list_compare(command_arr)
 
-    return [ftp_arr, response_arg_arr, request_arg_arr, command_arr,description_list]
+    return [ftp_arr, response_arg_arr, request_arg_arr, command_arr,description_list,response_code]
 # import subprocess 
 
 def to_ftp_arr(a):

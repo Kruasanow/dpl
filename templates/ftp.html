@@ -39,7 +39,8 @@
         </tr>
         {% for i in ftp1 %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{i[0]}}</td>
+          <td>{{i[1]}}</td>
         </tr>
         {% endfor %}
       </table>
@@ -58,6 +59,26 @@
           <th>{{headftp[2]}}</th>
         </tr>
         {% for i in ftp3 %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headftp[3]}}</th>
+        </tr>
+        {% for i in ftp4 %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headftp[4]}}</th>
+        </tr>
+        {% for i in ftp5 %}
         <tr>
           <td>{{i}}</td>
         </tr>

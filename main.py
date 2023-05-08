@@ -279,11 +279,12 @@ def ftp():
                                 'ftp.html',
                                 sd = arr_dump,
                                 circle = circ,
-                                headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса','Описание кода'],
+                                headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса','Описание кода','Код ответа'],
                                 ftp1 =  a[1],
                                 ftp2 =  a[2],
                                 ftp3 =  a[3],
                                 ftp4 =  a[4],
+                                ftp5 =  a[5],
                                 show = show_content,
                                 an12 = anomaly_12elem,
                                 another = anomaly_other_elements,
@@ -292,11 +293,12 @@ def ftp():
                             'ftp.html',
                             sd = arr_dump,
                             circle = circ,
-                            headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса','Описание кода'],
+                            headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса','Описание кода','Код ответа'],
                             ftp1 =  a[1],
                             ftp2 =  a[2],
                             ftp3 =  a[3],
                             ftp4 =  a[4],
+                            ftp5 =  a[5],
                             show = show_content,
                           )
 
@@ -348,6 +350,9 @@ def smtp():
     rspparam = rspparam_rspcode_req[0]
     rspcode = rspparam_rspcode_req[1]
     req = rspparam_rspcode_req[2]
+    cline = rspparam_rspcode_req[3]
+    auser = rspparam_rspcode_req[4]
+    apassw = rspparam_rspcode_req[5]
 
     len_cap = len(list(a))
     len_a = len(list(to_smtp_arr(a)))
@@ -404,8 +409,11 @@ def smtp():
                             rspp = rspparam,
                             rspc = rspcode,
                             reqc = req,
-                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание'],
+                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание','Команды','Логин','Пароль'],
                             circle = circ,
+                            cline = cline,
+                            auser = auser,
+                            apassw = apassw,
                           
             )
     return render_template(
@@ -419,8 +427,11 @@ def smtp():
                             rspp = rspparam,
                             rspc = rspcode,
                             reqc = req,
-                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание'],
+                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание','Команды','Логин','Пароль'],
                             circle = circ,
+                            cline = cline,
+                            auser = auser,
+                            apassw = apassw,
                           )
 
 @app.route('/imap', methods = ['get','post'])
@@ -433,12 +444,16 @@ def imap():
     
     a = get_file(get_dname_from_db())
     
-    rspparam_rspcode_req = get_smtp_info(a)
+    imap6lists = get_imap_info(a)
 
-    #decoded_codes = compare_code_imap(rspparam_rspcode_req[1])
-    #rspparam = rspparam_rspcode_req[0]
-    #rspcode = rspparam_rspcode_req[1]
-    #req = rspparam_rspcode_req[2]
+    header = ['Запрос','Ответ','Тэг запроса','Тэг ответа','Команда запроса','Статус ответа']
+    decoded_codes = compare_code_imap(imap6lists[4])
+    response = imap6lists[0]
+    response_status = imap6lists[1]
+    response_tag = imap6lists[2]
+    req = imap6lists[3]
+    request_command = imap6lists[4]
+    request_tag = imap6lists[5]
 
     len_cap = len(list(a))
     len_a = len(list(to_imap_arr(a)))
@@ -448,7 +463,6 @@ def imap():
 
     from graths.graths import build_circle
     circ = build_circle(leb_pacs,pacs)
-
 
     show_decrypted = False          #ОТЛАДИТЬ!!!!
     decrypted_sd = []               #ОТЛАДИТЬ!!!!
@@ -492,6 +506,14 @@ def imap():
                             dsd = decrypted_sd,
                             show = show_content,
                             dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
+                            headimap = header,
+                            req = req,
+                            resp = response,
+                            reqtag = request_tag,
+                            resptag = response_tag,
+                            reqcommand = request_command,
+                            respstatus = response_status,
+                            circle = circ,
             )
     return render_template(
                             'imap.html',
@@ -500,6 +522,14 @@ def imap():
                             show = show_content,
                             dsd = decrypted_sd,
                             dshow = show_decrypted,
+                            headimap = header,
+                            req = req,
+                            resp = response,
+                            reqtag = request_tag,
+                            resptag = response_tag,
+                            reqcommand = request_command,
+                            respstatus = response_status,
+                            circle = circ,
                           )
 
 @app.route('/pop', methods = ['get','post'])

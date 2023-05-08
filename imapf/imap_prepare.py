@@ -12,48 +12,43 @@ def to_imap_arr(a):
             imap_arr.append(pac)
     return imap_arr
 
-from osh import get_file, get_dname_from_db
-cap = get_file(get_dname_from_db())
+# from osh import get_file, get_dname_from_db
+# cap = get_file(get_dname_from_db())
 
 def get_imap_info(cap): 
     cap = to_imap_arr(cap)
 
-    response = []
-    response_status = []
-    response_tag = []
-    request = []
-    request_command = []
-    request_tag = []
+    response = [[],[]]
+    response_status = [[],[]]
+    response_tag = [[],[]]
+    request = [[],[]]
+    request_command = [[],[]]
+    request_tag = [[],[]]
 
     for pac in cap:
-        # print(pac)
-        try:
-            response.append(pac['imap'].response)
-        except Exception:
-            pass
-        try:
-            response_status.append(pac['imap'].response_status)
-        except Exception:
-            pass
-        try:
-            response_tag.append(pac['imap'].response_tag)
-        except Exception:
-            pass
-        try:
-            request.append(pac['imap'].request)
-        except Exception:
-            pass
-        try:
-            request_command.append(pac['imap'].request_command)
-        except Exception:
-            pass
-        try:
-            request_tag.append(pac['imap'].request_tag)
-        except Exception:
-            pass
-    return [response,response_status,response_tag,request,request_command,request_tag]
+        if hasattr(pac,'imap'):
+            if hasattr(pac.imap,'response_arg'):
+                response[0].append(pac.frame_info.number)
+                response[1].append(pac.imap.response)
+            if hasattr(pac.imap,'response_status'):
+                response_status[0].append(pac.frame_info.number)
+                response_status[1].append(pac.imap.response_status)
+            if hasattr(pac.imap,'response_tag'):
+                response_tag[0].append(pac.frame_info.number)
+                response_tag[1].append(pac.imap.response_tag)
+            if hasattr(pac.imap,'request'):
+                request[0].append(pac.frame_info.number)
+                request[1].append(pac.imap.request)
+            if hasattr(pac.imap,'request_command'):
+                request_command[0].append(pac.frame_info.number)
+                request_command[1].append(pac.imap.request_command)
+            if hasattr(pac.imap,'request_tag'):
+                request_tag[0].append(pac.frame_info.number)
+                request_tag[1].append(pac.imap.request_tag)
 
-# print(get_imap_info(cap))
+    return [response,response_status,response_tag,request,request_command,request_tag]
+from pyshark import FileCapture
+print(get_imap_info(FileCapture('dump_input/imap.pcap')))
 
 def compare_code_imap(arr):
     out_arr = []
