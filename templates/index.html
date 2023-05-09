@@ -11,21 +11,16 @@
               <li> <img src="{{ url_for('static', filename='img/slider-img1.jpg')}}" alt="" /> </li>
               <li> <img src="{{ url_for('static', filename='img/slider-img2.jpg')}}" alt="" /> </li>
               <li> <img src="{{ url_for('static', filename='img/slider-img3.jpg')}}" alt="" /> </li>
-                         </ul>
+            </ul>
           </div>
-          <a class="prev" href="#">prev</a> <a class="next" href="#">next</a> </div>
-      </div>
+        </div>
     </header>
     <!--==============================content================================-->
     <section id="content">
       <div class="main">
-        <div class="container_12">
-          <div class="container-bot">
-            <div class="container-top">
-              <div class="container">
-                <div class="wrapper">
-                  <article class="grid_8">
-                    <p class="header_dump">Исходный дамп трафика :   {{ filename }}</p>
+        <div class="wrapper">
+          <article>
+                    <p class="submit1">Исходный дамп трафика :   {{ filename }}</p>
                     <table class="table_protocol">
                       <tr>
                         <td>Протокол</th>
@@ -56,26 +51,20 @@
                         {% endif %}
                       {% endfor %}
                     </div>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="input_button"  width="100%">
+          </article>
+        </div>
+          <br>
+          <div width="100%">
             <form action="" method=post enctype=multipart/form-data>
-              <p class="submit1">
-                
+              <p class="submit1"> 
                 <label for="file-input" class="btn">Выбрать файл</label>
                 <input id="file-input" type="file" style="display: none;" class="btn" name="file">
-
-                <!-- <label for="file-input" class="btn">Выберите файл</label>
-                <input class="btn" id="file-input" type=file name=file> -->
                 <input class="btn" type=submit value=Загрузить>
               </p>
-                <!-- <button type="button" class="btn btn-warning">Warning</button> --> 
                 </form>
           </div>
           <br><br>
+          
           <div class="wrapper p5" style="display: flex; justify-content: space-between;">
             <article class="grid_4" width="30%">
               <div class="wrapper">
@@ -105,7 +94,6 @@
               </div>
             </article>
           </div>
-        </div>
       </div>
     </section>
     <!--==============================footer=================================-->
