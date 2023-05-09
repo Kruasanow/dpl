@@ -17,6 +17,7 @@ def get_smtp_info(cap):
     out_passw = [[],[]]
     for pac in cap:
         if hasattr(pac,'smtp'):
+            print(pac['smtp'])
             if hasattr(pac.smtp,'rsp_parameter'):
                 out_rsp_param[0].append(pac.frame_info.number)
                 out_rsp_param[1].append(pac.smtp.rsp_parameter)
@@ -39,15 +40,15 @@ def get_smtp_info(cap):
                 pass
     return [out_rsp_param, out_resp_code, out_req_command,out_command_line,out_user,out_passw]
 # from pyshark import FileCapture
-# print(get_smtp_info(FileCapture('dump_input/smtp.pcap')))
+# print(get_smtp_info(FileCapture('dump_input/smtp-ssl.pcapng'))[2][1])
 
-def compare_code_smtp(arr):
+def compare_code_smtp(arr,clist):
     out_arr = []
-    from smtpf.smtp_codes import code_smtp_dict
     for i in arr:
-        for j in code_smtp_dict:
+        for j in clist:
             if i == j:
-                out_arr.append(code_smtp_dict[j])
+                out_arr.append(clist[j])
     return out_arr
-
-# print(get_smtp_info(cap))
+# from pyshark import FileCapture
+# print(get_smtp_info(FileCapture('dump_input/smtp.pcap'))[1])
+# print(compare_code_smtp(get_smtp_info(FileCapture('dump_input/smtp.pcap'))[1][1]))

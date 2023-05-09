@@ -92,7 +92,7 @@
         <tr>
           <th>{{headsmtp[1]}}</th>
         </tr>
-        {% for i in rspp %}
+        {% for i in decodes2 %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -102,7 +102,7 @@
         <tr>
           <th>{{headsmtp[2]}}</th>
         </tr>
-        {% for i in rspc %}
+        {% for i in rspp %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -112,7 +112,7 @@
         <tr>
           <th>{{headsmtp[3]}}</th>
         </tr>
-        {% for i in decodes %}
+        {% for i in rspc %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -122,7 +122,7 @@
         <tr>
           <th>{{headsmtp[4]}}</th>
         </tr>
-        {% for i in cline %}
+        {% for i in decodes %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -132,7 +132,7 @@
         <tr>
           <th>{{headsmtp[5]}}</th>
         </tr>
-        {% for i in auser %}
+        {% for i in cline %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -141,6 +141,16 @@
       <table> 
         <tr>
           <th>{{headsmtp[6]}}</th>
+        </tr>
+        {% for i in auser %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headsmtp[7]}}</th>
         </tr>
         {% for i in apassw %}
         <tr>

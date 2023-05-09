@@ -27,7 +27,7 @@ def get_imap_info(cap):
 
     for pac in cap:
         if hasattr(pac,'imap'):
-            if hasattr(pac.imap,'response_arg'):
+            if hasattr(pac.imap,'response'):
                 response[0].append(pac.frame_info.number)
                 response[1].append(pac.imap.response)
             if hasattr(pac.imap,'response_status'):
@@ -47,16 +47,16 @@ def get_imap_info(cap):
                 request_tag[1].append(pac.imap.request_tag)
 
     return [response,response_status,response_tag,request,request_command,request_tag]
-from pyshark import FileCapture
-print(get_imap_info(FileCapture('dump_input/imap.pcap')))
+# from pyshark import FileCapture
+# print(get_imap_info(FileCapture('dump_input/imap.pcap'))[4])
 
-def compare_code_imap(arr):
+def compare_code_imap(arr,clist):
     out_arr = []
-    from imapf.imap_codes_list import code_imap_dict
+    # from imapf.imap_codes_list import code_imap_dict
     for i in arr:
-        for j in code_imap_dict:
+        for j in clist:
             if i == j:
-                out_arr.append(code_imap_dict[j])
+                out_arr.append(clist[j])
     return out_arr
 # print(get_imap_info(cap))
-# print(compare_code_imap(get_imap_info(cap)[4]))
+# print(compare_code_imap(get_imap_info(cap)[4][1]))

@@ -96,17 +96,17 @@
         <tr>
           <th>{{headpop[1]}}</th>
         </tr>
-        {% for i in request_parameter %}
+        {% for i in decoded_codes %}
         <tr>
           <td>{{i}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+            <table> 
         <tr>
           <th>{{headpop[2]}}</th>
         </tr>
-        {% for i in response_description %}
+        {% for i in request_parameter %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -116,7 +116,7 @@
         <tr>
           <th>{{headpop[3]}}</th>
         </tr>
-        {% for i in response_indicator %}
+        {% for i in response_description %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -125,6 +125,16 @@
       <table> 
         <tr>
           <th>{{headpop[4]}}</th>
+        </tr>
+        {% for i in response_indicator %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headpop[5]}}</th>
         </tr>
         {% for i in response_data %}
         <tr>

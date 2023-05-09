@@ -48,15 +48,14 @@ def get_pop_info(cap):
 
     return [request_command,request_parameter,response_description,response_indicator,response_data]
 
-print(get_pop_info(FileCapture('dump_input/pop-normal.pcapng')))
+# print(get_pop_info(FileCapture('dump_input/pop-normal.pcapng')))
 
-def compare_code_pop(arr):
+def compare_code_pop(arr,clist):
     out_arr = []
-    from popf.pop_codes_list import code_pop_dict
     for i in arr:
-        for j in code_pop_dict:
+        for j in clist:
             if i == j:
-                out_arr.append(code_pop_dict[j])
+                out_arr.append(clist[j])
     return out_arr
 # print(get_pop_info(cap))
 # print(compare_code_pop(get_pop_info(cap)[4]))

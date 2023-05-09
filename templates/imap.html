@@ -137,6 +137,16 @@
         <tr>
           <th>{{headimap[5]}}</th>
         </tr>
+        {% for i in decoded_codes %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headimap[6]}}</th>
+        </tr>
         {% for i in respstatus %}
         <tr>
           <td>{{i}}</td>

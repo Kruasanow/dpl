@@ -342,11 +342,12 @@ def smtp():
     from dnsf.geo_ident import show_dir_base
     from wr_acl.acl import find_acl
     from smtpf.smtp_frepare import compare_code_smtp, get_smtp_info, to_smtp_arr
-    
+    from smtpf.smtp_codes import code_smtp_dict, req_smtp_code_dict
     a = get_file(get_dname_from_db())
     
     rspparam_rspcode_req = get_smtp_info(a) 
-    decoded_codes = compare_code_smtp(rspparam_rspcode_req[1])
+    decoded_codes = compare_code_smtp(rspparam_rspcode_req[1][1],code_smtp_dict)
+    decoded_req_codes = compare_code_smtp(rspparam_rspcode_req[2][1],req_smtp_code_dict)
     rspparam = rspparam_rspcode_req[0]
     rspcode = rspparam_rspcode_req[1]
     req = rspparam_rspcode_req[2]
@@ -406,10 +407,11 @@ def smtp():
                             show = show_content,
                             dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
                             decodes = decoded_codes,
+                            decodes2 = decoded_req_codes,
                             rspp = rspparam,
                             rspc = rspcode,
                             reqc = req,
-                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание','Команды','Логин','Пароль'],
+                            headsmtp = ['Параметры запроса','Описание1','Параметры ответа','Код ответа','Описание2','Команды','Логин','Пароль'],
                             circle = circ,
                             cline = cline,
                             auser = auser,
@@ -424,10 +426,11 @@ def smtp():
                             dsd = decrypted_sd,
                             dshow = show_decrypted,
                             decodes = decoded_codes,
+                            decodes2 = decoded_req_codes,
                             rspp = rspparam,
                             rspc = rspcode,
                             reqc = req,
-                            headsmtp = ['Параметры запроса','Параметры ответа','Код ответа','Описание','Команды','Логин','Пароль'],
+                            headsmtp = ['Параметры запроса','Описание1','Параметры ответа','Код ответа','Описание2','Команды','Логин','Пароль'],
                             circle = circ,
                             cline = cline,
                             auser = auser,
@@ -441,13 +444,14 @@ def imap():
     from dnsf.geo_ident import show_dir_base
     from wr_acl.acl import find_acl
     from imapf.imap_prepare import compare_code_imap, get_imap_info, to_imap_arr
+    from imapf.imap_codes_list import code_imap_dict
     
     a = get_file(get_dname_from_db())
     
     imap6lists = get_imap_info(a)
 
-    header = ['Запрос','Ответ','Тэг запроса','Тэг ответа','Команда запроса','Статус ответа']
-    decoded_codes = compare_code_imap(imap6lists[4])
+    header = ['Запрос','Ответ','Тэг запроса','Тэг ответа','Команда запроса','Описание','Статус ответа']
+    decoded_codes = compare_code_imap(imap6lists[4][1],code_imap_dict)
     response = imap6lists[0]
     response_status = imap6lists[1]
     response_tag = imap6lists[2]
@@ -507,6 +511,7 @@ def imap():
                             show = show_content,
                             dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
                             headimap = header,
+                            decoded_codes = decoded_codes,
                             req = req,
                             resp = response,
                             reqtag = request_tag,
@@ -523,6 +528,7 @@ def imap():
                             dsd = decrypted_sd,
                             dshow = show_decrypted,
                             headimap = header,
+                            decoded_codes = decoded_codes,
                             req = req,
                             resp = response,
                             reqtag = request_tag,
@@ -540,17 +546,19 @@ def pop():
     from wr_acl.acl import find_acl
 
     from popf.pop_prepare import compare_code_pop, get_pop_info, to_pop_arr
-    
+    from popf.pop_codes_list import code_pop_dict
+
     a = get_file(get_dname_from_db())
     
     pop5lists = get_pop_info(a)
 
     header = ['Команда запроса',
+              'Описание',
               'Параметр запроса',
               'Ответ',
               'Индикатор ответа',
               'Данные ответа',]
-    # decoded_codes = compare_code_pop(pop5lists[4])
+    decoded_codes = compare_code_pop(pop5lists[0][1],code_pop_dict)
     request_command = pop5lists[0]
     request_parameter = pop5lists[1]
     response_description = pop5lists[2]
@@ -609,13 +617,12 @@ def pop():
                             show = show_content,
                             dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
                             headpop = header,
+                            decoded_codes = decoded_codes,
                             request_command = request_command,
                             request_parameter = request_parameter,
                             response_description = response_description,
                             response_indicator = response_indicator,
                             response_data = response_data,
-                            circle = circ,
-                            #decode =
             )
     return render_template(
                             'pop.html',
@@ -625,13 +632,13 @@ def pop():
                             dsd = decrypted_sd,
                             dshow = show_decrypted,
                             headpop = header,
+                            decoded_codes = decoded_codes,
                             request_command = request_command,
                             request_parameter = request_parameter,
                             response_description = response_description,
                             response_indicator = response_indicator,
                             response_data = response_data,
                             circle = circ,
-                            #decode =
                           )
 
 @app.route('/emulation', methods = ['get','post'])
