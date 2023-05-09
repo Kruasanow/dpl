@@ -1,9 +1,9 @@
 
-import sys
-PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-# PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
+# import sys
+# PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+# # PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
+# if PROJECT_PATH not in sys.path:
+#     sys.path.append(PROJECT_PATH)
 
 def to_imap_arr(a):
     imap_arr = []

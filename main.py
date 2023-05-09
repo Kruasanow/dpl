@@ -538,6 +538,34 @@ def pop():
     import subprocess
     from dnsf.geo_ident import show_dir_base
     from wr_acl.acl import find_acl
+
+    from popf.pop_prepare import compare_code_pop, get_pop_info, to_pop_arr
+    
+    a = get_file(get_dname_from_db())
+    
+    pop5lists = get_pop_info(a)
+
+    header = ['Команда запроса',
+              'Параметр запроса',
+              'Ответ',
+              'Индикатор ответа',
+              'Данные ответа',]
+    # decoded_codes = compare_code_pop(pop5lists[4])
+    request_command = pop5lists[0]
+    request_parameter = pop5lists[1]
+    response_description = pop5lists[2]
+    response_indicator = pop5lists[3]
+    response_data = pop5lists[4]
+
+    len_cap = len(list(a))
+    len_a = len(list(to_pop_arr(a)))
+    cap_ga_a = len_cap - len_a
+    pacs = [cap_ga_a,len_a]
+    leb_pacs = ['Другие протоколы','POP']
+
+    from graths.graths import build_circle
+    circ = build_circle(leb_pacs,pacs)
+    
     show_decrypted = False          #ОТЛАДИТЬ!!!!
     decrypted_sd = []               #ОТЛАДИТЬ!!!!
     try:
@@ -580,6 +608,14 @@ def pop():
                             dsd = decrypted_sd,
                             show = show_content,
                             dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
+                            headpop = header,
+                            request_command = request_command,
+                            request_parameter = request_parameter,
+                            response_description = response_description,
+                            response_indicator = response_indicator,
+                            response_data = response_data,
+                            circle = circ,
+                            #decode =
             )
     return render_template(
                             'pop.html',
@@ -588,6 +624,14 @@ def pop():
                             show = show_content,
                             dsd = decrypted_sd,
                             dshow = show_decrypted,
+                            headpop = header,
+                            request_command = request_command,
+                            request_parameter = request_parameter,
+                            response_description = response_description,
+                            response_indicator = response_indicator,
+                            response_data = response_data,
+                            circle = circ,
+                            #decode =
                           )
 
 @app.route('/emulation', methods = ['get','post'])
