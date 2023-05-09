@@ -14,9 +14,10 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:100%;
 	color:#7f7f7f;
-	min-width:960px;
+	min-width:75%;
 	height:100%;
-	background:url(../images/body-bg.jpg) center top repeat #151515
+	text-align: center;
+	/* background:url(../images/body-bg.jpg) center top repeat #151515 */
 }
 
 a {
@@ -99,16 +100,16 @@ a {
 	height: 300px;
 }
 
-.input_button {
+/* .input_button {
 	max-width: 9450px;
 	margin-left: auto;
 	margin-right: auto;
 	/* display: flex;
 	justify-content: center;
-	width: 100%; */
-}
+	width: 100%;
+} */
 
-.ic {
+/* .ic {
 	border:0;
 	float:right;
 	background:#fff;
@@ -119,8 +120,8 @@ a {
 	margin:-220% 0 0 0;
 	overflow:hidden;
 	padding:0
-}
-.main-bg {
+} */
+/* .main-bg {
 	width:100%;
 	min-height:100%;
 	background:url(../images/bg-2.jpg) center top repeat-x;
@@ -129,9 +130,10 @@ a {
 	width:100%;
 	min-height:100%;
 	background:url(../images/bg.jpg) center top no-repeat;
-}
+} */
 .main {
-	width:960px;
+	width: 75%;
+	/* width:960px; */
 	padding:0;
 	margin:0 auto;
 	font-size:17px;
@@ -151,10 +153,11 @@ a:hover {
 .col-1 {
 	margin-right:50px;
 }
-.wrapper {
-	width:100%;
-	overflow:hidden;
-}
+/* .toolbar { */
+	/* width:100%; */
+	/* text-align:center; */
+	/* overflow:hidden; */
+/* } */
 .extra-wrap {
 	overflow:hidden;
 }
@@ -183,7 +186,17 @@ p {
 	float:left;
 }
 .fright {
-	float:right;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+  
+.fright span {
+	display: block;
+	margin: 10px 0;
 }
 .alignright {
 	text-align:right;
@@ -218,11 +231,14 @@ p {
 	border: none;
 	color: white;
 	padding: 15px 32px;
-	text-align: center;
+	/* text-align: center; */
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
 	border-radius: 5px;
+}
+.main2 {
+	text-align: center;
 }
 .table_protocol1 {
 	font-size: medium;
@@ -247,8 +263,13 @@ p {
 	font-size: 25px;
 	text-align: center;
 }
-.indent {
-	padding:41px 30px 0 0;
+/* .indent { */
+	/* padding:41px 30px 0 0; */
+	/* padding:0 0 0 0; */
+/* } */
+.navgate {
+	width: 75%;
+  	margin: 0 auto;
 }
 .indent-top {
 	padding-top:15px;
@@ -312,9 +333,11 @@ p {
 .buttons a:hover {
 	cursor:pointer;
 }
-.menu li a, .list-1 li a, .link, .link-1, .link-2, .button, h1 a {
+/* .menu li a, .list-1 li a, .link, .link-1, .link-2, .button, h1 a {
 	text-decoration:none;
-}
+	/* width: auto; */
+	/* box-sizing: content-box; 
+} */
 /*********************************header*************************************/
 header {
 	width:100%;
@@ -334,19 +357,21 @@ h1 a {
 	background:url(../images/logo.png) 0 0 no-repeat;
 }
 .address {
+	/* text-align: right; */
 	display:block;
-	font-size:14px;
+	font-size:20px;
 	line-height:28px;
-	text-align:right;
+	/* text-align:right; */
 	color:#b22300;
 }
 .theme {
 	display:block;
-	font-size:25px;
+	/* text-align: center; */
+	font-size:30px;
 	line-height:30px;
-	text-align:justify;
+	/* text-align:justify; */
 	color:#fff;
-	margin-top:-5px;
+	/* margin-top:-5px; */
 }
 /***** menu *****/
 
@@ -357,38 +382,34 @@ h1 a {
 header nav {
 	width:100%;
 	height:52px;
-	background:url(../images/menu-bg.jpg) 0 0 no-repeat;
+
+	/* background:url(../images/menu-bg.jpg) 0 0 no-repeat; */
 	overflow:hidden;
 }
 #page1 header nav {
+	text-align: center;
 	margin-bottom:28px;
 }
+
+.menu {
+	display: flex;
+	justify-content: space-between;
+	background-color: #808080;
+	list-style: none;
+	padding: 0;
+	border-radius: 5px;
+}
+  
 .menu li {
-	float:left;
-	position:relative;
-	background:url(../images/menu-spacer.gif) left top no-repeat;
+	flex-grow: 1;
+	text-align: center;
 }
-.menu > li:first-child {
-	background:none;
-}
+  
 .menu li a {
-	display:inline-block;
-	font-size:18px;
-	line-height:25px;
-	padding:12px 28px 12px 29px;
-	color:#808080;
-	text-transform:capitalize;
-}
-.menu > li:first-child > a {
-	text-indent:-999em;
-	background:url(../images/menu-home.png) center -25px no-repeat;
-	min-width:22px;
-}
-.menu li a.active, .menu > li > a:hover {
-	color:#fff;
-}
-.menu > li:first-child > a.active, .menu > li:first-child > a:hover {
-	background-position:center 15px;
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color: #fff;
 }
 /***** slider *****/
 .slider-wrapper {
@@ -578,15 +599,15 @@ dl span {
 	float:left;
 	width:80px;
 }
-dl.main-address dt {
+/* dl.main-address dt {
 	margin-bottom:5px;
 }
 dl.main-address span {
-	float:left;
+	/* float:left; 
 	width:74px;
 	color:#fff;
-}
-.price-list td {
+} */
+/* .price-list td {
 	border:1px solid #343434;
 	line-height:39px;
 }
@@ -607,7 +628,7 @@ dl.main-address span {
 }
 .price-list tbody td {
 	text-align:center;
-}
+} */
 /**** Lightbox ****/
 .lightbox {
 	position:relative;
