@@ -37,7 +37,7 @@ def select_ftp_get_arg(cap):
                 response_code[1].append(pac.ftp.response_code)
             else:
                 pass
-    description_list = code_list_compare(command_arr)
+    description_list = code_list_compare(command_arr[1])
 
     return [ftp_arr, response_arg_arr, request_arg_arr, command_arr,description_list,response_code]
 # import subprocess 

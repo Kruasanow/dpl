@@ -244,7 +244,7 @@ def report():
 def ftp():
     print(url_for('ftp'))
 
-    from ftpf.ftp_prepare import select_ftp_get_arg, detect_ftp_anomaly
+    from ftpf.ftp_prepare import select_ftp_get_arg, detect_ftp_anomaly, code_list_compare
     dbase_capture = get_file(get_dname_from_db())
 
     a = select_ftp_get_arg(dbase_capture)
