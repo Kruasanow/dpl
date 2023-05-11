@@ -14,8 +14,8 @@ import logging
 import sys
 import os
 
-PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-# PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
+# PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
 if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
@@ -793,3 +793,4 @@ def tcpdump():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=False)
+    
