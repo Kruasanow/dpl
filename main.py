@@ -14,8 +14,8 @@ import logging
 import sys
 import os
 
-# PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
+PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+# PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
 if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
@@ -475,7 +475,7 @@ def http():
     request_uri_path            = general_http_info[23]
     
     from httpf.http_prepare import compare_code_http
-    decodes = compare_code_http(a[20][1],compare_code_http)
+    decodes = compare_code_http(general_http_info[20][1],code_http_dict)
     len_cap = len(list(a))
     len_a = len(list(to_http_arr(a)))
     cap_ga_a = len_cap - len_a
@@ -498,10 +498,13 @@ def http():
         arr_dump = ['Исходный дамп не выбран...']
 
     headhttp = [
-        '','','','',
-        '','','','',
-        '','','','',
-        '','','','',
+        'Дата','User agent','Сервер','URI запроса',
+        'Время','Метод сжатия','Параметр запроса','response_phrase',
+        'request_version','request_method','Ответ для URI','Запрос URI',
+        'Полный запрос URI','chat','Хост','response_line','Подключение',
+        'response_version','Допустимый язык','Код ответа (word)',
+        'Код ответа','request_line', 'accept','URI path запроса',
+        'Описание кодов ответа'
     ]
     full_way = PROJECT_PATH + "/scripts/traf_decrypt.sh"
     key_list = show_dir_base('ssl_keys')
@@ -561,7 +564,7 @@ def http():
 
             )
     return render_template(
-                            'smtp.html',
+                            'http.html',
                             dir = key_list,
                             sd = arr_dump,
                             show = show_content,

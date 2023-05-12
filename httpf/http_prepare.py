@@ -22,25 +22,25 @@ def get_http_info(cap):
     date                        = [[],[]]
     user_agent                  = [[],[]] 
     server                      = [[],[]]
-    #request                     = [[],[]]
+    #request                    = [[],[]]
     request_uri                 = [[],[]]
     time                        = [[],[]]
     accept_encoding             = [[],[]]
-    #request_number              = [[],[]]
+    #request_number             = [[],[]]
     request_uri_query_parameter = [[],[]]
     response_phrase             = [[],[]]
     request_version             = [[],[]]
     request_method              = [[],[]]
-    #response                    = [[],[]]
-    #response_number             = [[],[]]
-    #request_in                  = [[],[]]
+    #response                   = [[],[]]
+    #response_number            = [[],[]]
+    #request_in                 = [[],[]]
     response_for_uri            = [[],[]]
     request_uri_query           = [[],[]]
     request_full_uri            = [[],[]]
     chat                        = [[],[]]
     host                        = [[],[]]
     response_line               = [[],[]]
-    #location                    = [[],[]]
+    #location                   = [[],[]]
     connection                  = [[],[]]
     response_version            = [[],[]]
     accept_language             = [[],[]]
@@ -184,11 +184,11 @@ def compare_code_http(arr,clist):
                 out_arr.append(clist[j])
     return out_arr
 
-# import sys
-# # PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
+import sys
+PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
 # PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
-# if PROJECT_PATH not in sys.path:
-#     sys.path.append(PROJECT_PATH)
-# print(get_http_info(cap)[20])
-# from httpf.http_codes import code_http_dict
-# print(compare_code_http(get_http_info(cap)[20][1],code_http_dict))
+if PROJECT_PATH not in sys.path:
+    sys.path.append(PROJECT_PATH)
+print(get_http_info(cap)[20])
+from httpf.http_codes import code_http_dict
+print(compare_code_http(get_http_info(cap)[20][1],code_http_dict))

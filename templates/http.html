@@ -82,7 +82,7 @@
         <tr>
           <th>{{headhttp[0]}}</th>
         </tr>
-        {% for i in reqc %}
+        {% for i in date %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -92,7 +92,7 @@
         <tr>
           <th>{{headhttp[1]}}</th>
         </tr>
-        {% for i in decodes2 %}
+        {% for i in user_agent %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -102,7 +102,7 @@
         <tr>
           <th>{{headhttp[2]}}</th>
         </tr>
-        {% for i in rspp %}
+        {% for i in server %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -112,7 +112,7 @@
         <tr>
           <th>{{headhttp[3]}}</th>
         </tr>
-        {% for i in rspc %}
+        {% for i in request_uri %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -122,7 +122,7 @@
         <tr>
           <th>{{headhttp[4]}}</th>
         </tr>
-        {% for i in decodes %}
+        {% for i in time %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -132,7 +132,7 @@
         <tr>
           <th>{{headhttp[5]}}</th>
         </tr>
-        {% for i in cline %}
+        {% for i in accept_encoding %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -142,7 +142,7 @@
         <tr>
           <th>{{headhttp[6]}}</th>
         </tr>
-        {% for i in auser %}
+        {% for i in request_uri_query_parameter %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -152,7 +152,177 @@
         <tr>
           <th>{{headhttp[7]}}</th>
         </tr>
-        {% for i in apassw %}
+        {% for i in response_phrase %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+       <table> 
+        <tr>
+          <th>{{headhttp[8]}}</th>
+        </tr>
+        {% for i in request_version %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[9]}}</th>
+        </tr>
+        {% for i in request_method %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[10]}}</th>
+        </tr>
+        {% for i in response_for_uri %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[11]}}</th>
+        </tr>
+        {% for i in request_uri_query %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[12]}}</th>
+        </tr>
+        {% for i in request_full_uri %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[13]}}</th>
+        </tr>
+        {% for i in chat %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[14]}}</th>
+        </tr>
+        {% for i in host %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[15]}}</th>
+        </tr>
+        {% for i in response_line %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+       <table> 
+        <tr>
+          <th>{{headhttp[16]}}</th>
+        </tr>
+        {% for i in connection %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[17]}}</th>
+        </tr>
+        {% for i in response_version %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[18]}}</th>
+        </tr>
+        {% for i in accept_language %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[19]}}</th>
+        </tr>
+        {% for i in response_code_desc %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[20]}}</th>
+        </tr>
+        {% for i in response_code %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[21]}}</th>
+        </tr>
+        {% for i in request_line %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[22]}}</th>
+        </tr>
+        {% for i in accept %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[23]}}</th>
+        </tr>
+        {% for i in request_uri_path %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+            <table> 
+        <tr>
+          <th>{{headhttp[24]}}</th>
+        </tr>
+        {% for i in decodes %}
         <tr>
           <td>{{i}}</td>
         </tr>
@@ -160,15 +330,5 @@
       </table>
 {% endif %}
     </div>
-
-    <!-- <h1>Введите IP-адрес</h1>
-    <form action="{{ url_for('acl') }}" method="POST">
-      <input type="text" name="octet1" maxlength="3" size="3" value="{{ request.form.octet1 }}">.
-      <input type="text" name="octet2" maxlength="3" size="3" value="{{ request.form.octet2 }}">.
-      <input type="text" name="octet3" maxlength="3" size="3" value="{{ request.form.octet3 }}">.
-      <input type="text" name="octet4" maxlength="3" size="3" value="{{ request.form.octet4 }}">
-      <br><br>
-      <input type="submit" value="Отправить">
-    </form> -->
 </div></div>
 {% endblock %}
