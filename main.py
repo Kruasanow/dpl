@@ -437,6 +437,166 @@ def smtp():
                             apassw = apassw,
                           )
 
+@app.route('/http', methods = ['get','post'])
+def http():
+    print(url_for('http'))
+    import subprocess
+    from dnsf.geo_ident import show_dir_base
+    from wr_acl.acl import find_acl
+    from httpf.http_prepare import compare_code_http, get_http_info, to_http_arr
+    from httpf.http_codes import code_http_dict
+    a = get_file(get_dname_from_db())
+    
+    general_http_info = get_http_info(a)
+     
+    date                        = general_http_info[0]
+    user_agent                  = general_http_info[1]
+    server                      = general_http_info[2]
+    request_uri                 = general_http_info[3]
+    time                        = general_http_info[4]
+    accept_encoding             = general_http_info[5]
+    request_uri_query_parameter = general_http_info[6]
+    response_phrase             = general_http_info[7]
+    request_version             = general_http_info[8]
+    request_method              = general_http_info[9]
+    response_for_uri            = general_http_info[10]
+    request_uri_query           = general_http_info[11]
+    request_full_uri            = general_http_info[12]
+    chat                        = general_http_info[13]
+    host                        = general_http_info[14]
+    response_line               = general_http_info[15]
+    connection                  = general_http_info[16]
+    response_version            = general_http_info[17]
+    accept_language             = general_http_info[18]
+    response_code_desc          = general_http_info[19]
+    response_code               = general_http_info[20]
+    request_line                = general_http_info[21]
+    accept                      = general_http_info[22]
+    request_uri_path            = general_http_info[23]
+    
+    from httpf.http_prepare import compare_code_http
+    decodes = compare_code_http(a[20][1],compare_code_http)
+    len_cap = len(list(a))
+    len_a = len(list(to_http_arr(a)))
+    cap_ga_a = len_cap - len_a
+    pacs = [cap_ga_a,len_a]
+    leb_pacs = ['Другие протоколы','HTTP']
+
+    from graths.graths import build_circle
+    circ = build_circle(leb_pacs,pacs)
+
+    show_decrypted = False          #ОТЛАДИТЬ!!!!
+    decrypted_sd = []               #ОТЛАДИТЬ!!!!
+    try:
+        arr_dump = find_acl('HTTP')
+        show_content = True
+        if arr_dump == []:
+            arr_dump = ['Нет пакетов HTTP']
+            show_content = False
+    except Exception:
+        show_content = False
+        arr_dump = ['Исходный дамп не выбран...']
+
+    headhttp = [
+        '','','','',
+        '','','','',
+        '','','','',
+        '','','','',
+    ]
+    full_way = PROJECT_PATH + "/scripts/traf_decrypt.sh"
+    key_list = show_dir_base('ssl_keys')
+    if request.method == "POST":
+        if 'key' in request.form:
+            from wr_acl.acl import find_acl_f_decrypt
+            dump = get_dname_from_db()
+            key = request.form['key']
+            subprocess.run([full_way, dump, key, PROJECT_PATH])
+            decrypted_sd = find_acl_f_decrypt('HTTP',dump)
+            show_decrypted = True
+        if 'keyname' in request.form:
+            key_name = request.form['keyname']
+            added_key = request.form['addedkey']
+            full_way_keycreate = PROJECT_PATH + '/scripts/create_key.sh'
+            subprocess.run([full_way_keycreate,PROJECT_PATH,key_name,added_key])
+            print(f'[*]main.py: had been added key - {key_name} with value - {added_key}')
+        if 'delkey' in request.form:
+            full_way_keydel = PROJECT_PATH + '/scripts/delete_key.sh'
+            del_key = request.form["delkey"]
+            subprocess.run([full_way_keydel,PROJECT_PATH,del_key])
+            print(f'[*]main.py: key {del_key} had been deleted')
+        return render_template(
+                            'http.html',
+                            dir = key_list,
+                            sd = arr_dump,
+                            dsd = decrypted_sd,
+                            show = show_content,
+                            dshow = show_decrypted, #НАДО ОТЛАДИТЬ СЕССИЮ
+                            decodes = decodes,
+                            headhttp = headhttp,
+                            circle = circ,    
+                            date = date,
+                            user_agent = user_agent,
+                            server = server,
+                            request_uri = request_uri,
+                            time = time,
+                            accept_encoding = accept_encoding,
+                            request_uri_query_parameter = request_uri_query_parameter,
+                            response_phrase = response_phrase,
+                            request_version = request_version,
+                            request_method = request_method,
+                            response_for_uri = response_for_uri,
+                            request_uri_query = request_uri_query,
+                            request_full_uri = request_full_uri,
+                            chat = chat,
+                            host = host,
+                            response_line = response_line,
+                            connection = connection,
+                            response_version = response_version,
+                            accept_language = accept_language,
+                            response_code_desc = response_code_desc,
+                            response_code = response_code,
+                            request_line = request_line,
+                            accept = accept,
+                            request_uri_path = request_uri_path
+
+            )
+    return render_template(
+                            'smtp.html',
+                            dir = key_list,
+                            sd = arr_dump,
+                            show = show_content,
+                            dsd = decrypted_sd,
+                            dshow = show_decrypted,
+                            decodes = decodes,
+                            headhttp = headhttp,
+                            circle = circ,
+                            date = date,
+                            user_agent = user_agent,
+                            server = server,
+                            request_uri = request_uri,
+                            time = time,
+                            accept_encoding = accept_encoding,
+                            request_uri_query_parameter = request_uri_query_parameter,
+                            response_phrase = response_phrase,
+                            request_version = request_version,
+                            request_method = request_method,
+                            response_for_uri = response_for_uri,
+                            request_uri_query = request_uri_query,
+                            request_full_uri = request_full_uri,
+                            chat = chat,
+                            host = host,
+                            response_line = response_line,
+                            connection = connection,
+                            response_version = response_version,
+                            accept_language = accept_language,
+                            response_code_desc = response_code_desc,
+                            response_code = response_code,
+                            request_line = request_line,
+                            accept = accept,
+                            request_uri_path = request_uri_path
+                          )
+
+
 @app.route('/imap', methods = ['get','post'])
 def imap():
     print(url_for('imap'))

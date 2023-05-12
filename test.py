@@ -8,12 +8,14 @@ field_names = [
 'accept_encoding', 'request_number', 
 'request_uri_query_parameter', 
 'response_phrase', 'request_version', 
-'request_method', 'response', 'response_number', 
-'request_in', 'response_for_uri', 
-'request_uri_query', 'request_full_uri', 
-'chat', 'host', 'response_line', 'location', 
-'connection', 'response_version', 'accept_language', 
-'response_code_desc', 'response_code', 'request_line', 
+'request_method', 'response', 
+'response_number', 'request_in', 
+'response_for_uri', 'request_uri_query', 
+'request_full_uri', 'chat', 'host', 
+'response_line', 'location', 
+'connection', 'response_version', 
+'accept_language', 'response_code_desc', 
+'response_code', 'request_line', 
 'accept', 'request_uri_path']
 
 def to_http_arr(a):

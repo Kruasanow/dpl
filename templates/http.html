@@ -1,0 +1,174 @@
+
+{% extends "base.html" %}
+
+{% block title %}Список доступа{% endblock %}
+
+{% block content %}
+<div class="main-bg">
+  <div class="bg">
+    <!--==============================header=================================-->
+    <header>
+      <h3></h3><br><br><br>
+    </header>
+    <!--==============================content================================-->
+    ключ - имя
+    <form method="POST" action="/http">
+      <input type="text" name="addedkey">
+      <input type="text" name="keyname">
+      <button type="submit">Создать</button>
+    </form>
+
+    <form method="POST" action="/http">
+      <select name="delkey">
+        {% for key in dir %}
+          <option value="{{ key }}">{{ key }}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <input type="submit" value="Выбрать">
+    </form>
+
+      <div class="indent-traffic">
+        {% for i in sd %}
+          {% if i[4]|int is jinja_is_prime%}
+          <p class="division_0">{{i}}</p>
+          {% else %}
+          {{i}}
+          {% endif %}
+        {% endfor %}
+      </div> 
+      <br><br>
+{% if dshow == True %}
+      <div class="indent-traffic">
+        {% for i in dsd %}
+          {% if i[4]|int is jinja_is_prime%}
+          <p class="division_0">{{i}}</p>
+          {% else %}
+          {{i}}
+          {% endif %}
+        {% endfor %}
+      </div> 
+{% endif %}
+      <form method="POST" action="/http">
+        <select name="key">
+          {% for key in dir %}
+            <option value="{{ key }}">{{ key }}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Выбрать">
+      </form>
+      <br>
+
+      <style>
+        table {
+          border-collapse: collapse;
+          width: 30%;
+          margin: 0 1%;
+          display: inline-block;
+          vertical-align: top;
+        }
+        th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+        }
+      </style>
+{% if show == True %} 
+  <div class="blocks_main1">
+    <img class="gr_style"  src="data:image/png;base64,{{ circle }}" alt=".">
+  </div>
+      <table> 
+        <tr>
+          <th>{{headhttp[0]}}</th>
+        </tr>
+        {% for i in reqc %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[1]}}</th>
+        </tr>
+        {% for i in decodes2 %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[2]}}</th>
+        </tr>
+        {% for i in rspp %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[3]}}</th>
+        </tr>
+        {% for i in rspc %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[4]}}</th>
+        </tr>
+        {% for i in decodes %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[5]}}</th>
+        </tr>
+        {% for i in cline %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[6]}}</th>
+        </tr>
+        {% for i in auser %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table> 
+        <tr>
+          <th>{{headhttp[7]}}</th>
+        </tr>
+        {% for i in apassw %}
+        <tr>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+{% endif %}
+    </div>
+
+    <!-- <h1>Введите IP-адрес</h1>
+    <form action="{{ url_for('acl') }}" method="POST">
+      <input type="text" name="octet1" maxlength="3" size="3" value="{{ request.form.octet1 }}">.
+      <input type="text" name="octet2" maxlength="3" size="3" value="{{ request.form.octet2 }}">.
+      <input type="text" name="octet3" maxlength="3" size="3" value="{{ request.form.octet3 }}">.
+      <input type="text" name="octet4" maxlength="3" size="3" value="{{ request.form.octet4 }}">
+      <br><br>
+      <input type="submit" value="Отправить">
+    </form> -->
+</div></div>
+{% endblock %}
