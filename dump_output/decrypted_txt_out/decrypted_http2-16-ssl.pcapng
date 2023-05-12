@@ -7,18 +7,18 @@
     7 0.000595112    127.0.0.1 → 127.0.0.1    TCP 66 443 → 60883 [ACK] Seq=1 Ack=518 Win=44800 Len=0 TSval=78771939 TSecr=78771939
     8 0.002060010    127.0.0.1 → 127.0.0.1    TLSv1.2 917 Server Hello, Certificate, Server Key Exchange, Server Hello Done
     9 0.002084746    127.0.0.1 → 127.0.0.1    TCP 66 60883 → 443 [ACK] Seq=518 Ack=852 Win=45440 Len=0 TSval=78771939 TSecr=78771939
-   10 0.002718738    127.0.0.1 → 127.0.0.1    TLSv1.2 192 Client Key Exchange, Change Cipher Spec, Encrypted Handshake Message
-   11 0.003143571    127.0.0.1 → 127.0.0.1    TLSv1.2 117 Change Cipher Spec, Encrypted Handshake Message
-   12 0.003543745    127.0.0.1 → 127.0.0.1    TLSv1.2 119 Application Data
-   13 0.003564451    127.0.0.1 → 127.0.0.1    TLSv1.2 110 Application Data
-   14 0.003768473    127.0.0.1 → 127.0.0.1    TLSv1.2 157 Application Data
-   15 0.003848324    127.0.0.1 → 127.0.0.1    TLSv1.2 104 Application Data
+   10 0.002718738    127.0.0.1 → 127.0.0.1    TLSv1.2 192 Client Key Exchange, Change Cipher Spec, Finished
+   11 0.003143571    127.0.0.1 → 127.0.0.1    TLSv1.2 117 Change Cipher Spec, Finished
+   12 0.003543745    127.0.0.1 → 127.0.0.1    HTTP2 119 Magic
+   13 0.003564451    127.0.0.1 → 127.0.0.1    HTTP2 110 SETTINGS[0]
+   14 0.003768473    127.0.0.1 → 127.0.0.1    HTTP2 157 SETTINGS[0], HEADERS[1]: GET /
+   15 0.003848324    127.0.0.1 → 127.0.0.1    HTTP2 104 SETTINGS[0]
    16 0.003889617    127.0.0.1 → 127.0.0.1    TCP 66 443 → 60883 [ACK] Seq=947 Ack=826 Win=44800 Len=0 TSval=78771940 TSecr=78771940
-   17 0.044104225    127.0.0.1 → 127.0.0.1    TLSv1.2 318 Application Data
-   18 0.044265970    127.0.0.1 → 127.0.0.1    TLSv1.2 112 Application Data
-   19 0.044321827    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Encrypted Alert
+   17 0.044104225    127.0.0.1 → 127.0.0.1    HTTP2 318 SETTINGS[0], HEADERS[1]: 404 Not Found, DATA[1] (text/html)
+   18 0.044265970    127.0.0.1 → 127.0.0.1    HTTP2 112 GOAWAY[0]
+   19 0.044321827    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Alert (Level: Warning, Description: Close Notify)
    20 0.044367262    127.0.0.1 → 127.0.0.1    TCP 66 443 → 60883 [ACK] Seq=1199 Ack=903 Win=44800 Len=0 TSval=78771950 TSecr=78771950
-   21 0.044430930    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Encrypted Alert
+   21 0.044430930    127.0.0.1 → 127.0.0.1    TLSv1.2 97 Alert (Level: Warning, Description: Close Notify)
    22 0.044519988    127.0.0.1 → 127.0.0.1    TCP 66 443 → 60883 [FIN, ACK] Seq=1230 Ack=903 Win=44800 Len=0 TSval=78771950 TSecr=78771950
    23 0.044613281    127.0.0.1 → 127.0.0.1    TCP 66 60883 → 443 [FIN, ACK] Seq=903 Ack=1231 Win=47104 Len=0 TSval=78771950 TSecr=78771950
    24 0.044632409    127.0.0.1 → 127.0.0.1    TCP 66 443 → 60883 [ACK] Seq=1231 Ack=904 Win=44800 Len=0 TSval=78771950 TSecr=78771950
