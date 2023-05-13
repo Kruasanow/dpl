@@ -4,6 +4,7 @@
 {% block title %}Эмуляция{% endblock %}
 
 {% block content %}
+
 <div class="main-bg">
   <div class="bg">
     <!--==============================header=================================-->
@@ -19,7 +20,7 @@
             form {
               display: flex;
               flex-direction: column;
-              max-width: 400px;
+              max-width: 700px;
               margin: 0 auto;
               padding: 20px;
               background-color: #202020;
@@ -71,13 +72,13 @@
           <br><br>
             <input type="submit" value="Oпределить">
         </form>
-        <p style="text-align: center;">{{ ampl }}</p>
+        <p style="text-align: center;">Коэффициент усиления: {{ ampl }}</p>
         <br>
         <form method="post">
           <button name="scheck"> Проверить на уязвимость </button>
         </form>
         {% for i in good_ip %}
-        <p style="text-align: center;">{{ i }}</p>
+        <p style="text-align: center;">Готов к эксплуатации: {{ i }}</p>
         {% endfor %}
         <br>
         <form method="POST" action="{{ url_for('emulation') }}">
@@ -85,7 +86,7 @@
           <input type="text" name="doampl" id="name"><br><br>
           <input type="submit" value="Начать">
         </form>
-        <p style="text-align: center;">{{ pac }}</p>
+        <p style="text-align: center;">Количество отраженных в цель пакетов за 10 секунд: {{ pac }}</p>
         <br>
         <form method="POST" action="{{ url_for('emulation') }}">
           <label for="name">Введите DNS-сервер:</label>
@@ -95,8 +96,8 @@
 
           <input type="submit" name="tzone" value="Начать">
         </form>
-        <p style="text-align: center;">{{ status }}</p>
-        <p style="text-align: center;">{{ tzone }}</p>
+        <p style="text-align: center;">Возможность атаки: {{ status }}</p>
+        <p style="text-align: center;">Зона: {{ tzone }}</p>
         </div></div></div></div>
 
 {% endblock %}

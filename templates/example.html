@@ -1,7 +1,7 @@
 
 {% extends "base.html" %}
 
-{% block title %}Эмуляция{% endblock %}
+{% block title %}Карта DNS-серверов{% endblock %}
 
 {% block content %}
 <style type="text/css">
@@ -21,7 +21,7 @@ div.lastlink {border-top:1px solid #e0e0e0;margin-top:10px;padding:10px;}
 
 </head>
 <body>
-<h3>Карта распределения анализируемых DNS-серверов</h3>
+<p class="theme">Карта распределения DNS-серверов на карте мира</p>
 
 <div class="flex" style="display: flex;
 align-items: center;">
@@ -48,14 +48,15 @@ jQuery(document).ready(function(){
 </script>
 <br>
 
-<form method="POST" action="/dnsmap">
-	<select name="option">
+<form method="POST" action="/dnsmap" class="submit1">
+	Выберите базу данных IP:  
+	<select name="option" >
 		{% for option in base %}
 			<option value="{{ option }}">{{ option }}</option>
 		{% endfor %}
 	</select>
 	<br><br>
-	<input type="submit" value="Выбрать">
+	<input type="submit" value="Выбрать" class="btn">
 </form>
 
 <!-- {% for i in base %}
@@ -64,7 +65,7 @@ jQuery(document).ready(function(){
 
 {% if w_show == True %}
 <div class="lastlink">
-	<h3>Информация о доменных именах и делегируемых им DNS-серверах:</h3>	
+	<p class="theme">Информация о доменных именах и делегируемых им DNS-серверах:</p>	
 	<br>	
 	<div>
 		<table class="tabletvar">
