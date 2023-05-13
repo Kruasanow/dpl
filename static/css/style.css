@@ -88,6 +88,11 @@ a {
 	margin-right: 5px;
 }
 
+.blocks_main2 {
+	text-align: center;
+	white-space: nowrap;
+  }
+
 .main_block {
 	text-align: center;
 	margin-bottom: 10px;
@@ -96,9 +101,15 @@ a {
 }
 
 .gr_style{
-	width: 300px;
-	height: 300px;
+	width: 330px;
+	height: 330px;
 }
+.gr_style1 {
+	width: 100%;
+	max-width: 45%;
+	height: auto;
+	display: inline-block;
+  }
 
 .main {
 	width: 75%;
@@ -211,7 +222,7 @@ p {
 	flex-wrap: wrap;
 	justify-content: center;
 	margin: 0 auto;
-	max-width: 75%;
+	max-width: 100%;
 }
 .table_protocol1 {
 	font-size: medium;

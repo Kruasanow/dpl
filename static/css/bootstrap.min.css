@@ -2140,11 +2140,11 @@ progress {
     --bs-table-border-color: var(--bs-border-color);
     --bs-table-accent-bg: transparent;
     --bs-table-striped-color: var(--bs-body-color);
-    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-striped-bg: rgb(255, 255, 255);
     --bs-table-active-color: var(--bs-body-color);
-    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-active-bg: rgb(255, 0, 0);
     --bs-table-hover-color: var(--bs-body-color);
-    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    --bs-table-hover-bg: rgb(0, 255, 42);
     width: 100%;
     margin-bottom: 1rem;
     color: var(--bs-table-color);

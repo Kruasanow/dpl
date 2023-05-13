@@ -7,35 +7,47 @@
 <div class="main-bg">
     <!--==============================header=================================-->
     <header>
-      <h3></h3><br><br><br>
+      <br><br>
     </header>
     <!--==============================content================================-->
-    <form action="/acl" method="POST">
-      <button name="clear" value="1">Очистить ACL</button>
-    </form>
 
-    <form method="POST" action="/acl">
-      <select name="ip_acl">
-        {% for ip in acl %}
-          <option value="{{ ip }}">{{ ip }}</option>
-        {% endfor %}
-      </select>
-      <br><br>
-      <input type="submit" value="Выбрать">
-    </form>
-
-    {% for i in acl %}
+    <table class="tabletvar">
+      <tr>
+        <th>Список разрешенных IP-адресов</th>
+      </tr>
+      {% for i in acl %}
+      <tr>
+        <td>{{i}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <!-- <p>{{ip_message}}</p> -->
+    <!-- {% for i in acl %}
     {{i}}
-    {% endfor %}
-    {{ip_message}}
-    <h1>Введите IP-адрес</h1>
+    {% endfor %} -->
+    <!-- <p>Статус - {{ip_message}}</p> -->
+    <!-- <h1>Введите IP-адрес</h1> -->
     <form action="{{ url_for('acl') }}" method="POST">
       <input type="text" name="octet1" maxlength="3" size="3" value="{{ request.form.octet1 }}">.
       <input type="text" name="octet2" maxlength="3" size="3" value="{{ request.form.octet2 }}">.
       <input type="text" name="octet3" maxlength="3" size="3" value="{{ request.form.octet3 }}">.
       <input type="text" name="octet4" maxlength="3" size="3" value="{{ request.form.octet4 }}">
       <br><br>
-      <input type="submit" value="Отправить">
+      <p  class="submit1"><input type="submit" value="Отправить" class="btn">     Статус - {{ip_message}}</p>
     </form>
+    <br>
+    <form method="POST" action="/acl">
+      <select name="ip_acl" class="form-select">
+        {% for ip in acl %}
+          <option value="{{ ip }}">{{ ip }}</option>
+        {% endfor %}
+      </select>
+    </form>
+    <form action="/acl" method="POST" class="submit1">
+      <button name="clear" value="1" class="btn">Очистить ACL</button>
+      <input type="submit" value="Удалить" class="btn">
+      </p>
+    </form>
+    <br><br>
 </div>
 {% endblock %}

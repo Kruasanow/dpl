@@ -19,7 +19,7 @@
       form {
         display: flex;
         flex-direction: column;
-        max-width: 400px;
+        max-width: 100%;
         margin: 0 auto;
         padding: 20px;
         background-color: #202020;
@@ -54,7 +54,7 @@
         background-color: #666666;
       }
     </style>
-    <h3>Проверка трафика на присутствие атаки</h3>
+    <!-- <p>Проверка трафика на присутствие атаки</p>  -->
     <form method="POST" action="{{ url_for('about') }}">
       <label for="ur_ip">Введите IP:</label>
       <input type="text" name="ur_ip" id="name"><br><br>
@@ -68,7 +68,7 @@
     <div class="lastlink">
         <table class="tabletvar">
           <tr style="padding: 3px; border: 1px solid rgb(255, 255, 255); text-align: left;">
-            <td>DNS DDOS</td>
+            <td>DNS DDoS</td>
             <td>DNS Amplification</td>
             <td>Zone transfer</td>
             <td>DNS spoofing</td>

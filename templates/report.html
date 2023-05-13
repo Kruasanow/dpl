@@ -12,18 +12,24 @@
     </header>
     <!--==============================content================================-->
     {% if show == True %}
+    <br><br>
+    <p class="theme">Графики зависимости времени отклика DNS сервера от количества пакетов</p>
     <div class="main_block">
       {% for i in graph %}
       <div class="blocks_main1">
         <img class="gr_style"  src="data:image/png;base64,{{ i }}" alt=".">
       </div>
 {% endfor %}
+      <br><br>
     </div>
-
-    <div class="blocks_main1">
-      <img class="gr_style"  src="data:image/png;base64,{{ cir1 }}" alt=".">
+    <p class="theme">Круговая диаграмма распределения общего числа DNS пакетов и DNS BIND серверов</p>
+    <div class="blocks_main2">
+      <img class="gr_style1"  src="data:image/png;base64,{{ cir1 }}" alt=".">
+      <img class="gr_style1"  src="data:image/png;base64,{{ cir }}" alt=".">
     </div>
 {% endif %}
+    <br><br>
+    <p class="theme">Отфильтрованные из общего трафика DNS пакеты </p>
     <div class="indent-traffic">
       {% for i in sd %}
         {% if i[4]|int is jinja_is_prime%}
@@ -33,9 +39,8 @@
         {% endif %}
       {% endfor %}
     </div>
-{% if show == True %}   
-    <img class="gr_style"  src="data:image/png;base64,{{ cir }}" alt=".">
-
+{% if show == True %} 
+    <p class="theme">Расширенная информация по DNS серверам</p>
     <section id="content">
       <table class="tabletvar">
         <tr>
@@ -50,7 +55,6 @@
           <th>Ошибки (RCODE)</th>
           <th>Врема добавления</th>
         </tr>
-        
           {% for i in case %}
         <tr>
           {% for j in i %}
