@@ -429,7 +429,7 @@ def smtp():
                             rspp = rspparam,
                             rspc = rspcode,
                             reqc = req,
-                            headsmtp = ['Параметры запроса','Описание1','Параметры ответа','Код ответа','Описание2','Команды','Логин','Пароль'],
+                            headsmtp = ['Параметры запроса','Описание','Параметры ответа','Код ответа','Описание','Команды','Логин','Пароль'],
                             circle = circ,
                             cline = cline,
                             auser = auser,
@@ -448,7 +448,7 @@ def smtp():
                             rspp = rspparam,
                             rspc = rspcode,
                             reqc = req,
-                            headsmtp = ['Параметры запроса','Описание1','Параметры ответа','Код ответа','Описание2','Команды','Логин','Пароль'],
+                            headsmtp = ['Параметры запроса','Описание','Параметры ответа','Код ответа','Описание','Команды','Логин','Пароль'],
                             circle = circ,
                             cline = cline,
                             auser = auser,
@@ -616,7 +616,6 @@ def http():
                             accept = accept,
                             request_uri_path = request_uri_path
                           )
-
 
 @app.route('/imap', methods = ['get','post'])
 def imap():

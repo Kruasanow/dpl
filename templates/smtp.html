@@ -10,24 +10,58 @@
     <header>
       <h3></h3><br><br><br>
     </header>
+    <style>
+      .form-container {
+          display: flex;
+          width: 100%;
+      }
+
+      .form-container form {
+          margin-right: 10px;
+          width: 30%;
+      }
+    </style>
     <!--==============================content================================-->
-    ключ - имя
+    <br>
+    <hr>
+    <br><br>
+    <div class="form-container">
     <form method="POST" action="/smtp">
+      <p>Ключ:</p>
       <input type="text" name="addedkey">
+      <p>Название ключа:</p>
       <input type="text" name="keyname">
       <button type="submit">Создать</button>
     </form>
-
+    <!-- </div> -->
+    <!-- <div class="form-inline"></div> -->
     <form method="POST" action="/smtp">
+      <p>Выбрать ключ для удаления:</p>
       <select name="delkey">
         {% for key in dir %}
           <option value="{{ key }}">{{ key }}</option>
         {% endfor %}
       </select>
       <br><br>
-      <input type="submit" value="Выбрать">
+      <input type="submit" value="Удалить">
     </form>
-
+    <!-- </div> -->
+    <!-- <div class="form-inline"></div> -->
+    <form method="POST" action="/smtp">
+      <p>Выбрать ключ для дешифрования:</p>
+      <select name="key">
+        {% for key in dir %}
+          <option value="{{ key }}">{{ key }}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <input type="submit" value="Расшифровать">
+    </form>
+    </div>
+    <br>
+    <hr>
+    <br><br>
+    <p class="theme" style="text-align: left;">123:</p>
       <div class="indent-traffic">
         {% for i in sd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -37,8 +71,11 @@
           {% endif %}
         {% endfor %}
       </div> 
-      <br><br>
+      <br>
 {% if dshow == True %}
+    <br>
+    <hr>
+    <br><br>
       <div class="indent-traffic">
         {% for i in dsd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -49,126 +86,157 @@
         {% endfor %}
       </div> 
 {% endif %}
-      <form method="POST" action="/smtp">
-        <select name="key">
-          {% for key in dir %}
-            <option value="{{ key }}">{{ key }}</option>
-          {% endfor %}
-        </select>
-        <br><br>
-        <input type="submit" value="Выбрать">
-      </form>
-      <br>
 
-      <style>
-        table {
-          border-collapse: collapse;
-          width: 30%;
-          margin: 0 1%;
-          display: inline-block;
-          vertical-align: top;
-        }
-        th, td {
-          border: 1px solid black;
-          padding: 8px;
-          text-align: left;
-        }
-      </style>
-{% if show == True %} 
-  <div class="blocks_main1">
-    <img class="gr_style"  src="data:image/png;base64,{{ circle }}" alt=".">
+{% if show == True %}
+<br>
+<hr>
+<br><br> 
+<p class="theme" style="text-align: left;">123:</p>
+  <div class="blocks_main2">
+    <img class="gr_style1"  src="data:image/png;base64,{{ circle }}" alt=".">
   </div>
-      <table> 
+  <style>
+    .tabletvar2 {
+      width: 100%;
+    }
+
+    .centerblock {
+      margin-left: 35%;
+    }
+
+    .tabletvar2 {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse; 
+    }
+    .tabletvar2 th {
+      font-weight: bold;
+      padding: 5px;
+      background: #efefef;
+      border: 1px solid #dddddd;
+    }
+    .tabletvar2 td {
+      border: 1px solid #dddddd;
+      padding: 5px;
+      text-align: left;
+    }
+    .tabletvar2 tr td:first-child, .tabletvar2 tr th:first-child {
+      border-left: none;
+    }
+    .tabletvar2 tr td:last-child, .tabletvar2 tr th:last-child {
+      border-right: none;
+    }
+    </style>
+      <br>
+      <hr>
+      <br><br>
+    <p class="theme" style="text-align: left;">123</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headsmtp[0]}}</th>
-        </tr>
-        {% for i in reqc %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
           <th>{{headsmtp[1]}}</th>
         </tr>
-        {% for i in decodes2 %}
+        {% for i in range(reqc[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{reqc[0][i]}}</td>
+          <td>{{reqc[1][i]}}</td>
+          <td>{{decodes2[i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+
+      <br>
+      <hr>
+      <br><br>
+    <p class="theme" style="text-align: left;">123</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headsmtp[2]}}</th>
         </tr>
-        {% for i in rspp %}
+        {% for i in range(rspp[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{rspp[0][i]}}</td>
+          <td>{{rspp[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+
+      <br>
+      <hr>
+      <br><br>
+    <p class="theme" style="text-align: left;">123</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headsmtp[3]}}</th>
-        </tr>
-        {% for i in rspc %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
           <th>{{headsmtp[4]}}</th>
         </tr>
-        {% for i in decodes %}
+        {% for i in range(rspc[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{rspc[0][i]}}</td>
+          <td>{{rspc[1][i]}}</td>
+          <td>{{decodes[i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      
+      <br>
+      <hr>
+      <br><br>
+    <p class="theme" style="text-align: left;">123</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headsmtp[5]}}</th>
         </tr>
-        {% for i in cline %}
+        {% for i in range(cline[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{cline[0][i]}}</td>
+          <td>{{cline[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+
+      <br>
+      <hr>
+      <br><br>
+    <p class="theme" style="text-align: left;">123</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headsmtp[6]}}</th>
         </tr>
-        {% for i in auser %}
+        {% for i in range(auser[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{auser[0][i]}}</td>
+          <td>{{auser[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+
+      <br>
+      <hr>
+      <br><br>
+    <p class="theme" style="text-align: left;">123</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headsmtp[7]}}</th>
         </tr>
-        {% for i in apassw %}
+        {% for i in range(apassw[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{apassw[0][i]}}</td>
+          <td>{{apassw[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
+      <br>
+      <hr>
+      <br><br>
 {% endif %}
     </div>
 
-    <!-- <h1>Введите IP-адрес</h1>
-    <form action="{{ url_for('acl') }}" method="POST">
-      <input type="text" name="octet1" maxlength="3" size="3" value="{{ request.form.octet1 }}">.
-      <input type="text" name="octet2" maxlength="3" size="3" value="{{ request.form.octet2 }}">.
-      <input type="text" name="octet3" maxlength="3" size="3" value="{{ request.form.octet3 }}">.
-      <input type="text" name="octet4" maxlength="3" size="3" value="{{ request.form.octet4 }}">
-      <br><br>
-      <input type="submit" value="Отправить">
-    </form> -->
 </div></div>
 {% endblock %}
