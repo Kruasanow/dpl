@@ -77,6 +77,7 @@
     <br>
     <hr>
     <br><br>
+    <p class="theme" style="text-align: left;">123:</p>
       <div class="indent-traffic">
         {% for i in dsd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -92,6 +93,7 @@
 <br>
 <hr>
 <br><br>
+<p class="theme" style="text-align: left;">123:</p>
   <div class="blocks_main2">
     <img class="gr_style1"  src="data:image/png;base64,{{ circle }}" alt=".">
   </div>
@@ -126,7 +128,7 @@
     .tabletvar2 tr td:last-child, .tabletvar2 tr th:last-child {
       border-right: none;
     }
-    </style>
+  </style>
   <br>
   <hr>
   <br><br>
@@ -181,11 +183,13 @@
       <p class="theme" style="text-align: left;">123:</p>
       <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headimap[3]}}</th>
         </tr>
-        {% for i in resptag %}
+        {% for i in range(resptag[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{resptag[0][i]}}</td>
+          <td>{{resptag[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
@@ -195,39 +199,32 @@
       <p class="theme" style="text-align: left;">123:</p>
       <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headimap[4]}}</th>
-        </tr>
-        {% for i in reqcommand %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <br>
-      <hr>
-      <br><br>
-      <p class="theme" style="text-align: left;">123:</p>
-      <table class="tabletvar2"> 
-        <tr>
           <th>{{headimap[5]}}</th>
         </tr>
-        {% for i in decoded_codes %}
+        {% for i in range(reqcommand[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{reqcommand[0][i]}}</td>
+          <td>{{reqcommand[1][i]}}</td>
+          <td>{{decoded_codes[i]}}</td>
         </tr>
         {% endfor %}
       </table>
+
       <br>
       <hr>
       <br><br>
       <p class="theme" style="text-align: left;">123:</p>
       <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headimap[6]}}</th>
         </tr>
-        {% for i in respstatus %}
+        {% for i in range(respstatus[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{respstatus[0][i]}}</td>
+          <td>{{respstatus[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
