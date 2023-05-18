@@ -1,4 +1,3 @@
-# from pyshark import FileCapture
 
 
 def code_list_compare(arr):
@@ -8,6 +7,15 @@ def code_list_compare(arr):
         for j in code_dict:
             if i == j:
                 good_list.append(code_dict[j])
+    return good_list
+
+def code_list_compare2(arr): # блять я знаю что 2 раза одна и та же функция но ебаный рот если я ее сейчас поменяю может отъебнуть в любой точке проги
+    from ftpf.ftp_codes import code_ans_dict
+    good_list = []
+    for i in arr:
+        for j in code_ans_dict:
+            if i == j:
+                good_list.append(code_ans_dict[j])
     return good_list
 # print(code_list_compare(arr))
 
@@ -38,9 +46,12 @@ def select_ftp_get_arg(cap):
             else:
                 pass
     description_list = code_list_compare(command_arr[1])
+    description_list2 = code_list_compare2(response_code[1])
 
-    return [ftp_arr, response_arg_arr, request_arg_arr, command_arr,description_list,response_code]
-# import subprocess 
+    return [ftp_arr, response_arg_arr, request_arg_arr, command_arr,description_list,response_code,description_list2]
+import subprocess 
+from pyshark import FileCapture
+
 
 def to_ftp_arr(a):
     ftp_arr = []
@@ -50,15 +61,14 @@ def to_ftp_arr(a):
     return ftp_arr
 
 # subprocess.call('scripts/sftp_decript.sh')
-# print(select_ftp_get_arg(FileCapture('dump_input/ftp.pcapng')))
 
-# import sys
+import sys
 # PROJECT_PATH = '/home/ubuntu18/diploma-1/dpl' #Для HP
-# # PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
-# if PROJECT_PATH not in sys.path:
-#     sys.path.append(PROJECT_PATH)
-
-# from osh import get_file, get_dname_from_db
+PROJECT_PATH = '/home/ubuntu18/Desktop/dpl' #Для Aquarius
+if PROJECT_PATH not in sys.path:
+    sys.path.append(PROJECT_PATH)
+# print(select_ftp_get_arg(FileCapture('dump_input/ftp.pcapng'))[6])
+from osh import get_file, get_dname_from_db
 
 def detect_ftp_anomaly(cap):
     from collections import Counter
@@ -123,5 +133,7 @@ def detect_ftp_anomaly(cap):
             general_out['detect_window_size'][1].append(window_sizes)    
     return general_out
     # return [detector_brute, detector_secureport,detect_duplicate_acknowledgment,detect_retransmission,detect_encrypted_connection,detect_conf_troubles]
-# print(detect_ftp_anomaly(get_file('ftp_brute.pcapng'))) 
-
+# print(detect_ftp_anomaly(get_file('ftp.pcapng'))) 
+x = detect_ftp_anomaly(get_file('ftp.pcapng')).values()
+for i in x:
+    print(i)

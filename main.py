@@ -246,6 +246,15 @@ def ftp():
 
     from ftpf.ftp_prepare import select_ftp_get_arg, detect_ftp_anomaly, code_list_compare
     dbase_capture = get_file(get_dname_from_db())
+    show_an = False
+    try:
+        an12 = session['an12']
+        another = session['an45']
+        show_an = False
+    except Exception:
+        show_an = False
+        an12 = {}
+        another = {}
 
     a = select_ftp_get_arg(dbase_capture)
     len_cap = len(list(dbase_capture))
@@ -269,22 +278,27 @@ def ftp():
         
     if request.method == "POST":
         if 'showanomaly' in request.form:
+            show_an = True
             anomaly_12elem = dict(list(detect_ftp_anomaly(dbase_capture).items())[:2])
             anomaly_other_elements = detect_ftp_anomaly(dbase_capture)
             del anomaly_other_elements['detector_brute']
             del anomaly_other_elements['detector_secureport']
+            session['an12'] = anomaly_12elem
+            session['an45'] = anomaly_other_elements
             # print(anomaly_12elem.keys())
             # print(anomaly_other_elements.keys())
         return render_template(
                                 'ftp.html',
                                 sd = arr_dump,
                                 circle = circ,
-                                headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса','Описание кода','Код ответа'],
+                                headftp =  ['Аргумент запроса','Аргумент ответа','Команда запроса','Описание кода','Код ответа'],
                                 ftp1 =  a[1],
                                 ftp2 =  a[2],
                                 ftp3 =  a[3],
                                 ftp4 =  a[4],
                                 ftp5 =  a[5],
+                                ftp6 =  a[6],
+                                show_an = show_an,
                                 show = show_content,
                                 an12 = anomaly_12elem,
                                 another = anomaly_other_elements,
@@ -293,13 +307,17 @@ def ftp():
                             'ftp.html',
                             sd = arr_dump,
                             circle = circ,
-                            headftp =  ['Аргумент ответа','Аргумент запроса','Команда запроса','Описание кода','Код ответа'],
+                            headftp =  ['Аргумент запроса','Аргумент ответа','Команда запроса','Описание кода','Код ответа'],
                             ftp1 =  a[1],
                             ftp2 =  a[2],
                             ftp3 =  a[3],
                             ftp4 =  a[4],
                             ftp5 =  a[5],
+                            ftp6 =  a[6],
+                            show_an = show_an,
                             show = show_content,
+                            an12 = an12,
+                            another = another,
                           )
 
 @app.route('/acl', methods = ['get','post'])

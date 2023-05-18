@@ -13,13 +13,16 @@
     <!--==============================content================================-->
     <div class="main_block">
       
-{% if show == True %}      
-      <div class="blocks_main1">
-        <img class="gr_style"  src="data:image/png;base64,{{ circle }}" alt=".">
+{% if show == True %}    
+      <p class="theme" style="text-align: left;">Процент FTP-пакетов в дампе трафика</p>
+      <div class="blocks_main2">
+        <img class="gr_style1"  src="data:image/png;base64,{{ circle }}" alt=".">
       </div>
-
+      <br>
+      <hr>
+      <br><br>
       <style>
-        table {
+        /* table {
           border-collapse: collapse;
           width: 30%;
           margin: 0 1%;
@@ -29,65 +32,41 @@
         th, td {
           border: 1px solid black;
           padding: 8px;
-          text-align: left;
-        }
+          text-align: left; */
+      .tabletvar2 {
+      	width: 100%;
+      }
+
+      .centerblock {
+      	margin-left: 35%;
+      }
+
+      .tabletvar2 {
+      	width: 100%;
+      	margin-bottom: 20px;
+      	border-collapse: collapse; 
+      }
+      .tabletvar2 th {
+      	font-weight: bold;
+      	padding: 5px;
+      	background: #efefef;
+      	border: 1px solid #dddddd;
+      }
+      .tabletvar2 td {
+      	border: 1px solid #dddddd;
+      	padding: 5px;
+        text-align: left;
+      }
+      .tabletvar2 tr td:first-child, .tabletvar2 tr th:first-child {
+      	border-left: none;
+      }
+      .tabletvar2 tr td:last-child, .tabletvar2 tr th:last-child {
+      	border-right: none;
+      }
       </style>
-
-      <table> 
-        <tr>
-          <th>{{headftp[0]}}</th>
-        </tr>
-        {% for i in ftp1 %}
-        <tr>
-          <td>{{i[0]}}</td>
-          <td>{{i[1]}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
-          <th>{{headftp[1]}}</th>
-        </tr>
-        {% for i in ftp2 %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
-          <th>{{headftp[2]}}</th>
-        </tr>
-        {% for i in ftp3 %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
-          <th>{{headftp[3]}}</th>
-        </tr>
-        {% for i in ftp4 %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
-          <th>{{headftp[4]}}</th>
-        </tr>
-        {% for i in ftp5 %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
-    {% endif %}
-
-      <div class="indent-traffic">
+      
+      <p class="theme" style="text-align: left;">FTP-пакеты:</p>
+    <div class="indent-traffic">
       {% for i in sd %}
         {% if i[4]|int is jinja_is_prime%}
         <p class="division_0">{{i}}</p>
@@ -99,8 +78,113 @@
     <form method="POST" action="/ftp">
       <button  type="submit" name="showanomaly" value="1">Проанализировать на аномалии</button>
     </form>
-      {{an12}}
+    <br><br>
+    <hr>
+<br>
+    <p class="theme" style="text-align: left;">Аргументы запросов FTP-пакетов</p>
+      <table class="tabletvar2"> 
+        <tr>
+          <th>Пакет</th>
+          <th>{{headftp[0]}}</th>
+        </tr>
+        {% for i in range(ftp2[0]|length) %}
+        <tr>
+          <td>{{ ftp2[0][i] }}</td>
+          <td>{{ ftp2[1][i] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <hr>
+      <br><br>
+
+    <p class="theme" style="text-align: left;">Аргументы ответов FTP-пакетов</p>
+      <table class="tabletvar2"> 
+        <tr>
+          <th>Пакет</th>
+          <th>{{headftp[1]}}</th>
+        </tr>
+      {% for i in range(ftp1[0]|length) %}
+      <tr>
+        <td>{{ ftp1[0][i] }}</td>
+        <td>{{ ftp1[1][i] }}</td>
+      </tr>
+      {% endfor %}
+      </table>
+      <br>
+      <hr>
+      <br><br>
+    <p class="theme" style="text-align: left;">Команды запросов FTP-клиента серверу и их описание</p>
+      <table class="tabletvar2"> 
+        <tr>
+          <th>Пакет</th>
+          <th>{{headftp[2]}}</th>
+          <th>{{headftp[3]}}</th>
+        </tr>
+        {% for i in range(ftp3[0]|length) %}
+        <tr>
+          <td>{{ ftp3[0][i] }}</td>
+          <td>{{ ftp3[1][i] }}</td>
+          <td>{{ ftp4[i] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <hr>
+      <br><br>
+      <p class="theme" style="text-align: left;">Команды ответов FTP-сервера клиенту и их описание</p>
+      <table class="tabletvar2"> 
+        <tr>
+          <th>Пакет</th>
+          <th>{{headftp[4]}}</th>
+          <th>{{headftp[3]}}</th>
+        </tr>
+        {% for i in range(ftp5[0]|length) %}
+        <tr>
+          <td>{{ ftp5[0][i] }}</td>
+          <td>{{ ftp5[1][i] }}</td>
+          <td>{{ ftp6[i] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <hr>
+      <br><br>
+    </div>
+    {% endif %}
+
+    {% if show_an == True %}
+    <p class="theme" style="text-align: left;">Результаты анализа</p>
+    <table class="tabletvar2">
+        <thead>
+            <tr>
+                <th>Тип аномалии</th>
+                <th>Значение</th>
+            </tr>
+        </thead>
+        <tbody> 
+          {% for key, value in an12.items() %}
+          <tr>
+            <td>{{ key }}</td>
+            <td>{{ value[1] }}</td>
+          </tr>
+          {% endfor %}
+            {% for key, value in another.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>
+                  {% for j in value[1] %}
+                  <p>{{ j }}</p>
+                  <br>
+                  {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+      <!-- {{an12}}
       <br>
       {{another}}
-      <br>
+      <br> -->
     {% endblock %}
