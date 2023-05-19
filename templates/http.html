@@ -11,23 +11,90 @@
       <h3></h3><br><br><br>
     </header>
     <!--==============================content================================-->
-    ключ - имя
+    <style>
+      .form-container {
+          display: flex;
+          width: 100%;
+      }
+
+      .form-container form {
+          margin-right: 10px;
+          width: 30%;
+      }
+    </style>
+    <style>
+    .tabletvar2 {
+      width: 100%;
+    }
+
+    .centerblock {
+      margin-left: 35%;
+    }
+
+    .tabletvar2 {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse; 
+    }
+    .tabletvar2 th {
+      font-weight: bold;
+      padding: 5px;
+      background: #efefef;
+      border: 1px solid #dddddd;
+    }
+    .tabletvar2 td {
+      border: 1px solid #dddddd;
+      padding: 5px;
+      text-align: left;
+    }
+    .tabletvar2 tr td:first-child, .tabletvar2 tr th:first-child {
+      border-left: none;
+    }
+    .tabletvar2 tr td:last-child, .tabletvar2 tr th:last-child {
+      border-right: none;
+    }
+    </style>
+
+       <br>
+    <hr>
+    <br><br>
+    <div class="form-container">
     <form method="POST" action="/http">
+      <p>Ключ:</p>
       <input type="text" name="addedkey">
+      <p>Название ключа:</p>
       <input type="text" name="keyname">
       <button type="submit">Создать</button>
     </form>
-
+    <!-- </div> -->
+    <!-- <div class="form-inline"></div> -->
     <form method="POST" action="/http">
+      <p>Выбрать ключ для удаления:</p>
       <select name="delkey">
         {% for key in dir %}
           <option value="{{ key }}">{{ key }}</option>
         {% endfor %}
       </select>
       <br><br>
-      <input type="submit" value="Выбрать">
+      <input type="submit" value="Удалить">
     </form>
-
+    <!-- </div> -->
+    <!-- <div class="form-inline"></div> -->
+    <form method="POST" action="/http">
+      <p>Выбрать ключ для дешифрования:</p>
+      <select name="key">
+        {% for key in dir %}
+          <option value="{{ key }}">{{ key }}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <input type="submit" value="Расшифровать">
+    </form>
+    </div>
+    <br>
+    <hr>
+    <br><br>
+    <p class="theme" style="text-align: left;">123:</p>
       <div class="indent-traffic">
         {% for i in sd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -39,6 +106,10 @@
       </div> 
       <br><br>
 {% if dshow == True %}
+<br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
       <div class="indent-traffic">
         {% for i in dsd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -49,282 +120,398 @@
         {% endfor %}
       </div> 
 {% endif %}
-      <form method="POST" action="/http">
-        <select name="key">
-          {% for key in dir %}
-            <option value="{{ key }}">{{ key }}</option>
-          {% endfor %}
-        </select>
-        <br><br>
-        <input type="submit" value="Выбрать">
-      </form>
-      <br>
 
-      <style>
-        table {
-          border-collapse: collapse;
-          width: 30%;
-          margin: 0 1%;
-          display: inline-block;
-          vertical-align: top;
-        }
-        th, td {
-          border: 1px solid black;
-          padding: 8px;
-          text-align: left;
-        }
-      </style>
 {% if show == True %} 
-  <div class="blocks_main1">
-    <img class="gr_style"  src="data:image/png;base64,{{ circle }}" alt=".">
+<br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+  <div class="blocks_main2">
+    <img class="gr_style1"  src="data:image/png;base64,{{ circle }}" alt=".">
   </div>
-      <table> 
+  <br>
+  <hr>
+  <br><br>
+  <p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[0]}}</th>
         </tr>
-        {% for i in date %}
+        {% for i in range(date[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{date[0][i]}}</td>
+          <td>{{date[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[1]}}</th>
         </tr>
-        {% for i in user_agent %}
+        {% for i in range(user_agent[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{user_agent[0][i]}}</td>
+          <td>{{user_agent[1][i]}}</td>        
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[2]}}</th>
         </tr>
-        {% for i in server %}
+        {% for i in range(server[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{server[0][i]}}</td>
+          <td>{{server[1][i]}}</td>         
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[3]}}</th>
         </tr>
-        {% for i in request_uri %}
+        {% for i in range(request_uri[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{request_uri[0][i]}}</td>
+          <td>{{request_uri[1][i]}}</td>         
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[4]}}</th>
         </tr>
-        {% for i in time %}
+        {% for i in range(time[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{time[0][i]}}</td>
+          <td>{{time[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[5]}}</th>
         </tr>
-        {% for i in accept_encoding %}
+        {% for i in range(accept_encoding[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{accept_encoding[0][i]}}</td>
+          <td>{{accept_encoding[1][i]}}</td>       
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[6]}}</th>
         </tr>
-        {% for i in request_uri_query_parameter %}
+        {% for i in range(request_uri_query_parameter[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{request_uri_query_parameter[0][i]}}</td>
+          <td>{{request_uri_query_parameter[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[7]}}</th>
         </tr>
-        {% for i in response_phrase %}
+        {% for i in range(response_phrase[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{response_phrase[0][i]}}</td>
+          <td>{{response_phrase[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-       <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+       <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[8]}}</th>
         </tr>
-        {% for i in request_version %}
+        {% for i in range(request_version[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{request_version[0][i]}}</td>
+          <td>{{request_version[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[9]}}</th>
         </tr>
-        {% for i in request_method %}
+        {% for i in range(request_method[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{request_method[0][i]}}</td>
+          <td>{{request_method[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[10]}}</th>
         </tr>
-        {% for i in response_for_uri %}
+        {% for i in range(response_for_uri[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{response_for_uri[0][i]}}</td>
+          <td>{{response_for_uri[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[11]}}</th>
         </tr>
-        {% for i in request_uri_query %}
+        {% for i in range(request_uri_query[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{request_uri_query[0][i]}}</td>
+          <td>{{request_uri_query[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[12]}}</th>
         </tr>
-        {% for i in request_full_uri %}
+        {% for i in range(request_full_uri[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{request_full_uri[0][i]}}</td>
+          <td>{{request_full_uri[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[13]}}</th>
         </tr>
-        {% for i in chat %}
+        {% for i in range(chat[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{chat[0][i]}}</td>
+          <td>{{chat[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[14]}}</th>
         </tr>
-        {% for i in host %}
+        {% for i in range(host[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{host[0][i]}}</td>
+          <td>{{host[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[15]}}</th>
         </tr>
-        {% for i in response_line %}
+        {% for i in range(response_line[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{response_line[0][i]}}</td>
+          <td>{{response_line[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-       <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+       <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[16]}}</th>
         </tr>
-        {% for i in connection %}
+        {% for i in range(connection[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{connection[0][i]}}</td>
+          <td>{{connection[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[17]}}</th>
         </tr>
-        {% for i in response_version %}
+        {% for i in range(response_version[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{response_version[0][i]}}</td>
+          <td>{{response_version[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[18]}}</th>
         </tr>
-        {% for i in accept_language %}
+        {% for i in range(accept_language[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{accept_language[0][i]}}</td>
+          <td>{{accept_language[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[19]}}</th>
         </tr>
-        {% for i in response_code_desc %}
+        {% for i in range(response_code_desc[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{response_code_desc[0][i]}}</td>
+          <td>{{response_code_desc[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
-      <table> 
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
         <tr>
+          <th>Пакет</th>
           <th>{{headhttp[20]}}</th>
-        </tr>
-        {% for i in response_code %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
-          <th>{{headhttp[21]}}</th>
-        </tr>
-        {% for i in request_line %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
-          <th>{{headhttp[22]}}</th>
-        </tr>
-        {% for i in accept %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <table> 
-        <tr>
-          <th>{{headhttp[23]}}</th>
-        </tr>
-        {% for i in request_uri_path %}
-        <tr>
-          <td>{{i}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-            <table> 
-        <tr>
           <th>{{headhttp[24]}}</th>
         </tr>
-        {% for i in decodes %}
+        {% for i in range(response_code[0]|length) %}
         <tr>
-          <td>{{i}}</td>
+          <td>{{response_code[0][i]}}</td>
+          <td>{{response_code[1][i]}}</td>
+          <td>{{decodes[i]}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
+        <tr>
+          <th>Пакет</th>
+          <th>{{headhttp[21]}}</th>
+        </tr>
+        {% for i in range(request_line[0]|length) %}
+        <tr>
+          <td>{{request_line[0][i]}}</td>
+          <td>{{request_line[1][i]}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
+        <tr>
+          <th>Пакет</th>
+          <th>{{headhttp[22]}}</th>
+        </tr>
+        {% for i in range(accept[0]|length) %}
+        <tr>
+          <td>{{accept[0][i]}}</td>
+          <td>{{accept[1][i]}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+<hr>
+<br><br>
+<p class="theme" style="text-align: left;">123:</p>
+      <table class="tabletvar2"> 
+        <tr>
+          <th>Пакет</th>
+          <th>{{headhttp[23]}}</th>
+        </tr>
+        {% for i in range(request_uri_path[0]|length) %}
+        <tr>
+          <td>{{request_uri_path[0][i]}}</td>
+          <td>{{request_uri_path[1][i]}}</td>
         </tr>
         {% endfor %}
       </table>
