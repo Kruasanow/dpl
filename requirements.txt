@@ -12,3 +12,7 @@ argparse
 scapy
 sockets
 cryptography
+logging
+sys
+os
+subprocess

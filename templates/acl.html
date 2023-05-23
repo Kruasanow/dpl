@@ -27,6 +27,9 @@
     {% endfor %} -->
     <!-- <p>Статус - {{ip_message}}</p> -->
     <!-- <h1>Введите IP-адрес</h1> -->
+    <hr>
+    <br>
+    <p class="theme" style="text-align: left;">Введите IP для добавления:</p>
     <form action="{{ url_for('acl') }}" method="POST">
       <input type="text" name="octet1" maxlength="3" size="3" value="{{ request.form.octet1 }}">.
       <input type="text" name="octet2" maxlength="3" size="3" value="{{ request.form.octet2 }}">.
@@ -36,6 +39,9 @@
       <p  class="submit1"><input type="submit" value="Отправить" class="btn">     Статус - {{ip_message}}</p>
     </form>
     <br>
+    <hr>
+    <br>
+    <p class="theme" style="text-align: left;">Введите IP для удаления:</p>
     <form method="POST" action="/acl">
       <select name="ip_acl" class="form-select">
         {% for ip in acl %}
