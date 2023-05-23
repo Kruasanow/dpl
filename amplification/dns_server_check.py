@@ -5,7 +5,7 @@ from db_do.conn_db import get_db_connection
 #Check server ability to make flood influence 
 def read_servers():
     # with open(data_file) as servers_file:
-    #     server_list = [row.strip() for row in servers_file]
+    # server_list = [row.strip() for row in servers_file]
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute('SELECT * FROM dnsampl;')

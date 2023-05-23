@@ -23,7 +23,9 @@ def get_qname_list():
                                     ord("'"): None, 
                                     ord("("): None,
                                     ord(")"): None,
-                                    ord(","): None
+                                    ord(","): None,
+                                    ord("}"): None,
+                                    ord("{"): None
                                     }))
     return qname_arr
 
@@ -31,7 +33,7 @@ def do_whois(good_arr):
     res_arr = []
     who_list_json = []
 
-    print('[*]dns_whois.py: ')
+    print(f'[*]dns_whois.py:{good_arr} ')
     for i in good_arr:
         who = whois.whois(i)
         who_list_json.append(who)
@@ -133,6 +135,7 @@ def get_items_from_who(arr):
             updated_date, registrar,
             domain_name
             ]
+# print(do_whois(['vk.com','ya.ru']))
 
 def transponate_arr(arr):
     zarr = zip(*arr)

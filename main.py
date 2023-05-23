@@ -902,10 +902,10 @@ def dnsmap():
 
     base_list = show_dir_base('ip_base')
 
-    # try:
-    #     whois_status = session['whois_show']
-    # except Exception:
-    whois_status = False
+    try:
+        whois_status = session['whois_show']
+    except Exception:
+        whois_status = False
 
     if 'option' in request.form:
         select = request.form['option']
