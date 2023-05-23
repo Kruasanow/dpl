@@ -1,0 +1,25 @@
+Using domain server:
+Name: nsztm1.digi.ninja.
+Address: 81.4.108.41#53
+Aliases: 
+
+zonetransfer.me has address 5.196.105.14
+zonetransfer.me name server nsztm1.digi.ninja.
+zonetransfer.me name server nsztm2.digi.ninja.
+14.105.196.5.IN-ADDR.ARPA.zonetransfer.me domain name pointer www.zonetransfer.me.
+asfdbbox.zonetransfer.me has address 127.0.0.1
+canberra-office.zonetransfer.me has address 202.14.81.230
+dc-office.zonetransfer.me has address 143.228.181.132
+deadbeef.zonetransfer.me has IPv6 address dead:beaf::
+email.zonetransfer.me has address 74.125.206.26
+home.zonetransfer.me has address 127.0.0.1
+internal.zonetransfer.me name server intns1.zonetransfer.me.
+internal.zonetransfer.me name server intns2.zonetransfer.me.
+intns1.zonetransfer.me has address 81.4.108.41
+intns2.zonetransfer.me has address 167.88.42.94
+office.zonetransfer.me has address 4.23.39.254
+ipv6actnow.org.zonetransfer.me has IPv6 address 2001:67c:2e8:11::c100:1332
+owa.zonetransfer.me has address 207.46.197.32
+alltcpportsopen.firewall.test.zonetransfer.me has address 127.0.0.1
+vpn.zonetransfer.me has address 174.36.59.154
+www.zonetransfer.me has address 5.196.105.14
