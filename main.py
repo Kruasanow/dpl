@@ -914,7 +914,7 @@ def trigmanager():
                                 )
         if 'tzone' in request.form:
             return render_template(
-                                    'trigmanager.html',
+                                'trigmanager.html',
             )
 
     return render_template(

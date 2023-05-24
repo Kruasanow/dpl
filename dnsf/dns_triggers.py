@@ -39,7 +39,7 @@ def mark_value_ftable(table_list):
     warn = ' [?]'
     for i in table_list:
         
-        if int(i[1]) > 20:
+        if int(i[1]) > 20:  
             i[1] += warn
         elif int(i[1]) > 100:
             i[1] += alert
