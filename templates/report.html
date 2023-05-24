@@ -58,8 +58,20 @@
           {% for i in case %}
         <tr>
           {% for j in i %}
-          <td>
+            {% if '[?]' in j %}
+            <td style="background:yellow;">
               {{ j }}
+            </td>
+            {% endif %}
+            {% if '[!]' in j %}
+            <td  style="background:red;"> 
+              {{ j }}
+            </td>
+            {% else %} 
+            <td>
+              {{ j }}
+            </td>
+            {% endif %}
           </td> 
             {% endfor %}
         </tr>

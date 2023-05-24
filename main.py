@@ -187,13 +187,14 @@ def report():
 
     from graths.graths import build_circle
     from osh import get_par_from_dns_srv
+    from dnsf.dns_triggers import mark_value_ftable, mark_value_stable
     pars = get_par_from_dns_srv('dns_srv_profile','server','sum_pac')
     try:
-        f_table = reload_arr(get_srv_from_db()[0])   
+        f_table = mark_value_ftable(reload_arr(get_srv_from_db()[0]))
     except Exception:  
         f_table = ''
     try:
-        s_table = reload_arr(get_srv_from_db()[1])
+        s_table = mark_value_stable(reload_arr(get_srv_from_db()[1]))
     except Exception:
         s_table = ''
     try:
