@@ -44,8 +44,8 @@ def mark_value_ftable(table_list):
         elif int(i[1]) > 100:
             i[1] += alert
         
-        if i[2] == 'Autoritative':
-            i[2] = i[2] + warn
+        if 'Autoritative' in i[2]:
+            i[2] += warn
         
         if float(i[3]) > 1:
             i[3] += warn
@@ -115,6 +115,4 @@ def mark_value_stable(table_list):
         elif int(i[13]) > 86400:
             i[13] += alert
     return table_list
-# print(mark_value_stable(s_table))
 
-# mark_value(f_table)

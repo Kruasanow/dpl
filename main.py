@@ -895,6 +895,32 @@ def emulation():
                                 qtype=qtype,
                             )
 
+@app.route('/trigmanager', methods = ['get','post'])
+def trigmanager():
+    print(url_for('trigmanager'))
+
+    if request.method == "POST":
+        if 'ns' in request.form:
+            return render_template(
+                                'trigmanager.html',
+                            )
+        if 'scheck' in request.form:
+            return render_template(
+                                'trigmanager.html',
+                            )
+        if 'doampl' in request.form:
+            return render_template(
+                                'trigmanager.html',
+                                )
+        if 'tzone' in request.form:
+            return render_template(
+                                    'trigmanager.html',
+            )
+
+    return render_template(
+                                'trigmanager.html',
+                            )
+
 @app.route('/dnsmap', methods = ['get','post'])
 def dnsmap():
 

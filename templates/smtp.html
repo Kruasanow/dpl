@@ -23,6 +23,7 @@
     </style>
     <!--==============================content================================-->
     <br>
+    <p class="theme" style="text-align: left;">Настройка SSL-ключей :</p>
     <hr>
     <br><br>
     <div class="form-container">
@@ -61,7 +62,7 @@
     <br>
     <hr>
     <br><br>
-    <p class="theme" style="text-align: left;">123:</p>
+    <p class="theme" style="text-align: left;">Результат отбора SMTP пакетов из исходного дампа трафика:</p>
       <div class="indent-traffic">
         {% for i in sd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -74,6 +75,7 @@
       <br>
 {% if dshow == True %}
     <br>
+    <p class="theme" style="text-align: left;">Результат расшифровывания SMTP трафика с использованием SSL-ключа:</p>
     <hr>
     <br><br>
       <div class="indent-traffic">
@@ -91,7 +93,7 @@
 <br>
 <hr>
 <br><br> 
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Доля SMTP пакетов в общей выборке пакетов:</p>
   <div class="blocks_main2">
     <img class="gr_style1"  src="data:image/png;base64,{{ circle }}" alt=".">
   </div>
@@ -130,7 +132,7 @@
       <br>
       <hr>
       <br><br>
-    <p class="theme" style="text-align: left;">123</p>
+    <p class="theme" style="text-align: left;">Параметры SMTP запроса и их значение:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -149,7 +151,7 @@
       <br>
       <hr>
       <br><br>
-    <p class="theme" style="text-align: left;">123</p>
+    <p class="theme" style="text-align: left;">Поле "Response parameter" в SMTP пакете</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -166,7 +168,7 @@
       <br>
       <hr>
       <br><br>
-    <p class="theme" style="text-align: left;">123</p>
+    <p class="theme" style="text-align: left;">Коды SMTP ответа их значение:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -185,7 +187,7 @@
       <br>
       <hr>
       <br><br>
-    <p class="theme" style="text-align: left;">123</p>
+    <p class="theme" style="text-align: left;">Поле "Command" в SMTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -202,7 +204,7 @@
       <br>
       <hr>
       <br><br>
-    <p class="theme" style="text-align: left;">123</p>
+    <p class="theme" style="text-align: left;">Обнаруженный логин в открытом виде:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -219,7 +221,7 @@
       <br>
       <hr>
       <br><br>
-    <p class="theme" style="text-align: left;">123</p>
+    <p class="theme" style="text-align: left;">Обнаруженный пароль в открытом виде (base64):</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>

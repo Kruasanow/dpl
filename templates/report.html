@@ -55,28 +55,27 @@
           <th>Ошибки (RCODE)</th>
           <th>Врема добавления</th>
         </tr>
-          {% for i in case %}
+        {% for i in case %}
         <tr>
           {% for j in i %}
-            {% if '[?]' in j %}
-            <td style="background:yellow;">
-              {{ j }}
-            </td>
-            {% endif %}
-            {% if '[!]' in j %}
-            <td  style="background:red;"> 
-              {{ j }}
-            </td>
-            {% else %} 
-            <td>
-              {{ j }}
-            </td>
-            {% endif %}
-          </td> 
-            {% endfor %}
+          {% if '[?]' in j %}
+          <td style="background: yellow;">
+            {{ j }}
+          </td>
+          {% elif '[!]' in j %}
+          <td style="background: red;">
+            {{ j }}
+          </td>
+          {% else %}
+          <td>
+            {{ j }}
+          </td>
+          {% endif %}
+          {% endfor %}
         </tr>
-          {% endfor  %}
+        {% endfor %}
       </table>
+      
       <table class="tabletvar">
         <tr>
           <th>DNS-сервер</th>
@@ -95,15 +94,25 @@
           <th>SOA-min-ttl</th>
         </tr>
         
-          {% for i in case2 %}
+        {% for i in case2 %}
         <tr>
           {% for j in i %}
+          {% if '[?]' in j %}
+          <td style="background: yellow;">
+            {{ j }}
+          </td>
+          {% elif '[!]' in j %}
+          <td style="background: red;">
+            {{ j }}
+          </td>
+          {% else %}
           <td>
-              {{ j }}
-          </td> 
-            {% endfor %}
+            {{ j }}
+          </td>
+          {% endif %}
+          {% endfor %}
         </tr>
-          {% endfor  %}
+        {% endfor %}
       </table>
     </div></div>
     {% endif %}

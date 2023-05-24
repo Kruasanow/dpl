@@ -56,6 +56,7 @@
     </style>
 
        <br>
+       <p class="theme" style="text-align: left;">Настройка SSL-ключей:</p>
     <hr>
     <br><br>
     <div class="form-container">
@@ -94,7 +95,7 @@
     <br>
     <hr>
     <br><br>
-    <p class="theme" style="text-align: left;">123:</p>
+    <p class="theme" style="text-align: left;">Результат фильтрации по протоколу HTTP:</p>
       <div class="indent-traffic">
         {% for i in sd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -109,7 +110,7 @@
 <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Результат расшифровывания с использованием SSL-ключа:</p>
       <div class="indent-traffic">
         {% for i in dsd %}
           {% if i[4]|int is jinja_is_prime%}
@@ -125,14 +126,14 @@
 <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Доля HTTP в исходном дампе трафика:</p>
   <div class="blocks_main2">
     <img class="gr_style1"  src="data:image/png;base64,{{ circle }}" alt=".">
   </div>
   <br>
   <hr>
   <br><br>
-  <p class="theme" style="text-align: left;">123:</p>
+  <p class="theme" style="text-align: left;">Фрагмент "Дата и время" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -148,7 +149,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "User Agent" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -164,7 +165,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Сервер" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -180,7 +181,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "URI" в HTTP запросе:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -196,7 +197,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Время отклика HTTP ответа:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -212,7 +213,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Метод сжатия в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -228,7 +229,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Request parameter" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -244,7 +245,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Response phrase" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -260,7 +261,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Request version" в HTTP пакете:</p>
        <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -276,7 +277,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Request method" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -292,7 +293,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Ответ для URI запроса:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -308,7 +309,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Запрос URI:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -324,7 +325,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Full URI request" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -340,7 +341,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Chat" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -356,7 +357,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Host" в HTTP пакете::</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -372,7 +373,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Response line" в HTTP пакете::</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -388,7 +389,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Состояние подключения:</p>
        <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -404,7 +405,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Response version" в HTTP пакете::</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -420,7 +421,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Допустимый язык:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -436,33 +437,19 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
-      <table class="tabletvar2"> 
-        <tr>
-          <th>Пакет</th>
-          <th>{{headhttp[19]}}</th>
-        </tr>
-        {% for i in range(response_code_desc[0]|length) %}
-        <tr>
-          <td>{{response_code_desc[0][i]}}</td>
-          <td>{{response_code_desc[1][i]}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <br>
-<hr>
-<br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Код ответа:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
           <th>{{headhttp[20]}}</th>
+          <th>{{headhttp[19]}}</th>
           <th>{{headhttp[24]}}</th>
         </tr>
         {% for i in range(response_code[0]|length) %}
         <tr>
           <td>{{response_code[0][i]}}</td>
           <td>{{response_code[1][i]}}</td>
+          <td>{{response_code_desc[1][i]}}</td>
           <td>{{decodes[i]}}</td>
         </tr>
         {% endfor %}
@@ -470,7 +457,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Request line" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -486,7 +473,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "Accept" в HTTP пакете:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -502,7 +489,7 @@
       <br>
 <hr>
 <br><br>
-<p class="theme" style="text-align: left;">123:</p>
+<p class="theme" style="text-align: left;">Поле "URI path" в HTTP запросе:</p>
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>

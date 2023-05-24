@@ -56,9 +56,9 @@
     </style>
     <!-- <p>Проверка трафика на присутствие атаки</p>  -->
     <form method="POST" action="{{ url_for('about') }}">
-      <label for="ur_ip">Введите IP:</label>
+      <label for="ur_ip">Введите IP [DNS cache poisoning]:</label>
       <input type="text" name="ur_ip" id="name"><br><br>
-      <label for="limit">Введите триггерную величину:</label>
+      <label for="limit">Введите триггерную величину [DNS DDoS]:</label>
       <input type="text" name="limit" id="name"><br><br>
       <input type="submit" value="Cканировать">
     </form>
