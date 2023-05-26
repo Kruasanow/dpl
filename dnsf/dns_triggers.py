@@ -162,7 +162,6 @@ def manual_mark_value_ftable(table_list, pac_q, pac_lim_q, serv_qtype, resp_time
 
 # print(manual_mark_value_ftable(f_table,'10','20','1','0.5','1','5.0','1','1,4'))
 
-
 def manual_mark_value_stable(table_list, null_ip, rtypes, rclasses, opcode, razn_pac, refresh_warn, refresh_alert, expire_warn, expire_alert, minttl_warn, minttl_alert):
     alert = ' [!]'
     warn = ' [?]'

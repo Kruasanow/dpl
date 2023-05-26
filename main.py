@@ -916,9 +916,10 @@ def trigmanager():
             return render_template(
                                 'trigmanager.html',
             )
-
+    from dnsf.dns_codes_list import RCODE_name_list
     return render_template(
                                 'trigmanager.html',
+                                rcodes = RCODE_name_list,
                             )
 
 @app.route('/dnsmap', methods = ['get','post'])
