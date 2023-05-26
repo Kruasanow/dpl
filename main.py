@@ -187,14 +187,43 @@ def report():
 
     from graths.graths import build_circle
     from osh import get_par_from_dns_srv
-    from dnsf.dns_triggers import mark_value_ftable, mark_value_stable
+    from dnsf.dns_triggers import mark_value_ftable, mark_value_stable, manual_mark_value_ftable, manual_mark_value_stable
     pars = get_par_from_dns_srv('dns_srv_profile','server','sum_pac')
     try:
-        f_table = mark_value_ftable(reload_arr(get_srv_from_db()[0]))
+        if session['trigmanagerworks'] == True:
+            f_table = manual_mark_value_ftable(
+                                    reload_arr(get_srv_from_db()[0]),
+                                    session['pacq'],
+                                    session['paclimq'],
+                                    session['servqtype'],
+                                    session['resptimewarn'],
+                                    session['resptimealert'],
+                                    session['ttl'],
+                                    session['trunk'],
+                                    session['rcodes']
+                                            )
+        else:
+            f_table = mark_value_ftable(reload_arr(get_srv_from_db()[0]))
     except Exception:  
         f_table = ''
     try:
-        s_table = mark_value_stable(reload_arr(get_srv_from_db()[1]))
+        if session['trigmanagerworks'] == True:
+            s_table = manual_mark_value_stable(
+                                    reload_arr(get_srv_from_db()[1]),
+                                    session['nullip'],
+                                    session['rtypes'],
+                                    session['rclasses'],
+                                    session['opcode'],
+                                    session['raznpac'], 
+                                    session['refreshwarn'],
+                                    session['refreshalert'],
+                                    session['expirewarn'],
+                                    session['expirealert'],
+                                    session['minttlwarn'],
+                                    session['minttlalert']
+            )
+        else:
+            s_table = mark_value_stable(reload_arr(get_srv_from_db()[1]))
     except Exception:
         s_table = ''
     try:
@@ -898,25 +927,50 @@ def emulation():
 @app.route('/trigmanager', methods = ['get','post'])
 def trigmanager():
     print(url_for('trigmanager'))
-
-    if request.method == "POST":
-        if 'ns' in request.form:
-            return render_template(
-                                'trigmanager.html',
-                            )
-        if 'scheck' in request.form:
-            return render_template(
-                                'trigmanager.html',
-                            )
-        if 'doampl' in request.form:
-            return render_template(
-                                'trigmanager.html',
-                                )
-        if 'tzone' in request.form:
-            return render_template(
-                                'trigmanager.html',
-            )
     from dnsf.dns_codes_list import RCODE_name_list
+    if request.method == "POST":
+        # if 'ns' in request.form:
+        #     return render_template(
+        #                         'trigmanager.html',
+        #                     )
+        # if 'scheck' in request.form:
+        #     return render_template(
+        #                         'trigmanager.html',
+        #                     )
+        # if 'doampl' in request.form:
+        #     return render_template(
+        #                         'trigmanager.html',
+        #                         )
+        # if 'tzone' in request.form:
+        #     return render_template(
+        #                         'trigmanager.html',
+        #     )
+        session['trigmanagerworks'] = True
+        session['pacq'] = request.form['pac_q']
+        session['paclimq'] = request.form['pac_lim_q']
+        session['servqtype'] = request.form['serv_qtype']
+        session['resptimewarn'] = request.form['resp_time_warn']
+        session['resptimealert'] = request.form['resp_time_alert']
+        session['ttl'] = request.form['ttl']
+        session['trunk'] = request.form['trunk']
+        session['rcodes'] = request.form['rcodes']
+        session['nullip'] = request.form['null_ip']
+        session['rtypes'] = request.form['rtypes']
+        session['rclasses'] = request.form['rclasses']
+        session['opcode'] = request.form['opcode']
+        session['raznpac'] = request.form['razn_pac']
+        session['refreshwarn'] = request.form['refresh_warn']
+        session['refreshalert'] = request.form['refresh_alert']
+        session['expirewarn'] = request.form['expire_warn']
+        session['expirealert'] = request.form['expire_alert']
+        session['minttlwarn'] = request.form['minttl_warn']
+        session['minttlalert'] = request.form['minttl_alert']
+
+        return render_template(
+                            'trigmanager.html',
+                            rcodes = RCODE_name_list,
+        )
+
     return render_template(
                                 'trigmanager.html',
                                 rcodes = RCODE_name_list,

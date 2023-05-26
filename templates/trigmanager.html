@@ -50,7 +50,7 @@
       }
     </style>
 
-    <form method="POST" action="{{ url_for('about') }}">
+    <form method="POST" action="{{ url_for('trigmanager') }}">
       <label for="pac_q">Предельное количество пакетов от сервера [int:1-N]:</label>
       <input type="text" name="pac_q" id="name"><br><br>
       <label for="pac_lim_q">Критическое количество пакетов от сервера [int:1-N]:</label>
@@ -88,12 +88,30 @@
           <td>21-{{rcodes[20]}}</td>
         </tr>
       </table>
-      <label for="rcodes">RCODE [list:1-21 | example: 1,5,11,17]:</label>
+      <label for="rcodes">RCODE [list:1-21 | Пример: 1,5,11,17]:</label>
       <input type="text" name="rcodes" id="name"><br><br>
       <label for="null_ip">Реагировать на пустую A-Record [int:0-1]:</label>
       <input type="text" name="null_ip" id="name"><br><br>
-      <label for="pac_lim_q"> [int:1-N]:</label>
-      <input type="text" name="pac_lim_q" id="name"><br><br>
+      <label for="rtypes">Rtypes [list:1-20 | Пример: 1,5,11,17]:</label>
+      <input type="text" name="rtypes" id="name"><br><br>
+      <label for="rclasses">Rclasses [list:1-20 | Пример: 1,5,11,17]:</label>
+      <input type="text" name="rclasses" id="name"><br><br>
+      <label for="opcode">Opcode [list:1-8 | Пример: 1,5,8]:</label>
+      <input type="text" name="opcode" id="name"><br><br>
+      <label for="razn_pac">Реагировать на разницу пакетов: 0 - Нет, 1 - ДА [int:0-1]:</label>
+      <input type="text" name="razn_pac" id="name"><br><br>
+      <label for="refresh_warn">Минимальный SOA refresh [int:1-N]:</label>
+      <input type="text" name="refresh_warn" id="name"><br><br>
+      <label for="refresh_alert">Максимальный SOA refresh [int:1-N]:</label>
+      <input type="text" name="refresh_alert" id="name"><br><br>
+      <label for="expire_warn">Минимальный SOA expire limit [int:1-N]:</label>
+      <input type="text" name="expire_warn" id="name"><br><br>
+      <label for="expire_alert">Максимальный SOA expire limit [int:1-N]:</label>
+      <input type="text" name="expire_alert" id="name"><br><br>
+      <label for="minttl_warn">Минимальный SOA min ttl [int:1-N]:</label>
+      <input type="text" name="minttl_warn" id="name"><br><br>
+      <label for="minttl_alert">Максимальный SOA min ttl [int:1-N]:</label>
+      <input type="text" name="minttl_alert" id="name"><br><br>
       <input type="submit" value="Cканировать">
     </form>
 </div>
