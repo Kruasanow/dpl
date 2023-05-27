@@ -190,39 +190,41 @@ def report():
     from dnsf.dns_triggers import mark_value_ftable, mark_value_stable, manual_mark_value_ftable, manual_mark_value_stable
     pars = get_par_from_dns_srv('dns_srv_profile','server','sum_pac')
     try:
-        if session['trigmanagerworks'] == True:
-            f_table = manual_mark_value_ftable(
-                                    reload_arr(get_srv_from_db()[0]),
-                                    session['pacq'],
-                                    session['paclimq'],
-                                    session['servqtype'],
-                                    session['resptimewarn'],
-                                    session['resptimealert'],
-                                    session['ttl'],
-                                    session['trunk'],
-                                    session['rcodes']
-                                            )
-        else:
+        try:
+            if session['trigmanagerworks'] == True:
+                f_table = manual_mark_value_ftable(
+                                        reload_arr(get_srv_from_db()[0]),
+                                        session['pacq'],
+                                        session['paclimq'],
+                                        session['servqtype'],
+                                        session['resptimewarn'],
+                                        session['resptimealert'],
+                                        session['ttl'],
+                                        session['trunk'],
+                                        session['rcodes']
+                                                )
+        except Exception:
             f_table = mark_value_ftable(reload_arr(get_srv_from_db()[0]))
     except Exception:  
         f_table = ''
     try:
-        if session['trigmanagerworks'] == True:
-            s_table = manual_mark_value_stable(
-                                    reload_arr(get_srv_from_db()[1]),
-                                    session['nullip'],
-                                    session['rtypes'],
-                                    session['rclasses'],
-                                    session['opcode'],
-                                    session['raznpac'], 
-                                    session['refreshwarn'],
-                                    session['refreshalert'],
-                                    session['expirewarn'],
-                                    session['expirealert'],
-                                    session['minttlwarn'],
-                                    session['minttlalert']
-            )
-        else:
+        try:
+            if session['trigmanagerworks'] == True:
+                s_table = manual_mark_value_stable(
+                                        reload_arr(get_srv_from_db()[1]),
+                                        session['nullip'],
+                                        session['rtypes'],
+                                        session['rclasses'],
+                                        session['opcode'],
+                                        session['raznpac'], 
+                                        session['refreshwarn'],
+                                        session['refreshalert'],
+                                        session['expirewarn'],
+                                        session['expirealert'],
+                                        session['minttlwarn'],
+                                        session['minttlalert']
+                )
+        except Exception:
             s_table = mark_value_stable(reload_arr(get_srv_from_db()[1]))
     except Exception:
         s_table = ''
