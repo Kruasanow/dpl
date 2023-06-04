@@ -1,302 +1,71 @@
-    1 0.000000000 192.168.138.13 → 192.168.138.2 DNS 100 Standard query 0x2d85 A connectivity-check.ubuntu.com OPT
-    2 0.000188516 192.168.138.13 → 192.168.138.2 DNS 100 Standard query 0xa8b7 AAAA connectivity-check.ubuntu.com OPT
-    3 0.086387616 192.168.138.2 → 192.168.138.13 DNS 244 Standard query response 0x2d85 A connectivity-check.ubuntu.com A 185.125.190.49 A 35.232.111.17 A 185.125.190.48 A 91.189.91.48 A 185.125.190.17 A 35.224.170.84 A 34.122.121.32 A 91.189.91.49 A 185.125.190.18 OPT
-    4 0.095657353 192.168.138.2 → 192.168.138.13 DNS 268 Standard query response 0xa8b7 AAAA connectivity-check.ubuntu.com AAAA 2620:2d:4000:1::2b AAAA 2001:67c:1562::23 AAAA 2620:2d:4000:1::2a AAAA 2620:2d:4000:1::22 AAAA 2001:67c:1562::24 AAAA 2620:2d:4000:1::23 OPT
-    5 1.001150300 192.168.138.13 → 185.125.190.49 TCP 74 46930 → 80 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=2419612388 TSecr=0 WS=128
-    6 1.117855665 185.125.190.49 → 192.168.138.13 TCP 60 80 → 46930 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
-    7 1.118009523 192.168.138.13 → 185.125.190.49 TCP 54 46930 → 80 [ACK] Seq=1 Ack=1 Win=64240 Len=0
-    8 1.118331184 192.168.138.13 → 185.125.190.49 HTTP 141 GET / HTTP/1.1 
-    9 1.119360833 185.125.190.49 → 192.168.138.13 TCP 60 80 → 46930 [ACK] Seq=1 Ack=88 Win=64240 Len=0
-   10 1.191011384 185.125.190.49 → 192.168.138.13 HTTP 201 HTTP/1.1 204 No Content 
-   11 1.191055257 192.168.138.13 → 185.125.190.49 TCP 54 46930 → 80 [ACK] Seq=88 Ack=148 Win=64093 Len=0
-   12 1.191643310 192.168.138.13 → 185.125.190.49 TCP 54 46930 → 80 [FIN, ACK] Seq=88 Ack=148 Win=64093 Len=0
-   13 1.193292749 185.125.190.49 → 192.168.138.13 TCP 60 80 → 46930 [ACK] Seq=148 Ack=89 Win=64239 Len=0
-   14 1.198968167 185.125.190.49 → 192.168.138.13 TCP 60 80 → 46930 [FIN, PSH, ACK] Seq=148 Ack=89 Win=64239 Len=0
-   15 1.199018554 192.168.138.13 → 185.125.190.49 TCP 54 46930 → 80 [ACK] Seq=89 Ack=149 Win=64093 Len=0
-   16 5.858512966 192.168.138.13 → 192.168.138.2 DNS 89 Standard query 0x97a9 A ru.maps.google.com OPT
-   17 5.858665645 192.168.138.13 → 192.168.138.2 DNS 89 Standard query 0xe25f AAAA ru.maps.google.com OPT
-   18 5.974028840 192.168.138.2 → 192.168.138.13 DNS 139 Standard query response 0x97a9 No such name A ru.maps.google.com SOA ns1.google.com OPT
-   19 5.974180344 192.168.138.13 → 192.168.138.2 DNS 78 Standard query 0x97a9 A ru.maps.google.com
-   20 5.991572057 192.168.138.2 → 192.168.138.13 DNS 139 Standard query response 0xe25f No such name AAAA ru.maps.google.com SOA ns1.google.com OPT
-   21 5.991721375 192.168.138.13 → 192.168.138.2 DNS 78 Standard query 0xe25f AAAA ru.maps.google.com
-   22 6.021446921 192.168.138.2 → 192.168.138.13 DNS 128 Standard query response 0xe25f No such name AAAA ru.maps.google.com SOA ns1.google.com
-   23 6.104289042 192.168.138.2 → 192.168.138.13 DNS 128 Standard query response 0x97a9 No such name A ru.maps.google.com SOA ns1.google.com
-   24 6.105660937 192.168.138.13 → 192.168.138.2 DNS 101 Standard query 0x122a A ru.maps.google.com.localdomain OPT
-   25 6.106140143 192.168.138.13 → 192.168.138.2 DNS 101 Standard query 0x6151 AAAA ru.maps.google.com.localdomain OPT
-   26 6.153296047 192.168.138.2 → 192.168.138.13 DNS 176 Standard query response 0x6151 No such name AAAA ru.maps.google.com.localdomain SOA a.root-servers.net OPT
-   27 6.153471277 192.168.138.13 → 192.168.138.2 DNS 90 Standard query 0x6151 AAAA ru.maps.google.com.localdomain
-   28 6.171453864 192.168.138.2 → 192.168.138.13 DNS 176 Standard query response 0x122a No such name A ru.maps.google.com.localdomain SOA a.root-servers.net OPT
-   29 6.171674267 192.168.138.13 → 192.168.138.2 DNS 90 Standard query 0x122a A ru.maps.google.com.localdomain
-   30 6.288785867 192.168.138.2 → 192.168.138.13 DNS 165 Standard query response 0x6151 No such name AAAA ru.maps.google.com.localdomain SOA a.root-servers.net
-   31 6.408222630 192.168.138.2 → 192.168.138.13 DNS 90 Standard query response 0x122a No such name A ru.maps.google.com.localdomain
-   32 16.358017300 192.168.138.13 → 192.168.138.2 DNS 81 Standard query 0x92d3 A google.com OPT
-   33 16.358201221 192.168.138.13 → 192.168.138.2 DNS 81 Standard query 0xcbb7 AAAA google.com OPT
-   34 16.419686357 192.168.138.2 → 192.168.138.13 DNS 97 Standard query response 0x92d3 A google.com A 216.58.209.174 OPT
-   35 16.465885859 192.168.138.2 → 192.168.138.13 DNS 109 Standard query response 0xcbb7 AAAA google.com AAAA 2a00:1450:4026:802::200e OPT
-   36 16.466500491 192.168.138.13 → 216.58.209.174 ICMP 98 Echo (ping) request  id=0x2bfa, seq=1/256, ttl=64
-   37 16.564092861 216.58.209.174 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2bfa, seq=1/256, ttl=128 (request in 36)
-   38 16.564429438 192.168.138.13 → 192.168.138.2 DNS 98 Standard query 0x7925 PTR 174.209.58.216.in-addr.arpa OPT
-   39 16.608303401 192.168.138.2 → 192.168.138.13 DNS 198 Standard query response 0x7925 PTR 174.209.58.216.in-addr.arpa PTR hem09s02-in-f14.1e100.net PTR bud02s21-in-f174.1e100.net PTR bud02s21-in-f14.1e100.net OPT
-   40 22.465876816 192.168.138.13 → 192.168.138.2 DNS 86 Standard query 0xcf03 A maps.google.com OPT
-   41 22.466057160 192.168.138.13 → 192.168.138.2 DNS 86 Standard query 0x5aaa AAAA maps.google.com OPT
-   42 22.530845999 192.168.138.2 → 192.168.138.13 DNS 102 Standard query response 0xcf03 A maps.google.com A 216.58.210.174 OPT
-   43 22.542803958 192.168.138.2 → 192.168.138.13 DNS 114 Standard query response 0x5aaa AAAA maps.google.com AAAA 2a00:1450:4026:805::200e OPT
-   44 22.543284440 192.168.138.13 → 216.58.210.174 ICMP 98 Echo (ping) request  id=0x2c01, seq=1/256, ttl=64
-   45 22.581996228 216.58.210.174 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c01, seq=1/256, ttl=128 (request in 44)
-   46 22.582427962 192.168.138.13 → 192.168.138.2 DNS 98 Standard query 0x6927 PTR 174.210.58.216.in-addr.arpa OPT
-   47 22.610532335 192.168.138.2 → 192.168.138.13 DNS 198 Standard query response 0x6927 PTR 174.210.58.216.in-addr.arpa PTR mad06s10-in-f174.1e100.net PTR mad06s10-in-f14.1e100.net PTR hem08s07-in-f14.1e100.net OPT
-   48 23.544319921 192.168.138.13 → 216.58.210.174 ICMP 98 Echo (ping) request  id=0x2c01, seq=2/512, ttl=64
-   49 23.581153350 216.58.210.174 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c01, seq=2/512, ttl=128 (request in 48)
-   50 23.890677151 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   51 24.546453404 192.168.138.13 → 216.58.210.174 ICMP 98 Echo (ping) request  id=0x2c01, seq=3/768, ttl=64
-   52 24.578182599 216.58.210.174 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c01, seq=3/768, ttl=128 (request in 51)
-   53 24.890245758 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   54 25.549350985 192.168.138.13 → 216.58.210.174 ICMP 98 Echo (ping) request  id=0x2c01, seq=4/1024, ttl=64
-   55 25.680366188 216.58.210.174 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c01, seq=4/1024, ttl=128 (request in 54)
-   56 25.900818784 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   57 26.914107373 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   58 27.921567947 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   59 28.775307374 192.168.138.13 → 108.177.14.95 TCP 54 42524 → 443 [ACK] Seq=1 Ack=1 Win=63848 Len=0
-   60 28.775582968 108.177.14.95 → 192.168.138.13 TCP 60 [TCP ACKed unseen segment] 443 → 42524 [ACK] Seq=1 Ack=2 Win=64240 Len=0
-   61 28.922187569 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   62 29.934160821 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   63 31.121085086 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   64 32.134479555 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   65 33.150340262 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   66 34.150422222 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   67 35.164343318 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   68 36.174502594 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   69 37.188247267 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   70 37.950944763 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-   71 38.744821186 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   72 38.959132086 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-   73 39.751380784 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   74 39.966759015 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-   75 40.764903066 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   76 40.974994846 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-   77 41.498523748 192.168.138.13 → 192.168.138.2 DNS 85 Standard query 0xe59b A maps.yandex.ru OPT
-   78 41.498715928 192.168.138.13 → 192.168.138.2 DNS 85 Standard query 0x8a94 AAAA maps.yandex.ru OPT
-   79 41.606205466 192.168.138.2 → 192.168.138.13 DNS 101 Standard query response 0xe59b A maps.yandex.ru A 213.180.204.242 OPT
-   80 41.617256506 192.168.138.2 → 192.168.138.13 DNS 113 Standard query response 0x8a94 AAAA maps.yandex.ru AAAA 2a02:6b8::242 OPT
-   81 41.618837036 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=1/256, ttl=64
-   82 41.779269937 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   83 42.631065776 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=2/512, ttl=64
-   84 42.685904480 108.177.14.95 → 192.168.138.13 TLSv1.2 127 [TCP ACKed unseen segment] , Application Data
-   85 42.686083778 192.168.138.13 → 108.177.14.95 TCP 54 [TCP Previous segment not captured] 42524 → 443 [FIN, ACK] Seq=2 Ack=74 Win=63848 Len=0
-   86 42.686393629 108.177.14.95 → 192.168.138.13 TCP 60 [TCP ACKed unseen segment] 443 → 42524 [ACK] Seq=74 Ack=3 Win=64239 Len=0
-   87 42.726571296 108.177.14.95 → 192.168.138.13 TCP 60 443 → 42524 [FIN, PSH, ACK] Seq=74 Ack=3 Win=64239 Len=0
-   88 42.726594774 192.168.138.13 → 108.177.14.95 TCP 54 42524 → 443 [ACK] Seq=3 Ack=75 Win=63848 Len=0
-   89 42.793291991 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   90 43.654516659 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=3/768, ttl=64
-   91 43.801978725 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   92 44.678741481 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=4/1024, ttl=64
-   93 44.803779632 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-   94 45.703633633 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=5/1280, ttl=64
-   95 46.694621607 Vmware_74:97:e4 → Vmware_ee:2d:b6 ARP 42 Who has 192.168.138.2? Tell 192.168.138.13
-   96 46.696066872 Vmware_ee:2d:b6 → Vmware_74:97:e4 ARP 60 192.168.138.2 is at 00:50:56:ee:2d:b6
-   97 46.727771165 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=6/1536, ttl=64
-   98 47.750705094 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=7/1792, ttl=64
-   99 48.774621110 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=8/2048, ttl=64
-  100 48.775884827 192.168.138.13 → 104.16.249.249 TLSv1.2 93 Application Data
-  101 48.777685631 104.16.249.249 → 192.168.138.13 TCP 60 443 → 38384 [ACK] Seq=1 Ack=40 Win=64240 Len=0
-  102 48.805242133 104.16.249.249 → 192.168.138.13 TLSv1.2 93 Application Data
-  103 48.805284937 192.168.138.13 → 104.16.249.249 TCP 54 38384 → 443 [ACK] Seq=40 Ack=40 Win=62780 Len=0
-  104 49.799000046 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=9/2304, ttl=64
-  105 50.823462289 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=10/2560, ttl=64
-  106 51.078544684 192.168.138.13 → 224.0.0.251  MDNS 183 Standard query 0x0000 PTR _ipps._tcp.local, "QM" question PTR _ftp._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _ipp._tcp.local, "QM" question
-  107 51.846599966 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c18, seq=11/2816, ttl=64
-  108 57.645736152 192.168.138.13 → 192.168.138.2 DNS 82 Standard query 0x256e A a.yandex.ru OPT
-  109 57.645923739 192.168.138.13 → 192.168.138.2 DNS 82 Standard query 0xbcb6 AAAA a.yandex.ru OPT
-  110 57.752058182 192.168.138.2 → 192.168.138.13 DNS 98 Standard query response 0x256e A a.yandex.ru A 213.180.204.242 OPT
-  111 57.763646488 192.168.138.2 → 192.168.138.13 DNS 143 Standard query response 0xbcb6 AAAA a.yandex.ru SOA ns1.yandex.ru OPT
-  112 57.764760934 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c29, seq=1/256, ttl=64
-  113 58.791087251 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c29, seq=2/512, ttl=64
-  114 59.815239532 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c29, seq=3/768, ttl=64
-  115 60.839222711 192.168.138.13 → 213.180.204.242 ICMP 98 Echo (ping) request  id=0x2c29, seq=4/1024, ttl=64
-  116 83.686714272 192.168.138.100 → 224.0.0.251  MDNS 171 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush a08910f2-7139-459c-8b68-3a19f3355adc.local
-  117 83.686810510 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 191 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush a08910f2-7139-459c-8b68-3a19f3355adc.local
-  118 84.706107456 192.168.138.100 → 224.0.0.251  MDNS 171 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush a08910f2-7139-459c-8b68-3a19f3355adc.local
-  119 84.706174526 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 191 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush a08910f2-7139-459c-8b68-3a19f3355adc.local
-  120 85.516944337 192.168.138.13 → 192.168.138.2 DNS 106 Standard query 0xafb9 A optimizationguide-pa.googleapis.com OPT
-  121 85.603721985 192.168.138.2 → 192.168.138.13 DNS 218 Standard query response 0xafb9 A optimizationguide-pa.googleapis.com A 64.233.162.95 A 173.194.220.95 A 209.85.233.95 A 108.177.14.95 A 64.233.164.95 A 64.233.165.95 A 216.58.210.138 OPT
-  122 85.605068082 192.168.138.13 → 64.233.162.95 UDP 1292 46364 → 443 Len=1250
-  123 85.605282943 192.168.138.13 → 64.233.162.95 UDP 116 46364 → 443 Len=74
-  124 85.652322838 64.233.162.95 → 192.168.138.13 UDP 1292 443 → 46364 Len=1250
-  125 85.652387290 64.233.162.95 → 192.168.138.13 UDP 819 443 → 46364 Len=777
-  126 85.652414190 64.233.162.95 → 192.168.138.13 UDP 271 443 → 46364 Len=229
-  127 85.653460777 192.168.138.13 → 64.233.162.95 UDP 121 46364 → 443 Len=79
-  128 85.653611945 192.168.138.13 → 64.233.162.95 UDP 75 46364 → 443 Len=33
-  129 85.653849637 192.168.138.13 → 64.233.162.95 UDP 751 46364 → 443 Len=709
-  130 85.673504342 64.233.162.95 → 192.168.138.13 UDP 66 443 → 46364 Len=24
-  131 85.699039185 192.168.138.100 → 224.0.0.251  MDNS 186 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 398eed67-3784-441c-9961-b5a150572c69.local
-  132 85.699328180 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 206 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 398eed67-3784-441c-9961-b5a150572c69.local
-  133 85.702946723 64.233.162.95 → 192.168.138.13 UDP 162 443 → 46364 Len=120
-  134 85.702990299 64.233.162.95 → 192.168.138.13 UDP 71 443 → 46364 Len=29
-  135 85.703449065 192.168.138.13 → 64.233.162.95 UDP 76 46364 → 443 Len=34
-  136 85.736544069 64.233.162.95 → 192.168.138.13 UDP 388 443 → 46364 Len=346
-  137 85.736586513 64.233.162.95 → 192.168.138.13 UDP 93 443 → 46364 Len=51
-  138 85.736870797 192.168.138.13 → 64.233.162.95 UDP 77 46364 → 443 Len=35
-  139 85.766923512 192.168.138.13 → 64.233.162.95 UDP 75 46364 → 443 Len=33
-  140 85.800478862 64.233.162.95 → 192.168.138.13 UDP 66 443 → 46364 Len=24
-  141 86.703322774 192.168.138.100 → 224.0.0.251  MDNS 186 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 398eed67-3784-441c-9961-b5a150572c69.local
-  142 86.703588988 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 206 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 398eed67-3784-441c-9961-b5a150572c69.local
-  143 89.583694790 192.168.138.100 → 224.0.0.251  MDNS 182 Standard query response 0x0000 A, cache flush 192.168.196.155 AAAA, cache flush ::
-  144 89.583781915 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 202 Standard query response 0x0000 A, cache flush 192.168.196.155 AAAA, cache flush ::
-  145 90.726611118 Vmware_74:97:e4 → Vmware_ee:2d:b6 ARP 42 Who has 192.168.138.2? Tell 192.168.138.13
-  146 90.726972391 Vmware_ee:2d:b6 → Vmware_74:97:e4 ARP 60 192.168.138.2 is at 00:50:56:ee:2d:b6
-  147 94.134158894 192.168.138.100 → 224.0.0.251  MDNS 70 Standard query 0x0000 A wpad.local, "QM" question
-  148 94.134883361 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 90 Standard query 0x0000 A wpad.local, "QM" question
-  149 94.137806290 192.168.138.100 → 192.168.138.255 NBNS 92 Name query NB WPAD<00>
-  150 94.138175720 192.168.138.100 → 224.0.0.251  MDNS 70 Standard query 0x0000 A wpad.local, "QM" question
-  151 94.138743713 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 90 Standard query 0x0000 A wpad.local, "QM" question
-  152 94.139414088 fe80::9164:7942:2a60:5237 → ff02::1:3    LLMNR 84 Standard query 0x9146 A wpad
-  153 94.139514596 192.168.138.100 → 224.0.0.252  LLMNR 64 Standard query 0x9146 A wpad
-  154 94.559899784 fe80::9164:7942:2a60:5237 → ff02::1:3    LLMNR 84 Standard query 0x9146 A wpad
-  155 94.559997754 192.168.138.100 → 224.0.0.252  LLMNR 64 Standard query 0x9146 A wpad
-  156 94.890223178 192.168.138.100 → 192.168.138.255 NBNS 92 Name query NB WPAD<00>
-  157 95.141950667 192.168.138.100 → 224.0.0.251  MDNS 70 Standard query 0x0000 A wpad.local, "QM" question
-  158 95.143751778 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 90 Standard query 0x0000 A wpad.local, "QM" question
-  159 95.145472152 192.168.138.100 → 224.0.0.251  MDNS 70 Standard query 0x0000 A wpad.local, "QM" question
-  160 95.146471175 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 90 Standard query 0x0000 A wpad.local, "QM" question
-  161 95.647179268 192.168.138.100 → 192.168.138.255 NBNS 92 Name query NB WPAD<00>
-  162 104.110085282 192.168.138.100 → 224.0.0.251  MDNS 171 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush 5d7e03d8-a72a-475e-b752-0fa8286117e0.local
-  163 104.110148676 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 191 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush 5d7e03d8-a72a-475e-b752-0fa8286117e0.local
-  164 105.111312130 192.168.138.100 → 224.0.0.251  MDNS 171 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush 5d7e03d8-a72a-475e-b752-0fa8286117e0.local
-  165 105.111362849 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 191 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush 5d7e03d8-a72a-475e-b752-0fa8286117e0.local
-  166 106.116314535 192.168.138.100 → 224.0.0.251  MDNS 186 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 76a1e07f-d23b-4ef7-9062-d73b74240e8a.local
-  167 106.116370944 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 206 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 76a1e07f-d23b-4ef7-9062-d73b74240e8a.local
-  168 107.101400325 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
-  169 107.111720911 192.168.138.100 → 224.0.0.251  MDNS 186 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 76a1e07f-d23b-4ef7-9062-d73b74240e8a.local
-  170 107.111778124 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 206 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 76a1e07f-d23b-4ef7-9062-d73b74240e8a.local
-  171 107.777919332 192.168.138.13 → 104.16.249.249 TLSv1.2 93 Application Data
-  172 107.782915139 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.13? Tell 192.168.138.2
-  173 107.782927777 Vmware_74:97:e4 → Vmware_ee:2d:b6 ARP 42 192.168.138.13 is at 00:0c:29:74:97:e4
-  174 107.783227807 104.16.249.249 → 192.168.138.13 TCP 60 443 → 38384 [ACK] Seq=40 Ack=79 Win=64240 Len=0
-  175 107.826126558 104.16.249.249 → 192.168.138.13 TLSv1.2 93 Application Data
-  176 107.826165061 192.168.138.13 → 104.16.249.249 TCP 54 38384 → 443 [ACK] Seq=79 Ack=79 Win=62780 Len=0
-  177 108.107464748 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
-  178 108.123153459 192.168.138.100 → 224.0.0.251  MDNS 171 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush bae9f8f2-3b34-41b2-b163-90a9214e270f.local
-  179 108.123305866 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 191 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush bae9f8f2-3b34-41b2-b163-90a9214e270f.local
-  180 109.108060657 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
-  181 109.109888990 192.168.138.100 → 224.0.0.251  MDNS 171 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush bae9f8f2-3b34-41b2-b163-90a9214e270f.local
-  182 109.110556071 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 191 Standard query response 0x0000 A, cache flush 192.168.196.155 NSEC, cache flush bae9f8f2-3b34-41b2-b163-90a9214e270f.local
-  183 110.116492809 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
-  184 110.129009649 192.168.138.100 → 224.0.0.251  MDNS 186 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 53f3e027-9509-4fac-8725-86c289f247a4.local
-  185 110.129057435 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 206 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 53f3e027-9509-4fac-8725-86c289f247a4.local
-  186 111.119080140 192.168.138.100 → 224.0.0.251  MDNS 186 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 53f3e027-9509-4fac-8725-86c289f247a4.local
-  187 111.119550221 fe80::9164:7942:2a60:5237 → ff02::fb     MDNS 206 Standard query response 0x0000 AAAA, cache flush :: NSEC, cache flush 53f3e027-9509-4fac-8725-86c289f247a4.local
-  188 113.440715024 100.20.30.105 → 192.168.138.13 TLSv1.2 85 Application Data
-  189 113.440753092 192.168.138.13 → 100.20.30.105 TCP 54 45868 → 443 [ACK] Seq=1 Ack=32 Win=63000 Len=0
-  190 113.441204680 192.168.138.13 → 100.20.30.105 TLSv1.2 89 Application Data
-  191 113.441922734 100.20.30.105 → 192.168.138.13 TCP 60 443 → 45868 [ACK] Seq=32 Ack=36 Win=64240 Len=0
-  192 132.422089551 192.168.138.13 → 192.168.138.2 DNS 95 Standard query 0x37be A translated.turbopage.org OPT
-  193 132.422995976 192.168.138.13 → 192.168.138.2 DNS 95 Standard query 0x471c AAAA translated.turbopage.org OPT
-  194 132.491870547 192.168.138.2 → 192.168.138.13 DNS 168 Standard query response 0x471c No such name AAAA translated.turbopage.org SOA dns1.registrar-servers.com OPT
-  195 132.491989749 192.168.138.13 → 192.168.138.2 DNS 84 Standard query 0x471c AAAA translated.turbopage.org
-  196 132.512415954 192.168.138.2 → 192.168.138.13 DNS 168 Standard query response 0x37be No such name A translated.turbopage.org SOA dns1.registrar-servers.com OPT
-  197 132.512555664 192.168.138.13 → 192.168.138.2 DNS 84 Standard query 0x37be A translated.turbopage.org
-  198 132.594516898 192.168.138.2 → 192.168.138.13 DNS 157 Standard query response 0x37be No such name A translated.turbopage.org SOA dns1.registrar-servers.com
-  199 132.634601542 192.168.138.2 → 192.168.138.13 DNS 157 Standard query response 0x471c No such name AAAA translated.turbopage.org SOA dns1.registrar-servers.com
-  200 132.636012729 192.168.138.13 → 192.168.138.2 DNS 107 Standard query 0x6594 A translated.turbopage.org.localdomain OPT
-  201 132.636772365 192.168.138.13 → 192.168.138.2 DNS 107 Standard query 0x1ed4 AAAA translated.turbopage.org.localdomain OPT
-  202 132.664609174 192.168.138.2 → 192.168.138.13 DNS 182 Standard query response 0x6594 No such name A translated.turbopage.org.localdomain SOA a.root-servers.net OPT
-  203 132.665026330 192.168.138.13 → 192.168.138.2 DNS 96 Standard query 0x6594 A translated.turbopage.org.localdomain
-  204 132.676535972 192.168.138.2 → 192.168.138.13 DNS 182 Standard query response 0x1ed4 No such name AAAA translated.turbopage.org.localdomain SOA a.root-servers.net OPT
-  205 132.679124559 192.168.138.13 → 192.168.138.2 DNS 96 Standard query 0x1ed4 AAAA translated.turbopage.org.localdomain
-  206 132.717502957 192.168.138.2 → 192.168.138.13 DNS 171 Standard query response 0x1ed4 No such name AAAA translated.turbopage.org.localdomain SOA a.root-servers.net
-  207 132.807970451 192.168.138.2 → 192.168.138.13 DNS 96 Standard query response 0x6594 No such name A translated.turbopage.org.localdomain
-  208 141.273426905 192.168.138.13 → 192.168.138.2 DNS 96 Standard query 0x8712 A translated.turbopages.org OPT
-  209 141.273657128 192.168.138.13 → 192.168.138.2 DNS 96 Standard query 0x8298 AAAA translated.turbopages.org OPT
-  210 141.304065112 192.168.138.2 → 192.168.138.13 DNS 152 Standard query response 0x8298 AAAA translated.turbopages.org CNAME z5h64q92x9.net AAAA 2a02:6b8::1:193 OPT
-  211 141.368547337 192.168.138.2 → 192.168.138.13 DNS 140 Standard query response 0x8712 A translated.turbopages.org CNAME z5h64q92x9.net A 213.180.193.193 OPT
-  212 141.369136488 192.168.138.13 → 213.180.193.193 ICMP 98 Echo (ping) request  id=0x2c8d, seq=1/256, ttl=64
-  213 141.413726213 213.180.193.193 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c8d, seq=1/256, ttl=128 (request in 212)
-  214 141.414070939 192.168.138.13 → 192.168.138.2 DNS 99 Standard query 0xb48d PTR 193.193.180.213.in-addr.arpa OPT
-  215 141.485134935 192.168.138.2 → 192.168.138.13 DNS 127 Standard query response 0xb48d PTR 193.193.180.213.in-addr.arpa PTR z5h64q92x9.net OPT
-  216 142.371627450 192.168.138.13 → 213.180.193.193 ICMP 98 Echo (ping) request  id=0x2c8d, seq=2/512, ttl=64
-  217 142.410301489 213.180.193.193 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c8d, seq=2/512, ttl=128 (request in 216)
-  218 143.373030068 192.168.138.13 → 213.180.193.193 ICMP 98 Echo (ping) request  id=0x2c8d, seq=3/768, ttl=64
-  219 143.528081070 213.180.193.193 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c8d, seq=3/768, ttl=128 (request in 218)
-  220 144.374818456 192.168.138.13 → 213.180.193.193 ICMP 98 Echo (ping) request  id=0x2c8d, seq=4/1024, ttl=64
-  221 144.423474087 213.180.193.193 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c8d, seq=4/1024, ttl=128 (request in 220)
-  222 145.376790114 192.168.138.13 → 213.180.193.193 ICMP 98 Echo (ping) request  id=0x2c8d, seq=5/1280, ttl=64
-  223 145.421284006 213.180.193.193 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2c8d, seq=5/1280, ttl=128 (request in 222)
-  224 151.878458909 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  225 152.890106417 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  226 153.901881513 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  227 154.914393417 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  228 155.913904047 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  229 156.914447185 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  230 157.925226711 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  231 157.962735157 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-  232 158.967071133 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-  233 159.109519904 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  234 159.974663168 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-  235 160.121067660 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  236 160.166224383 192.168.138.13 → 192.168.138.2 DNS 87 Standard query 0x0b7a A goal.footbal.org OPT
-  237 160.166392497 192.168.138.13 → 192.168.138.2 DNS 87 Standard query 0xfc5b AAAA goal.footbal.org OPT
-  238 160.362888979 192.168.138.2 → 192.168.138.13 DNS 158 Standard query response 0xfc5b No such name AAAA goal.footbal.org SOA ns39.domaincontrol.com OPT
-  239 160.363262216 192.168.138.13 → 192.168.138.2 DNS 76 Standard query 0xfc5b AAAA goal.footbal.org
-  240 160.419004629 192.168.138.2 → 192.168.138.13 DNS 158 Standard query response 0x0b7a No such name A goal.footbal.org SOA ns39.domaincontrol.com OPT
-  241 160.419508364 192.168.138.13 → 192.168.138.2 DNS 76 Standard query 0x0b7a A goal.footbal.org
-  242 160.439141803 192.168.138.2 → 192.168.138.13 DNS 147 Standard query response 0xfc5b No such name AAAA goal.footbal.org SOA ns39.domaincontrol.com
-  243 160.596547447 192.168.138.2 → 192.168.138.13 DNS 147 Standard query response 0x0b7a No such name A goal.footbal.org SOA ns39.domaincontrol.com
-  244 160.597019476 192.168.138.13 → 192.168.138.2 DNS 99 Standard query 0xa762 A goal.footbal.org.localdomain OPT
-  245 160.597115000 192.168.138.13 → 192.168.138.2 DNS 99 Standard query 0xad1b AAAA goal.footbal.org.localdomain OPT
-  246 160.628008674 192.168.138.2 → 192.168.138.13 DNS 174 Standard query response 0xad1b No such name AAAA goal.footbal.org.localdomain SOA a.root-servers.net OPT
-  247 160.628160550 192.168.138.13 → 192.168.138.2 DNS 88 Standard query 0xad1b AAAA goal.footbal.org.localdomain
-  248 160.640157370 192.168.138.2 → 192.168.138.13 DNS 174 Standard query response 0xa762 No such name A goal.footbal.org.localdomain SOA a.root-servers.net OPT
-  249 160.640314993 192.168.138.13 → 192.168.138.2 DNS 88 Standard query 0xa762 A goal.footbal.org.localdomain
-  250 160.660552343 192.168.138.2 → 192.168.138.13 DNS 163 Standard query response 0xad1b No such name AAAA goal.footbal.org.localdomain SOA a.root-servers.net
-  251 160.821041423 192.168.138.2 → 192.168.138.13 DNS 88 Standard query response 0xa762 No such name A goal.footbal.org.localdomain
-  252 160.982597076 192.168.138.13 → 239.255.255.250 SSDP 206 M-SEARCH * HTTP/1.1 
-  253 161.121681053 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  254 162.133467380 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  255 163.022676601 192.168.138.13 → 192.168.138.2 DNS 87 Standard query 0x6665 A goal.footbal.net OPT
-  256 163.022789306 192.168.138.13 → 192.168.138.2 DNS 87 Standard query 0x4380 AAAA goal.footbal.net OPT
-  257 163.114424592 192.168.138.2 → 192.168.138.13 DNS 103 Standard query response 0x6665 A goal.footbal.net A 146.20.53.93 OPT
-  258 163.142847172 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  259 163.147669862 192.168.138.2 → 192.168.138.13 DNS 160 Standard query response 0x4380 AAAA goal.footbal.net SOA dns1.registrar-servers.com OPT
-  260 163.148226128 192.168.138.13 → 146.20.53.93 ICMP 98 Echo (ping) request  id=0x2ca8, seq=1/256, ttl=64
-  261 163.285752918 146.20.53.93 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2ca8, seq=1/256, ttl=128 (request in 260)
-  262 163.286091394 192.168.138.13 → 192.168.138.2 DNS 96 Standard query 0x75b7 PTR 93.53.20.146.in-addr.arpa OPT
-  263 163.422563390 192.168.138.2 → 192.168.138.13 DNS 159 Standard query response 0x75b7 No such name PTR 93.53.20.146.in-addr.arpa SOA ns.rackspace.com OPT
-  264 163.422724602 192.168.138.13 → 192.168.138.2 DNS 85 Standard query 0x75b7 PTR 93.53.20.146.in-addr.arpa
-  265 164.156624834 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  266 164.312185518 192.168.138.13 → 192.168.138.2 DNS 85 Standard query 0x75b7 PTR 93.53.20.146.in-addr.arpa
-  267 165.165503191 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  268 165.222949799 Vmware_74:97:e4 → Vmware_ee:2d:b6 ARP 42 Who has 192.168.138.2? Tell 192.168.138.13
-  269 165.223185851 Vmware_ee:2d:b6 → Vmware_74:97:e4 ARP 60 192.168.138.2 is at 00:50:56:ee:2d:b6
-  270 165.475926166 192.168.138.2 → 192.168.138.13 DNS 85 Standard query response 0x75b7 Server failure PTR 93.53.20.146.in-addr.arpa
-  271 165.480221062 192.168.138.13 → 146.20.53.93 ICMP 98 Echo (ping) request  id=0x2ca8, seq=2/512, ttl=64
-  272 165.623189245 146.20.53.93 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2ca8, seq=2/512, ttl=128 (request in 271)
-  273 166.348696370 192.168.138.2 → 192.168.138.13 DNS 85 Standard query response 0x75b7 Server failure PTR 93.53.20.146.in-addr.arpa
-  274 166.348734442 192.168.138.13 → 192.168.138.2 ICMP 113 Destination unreachable (Port unreachable)
-  275 166.481196157 192.168.138.13 → 146.20.53.93 ICMP 98 Echo (ping) request  id=0x2ca8, seq=3/768, ttl=64
-  276 166.610489345 146.20.53.93 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2ca8, seq=3/768, ttl=128 (request in 275)
-  277 166.736568726 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  278 166.780231531 192.168.138.13 → 104.16.249.249 TLSv1.2 93 Application Data
-  279 166.781898703 104.16.249.249 → 192.168.138.13 TCP 60 443 → 38384 [ACK] Seq=79 Ack=118 Win=64240 Len=0
-  280 166.804378932 104.16.249.249 → 192.168.138.13 TLSv1.2 93 Application Data
-  281 166.804421899 192.168.138.13 → 104.16.249.249 TCP 54 38384 → 443 [ACK] Seq=118 Ack=118 Win=62780 Len=0
-  282 167.482118769 192.168.138.13 → 146.20.53.93 ICMP 98 Echo (ping) request  id=0x2ca8, seq=4/1024, ttl=64
-  283 167.621894671 146.20.53.93 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2ca8, seq=4/1024, ttl=128 (request in 282)
-  284 167.745001212 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  285 168.482531275 192.168.138.13 → 146.20.53.93 ICMP 98 Echo (ping) request  id=0x2ca8, seq=5/1280, ttl=64
-  286 168.647804259 146.20.53.93 → 192.168.138.13 ICMP 98 Echo (ping) reply    id=0x2ca8, seq=5/1280, ttl=128 (request in 285)
-  287 168.745796780 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  288 169.755713485 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  289 170.756868365 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  290 171.467438669 192.168.138.13 → 192.168.138.2 DNS 87 Standard query 0x2617 A goal.footbal.com OPT
-  291 171.467612031 192.168.138.13 → 192.168.138.2 DNS 87 Standard query 0x4135 AAAA goal.footbal.com OPT
-  292 171.684147152 192.168.138.2 → 192.168.138.13 DNS 141 Standard query response 0x4135 AAAA goal.footbal.com SOA ns1.dnslink.com OPT
-  293 171.697547448 192.168.138.2 → 192.168.138.13 DNS 103 Standard query response 0x2617 A goal.footbal.com A 192.99.158.243 OPT
-  294 171.698160550 192.168.138.13 → 192.99.158.243 ICMP 98 Echo (ping) request  id=0x2cb1, seq=1/256, ttl=64
-  295 171.769482001 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  296 172.711360985 192.168.138.13 → 192.99.158.243 ICMP 98 Echo (ping) request  id=0x2cb1, seq=2/512, ttl=64
-  297 172.769907106 Vmware_ee:2d:b6 → Broadcast    ARP 60 Who has 192.168.138.12? Tell 192.168.138.2
-  298 173.734668910 192.168.138.13 → 192.99.158.243 ICMP 98 Echo (ping) request  id=0x2cb1, seq=3/768, ttl=64
-  299 174.758803617 192.168.138.13 → 192.99.158.243 ICMP 98 Echo (ping) request  id=0x2cb1, seq=4/1024, ttl=64
-  300 175.783047825 192.168.138.13 → 192.99.158.243 ICMP 98 Echo (ping) request  id=0x2cb1, seq=5/1280, ttl=64
-  301 176.807494520 192.168.138.13 → 192.99.158.243 ICMP 98 Echo (ping) request  id=0x2cb1, seq=6/1536, ttl=64
-  302 177.830475303 192.168.138.13 → 192.99.158.243 ICMP 98 Echo (ping) request  id=0x2cb1, seq=7/1792, ttl=64
+    1 0.000000000 192.168.138.100 → 192.168.241.222 TCP 74 54330 → 21 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=2975978552 TSecr=0 WS=128
+    2 0.001148289 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+    3 0.001189743 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+    4 0.002942553 192.168.241.222 → 192.168.138.100 FTP 74 Response: 220 (vsFTPd 3.0.3)
+    5 0.002954368 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=1 Ack=21 Win=64220 Len=0
+    6 2.372840951 192.168.138.100 → 192.168.241.222 FTP 64 Request: USER fds
+    7 2.380338649 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=21 Ack=11 Win=64240 Len=0
+    8 2.380993362 192.168.241.222 → 192.168.138.100 FTP 88 Response: 331 Please specify the password.
+    9 2.381009866 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=11 Ack=55 Win=64186 Len=0
+   10 5.517265401 192.168.138.100 → 192.168.241.222 FTP 67 Request: PASS fdsfds
+   11 5.518131696 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=55 Ack=24 Win=64240 Len=0
+   12 8.382684281 192.168.241.222 → 192.168.138.100 FTP 76 Response: 530 Login incorrect.
+   13 8.382742856 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=24 Ack=77 Win=64164 Len=0
+   14 8.383003664 192.168.138.100 → 192.168.241.222 FTP 60 Request: SYST
+   15 8.384442833 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=77 Ack=30 Win=64240 Len=0
+   16 8.385940172 192.168.241.222 → 192.168.138.100 FTP 92 Response: 530 Please login with USER and PASS.
+   17 8.385969431 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=30 Ack=115 Win=64126 Len=0
+   18 11.355559987 192.168.138.100 → 198.16.66.100 TLSv1.2 330 Application Data
+   19 11.356601707 198.16.66.100 → 192.168.138.100 TCP 60 436 → 40020 [ACK] Seq=1 Ack=277 Win=64240 Len=0
+   20 11.589788036 198.16.66.100 → 192.168.138.100 TLSv1.2 352 Application Data
+   21 11.589813303 192.168.138.100 → 198.16.66.100 TCP 54 40020 → 436 [ACK] Seq=277 Ack=299 Win=62780 Len=0
+   22 12.212740060 192.168.138.100 → 192.168.241.222 FTP 59 Request: PWD
+   23 12.213091925 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=115 Ack=35 Win=64240 Len=0
+   24 12.213553315 192.168.241.222 → 192.168.138.100 FTP 92 Response: 530 Please login with USER and PASS.
+   25 12.213561173 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=35 Ack=153 Win=64088 Len=0
+   26 24.057927265 192.168.138.100 → 152.199.19.160 TCP 54 41472 → 443 [ACK] Seq=1 Ack=1 Win=62780 Len=0
+   27 24.058209279 152.199.19.160 → 192.168.138.100 TCP 60 [TCP ACKed unseen segment] 443 → 41472 [ACK] Seq=1 Ack=2 Win=64240 Len=0
+   28 38.286029159 192.168.138.100 → 192.168.241.222 FTP 65 Request: USER fdsf
+   29 38.286441688 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=153 Ack=46 Win=64240 Len=0
+   30 38.286932771 192.168.241.222 → 192.168.138.100 FTP 88 Response: 331 Please specify the password.
+   31 38.286942665 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=46 Ack=187 Win=64054 Len=0
+   32 39.876492703 192.168.138.100 → 198.16.66.100 TLSv1.2 200 Application Data
+   33 39.876993269 198.16.66.100 → 192.168.138.100 TCP 60 436 → 40020 [ACK] Seq=299 Ack=423 Win=64240 Len=0
+   34 40.954583486 198.16.66.100 → 192.168.138.100 TLSv1.2 121 Application Data
+   35 40.954618053 192.168.138.100 → 198.16.66.100 TCP 54 40020 → 436 [ACK] Seq=423 Ack=366 Win=62780 Len=0
+   36 41.187738345 192.168.138.100 → 192.168.241.222 FTP 68 Request: PASS fdsfdsf
+   37 41.195352863 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=187 Ack=60 Win=64240 Len=0
+   38 44.333546326 192.168.241.222 → 192.168.138.100 FTP 76 Response: 530 Login incorrect.
+   39 44.333602345 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=60 Ack=209 Win=64054 Len=0
+   40 45.268107718 192.168.138.100 → 192.168.241.222 FTP 83 Request: PORT 192,168,138,100,175,89
+   41 45.268433661 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=209 Ack=89 Win=64211 Len=0
+   42 45.268433816 192.168.241.222 → 192.168.138.100 FTP 119 Response: 500 Use PASV instead of PORT, incoming connections are disabled
+   43 45.268449042 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=89 Ack=274 Win=64054 Len=0
+   44 47.352438156 192.168.138.100 → 192.168.241.222 FTP 84 Request: PORT 192,168,138,100,225,109
+   45 47.352805883 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=274 Ack=119 Win=64181 Len=0
+   46 47.352805960 192.168.241.222 → 192.168.138.100 FTP 119 Response: 500 Use PASV instead of PORT, incoming connections are disabled
+   47 47.352821361 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=119 Ack=339 Win=64054 Len=0
+   48 48.586123082 192.168.138.100 → 192.168.241.222 FTP 84 Request: PORT 192,168,138,100,216,143
+   49 48.586419290 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=339 Ack=149 Win=64151 Len=0
+   50 48.586419386 192.168.241.222 → 192.168.138.100 FTP 119 Response: 500 Use PASV instead of PORT, incoming connections are disabled
+   51 48.586434598 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=149 Ack=404 Win=64054 Len=0
+   52 57.506415599 192.168.138.100 → 192.168.241.222 FTP 67 Request: USER fsdfds
+   53 57.507300942 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=404 Ack=162 Win=64151 Len=0
+   54 57.507782225 192.168.241.222 → 192.168.138.100 FTP 88 Response: 331 Please specify the password.
+   55 57.507793239 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=162 Ack=438 Win=64054 Len=0
+   56 58.374921802 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
+   57 58.453090605 192.168.138.100 → 192.168.241.222 FTP 67 Request: PASS gdsgds
+   58 58.453355473 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=438 Ack=175 Win=64151 Len=0
+   59 59.381437334 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
+   60 60.394134807 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
+   61 61.256173812 192.168.241.222 → 192.168.138.100 FTP 76 Response: 530 Login incorrect.
+   62 61.297670579 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [ACK] Seq=175 Ack=461 Win=64054 Len=0
+   63 61.402703418 192.168.138.100 → 239.255.255.250 SSDP 210 M-SEARCH * HTTP/1.1 
+   64 63.450827638 192.168.138.100 → 192.168.241.222 FTP 66 Request: USER dsfsf
+   65 63.451377327 192.168.138.100 → 192.168.241.222 TCP 54 54330 → 21 [FIN, ACK] Seq=187 Ack=461 Win=64054 Len=0
+   66 63.451686665 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=461 Ack=187 Win=64151 Len=0
+   67 63.451686732 192.168.241.222 → 192.168.138.100 TCP 60 21 → 54330 [ACK] Seq=461 Ack=188 Win=64150 Len=0
+   68 69.116807839 192.168.138.100 → 152.199.19.160 TCP 54 [TCP Dup ACK 26#1] 41472 → 443 [ACK] Seq=1 Ack=1 Win=62780 Len=0
+   69 69.117083156 152.199.19.160 → 192.168.138.100 TCP 60 [TCP Dup ACK 27#1] [TCP ACKed unseen segment] 443 → 41472 [ACK] Seq=1 Ack=2 Win=64240 Len=0
+   70 69.741070924 192.168.138.100 → 185.125.190.57 NTP 90 NTP Version 4, client
+   71 69.961540115 185.125.190.57 → 192.168.138.100 NTP 90 NTP Version 4, server

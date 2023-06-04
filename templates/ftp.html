@@ -71,6 +71,7 @@
     <hr>
 <br>
     <p class="theme" style="text-align: left;">Аргументы запросов FTP-пакетов</p>
+    <div style="height: 200px; overflow-y: scroll;">
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -83,11 +84,14 @@
         </tr>
         {% endfor %}
       </table>
+    </div>
+    
       <br>
       <hr>
       <br><br>
 
     <p class="theme" style="text-align: left;">Аргументы ответов FTP-пакетов</p>
+    <div style="height: 200px; overflow-y: scroll;">
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -100,10 +104,13 @@
       </tr>
       {% endfor %}
       </table>
+      </div>
+
       <br>
       <hr>
       <br><br>
     <p class="theme" style="text-align: left;">Команды запросов FTP-клиента серверу и их описание</p>
+    <div style="height: 200px; overflow-y: scroll;">
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -118,10 +125,12 @@
         </tr>
         {% endfor %}
       </table>
+      </div>
       <br>
       <hr>
       <br><br>
       <p class="theme" style="text-align: left;">Команды ответов FTP-сервера клиенту и их описание</p>
+      <div style="height: 200px; overflow-y: scroll;">
       <table class="tabletvar2"> 
         <tr>
           <th>Пакет</th>
@@ -136,6 +145,8 @@
         </tr>
         {% endfor %}
       </table>
+      </div>
+
       <br>
       <hr>
       <br><br>
@@ -144,6 +155,7 @@
 
     {% if show_an == True %}
     <p class="theme" style="text-align: left;">Результаты анализа</p>
+    <div style="height: 200px; overflow-y: scroll;">
     <table class="tabletvar2">
         <thead>
             <tr>
@@ -171,6 +183,7 @@
             {% endfor %}
         </tbody>
     </table>
+    </div>
     {% endif %}
       <!-- {{an12}}
       <br>
