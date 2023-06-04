@@ -10,7 +10,7 @@ from base_show.db_selector import get_srv_from_db
 from base_show.get_ns_list import get_ns_list, do_ns_ip_tuple
 # import amplification.dns_amplification
 # import attack_score.scoreattack as sa
-import logging
+# import logging
 import sys
 import os
 
@@ -21,8 +21,8 @@ if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
 app = Flask(__name__)    
-log = logging.getLogger('werkzeug')
-log.disabled = True
+# log = logging.getLogger('werkzeug')
+# log.disabled = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'krugloenesemkvadratnoekatim'
 

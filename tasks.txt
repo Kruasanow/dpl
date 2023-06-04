@@ -10,7 +10,7 @@ sudo chgrp kali /usr/bin/dumpcap
 sudo apt install wireshark
 sudo apt install tshark
 sudo apt install postgesql
-sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/python3.10
+sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/python3.6
 
 
 
