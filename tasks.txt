@@ -1,3 +1,20 @@
+sudo pip3 install --upgrade pip
+sudo pip3 install -r requirements.txt
+sudo systemctl start postgresql
+sudo -iu postgres psql -c "CREATE USER ubuntu18 WITH PASSWORD 'password1234'"  
+sudo -iu postgres psql -c "CREATE DATABASE flask_db"
+sudo -iu postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE flask_db TO ubuntu18"  
+sudo usermod -aG wireshark kali
+sudo chown kali /usr/bin/dumpcap
+sudo chgrp kali /usr/bin/dumpcap
+sudo apt install wireshark
+sudo apt install tshark
+sudo apt install postgesql
+sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/python3.10
+
+
+
+
 https://wiki.wireshark.org/SampleCaptures
 вечная призрачная встречная
 стигмата сентябрь
