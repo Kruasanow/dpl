@@ -930,24 +930,9 @@ def emulation():
 @app.route('/trigmanager', methods = ['get','post'])
 def trigmanager():
     print(url_for('trigmanager'))
-    from dnsf.dns_codes_list import RCODE_name_list
+    from dnsf.dns_codes_list import RCODE_name_list, RR_types_name, RR_classes_name, Opcode_name
     if request.method == "POST":
-        # if 'ns' in request.form:
-        #     return render_template(
-        #                         'trigmanager.html',
-        #                     )
-        # if 'scheck' in request.form:
-        #     return render_template(
-        #                         'trigmanager.html',
-        #                     )
-        # if 'doampl' in request.form:
-        #     return render_template(
-        #                         'trigmanager.html',
-        #                         )
-        # if 'tzone' in request.form:
-        #     return render_template(
-        #                         'trigmanager.html',
-        #     )
+
         session['trigmanagerworks'] = True
         session['pacq'] = request.form['pac_q']
         session['paclimq'] = request.form['pac_lim_q']
@@ -972,11 +957,17 @@ def trigmanager():
         return render_template(
                             'trigmanager.html',
                             rcodes = RCODE_name_list,
+                            rtypes = RR_types_name,
+                            rclasses = RR_classes_name,
+                            opcoden = Opcode_name,
         )
 
     return render_template(
                                 'trigmanager.html',
                                 rcodes = RCODE_name_list,
+                                rtypes = RR_types_name,
+                                rclasses = RR_classes_name,
+                                opcoden = Opcode_name,
                             )
 
 @app.route('/dnsmap', methods = ['get','post'])
@@ -1000,9 +991,12 @@ def dnsmap():
             rc = []
             print(url_for('dnsmap'))
             for i in do_whois(get_qname_list()):
+            # from dnsf.dns_whois import kostil
+            # for i in kostil:
                 rc.append(i)
 
             who_json = get_items_from_who(rc[1])
+            print(who_json)
             who_json = transponate_arr(who_json)
             return render_template(
                             'example.html',

@@ -65,6 +65,7 @@
       <input type="text" name="ttl" id="name"><br><br>
       <label for="trunk">1 - Trunkated, 2 - Non-Trunkated [int:1-2]:</label>
       <input type="text" name="trunk" id="name"><br><br>
+      <hr>
       <table>
         <tr>
           <th>RCODE's</th>
@@ -82,20 +83,69 @@
           <td>13-{{rcodes[12]}}</td><td>14-{{rcodes[13]}}</td><td>15-{{rcodes[14]}}</td><td>16-{{rcodes[15]}}</td>
         </tr>
         <tr>
-          <td>17-{{rcodes[16]}}</td><td>18-{{rcodes[17]}}</td><td>19-{{rcodes[18]}}</td><td>20{{rcodes[19]}}</td>
+          <td>17-{{rcodes[16]}}</td><td>18-{{rcodes[17]}}</td><td>19-{{rcodes[18]}}</td><td>20-{{rcodes[19]}}</td>
         </tr>
         <tr>
           <td>21-{{rcodes[20]}}</td>
         </tr>
       </table>
+      <br>
       <label for="rcodes">RCODE [list:1-21 | Пример: 1,5,11,17]:</label>
       <input type="text" name="rcodes" id="name"><br><br>
       <label for="null_ip">Реагировать на пустую A-Record [int:0-1]:</label>
       <input type="text" name="null_ip" id="name"><br><br>
+      <hr>
+      <table>
+        <tr>
+          <th>RTYPES's</th>
+        </tr>
+        <tr>
+          <td>1-{{rtypes[0]}}</td><td>2-{{rtypes[1]}}</td><td>3-{{rtypes[2]}}</td><td>4-{{rtypes[3]}}</td>
+        </tr>
+        <tr>
+          <td>5-{{rtypes[4]}}</td><td>6-{{rtypes[5]}}</td><td>7-{{rtypes[6]}}</td><td>8-{{rtypes[7]}}</td>
+        </tr>
+        <tr>
+          <td>9-{{rtypes[8]}}</td><td>10-{{rtypes[9]}}</td><td>11-{{rtypes[10]}}</td><td>12-{{rtypes[11]}}</td>
+        </tr>
+        <tr>
+          <td>13-{{rtypes[12]}}</td><td>14-{{rtypes[13]}}</td><td>15-{{rtypes[14]}}</td><td>16-{{rtypes[15]}}</td>
+        </tr>
+        <tr>
+          <td>17-{{rtypes[16]}}</td><td>18-{{rtypes[17]}}</td><td>19-{{rtypes[18]}}</td><td>20-{{rtypes[19]}}</td>
+        </tr>
+      </table>
+      <br>
       <label for="rtypes">Rtypes [list:1-20 | Пример: 1,5,11,17]:</label>
       <input type="text" name="rtypes" id="name"><br><br>
+      <hr>
+      <table>
+        <tr>
+          <th>RCLASSES</th>
+        </tr>
+        <tr>
+          <td>1-{{rclasses[0]}}</td><td>2-{{rclasses[1]}}</td><td>3-{{rclasses[2]}}</td><td>4-{{rclasses[3]}}</td>
+        </tr>
+        <tr>
+          <td>5-{{rclasses[4]}}</td><td>6-{{rclasses[5]}}</td><td>7-{{rclasses[6]}}</td>
+        </tr>
+      </table>
+      <br>
       <label for="rclasses">Rclasses [list:1-20 | Пример: 1,5,11,17]:</label>
       <input type="text" name="rclasses" id="name"><br><br>
+      <hr>
+      <table>
+        <tr>
+          <th>RCLASSES</th>
+        </tr>
+        <tr>
+          <td>1-{{opcoden[0]}}</td><td>2-{{opcoden[1]}}</td><td>3-{{opcoden[2]}}</td><td>4-{{opcoden[3]}}</td>
+        </tr>
+        <tr>
+          <td>5-{{opcoden[4]}}</td><td>6-{{opcoden[5]}}</td><td>7-{{opcoden[6]}}</td><td>8-{{opcoden[7]}}</td>
+        </tr>
+      </table>
+      <br>
       <label for="opcode">Opcode [list:1-8 | Пример: 1,5,8]:</label>
       <input type="text" name="opcode" id="name"><br><br>
       <label for="razn_pac">Реагировать на разницу пакетов: 0 - Нет, 1 - ДА [int:0-1]:</label>

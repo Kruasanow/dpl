@@ -1,0 +1,495 @@
+Wireshark SSL debug log 
+
+Wireshark version: 2.6.10 (Git v2.6.10 packaged as 2.6.10-1~ubuntu18.04.0)
+GnuTLS version:    3.5.18
+Libgcrypt version: 1.8.1
+
+
+dissect_ssl enter frame #6 (first time)
+packet_from_server: is from server - FALSE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 517
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 512, ssl state 0x00
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+decrypt_ssl3_record: no decoder available
+dissect_ssl3_handshake iteration 1 type 1 offset 5 length 508 bytes, remaining 517 
+Calculating hash with offset 5 512
+ssl_dissect_hnd_hello_common found CLIENT RANDOM -> state 0x01
+
+dissect_ssl enter frame #8 (first time)
+packet_from_server: is from server - TRUE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 851
+ssl_try_set_version found version 0x0303 -> state 0x11
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 106, ssl state 0x11
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+decrypt_ssl3_record: no decoder available
+dissect_ssl3_handshake iteration 1 type 2 offset 5 length 102 bytes, remaining 111 
+ssl_try_set_version found version 0x0303 -> state 0x11
+Calculating hash with offset 5 106
+ssl_dissect_hnd_hello_common found SERVER RANDOM -> state 0x13
+ssl_set_cipher found CIPHER 0xC02F TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 -> state 0x17
+ssl_dissect_hnd_hello_ext_alpn: changing handle (nil) to 0x7f695c9e3b20 (http2)trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/http.key
+  checking keylog line: nghttp2/v0.7.3-74-g795a22a spdylay/v1.3.1-16-gf4bcaee openssl/1.0.2
+    unrecognized line
+  checking keylog line: CLIENT_RANDOM 8E83073C735EE9A9D7C471CF9E58E2CDF49FAC8CDE59A4484FC20B8CA17C9E30 A97655616C73DBA996B7A9EACAD4D658D8C2260674798DC843854F57C848D92DAF4F06A9D8BEB45F38C407BD7EB20FD4
+    matched client_random
+tls13_load_secret TLS version 0x303 is not 1.3
+tls13_load_secret TLS version 0x303 is not 1.3
+  record: offset = 111, reported_length_remaining = 740
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 516, ssl state 0x17
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+decrypt_ssl3_record: no decoder available
+dissect_ssl3_handshake iteration 1 type 11 offset 116 length 512 bytes, remaining 632 
+Calculating hash with offset 116 516
+lookup(KeyID)[20]:
+| 0d e5 1a 4b 99 f2 80 31 20 a1 0b 0c ef 33 89 62 |...K...1 ....3.b|
+| ff a1 c3 f5                                     |....            |
+ssl_find_private_key_by_pubkey: lookup result: (nil)
+  record: offset = 632, reported_length_remaining = 219
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 205, ssl state 0x17
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+decrypt_ssl3_record: no decoder available
+dissect_ssl3_handshake iteration 1 type 12 offset 637 length 201 bytes, remaining 842 
+Calculating hash with offset 637 205
+  record: offset = 842, reported_length_remaining = 9
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 4, ssl state 0x17
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+decrypt_ssl3_record: no decoder available
+dissect_ssl3_handshake iteration 1 type 14 offset 847 length 0 bytes, remaining 851 
+Calculating hash with offset 847 4
+
+dissect_ssl enter frame #10 (first time)
+packet_from_server: is from server - FALSE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 126
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 70, ssl state 0x17
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+decrypt_ssl3_record: no decoder available
+dissect_ssl3_handshake iteration 1 type 16 offset 5 length 66 bytes, remaining 75 
+Calculating hash with offset 5 70
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/http.key
+ssl_generate_pre_master_secret: found SSL_HND_CLIENT_KEY_EXCHG, state 17
+ssl_restore_master_key can't find pre-master secret by Unencrypted pre-master secret
+ssl_restore_master_key can't find pre-master secret by Encrypted pre-master secret
+dissect_ssl3_handshake can't generate pre master secret
+  record: offset = 75, reported_length_remaining = 51
+dissect_ssl3_record: content_type 20 Change Cipher Spec
+decrypt_ssl3_record: app_data len 1, ssl state 0x17
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+decrypt_ssl3_record: no decoder available
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/http.key
+ssl_finalize_decryption state = 0x17
+ssl_restore_master_key can't find master secret by Session ID
+ssl_restore_master_key master secret retrieved using Client Random
+Client Random[32]:
+| 8e 83 07 3c 73 5e e9 a9 d7 c4 71 cf 9e 58 e2 cd |...<s^....q..X..|
+| f4 9f ac 8c de 59 a4 48 4f c2 0b 8c a1 7c 9e 30 |.....Y.HO....|.0|
+(pre-)master secret[48]:
+| a9 76 55 61 6c 73 db a9 96 b7 a9 ea ca d4 d6 58 |.vUals.........X|
+| d8 c2 26 06 74 79 8d c8 43 85 4f 57 c8 48 d9 2d |..&.ty..C.OW.H.-|
+| af 4f 06 a9 d8 be b4 5f 38 c4 07 bd 7e b2 0f d4 |.O....._8...~...|
+ssl_generate_keyring_material CIPHER: AES
+ssl_generate_keyring_material sess key generation
+tls12_prf: tls_hash(hash_alg SHA256 secret_len 48 seed_len 77 )
+tls_hash: hash secret[48]:
+| a9 76 55 61 6c 73 db a9 96 b7 a9 ea ca d4 d6 58 |.vUals.........X|
+| d8 c2 26 06 74 79 8d c8 43 85 4f 57 c8 48 d9 2d |..&.ty..C.OW.H.-|
+| af 4f 06 a9 d8 be b4 5f 38 c4 07 bd 7e b2 0f d4 |.O....._8...~...|
+tls_hash: hash seed[77]:
+| 6b 65 79 20 65 78 70 61 6e 73 69 6f 6e 6b 93 52 |key expansionk.R|
+| 6a 29 52 89 21 2d 1c 5c b6 90 3f 15 05 4d 2d 7d |j)R.!-.\..?..M-}|
+| b2 83 1a b1 59 8c d3 09 be 3a bf b5 45 8e 83 07 |....Y....:..E...|
+| 3c 73 5e e9 a9 d7 c4 71 cf 9e 58 e2 cd f4 9f ac |<s^....q..X.....|
+| 8c de 59 a4 48 4f c2 0b 8c a1 7c 9e 30          |..Y.HO....|.0   |
+hash out[104]:
+| 6f c8 00 bd e1 53 d9 93 91 b1 19 49 a6 d2 49 86 |o....S.....I..I.|
+| c0 25 be 65 d7 4c c0 56 d5 fd 39 00 43 6b 86 34 |.%.e.L.V..9.Ck.4|
+| cb aa 9d d5 a0 4d 54 9e 32 b8 b4 82 54 0f e9 5d |.....MT.2...T..]|
+| c1 77 02 52 1f 1b 07 14 81 eb 05 37 01 87 bf 7c |.w.R.......7...||
+| ba c7 eb ea 69 59 0d 94 c2 8e 81 ea a2 c3 0d 8c |....iY..........|
+| e8 73 df 7d 11 64 cd 3e c8 be 1b 0a 5c 2b 92 a9 |.s.}.d.>....\+..|
+| 05 dc 42 5a c4 d6 1b 89                         |..BZ....        |
+PRF out[104]:
+| 6f c8 00 bd e1 53 d9 93 91 b1 19 49 a6 d2 49 86 |o....S.....I..I.|
+| c0 25 be 65 d7 4c c0 56 d5 fd 39 00 43 6b 86 34 |.%.e.L.V..9.Ck.4|
+| cb aa 9d d5 a0 4d 54 9e 32 b8 b4 82 54 0f e9 5d |.....MT.2...T..]|
+| c1 77 02 52 1f 1b 07 14 81 eb 05 37 01 87 bf 7c |.w.R.......7...||
+| ba c7 eb ea 69 59 0d 94 c2 8e 81 ea a2 c3 0d 8c |....iY..........|
+| e8 73 df 7d 11 64 cd 3e c8 be 1b 0a 5c 2b 92 a9 |.s.}.d.>....\+..|
+| 05 dc 42 5a c4 d6 1b 89                         |..BZ....        |
+key expansion[104]:
+| 6f c8 00 bd e1 53 d9 93 91 b1 19 49 a6 d2 49 86 |o....S.....I..I.|
+| c0 25 be 65 d7 4c c0 56 d5 fd 39 00 43 6b 86 34 |.%.e.L.V..9.Ck.4|
+| cb aa 9d d5 a0 4d 54 9e 32 b8 b4 82 54 0f e9 5d |.....MT.2...T..]|
+| c1 77 02 52 1f 1b 07 14 81 eb 05 37 01 87 bf 7c |.w.R.......7...||
+| ba c7 eb ea 69 59 0d 94 c2 8e 81 ea a2 c3 0d 8c |....iY..........|
+| e8 73 df 7d 11 64 cd 3e c8 be 1b 0a 5c 2b 92 a9 |.s.}.d.>....\+..|
+| 05 dc 42 5a c4 d6 1b 89                         |..BZ....        |
+Client Write key[16]:
+| 6f c8 00 bd e1 53 d9 93 91 b1 19 49 a6 d2 49 86 |o....S.....I..I.|
+Server Write key[16]:
+| c0 25 be 65 d7 4c c0 56 d5 fd 39 00 43 6b 86 34 |.%.e.L.V..9.Ck.4|
+Client Write IV[4]:
+| cb aa 9d d5                                     |....            |
+Server Write IV[4]:
+| a0 4d 54 9e                                     |.MT.            |
+ssl_generate_keyring_material ssl_create_decoder(client)
+decoder initialized (digest len 32)
+ssl_generate_keyring_material ssl_create_decoder(server)
+decoder initialized (digest len 32)
+ssl_generate_keyring_material: client seq 0, server seq 0
+ssl_save_master_key inserted (pre-)master secret for Client Random
+stored key[32]:
+| 8e 83 07 3c 73 5e e9 a9 d7 c4 71 cf 9e 58 e2 cd |...<s^....q..X..|
+| f4 9f ac 8c de 59 a4 48 4f c2 0b 8c a1 7c 9e 30 |.....Y.HO....|.0|
+stored (pre-)master secret[48]:
+| a9 76 55 61 6c 73 db a9 96 b7 a9 ea ca d4 d6 58 |.vUals.........X|
+| d8 c2 26 06 74 79 8d c8 43 85 4f 57 c8 48 d9 2d |..&.ty..C.OW.H.-|
+| af 4f 06 a9 d8 be b4 5f 38 c4 07 bd 7e b2 0f d4 |.O....._8...~...|
+ssl_save_master_key inserted (pre-)master secret for Session ID
+stored key[32]:
+| e4 c3 7f cf 36 0e b7 1f dd b0 78 85 50 cd e2 24 |....6.....x.P..$|
+| 3d a8 e7 f0 52 e8 16 a1 69 89 cf fd 9c f1 bd 86 |=...R...i.......|
+stored (pre-)master secret[48]:
+| a9 76 55 61 6c 73 db a9 96 b7 a9 ea ca d4 d6 58 |.vUals.........X|
+| d8 c2 26 06 74 79 8d c8 43 85 4f 57 c8 48 d9 2d |..&.ty..C.OW.H.-|
+| af 4f 06 a9 d8 be b4 5f 38 c4 07 bd 7e b2 0f d4 |.O....._8...~...|
+packet_from_server: is from server - FALSE
+ssl_change_cipher CLIENT
+  record: offset = 81, reported_length_remaining = 45
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 40, ssl state 0x3F
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+ssl_decrypt_record ciphertext len 40
+Ciphertext[40]:
+| 95 4e 4b 60 e2 3c 8a 4f 67 30 06 28 7c c2 42 cd |.NK`.<.Og0.(|.B.|
+| 0b 83 54 54 ca ef db 99 40 fd ee b3 81 ee d3 04 |..TT....@.......|
+| 8b 51 05 5e e6 9f df a4                         |.Q.^....        |
+ssl_decrypt_record: allocating 72 bytes for decrypt data (old len 32)
+nonce[12]:
+| cb aa 9d d5 95 4e 4b 60 e2 3c 8a 4f             |.....NK`.<.O    |
+AAD[13]:
+| 00 00 00 00 00 00 00 00 16 03 03 00 10          |.............   |
+auth_tag(OK)[16]:
+| 40 fd ee b3 81 ee d3 04 8b 51 05 5e e6 9f df a4 |@........Q.^....|
+Plaintext[16]:
+| 14 00 00 0c 83 eb 0a a4 d9 46 9b 46 51 c2 82 d2 |.........F.FQ...|
+dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/http.key
+tls13_load_secret TLS version 0x303 is not 1.3
+
+dissect_ssl enter frame #11 (first time)
+packet_from_server: is from server - TRUE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 51
+dissect_ssl3_record: content_type 20 Change Cipher Spec
+decrypt_ssl3_record: app_data len 1, ssl state 0x3F
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+decrypt_ssl3_record: no decoder available
+ssl_dissect_change_cipher_spec Not using Session resumption
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/http.key
+ssl_finalize_decryption state = 0x3F
+  session key already available, nothing to do.
+packet_from_server: is from server - TRUE
+ssl_change_cipher SERVER
+  record: offset = 6, reported_length_remaining = 45
+dissect_ssl3_record: content_type 22 Handshake
+decrypt_ssl3_record: app_data len 40, ssl state 0x3F
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+ssl_decrypt_record ciphertext len 40
+Ciphertext[40]:
+| ff 01 c9 5d 35 de 3f 32 8b fc d1 b4 8c 7c d3 35 |...]5.?2.....|.5|
+| 0f d4 2f 5b c4 78 f3 1f 38 1b 87 cc ac f5 45 db |../[.x..8.....E.|
+| f7 24 d5 04 b1 d6 e5 7c                         |.$.....|        |
+nonce[12]:
+| a0 4d 54 9e ff 01 c9 5d 35 de 3f 32             |.MT....]5.?2    |
+AAD[13]:
+| 00 00 00 00 00 00 00 00 16 03 03 00 10          |.............   |
+auth_tag(OK)[16]:
+| 38 1b 87 cc ac f5 45 db f7 24 d5 04 b1 d6 e5 7c |8.....E..$.....||
+Plaintext[16]:
+| 14 00 00 0c 93 3c 7c e4 be 0c b3 51 a2 4e 56 cd |.....<|....Q.NV.|
+dissect_ssl3_handshake iteration 1 type 20 offset 0 length 12 bytes, remaining 16 
+trying to use SSL keylog in /home/ubuntu18/Desktop/dpl/ssl_keys/http.key
+tls13_load_secret TLS version 0x303 is not 1.3
+
+dissect_ssl enter frame #12 (first time)
+packet_from_server: is from server - FALSE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 53
+dissect_ssl3_record: content_type 23 Application Data
+decrypt_ssl3_record: app_data len 48, ssl state 0x3F
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+ssl_decrypt_record ciphertext len 48
+Ciphertext[48]:
+| 95 4e 4b 60 e2 3c 8a 50 8e c4 13 dd 3b 2f 36 e7 |.NK`.<.P....;/6.|
+| d7 eb 1f c0 8f 8b 74 d3 ec f4 38 a7 9e b2 88 fd |......t...8.....|
+| 6f 57 e2 e4 5e d6 6e 83 c5 c1 d1 6a b1 94 84 3e |oW..^.n....j...>|
+nonce[12]:
+| cb aa 9d d5 95 4e 4b 60 e2 3c 8a 50             |.....NK`.<.P    |
+AAD[13]:
+| 00 00 00 00 00 00 00 01 17 03 03 00 18          |.............   |
+auth_tag(OK)[16]:
+| 6f 57 e2 e4 5e d6 6e 83 c5 c1 d1 6a b1 94 84 3e |oW..^.n....j...>|
+Plaintext[24]:
+| 50 52 49 20 2a 20 48 54 54 50 2f 32 2e 30 0d 0a |PRI * HTTP/2.0..|
+| 0d 0a 53 4d 0d 0a 0d 0a                         |..SM....        |
+ssl_add_record_info stored decrypted record seq=0 nxtseq=24 flow=0x7f695937ca20
+dissect_ssl_payload decrypted len 24
+decrypted app data fragment[24]:
+| 50 52 49 20 2a 20 48 54 54 50 2f 32 2e 30 0d 0a |PRI * HTTP/2.0..|
+| 0d 0a 53 4d 0d 0a 0d 0a                         |..SM....        |
+process_ssl_payload: found handle 0x7f695c9e3b20 (http2)
+packet_from_server: is from server - FALSE
+
+dissect_ssl enter frame #13 (first time)
+packet_from_server: is from server - TRUE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 44
+dissect_ssl3_record: content_type 23 Application Data
+decrypt_ssl3_record: app_data len 39, ssl state 0x3F
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+ssl_decrypt_record ciphertext len 39
+Ciphertext[39]:
+| ff 01 c9 5d 35 de 3f 33 c5 6f b0 b1 91 90 91 35 |...]5.?3.o.....5|
+| 87 07 1f 37 ae f9 a0 cc 38 e1 5a 05 f3 82 28 c5 |...7....8.Z...(.|
+| b1 58 c2 ef f0 c5 10                            |.X.....         |
+nonce[12]:
+| a0 4d 54 9e ff 01 c9 5d 35 de 3f 33             |.MT....]5.?3    |
+AAD[13]:
+| 00 00 00 00 00 00 00 01 17 03 03 00 0f          |.............   |
+auth_tag(OK)[16]:
+| cc 38 e1 5a 05 f3 82 28 c5 b1 58 c2 ef f0 c5 10 |.8.Z...(..X.....|
+Plaintext[15]:
+| 00 00 06 04 00 00 00 00 00 00 03 00 00 00 64    |..............d |
+ssl_add_record_info stored decrypted record seq=0 nxtseq=15 flow=0x7f695937ca80
+dissect_ssl_payload decrypted len 15
+decrypted app data fragment[15]:
+| 00 00 06 04 00 00 00 00 00 00 03 00 00 00 64    |..............d |
+process_ssl_payload: found handle 0x7f695c9e3b20 (http2)
+packet_from_server: is from server - TRUE
+
+dissect_ssl enter frame #14 (first time)
+packet_from_server: is from server - FALSE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 91
+dissect_ssl3_record: content_type 23 Application Data
+decrypt_ssl3_record: app_data len 86, ssl state 0x3F
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+ssl_decrypt_record ciphertext len 86
+Ciphertext[86]:
+| 95 4e 4b 60 e2 3c 8a 51 7e c4 45 ca 9b 4d be 69 |.NK`.<.Q~.E..M.i|
+| 99 dc a9 ce 78 a7 28 98 2a 11 4b 8b 90 91 1c 84 |....x.(.*.K.....|
+| 2f e1 8f 9b 46 1b 86 8c 40 50 f2 6b cf 94 05 08 |/...F...@P.k....|
+| 48 ed c8 7e 2a b7 a9 8b 9a e3 3d d7 ca a3 67 41 |H..~*.....=...gA|
+| 26 35 d1 da a0 95 2a 37 f9 4d 10 c6 80 21 0f 40 |&5....*7.M...!.@|
+| 5b 2f b9 3d 4e 0a                               |[/.=N.          |
+ssl_decrypt_record: allocating 118 bytes for decrypt data (old len 72)
+nonce[12]:
+| cb aa 9d d5 95 4e 4b 60 e2 3c 8a 51             |.....NK`.<.Q    |
+AAD[13]:
+| 00 00 00 00 00 00 00 02 17 03 03 00 3e          |............>   |
+auth_tag(OK)[16]:
+| 2a 37 f9 4d 10 c6 80 21 0f 40 5b 2f b9 3d 4e 0a |*7.M...!.@[/.=N.|
+Plaintext[62]:
+| 00 00 0c 04 00 00 00 00 00 00 03 00 00 00 64 00 |..............d.|
+| 04 00 00 ff ff 00 00 20 01 05 00 00 00 01 82 84 |....... ........|
+| 87 41 86 a0 e4 1d 13 9d 09 53 03 2a 2f 2a 90 7a |.A.......S.*/*.z|
+| 8d aa 69 d2 9a c4 c0 17 75 76 96 bf 83 8f       |..i.....uv....  |
+ssl_add_record_info stored decrypted record seq=24 nxtseq=86 flow=0x7f695937ca20
+dissect_ssl_payload decrypted len 62
+decrypted app data fragment[62]:
+| 00 00 0c 04 00 00 00 00 00 00 03 00 00 00 64 00 |..............d.|
+| 04 00 00 ff ff 00 00 20 01 05 00 00 00 01 82 84 |....... ........|
+| 87 41 86 a0 e4 1d 13 9d 09 53 03 2a 2f 2a 90 7a |.A.......S.*/*.z|
+| 8d aa 69 d2 9a c4 c0 17 75 76 96 bf 83 8f       |..i.....uv....  |
+process_ssl_payload: found handle 0x7f695c9e3b20 (http2)
+packet_from_server: is from server - FALSE
+
+dissect_ssl enter frame #15 (first time)
+packet_from_server: is from server - FALSE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 38
+dissect_ssl3_record: content_type 23 Application Data
+decrypt_ssl3_record: app_data len 33, ssl state 0x3F
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+ssl_decrypt_record ciphertext len 33
+Ciphertext[33]:
+| 95 4e 4b 60 e2 3c 8a 52 f8 4f 44 08 e1 53 96 e1 |.NK`.<.R.OD..S..|
+| fc b1 a9 1f eb b9 ea 5b d2 b9 e9 2b 7c a4 fb 60 |.......[...+|..`|
+| c9                                              |.               |
+nonce[12]:
+| cb aa 9d d5 95 4e 4b 60 e2 3c 8a 52             |.....NK`.<.R    |
+AAD[13]:
+| 00 00 00 00 00 00 00 03 17 03 03 00 09          |.............   |
+auth_tag(OK)[16]:
+| b1 a9 1f eb b9 ea 5b d2 b9 e9 2b 7c a4 fb 60 c9 |......[...+|..`.|
+Plaintext[9]:
+| 00 00 00 04 01 00 00 00 00                      |.........       |
+ssl_add_record_info stored decrypted record seq=86 nxtseq=95 flow=0x7f695937ca20
+dissect_ssl_payload decrypted len 9
+decrypted app data fragment[9]:
+| 00 00 00 04 01 00 00 00 00                      |.........       |
+process_ssl_payload: found handle 0x7f695c9e3b20 (http2)
+packet_from_server: is from server - FALSE
+
+dissect_ssl enter frame #17 (first time)
+packet_from_server: is from server - TRUE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 252
+dissect_ssl3_record: content_type 23 Application Data
+decrypt_ssl3_record: app_data len 247, ssl state 0x3F
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+ssl_decrypt_record ciphertext len 247
+Ciphertext[247]:
+| ff 01 c9 5d 35 de 3f 34 4f ac e9 b6 05 0f 54 90 |...]5.?4O.....T.|
+| 13 c8 22 88 49 59 c5 78 a7 64 dc 8a c0 ae f0 0e |..".IY.x.d......|
+| 0c 78 32 0b f6 e9 e0 51 98 44 6b 25 f9 b3 ab 76 |.x2....Q.Dk%...v|
+| f5 bf da 54 ad 3e c1 8f 3a 70 fc a5 c6 94 a1 e7 |...T.>..:p......|
+| 46 2b f4 de fb d9 50 8a 9c f4 8b 3b 10 7e 96 0c |F+....P....;.~..|
+| a3 63 1e a0 87 f3 c5 3a d2 f0 77 32 a3 51 aa 6a |.c.....:..w2.Q.j|
+| 33 af b0 1b d2 ac 92 eb e0 83 f3 d8 fe f5 1b ad |3...............|
+| 9e 4f 7f 43 bc bb d9 4a 42 ee 70 d4 63 9a 56 a5 |.O.C...JB.p.c.V.|
+| 53 aa d7 52 7d da 6c 10 b0 a9 10 32 05 91 25 16 |S..R}.l....2..%.|
+| 05 96 7b 42 cf 83 1c 6b 35 53 ca 34 d1 7c d2 1a |..{B...k5S.4.|..|
+| 6d 51 d3 9d 06 1c 71 cf f5 5a 67 b0 be 95 8c 8a |mQ....q..Zg.....|
+| ae a9 d4 f2 fc aa 9e d0 5d 39 bb 2c 94 e0 dc 38 |........]9.,...8|
+| bb 45 eb c8 77 79 91 7d 5e ab 1d 50 fb ea 7b 92 |.E..wy.}^..P..{.|
+| 1b 4b e9 64 77 ff 5f cc 98 52 a4 5e 04 eb ec 0b |.K.dw._..R.^....|
+| cf 7b 7e 7c 4e b6 69 5f 01 92 c4 ab 49 d8 e6 bb |.{~|N.i_....I...|
+| 9c ca f0 f7 25 08 29                            |....%.)         |
+ssl_decrypt_record: allocating 279 bytes for decrypt data (old len 118)
+nonce[12]:
+| a0 4d 54 9e ff 01 c9 5d 35 de 3f 34             |.MT....]5.?4    |
+AAD[13]:
+| 00 00 00 00 00 00 00 02 17 03 03 00 df          |.............   |
+auth_tag(OK)[16]:
+| 5f 01 92 c4 ab 49 d8 e6 bb 9c ca f0 f7 25 08 29 |_....I.......%.)|
+Plaintext[223]:
+| 00 00 00 04 01 00 00 00 00 00 00 42 01 04 00 00 |...........B....|
+| 00 01 8d 76 93 aa 69 d2 9a e4 52 a9 a7 4a 6b 13 |...v..i...R..Jk.|
+| 00 5d d5 da 5a fe 0e 3f 61 96 dc 34 fd 28 07 54 |.]..Z..?a..4.(.T|
+| c2 58 d4 10 02 da 81 0d c6 df b8 cb 8a 62 d1 bf |.X...........b..|
+| 5f 92 49 7c a5 89 d3 4d 1f 6a 12 71 d8 82 a6 0e |_.I|...M.j.q....|
+| 1b f0 ac f7 00 00 82 00 01 00 00 00 01 3c 68 74 |.............<ht|
+| 6d 6c 3e 3c 68 65 61 64 3e 3c 74 69 74 6c 65 3e |ml><head><title>|
+| 34 30 34 3c 2f 74 69 74 6c 65 3e 3c 2f 68 65 61 |404</title></hea|
+| 64 3e 3c 62 6f 64 79 3e 3c 68 31 3e 34 30 34 3c |d><body><h1>404<|
+| 2f 68 31 3e 3c 68 72 3e 3c 61 64 64 72 65 73 73 |/h1><hr><address|
+| 3e 6e 67 68 74 74 70 64 20 6e 67 68 74 74 70 32 |>nghttpd nghttp2|
+| 2f 30 2e 37 2e 34 2d 44 45 56 20 61 74 20 70 6f |/0.7.4-DEV at po|
+| 72 74 20 34 34 33 33 3c 2f 61 64 64 72 65 73 73 |rt 4433</address|
+| 3e 3c 2f 62 6f 64 79 3e 3c 2f 68 74 6d 6c 3e    |></body></html> |
+ssl_add_record_info stored decrypted record seq=15 nxtseq=238 flow=0x7f695937ca80
+dissect_ssl_payload decrypted len 223
+decrypted app data fragment[223]:
+| 00 00 00 04 01 00 00 00 00 00 00 42 01 04 00 00 |...........B....|
+| 00 01 8d 76 93 aa 69 d2 9a e4 52 a9 a7 4a 6b 13 |...v..i...R..Jk.|
+| 00 5d d5 da 5a fe 0e 3f 61 96 dc 34 fd 28 07 54 |.]..Z..?a..4.(.T|
+| c2 58 d4 10 02 da 81 0d c6 df b8 cb 8a 62 d1 bf |.X...........b..|
+| 5f 92 49 7c a5 89 d3 4d 1f 6a 12 71 d8 82 a6 0e |_.I|...M.j.q....|
+| 1b f0 ac f7 00 00 82 00 01 00 00 00 01 3c 68 74 |.............<ht|
+| 6d 6c 3e 3c 68 65 61 64 3e 3c 74 69 74 6c 65 3e |ml><head><title>|
+| 34 30 34 3c 2f 74 69 74 6c 65 3e 3c 2f 68 65 61 |404</title></hea|
+| 64 3e 3c 62 6f 64 79 3e 3c 68 31 3e 34 30 34 3c |d><body><h1>404<|
+| 2f 68 31 3e 3c 68 72 3e 3c 61 64 64 72 65 73 73 |/h1><hr><address|
+| 3e 6e 67 68 74 74 70 64 20 6e 67 68 74 74 70 32 |>nghttpd nghttp2|
+| 2f 30 2e 37 2e 34 2d 44 45 56 20 61 74 20 70 6f |/0.7.4-DEV at po|
+| 72 74 20 34 34 33 33 3c 2f 61 64 64 72 65 73 73 |rt 4433</address|
+| 3e 3c 2f 62 6f 64 79 3e 3c 2f 68 74 6d 6c 3e    |></body></html> |
+process_ssl_payload: found handle 0x7f695c9e3b20 (http2)
+packet_from_server: is from server - TRUE
+
+dissect_ssl enter frame #18 (first time)
+packet_from_server: is from server - FALSE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 46
+dissect_ssl3_record: content_type 23 Application Data
+decrypt_ssl3_record: app_data len 41, ssl state 0x3F
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+ssl_decrypt_record ciphertext len 41
+Ciphertext[41]:
+| 95 4e 4b 60 e2 3c 8a 53 cd c2 80 0a b9 19 b7 73 |.NK`.<.S.......s|
+| 7e dc 5f 4f 96 b6 95 08 87 a3 4c 67 b5 5e 41 aa |~._O......Lg.^A.|
+| 3d cd c9 94 28 b5 dd 69 7a                      |=...(..iz       |
+nonce[12]:
+| cb aa 9d d5 95 4e 4b 60 e2 3c 8a 53             |.....NK`.<.S    |
+AAD[13]:
+| 00 00 00 00 00 00 00 04 17 03 03 00 11          |.............   |
+auth_tag(OK)[16]:
+| a3 4c 67 b5 5e 41 aa 3d cd c9 94 28 b5 dd 69 7a |.Lg.^A.=...(..iz|
+Plaintext[17]:
+| 00 00 08 07 00 00 00 00 00 00 00 00 00 00 00 00 |................|
+| 00                                              |.               |
+ssl_add_record_info stored decrypted record seq=95 nxtseq=112 flow=0x7f695937ca20
+dissect_ssl_payload decrypted len 17
+decrypted app data fragment[17]:
+| 00 00 08 07 00 00 00 00 00 00 00 00 00 00 00 00 |................|
+| 00                                              |.               |
+process_ssl_payload: found handle 0x7f695c9e3b20 (http2)
+packet_from_server: is from server - FALSE
+
+dissect_ssl enter frame #19 (first time)
+packet_from_server: is from server - FALSE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 31
+dissect_ssl3_record: content_type 21 Alert
+decrypt_ssl3_record: app_data len 26, ssl state 0x3F
+packet_from_server: is from server - FALSE
+decrypt_ssl3_record: using client decoder
+ssl_decrypt_record ciphertext len 26
+Ciphertext[26]:
+| 95 4e 4b 60 e2 3c 8a 54 98 c4 b0 e8 a0 e9 11 1e |.NK`.<.T........|
+| ec fd 21 58 6d 08 75 ff 9a 41                   |..!Xm.u..A      |
+nonce[12]:
+| cb aa 9d d5 95 4e 4b 60 e2 3c 8a 54             |.....NK`.<.T    |
+AAD[13]:
+| 00 00 00 00 00 00 00 05 15 03 03 00 02          |.............   |
+auth_tag(OK)[16]:
+| b0 e8 a0 e9 11 1e ec fd 21 58 6d 08 75 ff 9a 41 |........!Xm.u..A|
+Plaintext[2]:
+| 01 00                                           |..              |
+
+dissect_ssl enter frame #21 (first time)
+packet_from_server: is from server - TRUE
+  conversation = 0x7f695937b2e0, ssl_session = 0x7f695937be50
+  record: offset = 0, reported_length_remaining = 31
+dissect_ssl3_record: content_type 21 Alert
+decrypt_ssl3_record: app_data len 26, ssl state 0x3F
+packet_from_server: is from server - TRUE
+decrypt_ssl3_record: using server decoder
+ssl_decrypt_record ciphertext len 26
+Ciphertext[26]:
+| ff 01 c9 5d 35 de 3f 35 b7 a9 de 55 fa 5a e2 a6 |...]5.?5...U.Z..|
+| 8f d0 d5 e0 2b 07 3d 70 19 e7                   |....+.=p..      |
+nonce[12]:
+| a0 4d 54 9e ff 01 c9 5d 35 de 3f 35             |.MT....]5.?5    |
+AAD[13]:
+| 00 00 00 00 00 00 00 03 15 03 03 00 02          |.............   |
+auth_tag(OK)[16]:
+| de 55 fa 5a e2 a6 8f d0 d5 e0 2b 07 3d 70 19 e7 |.U.Z......+.=p..|
+Plaintext[2]:
+| 01 00                                           |..              |
